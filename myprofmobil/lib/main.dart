@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'screnn/contactPage.dart';
+import 'screnn/demande.dart';
 import 'screnn/myHome.dart';
 import './screnn/profProfil.dart';
+import 'screnn/profPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'my Prof ',
-      home:myHome(),
+      home:DemandePage(),
       routes: {
         profProfil.routeName: (ctx)=>profProfil()
       },

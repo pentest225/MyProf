@@ -70,6 +70,7 @@ class _myHomeState extends State<myHome>{
                 ),
               ),
               Container(
+                //margin: EdgeInsets.only(top: 10),
                 height: deviceHeight - 220,
                 child: PageView(
                   controller: _pageController,

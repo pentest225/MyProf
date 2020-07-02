@@ -69,7 +69,7 @@ class _slederPageState extends State<slederPage>
                         image: AssetImage(this.widget.imagePath),
                         fit: BoxFit.fitHeight,
                         colorFilter:
-                            ColorFilter.mode(bgColor, BlendMode.darken))),
+                        ColorFilter.mode(bgColor, BlendMode.darken))),
               ),
             ),
           ),
@@ -77,6 +77,7 @@ class _slederPageState extends State<slederPage>
             duration: Duration(milliseconds: 150),
             bottom: _heightAnimation.value.height - 10,
             child: Container(
+              margin: EdgeInsets.only(top: 20),
               alignment: Alignment.topLeft,
               height: 200,
               padding: EdgeInsets.symmetric(horizontal: 10),
