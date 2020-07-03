@@ -25,8 +25,13 @@ class _SyncrState extends State<Syncr> {
                         SizedBox(height: 20),
                         Row(
                           children: <Widget>[
-                            Icon(Icons.arrow_back_ios,
-                                color: Colors.white, size: 25),
+                            InkWell(
+                              onTap:() {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(Icons.arrow_back_ios,
+                                  color: Colors.white, size: 25),
+                            ),
                           ],
                         ),
                         SizedBox(height: 30),

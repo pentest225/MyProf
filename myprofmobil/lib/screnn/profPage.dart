@@ -15,7 +15,7 @@ class _ProfspageState extends State<Profspage> {
     'assets/images/anglais.jpg',
     'assets/images/architecture.jpg',
     'assets/images/books.jpg',
-    'assets/images/cuisine.jpg',
+    'assets/images/fille.jpg',
   ];
 
 

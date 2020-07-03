@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/screnn/pass.dart';
 import 'package:myprofmobil/screnn/profPage.dart';
+import 'package:myprofmobil/screnn/regis.dart';
+import 'package:myprofmobil/screnn/sync.dart';
 import 'package:myprofmobil/screnn/verify.dart';
 import 'package:sprinkle/SprinkleExtension.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
+
+import 'Inscription.dart';
 
 
 
@@ -14,7 +19,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff8489f0),
+        backgroundColor: themeColor,
         elevation: 0,
         /*leading: Container(
             margin: EdgeInsets.only(left: 25),
@@ -39,49 +44,74 @@ class HomeScreen extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 80,),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(Icons.home),
+                  Text('MyProf', style: TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: 25
+                  ),),
+                  SizedBox(width: 5,),
+                  Icon(Icons.school, size: 40, color: themeColor),
+                ],
+              ),
+              SizedBox(height: 40,),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.home, color: themeColor,),
                   SizedBox(width: 5,),
                   Text('Page Home', style: TextStyle(
-                      color: Color.fromRGBO(17, 122, 139, 1), fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                      color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
                   ),)
                 ],
               ),
               SizedBox(height: 15,),
+              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
+              SizedBox(height: 15,),
               Row(
                 children: <Widget>[
-                  Icon(Icons.people),
+                  Icon(Icons.people, color: themeColor,),
                   SizedBox(width: 5,),
-                  Text('Inscription', style: TextStyle(
-                      color: Color.fromRGBO(17, 122, 139, 1), fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                  ),)
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Inscription()));
+                    },
+                    child: Text('Inscription', style: TextStyle(
+                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                    ),),
+                  )
                 ],
               ),
               SizedBox(height: 15,),
+              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
+              SizedBox(height: 15,),
               Row(
                 children: <Widget>[
-                  Icon(Icons.person),
+                  Icon(Icons.person, color: themeColor,),
                   SizedBox(width: 5,),
                   Text('Connexion', style: TextStyle(
-                      color: Color.fromRGBO(17, 122, 139, 1), fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                      color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
                   ),)
                 ],
               ),
               SizedBox(height: 15,),
+              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
+              SizedBox(height: 15,),
               Row(
                 children: <Widget>[
-                  Icon(Icons.help),
+                  Icon(Icons.help, color: themeColor,),
                   SizedBox(width: 5,),
                   Text('Aide', style: TextStyle(
-                      color: Color.fromRGBO(17, 122, 139, 1), fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                      color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
                   ),)
                 ],
-              )
+              ),
+              SizedBox(height: 15,),
+              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
+              SizedBox(height: 15,),
             ],
           ),
         ),
       ),
-      backgroundColor: Color(0xff8489f0),
+      backgroundColor: themeColor,
       body: SafeArea(child: LayoutStarts()),
     );
   }
