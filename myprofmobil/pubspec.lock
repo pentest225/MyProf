@@ -46,7 +46,7 @@ packages:
   convert:
     dependency: transitive
     description:
-      name: convert
+      name: clock
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
