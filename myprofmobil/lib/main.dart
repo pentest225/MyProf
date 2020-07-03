@@ -4,6 +4,7 @@ import 'screnn/demande.dart';
 import 'screnn/myHome.dart';
 import './screnn/profProfil.dart';
 import 'screnn/profPage.dart';
+import 'screnn/suivant.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,9 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'my Prof ',
-      home:DemandePage(),
+      home:  DemandePage(),
       routes: {
-        profProfil.routeName: (ctx)=>profProfil()
+        profProfil.routeName: (ctx)=>profProfil(),
+        Suivant.routeName: (ctx)=>Suivant()
       },
     );
   }

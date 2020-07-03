@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../outils/myStyle.dart';
+
 class profProfil extends StatelessWidget {
+
   static const routeName = "profProfil";
+
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
