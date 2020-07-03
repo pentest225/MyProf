@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:sprinkle/SprinkleExtension.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 
@@ -147,13 +148,13 @@ class CarDetails extends StatelessWidget {
       children: <Widget>[
         RichText(
           text: TextSpan(
-              style: TextStyle(color: Colors.white, fontSize: 38),
+              style: TextStyle(color: Colors.white, fontSize: 38, fontFamily: 'BAARS'),
               children: [
                 TextSpan(text: "Trouvez le Professeur"),
                 TextSpan(text: "\n"),
                 TextSpan(
                     text: "Parfait",
-                    style: TextStyle(fontWeight: FontWeight.w700)),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontFamily: 'BAARS')),
               ]),
         ),
         SizedBox(height: 10),
@@ -202,7 +203,7 @@ class _SearchCardlState extends State<SearchCard> {
                     padding: EdgeInsets.only(top: 3, left: 10),
                     alignment: Alignment.center, child: Row(
                     children: [
-                      Flexible(child: Icon(Icons.search)),
+                      Flexible(child: Icon(Icons.search, size: 22,)),
                       Flexible(
                         flex: 2,
                         child: TextField(
@@ -313,6 +314,14 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
 }
 
 class SheetContainer extends StatelessWidget {
+
+  List<String> matiere = [
+    'Cuisine',
+    'Informatique',
+    'Musique',
+    'Scolaire'
+  ];
+
   @override
   Widget build(BuildContext context) {
     double sheetItemHeight = 110;
@@ -393,11 +402,12 @@ class SheetContainer extends StatelessWidget {
           Text(
             "Apprenez en toute confiance",
             style: TextStyle(
-              color: Colors.black,
+              color: accanceColor,
               fontWeight: FontWeight.w700,
               fontSize: 18,
             ),
           ),
+          SizedBox(height: 5,),
           Row(children: [
             Flexible(child: Container(
               margin: EdgeInsets.all(3),
@@ -430,34 +440,51 @@ class SheetContainer extends StatelessWidget {
   }
 
   listModule(double sheetItemHeight, context) {
+    var item;
     return Container(
-      padding: EdgeInsets.only(top: 15, left: 20, right: 20),
+      padding: EdgeInsets.only(top: 30, left: 20, right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Apprenez d'ou vous voulez",
+            "Apprenez ce que vous voulez",
             style: TextStyle(
-              color: Colors.black,
+              color: accanceColor,
               fontWeight: FontWeight.w700,
               fontSize: 18,
             ),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height / 4,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-              ...List.generate(10, (index) =>Container(
-                margin: EdgeInsets.all(5),
-                height: sheetItemHeight,
-                width: sheetItemHeight,
-                decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(.3),
-                  borderRadius: BorderRadius.all(Radius.circular(20))
-                ),
-              ))
-            ],),
+          SizedBox(height: 5,),
+         InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Profspage()));
+            },
+            child: Container(
+              height: MediaQuery.of(context).size.height / 4,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                ...List.generate(5, (index) =>Container(
+                  margin: EdgeInsets.all(5),
+                  height: sheetItemHeight,
+                  width: sheetItemHeight,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(.3),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/books.jpg'),
+                      fit: BoxFit.cover,
+                      colorFilter: ColorFilter.mode(Colors.black45, BlendMode.darken)
+                    )
+                  ),
+                  child: Center(
+                    child: Text('Informatique', style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17
+                    ),),
+                  ),
+                ))
+              ],),
+            ),
           )
         ],
       ),
@@ -473,7 +500,7 @@ class SheetContainer extends StatelessWidget {
           Text(
             "Le Magazine Myprof",
             style: TextStyle(
-              color: Colors.black,
+              color: accanceColor,
               fontWeight: FontWeight.w700,
               fontSize: 18,
             ),
@@ -487,7 +514,10 @@ class SheetContainer extends StatelessWidget {
                   width: 70,
                   decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(.3),
-                    // borderRadius: BorderRadius.all(Radius.circular(20))
+                   image: DecorationImage(
+                     image: AssetImage('assets/images/architecture.jpg'),
+                     fit: BoxFit.cover
+                   )
                   ),
                 ),
               ))

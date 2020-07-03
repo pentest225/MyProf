@@ -25,7 +25,9 @@ class _ProfspageState extends State<Profspage> {
         backgroundColor: Color.fromRGBO(133, 136, 241, 1),
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white,),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: Text('MyProfs'),
         centerTitle: true,
