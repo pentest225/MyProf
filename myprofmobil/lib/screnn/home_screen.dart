@@ -16,13 +16,14 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xff8489f0),
         elevation: 0,
-        leading: Container(
+        /*leading: Container(
             margin: EdgeInsets.only(left: 25),
             child: IconButton(
               icon: Icon(Icons.home),
               color: Colors.white,
               onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (_)=> Verify())),
-            )),
+            )
+        ),*/
         actions: <Widget>[
           Container(
             padding: EdgeInsets.only(top: 10),
@@ -31,8 +32,24 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
+      drawer: Drawer(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 80,),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.home),
+                  Text('Page Home')
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
       backgroundColor: Color(0xff8489f0),
-      body: LayoutStarts(),
+      body: SafeArea(child: LayoutStarts()),
     );
   }
 }
