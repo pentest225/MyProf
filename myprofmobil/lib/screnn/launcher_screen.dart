@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import '../outils/myStyle.dart';
 import '../widgets/slederPage.dart';
 import '../screnn/profProfil.dart';
+import 'home_screen.dart';
 
-class myHome extends StatefulWidget {
+class LaunchApp extends StatefulWidget {
+  static const routeName = '/';
   @override
-  _myHomeState createState() => _myHomeState();
+  _MyHomeState createState() => _MyHomeState();
 }
 
-class _myHomeState extends State<myHome>{
+class _MyHomeState extends State<LaunchApp>{
   final int _numPages = 4;
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
@@ -38,7 +40,6 @@ class _myHomeState extends State<myHome>{
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _pageController.dispose();
     super.dispose();
   }
@@ -62,6 +63,7 @@ class _myHomeState extends State<myHome>{
                   height: 50,
                   alignment: Alignment.topRight,
                   child: FlatButton(
+                    onPressed: null,
                     child: Text(
                       "Annuler ",
                       style: TextStyle(color: themeColor),
@@ -152,7 +154,7 @@ class _myHomeState extends State<myHome>{
                     ),
                     color: themeColor,
                     onPressed: () {
-                      Navigator.of(context).pushNamed(profProfil.routeName);
+                      Navigator.of(context).pushReplacementNamed(HomeScreen.rooteName);
                     },
                   ),
                 ),
