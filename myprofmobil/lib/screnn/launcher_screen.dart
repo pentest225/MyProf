@@ -25,12 +25,12 @@ class _MyHomeState extends State<LaunchApp>{
 
   Widget myIndetor(bool isCurrent) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 350),
+      duration: Duration(milliseconds: 750),
       margin: EdgeInsets.symmetric(horizontal: 8.0),
       height: 8.0,
       width: isCurrent ? 20.0 : 12.0,
       decoration: BoxDecoration(
-        color: isCurrent ? Colors.grey : Color(0xFF7B51D3),
+        color: isCurrent ? Colors.white : Color(0xFF7B51D3),
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -51,7 +51,7 @@ class _MyHomeState extends State<LaunchApp>{
       body: Container(
         height: deviceHeight,
         width: deviceWidht,
-        color: bgColor,
+        color: themeColor,
         child: Padding(
           padding: EdgeInsets.only(top: 40),
           child: Column(
@@ -64,7 +64,7 @@ class _MyHomeState extends State<LaunchApp>{
                     onPressed: null,
                     child: Text(
                       "Annuler ",
-                      style: TextStyle(color: themeColor),
+                      style: TextStyle(color: bgColor, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -84,21 +84,21 @@ class _MyHomeState extends State<LaunchApp>{
                     SlederPage(
                         "trouvez \n le professeur parfait",
                         "Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam)",
-                        "assets/images/studi.png"),
+                        "assets/images/a.svg"),
                     SlederPage(
                       "Apprenez \n en toute confiance",
                       "Devenez indépendant, enseignez à votre rythme, fixez vos tarifs sans commission et rencontrez des milliers d’élèves motivés !",
-                      "assets/images/happy.png",
+                      "assets/images/d.svg",
                     ),
                     SlederPage(
                       "Apprenez \ntout ce que vous voulez",
                       "Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.",
-                      "assets/images/all.png",
+                      "assets/images/b.svg",
                     ),
                     SlederPage(
                       "Apprenez \n d'où vous voulez",
                       "Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.",
-                      "assets/images/map.png",
+                      "assets/images/c.svg",
                     ),
                   ],
                 ),
@@ -126,11 +126,12 @@ class _MyHomeState extends State<LaunchApp>{
                         children: [
                           Text(
                             "Next",
-                            style: TextStyle(color: themeColor),
+                            style: TextStyle(color: bgColor),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
-                            color: themeColor,
+                            color: bgColor,
+                            size: 18,
                           )
                         ],
                       ),
@@ -148,9 +149,9 @@ class _MyHomeState extends State<LaunchApp>{
                   child: RaisedButton(
                     child: Text(
                       "Commencé ",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                     ),
-                    color: themeColor,
+                    color: accanceColor,
                     onPressed: () {
                       Navigator.of(context).pushReplacementNamed(HomeScreen.rooteName);
                     },

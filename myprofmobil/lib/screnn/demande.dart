@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'profProfil.dart';
 import 'suivant.dart';
 
 class DemandePage extends StatefulWidget {
@@ -57,7 +59,7 @@ class _DemandePageState extends State<DemandePage> {
                 children: <Widget>[
                   for (item in filiere) Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child:   InkWell(
+                      child: InkWell(
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => Suivant()));
                         },

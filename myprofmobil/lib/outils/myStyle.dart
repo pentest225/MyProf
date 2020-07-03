@@ -7,13 +7,13 @@ final accanceColor = Color.fromRGBO(17, 122, 139, 1);
 final h1 = TextStyle(
   fontSize: 24,
   fontWeight: FontWeight.bold,
-  color: themeColor,
-  //backgroundColor: themeColor
+  color: bgColor,
+ fontFamily: 'BAARS'
 );
 final h2 = TextStyle(
   color: Colors.black,
-  fontSize: 16,
-  fontWeight: FontWeight.w300
-
+  fontSize: 18,
+  fontWeight: FontWeight.w400,
+  fontFamily: 'BAARS'
 
 );
