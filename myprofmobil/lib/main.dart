@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
-import 'screnn/contactPage.dart';
-import 'screnn/demande.dart';
-import './screnn/profProfil.dart';
 import 'screnn/home_screen.dart';
-import 'screnn/home_screen.dart';
-import 'screnn/profPage.dart';
 import 'package:myprofmobil/screnn/launcher_screen.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 

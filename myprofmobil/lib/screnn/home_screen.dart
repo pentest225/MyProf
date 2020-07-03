@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:myprofmobil/screnn/regis.dart';
+import 'package:myprofmobil/screnn/sync.dart';
+import 'package:myprofmobil/screnn/verify.dart';
 import 'package:sprinkle/SprinkleExtension.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 
-import 'profPage.dart';
-import 'profProfil.dart';
-import 'suivant.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             child: IconButton(
               icon: Icon(Icons.home),
               color: Colors.white,
-              onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (_)=> Profspage())),
+              onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (_)=> Verify())),
             )),
         actions: <Widget>[
           Container(

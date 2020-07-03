@@ -67,7 +67,6 @@ class _SuivantState extends State<Suivant> {
 
   @override
   Widget build(BuildContext context) {
-    var index;
     var item;
     return Scaffold(
       appBar: AppBar(

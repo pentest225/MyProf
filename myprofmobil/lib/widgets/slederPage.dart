@@ -1,22 +1,20 @@
-import 'dart:async';
-
-import 'package:flutter/animation.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../outils/myStyle.dart';
 
-class slederPage extends StatefulWidget {
+class SlederPage extends StatefulWidget {
+
   final String title;
   final String subtitle;
   final String imagePath;
 
-  slederPage(this.title, this.subtitle, this.imagePath);
+  SlederPage(this.title, this.subtitle, this.imagePath);
 
   @override
-  _slederPageState createState() => _slederPageState();
+  _SlederPageState createState() => _SlederPageState();
 }
 
-class _slederPageState extends State<slederPage>
+class _SlederPageState extends State<SlederPage>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<Size> _heightAnimation;
@@ -24,7 +22,6 @@ class _slederPageState extends State<slederPage>
 
   @override
   void initState() {
-    // TODO: implement initState
     _controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 800));
 
@@ -41,13 +38,12 @@ class _slederPageState extends State<slederPage>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _controller.dispose();
     super.dispose();
   }
   @override
   Widget build(BuildContext context) {
-    final deviceHeight = MediaQuery.of(context).size.height;
+    // final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidht = MediaQuery.of(context).size.width;
     _controller.forward();
 
@@ -56,7 +52,6 @@ class _slederPageState extends State<slederPage>
         children: [
           Positioned(
             top: _heightAnimation.value.height,
-            //top: -10,
             left: 0,
             right: 0,
             child: Container(

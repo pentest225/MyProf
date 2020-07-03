@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../outils/myStyle.dart';
 import '../widgets/slederPage.dart';
-import '../screnn/profProfil.dart';
 import 'home_screen.dart';
 
 class LaunchApp extends StatefulWidget {
@@ -83,21 +81,21 @@ class _MyHomeState extends State<LaunchApp>{
                     });
                   },
                   children: [
-                    slederPage(
+                    SlederPage(
                         "trouvez \n le professeur parfait",
                         "Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam)",
                         "assets/images/studi.png"),
-                    slederPage(
+                    SlederPage(
                       "Apprenez \n en toute confiance",
                       "Devenez indépendant, enseignez à votre rythme, fixez vos tarifs sans commission et rencontrez des milliers d’élèves motivés !",
                       "assets/images/happy.png",
                     ),
-                    slederPage(
+                    SlederPage(
                       "Apprenez \ntout ce que vous voulez",
                       "Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.",
                       "assets/images/all.png",
                     ),
-                    slederPage(
+                    SlederPage(
                       "Apprenez \n d'où vous voulez",
                       "Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.",
                       "assets/images/map.png",
