@@ -4,6 +4,7 @@ import 'package:sprinkle/Provider.dart';
 import 'screnn/home_screen.dart';
 import 'screnn/home_screen.dart';
 import 'screnn/profPage.dart';
+import 'screnn/profProfil.dart';
 
 import 'screnn/suivant.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         routes: {
           LaunchApp.routeName : (context)=> LaunchApp(),
           HomeScreen.rooteName : (context)=> HomeScreen(),
-          Profspage.routeName : (context)=> Profspage(),
+          profProfil.routeName : (context)=> profProfil(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),

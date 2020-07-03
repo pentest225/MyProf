@@ -46,6 +46,36 @@ class HomeScreen extends StatelessWidget {
                       color: Color.fromRGBO(17, 122, 139, 1), fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
                   ),)
                 ],
+              ),
+              SizedBox(height: 15,),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.people),
+                  SizedBox(width: 5,),
+                  Text('Inscription', style: TextStyle(
+                      color: Color.fromRGBO(17, 122, 139, 1), fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                  ),)
+                ],
+              ),
+              SizedBox(height: 15,),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.person),
+                  SizedBox(width: 5,),
+                  Text('Connexion', style: TextStyle(
+                      color: Color.fromRGBO(17, 122, 139, 1), fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                  ),)
+                ],
+              ),
+              SizedBox(height: 15,),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.help),
+                  SizedBox(width: 5,),
+                  Text('Aide', style: TextStyle(
+                      color: Color.fromRGBO(17, 122, 139, 1), fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                  ),)
+                ],
               )
             ],
           ),
