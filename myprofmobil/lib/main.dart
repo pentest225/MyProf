@@ -31,8 +31,7 @@ class MyApp extends StatelessWidget {
         routes: {
           LaunchApp.routeName : (context)=> LaunchApp(),
           HomeScreen.rooteName : (context)=> HomeScreen(),
-
-
+          Profspage.routeName : (context)=> Profspage(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),

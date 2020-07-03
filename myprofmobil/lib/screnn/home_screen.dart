@@ -41,7 +41,10 @@ class HomeScreen extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Icon(Icons.home),
-                  Text('Page Home')
+                  SizedBox(width: 5,),
+                  Text('Page Home', style: TextStyle(
+                      color: Color.fromRGBO(17, 122, 139, 1), fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                  ),)
                 ],
               )
             ],
