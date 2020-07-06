@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
+import 'screnn/contactPage.dart';
 import 'screnn/home_screen.dart';
 import 'screnn/home_screen.dart';
 import 'screnn/profPage.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
           LaunchApp.routeName : (context)=> LaunchApp(),
           HomeScreen.rooteName : (context)=> HomeScreen(),
           profProfil.routeName : (context)=> profProfil(),
+          ContactPage.routeName : (context)=> ContactPage(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),

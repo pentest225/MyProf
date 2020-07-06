@@ -12,9 +12,9 @@ class Profspage extends StatefulWidget {
 class _ProfspageState extends State<Profspage> {
 
   List<String> images = [
-    'assets/images/anglais.jpg',
-    'assets/images/architecture.jpg',
-    'assets/images/books.jpg',
+    'assets/images/fille.jpg',
+    'assets/images/fille.jpg',
+    'assets/images/fille.jpg',
     'assets/images/fille.jpg',
   ];
 

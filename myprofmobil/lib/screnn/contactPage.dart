@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+
 class ContactPage extends StatefulWidget {
+
+  static const routeName = "contactpage";
+
   @override
   _ContactPageState createState() => _ContactPageState();
 }
@@ -16,7 +21,9 @@ class _ContactPageState extends State<ContactPage> {
         backgroundColor: Color.fromRGBO(133, 136, 241, 1),
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white,),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: Text('MyProfs'),
         centerTitle: true,
@@ -330,7 +337,9 @@ class _ContactPageState extends State<ContactPage> {
                     child: Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          //Navigator.pushNamed(context, HomeScreen.rooteName);
+                        },
                         child: Center(
                           child: Text('Envoyer la demande', style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16

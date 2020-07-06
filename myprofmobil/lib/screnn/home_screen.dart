@@ -10,6 +10,8 @@ import 'package:sprinkle/SprinkleExtension.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 
 import 'Inscription.dart';
+import 'connexion.dart';
+import 'demande.dart';
 
 
 
@@ -42,7 +44,7 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 80,),
+              SizedBox(height: 100,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -53,14 +55,21 @@ class HomeScreen extends StatelessWidget {
                   Icon(Icons.school, size: 40, color: themeColor),
                 ],
               ),
-              SizedBox(height: 40,),
+              SizedBox(height: 50,),
+              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
+              SizedBox(height: 15,),
               Row(
                 children: <Widget>[
                   Icon(Icons.home, color: themeColor,),
                   SizedBox(width: 5,),
-                  Text('Page Home', style: TextStyle(
-                      color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                  ),)
+                  InkWell(
+                    onTap: () {
+                     // Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                    },
+                    child: Text('Page Home', style: TextStyle(
+                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                    ),),
+                  )
                 ],
               ),
               SizedBox(height: 15,),
@@ -87,9 +96,14 @@ class HomeScreen extends StatelessWidget {
                 children: <Widget>[
                   Icon(Icons.person, color: themeColor,),
                   SizedBox(width: 5,),
-                  Text('Connexion', style: TextStyle(
-                      color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                  ),)
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Connexion()));
+                    },
+                    child: Text('Connexion', style: TextStyle(
+                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                    ),),
+                  )
                 ],
               ),
               SizedBox(height: 15,),
@@ -102,6 +116,23 @@ class HomeScreen extends StatelessWidget {
                   Text('Aide', style: TextStyle(
                       color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
                   ),)
+                ],
+              ),
+              SizedBox(height: 15,),
+              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
+              SizedBox(height: 15,),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.library_books, color: themeColor,),
+                  SizedBox(width: 5,),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => DemandePage()));
+                    },
+                    child: Text('Donner des cours', style: TextStyle(
+                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                    ),),
+                  )
                 ],
               ),
               SizedBox(height: 15,),
@@ -287,7 +318,8 @@ class _SearchCardlState extends State<SearchCard> {
                         flex: 2,
                         child: TextField(
                           decoration: InputDecoration(
-                            hintText: "essayer Maths, l'informatique"
+                            hintText: "essayer Maths, l'informatique",
+                            border: InputBorder.none
                           ),
                         ),
                       ),
@@ -418,10 +450,10 @@ class SheetContainer extends StatelessWidget {
             flex: 1,
             child: ListView(
               children: <Widget>[
-                offerDetails(sheetItemHeight),
                 listModule(sheetItemHeight, context),
-                // listModule(sheetItemHeight),
                 offerDetails(sheetItemHeight),
+                // listModule(sheetItemHeight),
+                //offerDetails(sheetItemHeight),
                 listMagazine(sheetItemHeight, context),
                 SizedBox(height: 200),
               ],
