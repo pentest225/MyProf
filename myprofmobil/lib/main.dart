@@ -9,6 +9,7 @@ import 'screnn/profPage.dart';
 import 'screnn/profProfil.dart';
 
 import 'screnn/suivant.dart';
+import 'screnn/searchPage.dart';
 
 import 'package:myprofmobil/screnn/launcher_screen.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
           profProfil.routeName : (context)=> profProfil(),
           ContactPage.routeName : (context)=> ContactPage(),
           Dashboard.routeName : (context)=> Dashboard(),
+          SearchPage.routeName :(context)=>SearchPage(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),

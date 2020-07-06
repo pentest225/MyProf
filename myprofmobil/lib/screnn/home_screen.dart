@@ -8,13 +8,12 @@ import 'package:myprofmobil/screnn/regis.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:myprofmobil/screnn/verify.dart';
 import 'package:sprinkle/SprinkleExtension.dart';
+import '../screnn/searchPage.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 
 import 'Inscription.dart';
 import 'connexion.dart';
 import 'demande.dart';
-
-
 
 class HomeScreen extends StatelessWidget {
   static const rooteName = '/home';
@@ -36,7 +35,8 @@ class HomeScreen extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(top: 10),
             margin: EdgeInsets.only(right: 25),
-            child: Text('MyProf', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            child: Text('MyProf',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           )
         ],
       ),
@@ -45,117 +45,246 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 100,),
+              SizedBox(
+                height: 100,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('MyProf', style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 25
-                  ),),
-                  SizedBox(width: 5,),
+                  Text(
+                    'MyProf',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
                   Icon(Icons.school, size: 40, color: themeColor),
                 ],
               ),
-              SizedBox(height: 50,),
-              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 50,
+              ),
+              Container(
+                width: 2000,
+                color: Colors.grey.withOpacity(0.1),
+                height: 2,
+              ),
+              SizedBox(
+                height: 15,
+              ),
               Row(
                 children: <Widget>[
-                  Icon(Icons.home, color: themeColor,),
-                  SizedBox(width: 5,),
+                  Icon(
+                    Icons.home,
+                    color: themeColor,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
                   InkWell(
                     onTap: () {
-                     // Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                     },
-                    child: Text('Page Home', style: TextStyle(
-                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                    ),),
+                    child: Text(
+                      'Page Home',
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 22,
+                          fontFamily: 'BAARS',
+                          fontWeight: FontWeight.w600),
+                    ),
                   )
                 ],
               ),
-              SizedBox(height: 15,),
-              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: 2000,
+                color: Colors.grey.withOpacity(0.1),
+                height: 2,
+              ),
+              SizedBox(
+                height: 15,
+              ),
               Row(
                 children: <Widget>[
-                  Icon(Icons.people, color: themeColor,),
-                  SizedBox(width: 5,),
+                  Icon(
+                    Icons.people,
+                    color: themeColor,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Inscription()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Inscription()));
                     },
-                    child: Text('Inscription', style: TextStyle(
-                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                    ),),
+                    child: Text(
+                      'Inscription',
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 22,
+                          fontFamily: 'BAARS',
+                          fontWeight: FontWeight.w600),
+                    ),
                   )
                 ],
               ),
-              SizedBox(height: 15,),
-              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: 2000,
+                color: Colors.grey.withOpacity(0.1),
+                height: 2,
+              ),
+              SizedBox(
+                height: 15,
+              ),
               Row(
                 children: <Widget>[
-                  Icon(Icons.person, color: themeColor,),
-                  SizedBox(width: 5,),
+                  Icon(
+                    Icons.person,
+                    color: themeColor,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Connexion()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Connexion()));
                     },
-                    child: Text('Connexion', style: TextStyle(
-                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                    ),),
+                    child: Text(
+                      'Connexion',
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 22,
+                          fontFamily: 'BAARS',
+                          fontWeight: FontWeight.w600),
+                    ),
                   )
                 ],
               ),
-              SizedBox(height: 15,),
-              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
-              SizedBox(height: 15,),
-              Row(
-                children: <Widget>[
-                  Icon(Icons.help, color: themeColor,),
-                  SizedBox(width: 5,),
-                  Text('Aide', style: TextStyle(
-                      color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                  ),)
-                ],
+              SizedBox(
+                height: 15,
               ),
-              SizedBox(height: 15,),
-              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
-              SizedBox(height: 15,),
+              Container(
+                width: 2000,
+                color: Colors.grey.withOpacity(0.1),
+                height: 2,
+              ),
+              SizedBox(
+                height: 15,
+              ),
               Row(
                 children: <Widget>[
-                  Icon(Icons.library_books, color: themeColor,),
-                  SizedBox(width: 5,),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => DemandePage()));
-                    },
-                    child: Text('Donner des cours', style: TextStyle(
-                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                    ),),
+                  Icon(
+                    Icons.help,
+                    color: themeColor,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    'Aide',
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 22,
+                        fontFamily: 'BAARS',
+                        fontWeight: FontWeight.w600),
                   )
                 ],
               ),
-              SizedBox(height: 15,),
-              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: 2000,
+                color: Colors.grey.withOpacity(0.1),
+                height: 2,
+              ),
+              SizedBox(
+                height: 15,
+              ),
               Row(
                 children: <Widget>[
-                  Icon(Icons.library_books, color: themeColor,),
-                  SizedBox(width: 5,),
+                  Icon(
+                    Icons.library_books,
+                    color: themeColor,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DemandePage()));
                     },
-                    child: Text('Dashboard', style: TextStyle(
-                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                    ),),
+                    child: Text(
+                      'Donner des cours',
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 22,
+                          fontFamily: 'BAARS',
+                          fontWeight: FontWeight.w600),
+                    ),
                   )
                 ],
               ),
-              SizedBox(height: 15,),
-              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: 2000,
+                color: Colors.grey.withOpacity(0.1),
+                height: 2,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.library_books,
+                    color: themeColor,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Dashboard()));
+                    },
+                    child: Text(
+                      'Dashboard',
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 22,
+                          fontFamily: 'BAARS',
+                          fontWeight: FontWeight.w600),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: 2000,
+                color: Colors.grey.withOpacity(0.1),
+                height: 2,
+              ),
+              SizedBox(
+                height: 15,
+              ),
             ],
           ),
         ),
@@ -166,7 +295,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-
 class LayoutStarts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -174,9 +302,11 @@ class LayoutStarts extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            alignment: Alignment.center,
-            child: SvgPicture.asset("assets/images/math.svg", width: MediaQuery.of(context).size.width/2.1,)
-          ),
+              alignment: Alignment.center,
+              child: SvgPicture.asset(
+                "assets/images/math.svg",
+                width: MediaQuery.of(context).size.width / 2.1,
+              )),
           CarDetailsAnimation(),
           CustomBottomSheet(),
         ],
@@ -184,7 +314,6 @@ class LayoutStarts extends StatelessWidget {
     );
   }
 }
-
 
 class CarDetailsAnimation extends StatefulWidget {
   @override
@@ -235,9 +364,7 @@ class _CarDetailsAnimationState extends State<CarDetailsAnimation>
         initialData: StateProvider().isAnimating,
         stream: manager.animationStatus,
         builder: (context, snapshot) {
-          snapshot.data 
-          ? forward() 
-          : reverse();
+          snapshot.data ? forward() : reverse();
           return ScaleTransition(
             scale: scaleAnimation,
             child: FadeTransition(
@@ -254,7 +381,7 @@ class CarDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
@@ -276,13 +403,15 @@ class CarDetails extends StatelessWidget {
       children: <Widget>[
         RichText(
           text: TextSpan(
-              style: TextStyle(color: Colors.white, fontSize: 38, fontFamily: 'BAARS'),
+              style: TextStyle(
+                  color: Colors.white, fontSize: 38, fontFamily: 'BAARS'),
               children: [
                 TextSpan(text: "Trouvez le Professeur"),
                 TextSpan(text: "\n"),
                 TextSpan(
                     text: "Parfait",
-                    style: TextStyle(fontWeight: FontWeight.w700, fontFamily: 'BAARS')),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700, fontFamily: 'BAARS')),
               ]),
         ),
         SizedBox(height: 10),
@@ -308,62 +437,58 @@ class SearchCard extends StatefulWidget {
 }
 
 class _SearchCardlState extends State<SearchCard> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: <Widget>[
-
-          Container(
-            height: 50,
-            width: MediaQuery.of(context).size.width / 1.1,
-            decoration: BoxDecoration(
-               color: Color(0xfff1f1f1),
-               borderRadius: BorderRadius.all(Radius.circular(10))
-            ),
-            child: Row(
-              children: <Widget>[
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed(SearchPage.routeName,);
+            },
+            child: Container(
+              height: 50,
+              width: MediaQuery.of(context).size.width / 1.1,
+              decoration: BoxDecoration(
+                  color: Color(0xfff1f1f1),
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Row(children: <Widget>[
                 Flexible(
-                  flex: 4,
-                  child: Container(
-                    padding: EdgeInsets.only(top: 3, left: 10),
-                    alignment: Alignment.center, child: Row(
-                    children: [
-                      Flexible(child: Icon(Icons.search, size: 22,)),
-                      Flexible(
-                        flex: 2,
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: "essayer Maths, l'informatique",
-                            border: InputBorder.none
-                          ),
-                        ),
+                    flex: 4,
+                    child: Container(
+                        padding: EdgeInsets.only(top: 3, left: 10),
+                        alignment: Alignment.center,
+                        child: Row(
+                          children: [
+                            Flexible(
+                                child: Icon(
+                              Icons.search,
+                              size: 22,
+                            )),
+                            Flexible(
+                              flex: 2,
+                              child: Text("essayer Maths,.."),
+                            ),
+                          ],
+                        ))),
+                Flexible(
+                    flex: 2,
+                    child: Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.all(4),
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: Text(
+                        "Rechercher",
+                        style: TextStyle(color: Colors.white),
                       ),
-                    ],
-                  ))),
-                Flexible(
-                  flex: 2,
-                  child: Container(
-                    alignment: Alignment.center,
-                    margin: EdgeInsets.all(4),
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    child: Text("Rechercher", style: TextStyle(color: Colors.white),),
-                    decoration: BoxDecoration(
-                      color: Colors.pink.withOpacity(.8),
-                      borderRadius: BorderRadius.all(Radius.circular(5))
-                      
-                    ),
-                  )),
-              ]
+                      decoration: BoxDecoration(
+                          color: Colors.pink.withOpacity(.8),
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                    )),
+              ]),
             ),
           ),
-
-
-          
-  
         ],
       ),
     );
@@ -420,9 +545,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
       left: 0,
       child: GestureDetector(
         onTap: () {
-           controller.isCompleted 
-           ? reverseAnimation() 
-           : forwardAnimation();
+          controller.isCompleted ? reverseAnimation() : forwardAnimation();
         },
         onVerticalDragEnd: (DragEndDetails dragEndDetails) {
           //upward drag
@@ -443,16 +566,12 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
 }
 
 class SheetContainer extends StatelessWidget {
-
-  List<String> matiere = [
-    'Cuisine',
-    'Informatique',
-    'Musique',
-    'Scolaire'
-  ];
+  List<String> matiere = ['Cuisine', 'Informatique', 'Musique', 'Scolaire'];
 
   @override
   Widget build(BuildContext context) {
+    final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceWidth = MediaQuery.of(context).size.width;
     double sheetItemHeight = 110;
     double itemHeight = 150;
     return Container(
@@ -470,9 +589,114 @@ class SheetContainer extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 listModule(sheetItemHeight, context),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 offerDetails(itemHeight, context),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
+
+                // SECTION VIVRE DE SA PASSION
+                Container(
+                  // height: deviceHeight * .20,
+
+                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    color: accanceColor,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: RichText(
+                          text: TextSpan(children: <TextSpan>[
+                            TextSpan(text: "Partagez votre \n", style: h1),
+                            TextSpan(
+                                text: "Passion ;)  ",
+                                style: TextStyle(
+                                    backgroundColor: Colors.white,
+                                    color: themeColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w300)),
+                          ]),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Devenez indépendant, enseignez à votre rythme, fixez vos tarifs sans commission et rencontrez des milliers d’élèves motivés !",
+                        style: TextStyle(color: bgColor),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        // height: 20,
+                        alignment: Alignment.center,
+                        width: deviceWidth - 150,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.topRight,
+                                colors: [
+                                  themeColor,
+                                  Colors.white,
+                                ])),
+                        child: Text(
+                          "Combien j'peux gagné ??",
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.w200),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DemandePage()));
+                        },
+                        child: Container(
+                          width: deviceWidth - 150,
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.topRight,
+                                  colors: [
+                                    themeColor,
+                                    Colors.white,
+                                  ])),
+                          child: Text(
+                            "Commencé une annonce ",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w200),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 listMagazine(sheetItemHeight, context),
                 SizedBox(height: 200),
               ],
@@ -537,88 +761,126 @@ class SheetContainer extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          SizedBox(height: 10,),
-         Container(
-           height: MediaQuery.of(context).size.height/3,
-           child: ListView(
-             scrollDirection: Axis.horizontal,
-             children: <Widget>[
-               Container(
-                 padding: EdgeInsets.all(8),
-                 margin: EdgeInsets.all(3),
-                 height: itemHeight,
-                 width: 170,
-                 decoration: BoxDecoration(
-                     color: themeColor.withOpacity(.6),
-                     borderRadius: BorderRadius.all(Radius.circular(20))
-                 ),
-                 child: Column(
-                   children: <Widget>[
-                     SizedBox(height: 15,),
-                     Center(
-                         child: Text('Le professeur adéquat', style: TextStyle(
-                           color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18
-                         ),)
-                     ),
-                     SizedBox(height: 15,),
-                     Center(child: Text('Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam).', style: TextStyle(
-                       fontFamily: 'BAARS', fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87
-                     ),))
-                   ],
-                 ),
-               ),
-               Container(
-                 padding: EdgeInsets.all(8),
-                 margin: EdgeInsets.all(3),
-                 height: itemHeight,
-                 width: 170,
-                 decoration: BoxDecoration(
-                     color: themeColor.withOpacity(.6),
-                     borderRadius: BorderRadius.all(Radius.circular(20))
-                 ),
-                 child: Column(
-                   children: <Widget>[
-                     SizedBox(height: 10,),
-                     Center(
-                         child: Text('Organisez vos cours', style: TextStyle(
-                             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18
-                         ),)
-                     ),
-                     SizedBox(height: 15,),
-                     Center(child: Text('Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.', style: TextStyle(
-                         fontFamily: 'BAARS', fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87
-                     ),))
-                   ],
-                 ),
-               ),
-               Container(
-                 padding: EdgeInsets.all(8),
-                 margin: EdgeInsets.all(3),
-                 height: itemHeight,
-                 width: 170,
-                 decoration: BoxDecoration(
-                     color: themeColor.withOpacity(.6),
-                     borderRadius: BorderRadius.all(Radius.circular(20))
-                 ),
-                 child: Column(
-                   children: <Widget>[
-                     SizedBox(height: 10,),
-                     Center(
-                         child: Text('Vivez de nouvelles expériences', style: TextStyle(
-                             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18
-                         ),)
-                     ),
-                     SizedBox(height: 15,),
-                     Center(child: Text('Le passe Élève vous donne un accès illimité à tous les professeurs, coachs et masterclass pendant 30 jours. Profitez-en pour découvrir de nouvelles passions !', style: TextStyle(
-                         fontFamily: 'BAARS', fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87
-                     ),))
-                   ],
-                 ),
-               )
-             ],
-           ),
-         )
-         /* Row(
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height / 3,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(8),
+                  margin: EdgeInsets.all(3),
+                  height: itemHeight,
+                  width: 170,
+                  decoration: BoxDecoration(
+                      color: themeColor.withOpacity(.6),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Center(
+                          child: Text(
+                        'Le professeur adéquat',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      )),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Center(
+                          child: Text(
+                        'Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam).',
+                        style: TextStyle(
+                            fontFamily: 'BAARS',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black87),
+                      ))
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(8),
+                  margin: EdgeInsets.all(3),
+                  height: itemHeight,
+                  width: 170,
+                  decoration: BoxDecoration(
+                      color: themeColor.withOpacity(.6),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                          child: Text(
+                        'Organisez vos cours',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      )),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Center(
+                          child: Text(
+                        'Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.',
+                        style: TextStyle(
+                            fontFamily: 'BAARS',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black87),
+                      ))
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(8),
+                  margin: EdgeInsets.all(3),
+                  height: itemHeight,
+                  width: 170,
+                  decoration: BoxDecoration(
+                      color: themeColor.withOpacity(.6),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                          child: Text(
+                        'Vivez de nouvelles expériences',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      )),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Center(
+                          child: Text(
+                        'Le passe Élève vous donne un accès illimité à tous les professeurs, coachs et masterclass pendant 30 jours. Profitez-en pour découvrir de nouvelles passions !',
+                        style: TextStyle(
+                            fontFamily: 'BAARS',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black87),
+                      ))
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+          /* Row(
             children: [
             Flexible(child: Container(
               margin: EdgeInsets.all(3),
@@ -665,36 +927,47 @@ class SheetContainer extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          SizedBox(height: 10,),
-         InkWell(
+          SizedBox(
+            height: 10,
+          ),
+          InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Profspage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Profspage()));
             },
             child: Container(
               height: MediaQuery.of(context).size.height / 4,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                ...List.generate(5, (index) =>Container(
-                  margin: EdgeInsets.all(5),
-                  height: sheetItemHeight,
-                  width: sheetItemHeight,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(.3),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/books.jpg'),
-                      fit: BoxFit.cover,
-                      colorFilter: ColorFilter.mode(Colors.black45, BlendMode.darken)
-                    )
-                  ),
-                  child: Center(
-                    child: Text('Informatique', style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17
-                    ),),
-                  ),
-                ))
-              ],),
+                  ...List.generate(
+                      5,
+                      (index) => Container(
+                            margin: EdgeInsets.all(5),
+                            height: sheetItemHeight,
+                            width: sheetItemHeight,
+                            decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(.3),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                image: DecorationImage(
+                                    image:
+                                        AssetImage('assets/images/books.jpg'),
+                                    fit: BoxFit.cover,
+                                    colorFilter: ColorFilter.mode(
+                                        Colors.black45, BlendMode.darken))),
+                            child: Center(
+                              child: Text(
+                                'Informatique',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17),
+                              ),
+                            ),
+                          ))
+                ],
+              ),
             ),
           )
         ],
@@ -702,7 +975,7 @@ class SheetContainer extends StatelessWidget {
     );
   }
 
-    listMagazine(double sheetItemHeight, context) {
+  listMagazine(double sheetItemHeight, context) {
     return Container(
       padding: EdgeInsets.only(top: 15, left: 20, right: 20),
       child: Column(
@@ -716,24 +989,26 @@ class SheetContainer extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          SizedBox(height: 10,),
-           ...List.generate(5, (index) =>ListTile(
-                  title: Text('Confinement education $index'),
-                  subtitle: Text('1200 article  selectionner $index'),
-                  leading: Container(
-                  margin: EdgeInsets.all(5),
-                  height: sheetItemHeight,
-                  width: 70,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(.3),
-                   image: DecorationImage(
-                     image: AssetImage('assets/images/architecture.jpg'),
-                     fit: BoxFit.cover
-                   )
-                  ),
-                ),
-              ))
-
+          SizedBox(
+            height: 10,
+          ),
+          ...List.generate(
+              5,
+              (index) => ListTile(
+                    title: Text('Confinement education $index'),
+                    subtitle: Text('1200 article  selectionner $index'),
+                    leading: Container(
+                      margin: EdgeInsets.all(5),
+                      height: sheetItemHeight,
+                      width: 70,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(.3),
+                          image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/architecture.jpg'),
+                              fit: BoxFit.cover)),
+                    ),
+                  ))
         ],
       ),
     );
