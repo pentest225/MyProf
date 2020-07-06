@@ -11,6 +11,14 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  bool onTapInputMatierre;
+  @override
+  void initState() {
+    // TODO: implement initState
+    onTapInputMatierre = true;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
@@ -36,12 +44,42 @@ class _SearchPageState extends State<SearchPage> {
           children: [
             Container(
               height: deviceHeight * .2,
-              color: Colors.white,
               child: Column(
                 children: [
                   Card(
-                    elevation: 15,
-                    color: Colors.grey,
+                    elevation: onTapInputMatierre ? 15 : 0,
+                    color: onTapInputMatierre
+                        ? Colors.white
+                        : Colors.grey.withOpacity(.5),
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: TextField(
+                        cursorColor: themeColor,
+                        onTap: () {
+                          setState(() {
+                            onTapInputMatierre = true;
+                          });
+                          print("tap ...1");
+                        },
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Quelle matierre ?',
+                            icon: Icon(
+                              Icons.search,
+                              color: themeColor,
+                            )),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: onTapInputMatierre ? 0 : 15,
+                    color: onTapInputMatierre
+                        ? Colors.grey.withOpacity(.5)
+                        : Colors.white,
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 5),
                       padding: EdgeInsets.symmetric(horizontal: 15),
@@ -50,10 +88,20 @@ class _SearchPageState extends State<SearchPage> {
                         // color: Colors.grey,
                       ),
                       child: TextField(
+                        onTap: () {
+                          setState(() {
+                            onTapInputMatierre = false;
+                          });
+                          print("tap ...2");
+                        },
+                        cursorColor: themeColor,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Quelle matierre ?',
-                            icon: Icon(Icons.search)),
+                            hintText: 'Adresse ou quartier ',
+                            icon: Icon(
+                              Icons.place,
+                              color: themeColor,
+                            )),
                       ),
                     ),
                   )
