@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/screnn/dashboard.dart';
 import 'package:myprofmobil/screnn/pass.dart';
 import 'package:myprofmobil/screnn/profPage.dart';
 import 'package:myprofmobil/screnn/regis.dart';
@@ -130,6 +131,23 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => DemandePage()));
                     },
                     child: Text('Donner des cours', style: TextStyle(
+                        color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
+                    ),),
+                  )
+                ],
+              ),
+              SizedBox(height: 15,),
+              Container(width: 2000, color: Colors.grey.withOpacity(0.1), height: 2,),
+              SizedBox(height: 15,),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.library_books, color: themeColor,),
+                  SizedBox(width: 5,),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
+                    },
+                    child: Text('Dashboard', style: TextStyle(
                         color: Colors.black87, fontSize: 22, fontFamily: 'BAARS', fontWeight: FontWeight.w600
                     ),),
                   )
@@ -436,6 +454,7 @@ class SheetContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double sheetItemHeight = 110;
+    double itemHeight = 150;
     return Container(
       padding: EdgeInsets.only(top: 25),
       height: MediaQuery.of(context).size.height,
@@ -451,9 +470,9 @@ class SheetContainer extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 listModule(sheetItemHeight, context),
-                offerDetails(sheetItemHeight),
-                // listModule(sheetItemHeight),
-                //offerDetails(sheetItemHeight),
+                SizedBox(height: 20,),
+                offerDetails(itemHeight, context),
+                SizedBox(height: 20,),
                 listMagazine(sheetItemHeight, context),
                 SizedBox(height: 200),
               ],
@@ -504,7 +523,7 @@ class SheetContainer extends StatelessWidget {
     );
   }
 
-  offerDetails(double sheetItemHeight) {
+  offerDetails(double itemHeight, context) {
     return Container(
       padding: EdgeInsets.only(top: 15, left: 20, right: 20),
       child: Column(
@@ -518,11 +537,92 @@ class SheetContainer extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          SizedBox(height: 5,),
-          Row(children: [
+          SizedBox(height: 10,),
+         Container(
+           height: MediaQuery.of(context).size.height/3,
+           child: ListView(
+             scrollDirection: Axis.horizontal,
+             children: <Widget>[
+               Container(
+                 padding: EdgeInsets.all(8),
+                 margin: EdgeInsets.all(3),
+                 height: itemHeight,
+                 width: 170,
+                 decoration: BoxDecoration(
+                     color: themeColor.withOpacity(.6),
+                     borderRadius: BorderRadius.all(Radius.circular(20))
+                 ),
+                 child: Column(
+                   children: <Widget>[
+                     SizedBox(height: 15,),
+                     Center(
+                         child: Text('Le professeur adéquat', style: TextStyle(
+                           color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18
+                         ),)
+                     ),
+                     SizedBox(height: 15,),
+                     Center(child: Text('Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam).', style: TextStyle(
+                       fontFamily: 'BAARS', fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87
+                     ),))
+                   ],
+                 ),
+               ),
+               Container(
+                 padding: EdgeInsets.all(8),
+                 margin: EdgeInsets.all(3),
+                 height: itemHeight,
+                 width: 170,
+                 decoration: BoxDecoration(
+                     color: themeColor.withOpacity(.6),
+                     borderRadius: BorderRadius.all(Radius.circular(20))
+                 ),
+                 child: Column(
+                   children: <Widget>[
+                     SizedBox(height: 10,),
+                     Center(
+                         child: Text('Organisez vos cours', style: TextStyle(
+                             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18
+                         ),)
+                     ),
+                     SizedBox(height: 15,),
+                     Center(child: Text('Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.', style: TextStyle(
+                         fontFamily: 'BAARS', fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87
+                     ),))
+                   ],
+                 ),
+               ),
+               Container(
+                 padding: EdgeInsets.all(8),
+                 margin: EdgeInsets.all(3),
+                 height: itemHeight,
+                 width: 170,
+                 decoration: BoxDecoration(
+                     color: themeColor.withOpacity(.6),
+                     borderRadius: BorderRadius.all(Radius.circular(20))
+                 ),
+                 child: Column(
+                   children: <Widget>[
+                     SizedBox(height: 10,),
+                     Center(
+                         child: Text('Vivez de nouvelles expériences', style: TextStyle(
+                             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18
+                         ),)
+                     ),
+                     SizedBox(height: 15,),
+                     Center(child: Text('Le passe Élève vous donne un accès illimité à tous les professeurs, coachs et masterclass pendant 30 jours. Profitez-en pour découvrir de nouvelles passions !', style: TextStyle(
+                         fontFamily: 'BAARS', fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87
+                     ),))
+                   ],
+                 ),
+               )
+             ],
+           ),
+         )
+         /* Row(
+            children: [
             Flexible(child: Container(
               margin: EdgeInsets.all(3),
-              height: sheetItemHeight,
+              height: itemHeight,
               decoration: BoxDecoration(
                 color: Colors.grey.withOpacity(.3),
                 borderRadius: BorderRadius.all(Radius.circular(20))
@@ -530,7 +630,7 @@ class SheetContainer extends StatelessWidget {
             )),
             Flexible(child: Container(
               margin: EdgeInsets.all(3),
-              height: sheetItemHeight,
+              height: itemHeight,
               decoration: BoxDecoration(
                 color: Colors.grey.withOpacity(.3),
                 borderRadius: BorderRadius.all(Radius.circular(20))
@@ -538,13 +638,13 @@ class SheetContainer extends StatelessWidget {
             )),
             Flexible(child: Container(
               margin: EdgeInsets.all(3),
-              height: sheetItemHeight,
+              height: itemHeight,
               decoration: BoxDecoration(
                 color: Colors.grey.withOpacity(.3),
                 borderRadius: BorderRadius.all(Radius.circular(20))
               ),
             ))
-          ],)
+          ],)*/
         ],
       ),
     );
@@ -565,7 +665,7 @@ class SheetContainer extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: 10,),
          InkWell(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => Profspage()));
@@ -616,6 +716,7 @@ class SheetContainer extends StatelessWidget {
               fontSize: 18,
             ),
           ),
+          SizedBox(height: 10,),
            ...List.generate(5, (index) =>ListTile(
                   title: Text('Confinement education $index'),
                   subtitle: Text('1200 article  selectionner $index'),
