@@ -172,6 +172,40 @@ class _SearchPageState extends State<SearchPage> {
                                     });
                                   },
                                 ),
+                             
+                               InkWell(
+                                  child: MatierreCard("Maths"),
+                                  onTap: () {
+                                    setState(() {
+                                      matierreController.text = "Maths";
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: MatierreCard("Python"),
+                                  onTap: () {
+                                    setState(() {
+                                      matierreController.text = "Python";
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: MatierreCard("Science Physique"),
+                                  onTap: () {
+                                    setState(() {
+                                      matierreController.text = "Science Physique";
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: MatierreCard("Java Script"),
+                                  onTap: () {
+                                    setState(() {
+                                      matierreController.text = "Java Script";
+                                    });
+                                  },
+                                ),
+                                
                               ],
                             ),
                           )
