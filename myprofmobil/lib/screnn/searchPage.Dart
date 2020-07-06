@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/widgets/matierreCard.dart';
 import '../outils/myStyle.dart';
 
 class SearchPage extends StatefulWidget {
@@ -37,78 +38,119 @@ class _SearchPageState extends State<SearchPage> {
           )
         ],
       ),
-      body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        height: deviceHeight,
-        child: Column(
-          children: [
-            Container(
-              height: deviceHeight * .2,
-              child: Column(
-                children: [
-                  Card(
-                    elevation: onTapInputMatierre ? 15 : 0,
-                    color: onTapInputMatierre
-                        ? Colors.white
-                        : Colors.grey.withOpacity(.5),
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: TextField(
-                        cursorColor: themeColor,
-                        onTap: () {
-                          setState(() {
-                            onTapInputMatierre = true;
-                          });
-                          print("tap ...1");
-                        },
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Quelle matierre ?',
-                            icon: Icon(
-                              Icons.search,
-                              color: themeColor,
-                            )),
-                      ),
-                    ),
-                  ),
-                  Card(
-                    elevation: onTapInputMatierre ? 0 : 15,
-                    color: onTapInputMatierre
-                        ? Colors.grey.withOpacity(.5)
-                        : Colors.white,
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        // color: Colors.grey,
-                      ),
-                      child: TextField(
-                        onTap: () {
-                          setState(() {
-                            onTapInputMatierre = false;
-                          });
-                          print("tap ...2");
-                        },
-                        cursorColor: themeColor,
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Adresse ou quartier ',
-                            icon: Icon(
-                              Icons.place,
-                              color: themeColor,
-                            )),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 10),
+          height: deviceHeight,
+          child: Column(
+            children: [
+              Container(
+                height: deviceHeight * .2,
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: onTapInputMatierre ? 15 : 0,
+                      color: onTapInputMatierre
+                          ? Colors.white
+                          : Colors.grey.withOpacity(.5),
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 5),
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: TextField(
+                          cursorColor: themeColor,
+                          onTap: () {
+                            setState(() {
+                              onTapInputMatierre = true;
+                            });
+                            print("tap ...1");
+                          },
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Quelle matierre ?',
+                              icon: Icon(
+                                Icons.search,
+                                color: themeColor,
+                              )),
+                        ),
                       ),
                     ),
-                  )
-                ],
+                    Card(
+                      elevation: onTapInputMatierre ? 0 : 15,
+                      color: onTapInputMatierre
+                          ? Colors.grey.withOpacity(.5)
+                          : Colors.white,
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 5),
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          // color: Colors.grey,
+                        ),
+                        child: TextField(
+                          onTap: () {
+                            setState(() {
+                              onTapInputMatierre = false;
+                            });
+                            print("tap ...2");
+                          },
+                          cursorColor: themeColor,
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Adresse ou quartier ',
+                              icon: Icon(
+                                Icons.place,
+                                color: themeColor,
+                              )),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            )
-          ],
+            onTapInputMatierre? Container(
+                height: deviceHeight * .65,
+                
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text("Meilleur Matierres",style: h1,),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top:15),
+                      height: deviceHeight * .58,
+                      child: ListView(
+                        padding: EdgeInsets.symmetric(horizontal :10),
+                        children: [
+                          MatierreCard("Maths"),
+                          MatierreCard("Python Programing"),
+                          MatierreCard("Anglais"),
+                          MatierreCard("Algo"),
+                          MatierreCard("Java Script"),
+                          MatierreCard("Fancais"),
+                          
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ):Container(
+                child: Container(
+                      child: Row(
+                        children: [
+                          Icon(Icons.place,color: Colors.white
+                          ),
+                          Text("Lacalisé votre Prof",style: h1,),
+                        ],
+                      ),
+                    ),
+              )
+            ],
+          ),
         ),
       ),
     );
