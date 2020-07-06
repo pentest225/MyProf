@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 100,
+                height: 100
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -573,7 +573,7 @@ class SheetContainer extends StatelessWidget {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     double sheetItemHeight = 110;
-    double itemHeight = 150;
+    double itemHeight = 120;
     return Container(
       padding: EdgeInsets.only(top: 25),
       height: MediaQuery.of(context).size.height,
@@ -765,15 +765,15 @@ class SheetContainer extends StatelessWidget {
             height: 10,
           ),
           Container(
-            height: MediaQuery.of(context).size.height / 3,
+            height: MediaQuery.of(context).size.height / 3.2,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(12),
                   margin: EdgeInsets.all(3),
                   height: itemHeight,
-                  width: 170,
+                  width: MediaQuery.of(context).size.width/1.5,
                   decoration: BoxDecoration(
                       color: themeColor.withOpacity(.6),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -800,16 +800,16 @@ class SheetContainer extends StatelessWidget {
                             fontFamily: 'BAARS',
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black87),
+                            color: Colors.black87.withOpacity(0.5)),
                       ))
                     ],
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(12),
                   margin: EdgeInsets.all(3),
                   height: itemHeight,
-                  width: 170,
+                  width: MediaQuery.of(context).size.width/1.5,
                   decoration: BoxDecoration(
                       color: themeColor.withOpacity(.6),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -836,16 +836,16 @@ class SheetContainer extends StatelessWidget {
                             fontFamily: 'BAARS',
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black87),
+                            color: Colors.black87.withOpacity(0.5)),
                       ))
                     ],
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(12),
                   margin: EdgeInsets.all(3),
                   height: itemHeight,
-                  width: 170,
+                  width: MediaQuery.of(context).size.width/1.5,
                   decoration: BoxDecoration(
                       color: themeColor.withOpacity(.6),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -872,7 +872,7 @@ class SheetContainer extends StatelessWidget {
                             fontFamily: 'BAARS',
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black87),
+                            color: Colors.black87.withOpacity(0.5)),
                       ))
                     ],
                   ),
@@ -936,7 +936,7 @@ class SheetContainer extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => Profspage()));
             },
             child: Container(
-              height: MediaQuery.of(context).size.height / 4,
+              height: MediaQuery.of(context).size.height / 6,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -945,7 +945,7 @@ class SheetContainer extends StatelessWidget {
                       (index) => Container(
                             margin: EdgeInsets.all(5),
                             height: sheetItemHeight,
-                            width: sheetItemHeight,
+                        width: MediaQuery.of(context).size.width/1.8,
                             decoration: BoxDecoration(
                                 color: Colors.grey.withOpacity(.3),
                                 borderRadius:
