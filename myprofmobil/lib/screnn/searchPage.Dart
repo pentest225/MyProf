@@ -5,6 +5,7 @@ import '../outils/myStyle.dart';
 
 class SearchPage extends StatefulWidget {
   static const routeName = '/searchPage';
+
   SearchPage({Key key}) : super(key: key);
 
   @override
@@ -13,6 +14,7 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   bool onTapInputMatierre;
+  TextEditingController matierreController = TextEditingController();
   @override
   void initState() {
     // TODO: implement initState
@@ -60,6 +62,7 @@ class _SearchPageState extends State<SearchPage> {
                           borderRadius: BorderRadius.circular(5),
                         ),
                         child: TextField(
+                          controller: matierreController,
                           cursorColor: themeColor,
                           onTap: () {
                             setState(() {
@@ -110,45 +113,84 @@ class _SearchPageState extends State<SearchPage> {
                   ],
                 ),
               ),
-            onTapInputMatierre? Container(
-                height: deviceHeight * .65,
-                
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      child: Text("Meilleur Matierres",style: h1,),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top:15),
-                      height: deviceHeight * .58,
-                      child: ListView(
-                        padding: EdgeInsets.symmetric(horizontal :10),
+              onTapInputMatierre
+                  ? Container(
+                      height: deviceHeight * .65,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          MatierreCard("Maths"),
-                          MatierreCard("Python Programing"),
-                          MatierreCard("Anglais"),
-                          MatierreCard("Algo"),
-                          MatierreCard("Java Script"),
-                          MatierreCard("Fancais"),
-                          
+                          Container(
+                            child: Text(
+                              "Meilleur Matierres",
+                              style: h1,
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 15),
+                            height: deviceHeight * .58,
+                            child: ListView(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              children: [
+                                InkWell(
+                                  child: MatierreCard("Maths"),
+                                  onTap: () {
+                                    setState(() {
+                                      matierreController.text = "Maths";
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: MatierreCard("Python"),
+                                  onTap: () {
+                                    setState(() {
+                                      matierreController.text = "Python";
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: MatierreCard("Science Physique"),
+                                  onTap: () {
+                                    setState(() {
+                                      matierreController.text = "Science Physique";
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: MatierreCard("Java Script"),
+                                  onTap: () {
+                                    setState(() {
+                                      matierreController.text = "Java Script";
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: MatierreCard("Francais"),
+                                  onTap: () {
+                                    setState(() {
+                                      matierreController.text = "Francais";
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     )
-                  ],
-                ),
-              ):Container(
-                child: Container(
-                      child: Row(
-                        children: [
-                          Icon(Icons.place,color: Colors.white
-                          ),
-                          Text("Lacalisé votre Prof",style: h1,),
-                        ],
+                  : Container(
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.place, color: Colors.white),
+                            Text(
+                              "Lacalisé votre Prof",
+                              style: h1,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-              )
+                    )
             ],
           ),
         ),
