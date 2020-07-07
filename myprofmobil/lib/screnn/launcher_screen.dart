@@ -9,7 +9,7 @@ class LaunchApp extends StatefulWidget {
   _MyHomeState createState() => _MyHomeState();
 }
 
-class _MyHomeState extends State<LaunchApp>{
+class _MyHomeState extends State<LaunchApp> {
   final int _numPages = 4;
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
@@ -41,10 +41,10 @@ class _MyHomeState extends State<LaunchApp>{
     _pageController.dispose();
     super.dispose();
   }
+  
 
   @override
   Widget build(BuildContext context) {
-
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidht = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -61,10 +61,14 @@ class _MyHomeState extends State<LaunchApp>{
                   height: 50,
                   alignment: Alignment.topRight,
                   child: FlatButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.of(context)
+                          .pushReplacementNamed(HomeScreen.rooteName);
+                    },
                     child: Text(
                       "Annuler ",
-                      style: TextStyle(color: bgColor, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: bgColor, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -111,7 +115,7 @@ class _MyHomeState extends State<LaunchApp>{
                 children: [
                   AnimatedOpacity(
                     duration: Duration(milliseconds: 600),
-                    opacity: _currentPage == _numPages -1 ? 0 : 1,
+                    opacity: _currentPage == _numPages - 1 ? 0 : 1,
                     child: FlatButton(
                       onPressed: () {
                         setState(() {
@@ -141,7 +145,7 @@ class _MyHomeState extends State<LaunchApp>{
               ),
               AnimatedOpacity(
                 duration: Duration(milliseconds: 600),
-                opacity: _currentPage != _numPages -1 ? 0: 1,
+                opacity: _currentPage != _numPages - 1 ? 0 : 1,
                 child: Container(
                   margin: EdgeInsets.only(top: 25, bottom: 0),
                   width: deviceWidht,
@@ -149,11 +153,13 @@ class _MyHomeState extends State<LaunchApp>{
                   child: RaisedButton(
                     child: Text(
                       "Commencé ",
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                     color: accanceColor,
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed(HomeScreen.rooteName);
+                      Navigator.of(context)
+                          .pushReplacementNamed(HomeScreen.rooteName);
                     },
                   ),
                 ),

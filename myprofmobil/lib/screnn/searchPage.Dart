@@ -22,12 +22,18 @@ class _SearchPageState extends State<SearchPage> {
     super.initState();
   }
 
+  _SearchPageState() {
+    matierreController.addListener(() {
+      print("Somme thing changing ");
+      print(matierreController.text);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: themeColor,
+      backgroundColor: bgColor,
       appBar: AppBar(
         backgroundColor: themeColor,
         elevation: 0,
@@ -123,7 +129,11 @@ class _SearchPageState extends State<SearchPage> {
                           Container(
                             child: Text(
                               "Meilleur Matierres",
-                              style: h1,
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: themeColor,
+                                  fontFamily: 'BAARS'),
                             ),
                           ),
                           Container(
@@ -152,7 +162,8 @@ class _SearchPageState extends State<SearchPage> {
                                   child: MatierreCard("Science Physique"),
                                   onTap: () {
                                     setState(() {
-                                      matierreController.text = "Science Physique";
+                                      matierreController.text =
+                                          "Science Physique";
                                     });
                                   },
                                 ),
@@ -172,8 +183,7 @@ class _SearchPageState extends State<SearchPage> {
                                     });
                                   },
                                 ),
-                             
-                               InkWell(
+                                InkWell(
                                   child: MatierreCard("Maths"),
                                   onTap: () {
                                     setState(() {
@@ -193,7 +203,8 @@ class _SearchPageState extends State<SearchPage> {
                                   child: MatierreCard("Science Physique"),
                                   onTap: () {
                                     setState(() {
-                                      matierreController.text = "Science Physique";
+                                      matierreController.text =
+                                          "Science Physique";
                                     });
                                   },
                                 ),
@@ -205,7 +216,6 @@ class _SearchPageState extends State<SearchPage> {
                                     });
                                   },
                                 ),
-                                
                               ],
                             ),
                           )
@@ -219,7 +229,11 @@ class _SearchPageState extends State<SearchPage> {
                             Icon(Icons.place, color: Colors.white),
                             Text(
                               "Lacalisé votre Prof",
-                              style: h1,
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: themeColor,
+                                  fontFamily: 'BAARS'),
                             ),
                           ],
                         ),
