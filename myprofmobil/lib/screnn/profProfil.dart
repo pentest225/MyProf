@@ -35,128 +35,143 @@ class profProfil extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              SizedBox(height: 20,),
+              
               Container(
+                //color: Colors.red,
                 height: deviceHeight - 3 * myAppBar.preferredSize.height,
                 //height: 550,
 
                 // List insade the contaner
-                child: SingleChildScrollView(
-                  //Column of all Elements scrolable
-                  child: Column(
-                    children: [
-                      //Image and name section
-                      Container(
-                        height: deviceHeight * .6,
-                        //height: 600,
-                        child: Column(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(left: 80),
-                              child: Row(
-                                children: <Widget>[
-                                  Text(
-                                    "Esther Flutter ",
-                                    style: TextStyle(
-                                        color: textBoldColor,
-                                        fontWeight: FontWeight.w800,
-                                        fontSize: 20),
-                                  ),
-                                  SizedBox(width: 10,),
-                                  Row(
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.favorite_border,
-                                        color: textBoldColor,
-                                      ),
-                                      Icon(
-                                        Icons.share,
-                                        color: textBoldColor,
-                                      )
-                                    ],),
-                                ],
-                              ),
-                            ),
-                            Center(
-                              child: Container(
-                                margin: EdgeInsets.only(top: 10),
-                                height: 100,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(150),
-                                    image: DecorationImage(
-                                        image:
-                                        AssetImage("assets/images/fille.jpg"),
-                                        fit: BoxFit.fitHeight)),
-                              ),
-                            ),
-                            SizedBox(height: 10,),
-                            SizedBox(height: 5,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  color: accanceColor,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: accanceColor,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: accanceColor,
-                                ),
-                                Icon(
-                                  Icons.star_half,
-                                  color: accanceColor,
-                                ),
+                child: ListView(
+                  
+                  children: [
+                    //Image and name section
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: deviceHeight * .6,
+                      //color: Colors.blue,
+                      //height: 600,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // Nom est Icon 
+                          Container(
+                            margin: EdgeInsets.only(left: 80),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: <Widget>[
+                                SizedBox(width: 3,),
                                 Text(
-                                  "(10 avis)",
-                                  style: TextStyle(color: accanceColor),
+                                  "Esther Flutter ",
+                                  style: TextStyle(
+                                      color: textBoldColor,
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 20),
                                 ),
+                                
+                                Row(
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.favorite_border,
+                                      color: textBoldColor,
+                                    ),
+                                    Icon(
+                                      Icons.share,
+                                      color: textBoldColor,
+                                    )
+                                  ],),
                               ],
                             ),
-                            Divider(
-                              color: textBoldColor,
+                          ),
+                          // Circle Image
+                          Center(
+                            child: Container(
+                              margin: EdgeInsets.only(top: 10),
+                              height: 150,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(150),
+                                  image: DecorationImage(
+                                      image:
+                                      AssetImage("assets/images/fille.jpg"),
+                                      fit: BoxFit.fitHeight)),
                             ),
-                            //Last Comment section
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        CircleAvatar(
-                                          child: Text("P"),
-                                          backgroundColor: accanceColor,
-                                        ),
-                                        Text(
-                                          "Patrick",
-                                          style: TextStyle(color: textBoldColor),
-                                        )
-                                      ],
-                                    ),
-                                    width: deviceWidth * .15,
-                                  ),
-                                  Container(
-                                      width: 220,
-                                      child: Text(
-                                        "« Parfait ! Je n'ai pris que peu de cours avec Louloua mais je peux sans crainte dire que c'est une super prof, très pédagogue et patiente. Allez-y les yeux fermés ! »",
-                                        style: TextStyle(color: textBoldColor),
-                                      ))
-                                ],
+                          ),
+                          SizedBox(
+                            
+                            child: Text("N'Guessan ",style: TextStyle(color: themeColor,fontSize: 25,fontWeight: FontWeight.bold),),
+                          ),
+                          SizedBox(height: 5,),
+                          // Nombre d'etoile 
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: accanceColor,
                               ),
-                            )
-                          ],
-                        ),
+                              Icon(
+                                Icons.star,
+                                color: accanceColor,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: accanceColor,
+                              ),
+                              Icon(
+                                Icons.star_half,
+                                color: accanceColor,
+                              ),
+                              Text(
+                                "(10 avis)",
+                                style: TextStyle(color: accanceColor),
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            color: textBoldColor,
+                          ),
+                          //Last Comment section
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      CircleAvatar(
+                                        child: Text("P"),
+                                        backgroundColor: accanceColor,
+                                      ),
+                                      Text(
+                                        "Patrick",
+                                        style: TextStyle(color: textBoldColor),
+                                      )
+                                    ],
+                                  ),
+                                  width: deviceWidth * .15,
+                                ),
+                                Container(
+                                    width: 220,
+                                    child: Text(
+                                      "« Parfait ! Je n'ai pris que peu de cours avec Louloua mais je peux sans crainte dire que c'est une super prof, très pédagogue et patiente. Allez-y les yeux fermés ! »",
+                                      style: TextStyle(color: textBoldColor),
+                                    ))
+                              ],
+                            ),
+                          )
+                        ],
                       ),
-                      //Diplome et temps de reponse
-                      Row(
+                    ),
+                    //Diplome et temps de reponse
+                    Container(
+                      margin: EdgeInsets.only(top: 15),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Container(
@@ -235,10 +250,12 @@ class profProfil extends StatelessWidget {
                           )
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
+
+              //Fouter section 
               Container(
                 color: Colors.white.withOpacity(.3),
                 height: myAppBar.preferredSize.height + 15,
