@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/outils/myStyle.dart';
 
 import 'home_screen.dart';
 
@@ -18,7 +19,7 @@ class _ContactPageState extends State<ContactPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(133, 136, 241, 1),
+        backgroundColor: themeColor,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white,),
           onPressed: () {
@@ -116,7 +117,7 @@ class _ContactPageState extends State<ContactPage> {
                       child: Container(
                         height: 50,
                         width: MediaQuery.of(context).size.width/2.5,
-                        color: Color.fromRGBO(133, 136, 241, 1),
+                        color: themeColor,
                         child: Center(
                           child: Text('En Presentiel', style: TextStyle(
                               color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold
@@ -133,7 +134,7 @@ class _ContactPageState extends State<ContactPage> {
                       child: Container(
                         height: 50,
                         width: MediaQuery.of(context).size.width/2.5,
-                        color: Color.fromRGBO(133, 136, 241, 1),
+                        color: themeColor,
                         child: Center(
                           child: Text('Par webcam', style: TextStyle(
                               color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold
@@ -253,7 +254,7 @@ class _ContactPageState extends State<ContactPage> {
                       child: Container(
                         height: 50,
                         width: MediaQuery.of(context).size.width/2.5,
-                        color: Color.fromRGBO(133, 136, 241, 1),
+                        color: themeColor,
                         child: Material(
                           color: Colors.transparent,
                           child: Center(
@@ -273,7 +274,7 @@ class _ContactPageState extends State<ContactPage> {
                       child: Container(
                         height: 50,
                         width: MediaQuery.of(context).size.width/2.5,
-                        color: Color.fromRGBO(133, 136, 241, 1),
+                        color: themeColor,
                         child: Center(
                           child: Text('Orange money', style: TextStyle(
                               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold

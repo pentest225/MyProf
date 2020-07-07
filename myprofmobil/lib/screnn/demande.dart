@@ -59,7 +59,181 @@ class _DemandePageState extends State<DemandePage> {
               SizedBox(height: 20,),
               Wrap(
                 children: <Widget>[
-                  for (item in filiere) Padding(
+                  /*for (item in filiere) Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Suivant()));
+                        },
+                        child: Container(
+                          height: 140,
+                          width: 140,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.1),
+                              border: Border.all(color: Color.fromRGBO(17, 122, 139, 1), width: 1),
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(height: 25,),
+                              Icon(Icons.school, size: 60, color: Color.fromRGBO(133, 136, 241, 1),),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text('$item', style: TextStyle(
+                                    color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 15
+                                ),),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                  )*/
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Suivant()));
+                        },
+                        child: Container(
+                          height: 140,
+                          width: 140,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.1),
+                              border: Border.all(color: Color.fromRGBO(17, 122, 139, 1), width: 1),
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(height: 25,),
+                              Icon(Icons.school, size: 60, color: Color.fromRGBO(133, 136, 241, 1),),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text('Scolaire', style: TextStyle(
+                                    color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 15
+                                ),),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Suivant()));
+                        },
+                        child: Container(
+                          height: 140,
+                          width: 140,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.1),
+                              border: Border.all(color: Color.fromRGBO(17, 122, 139, 1), width: 1),
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(height: 25,),
+                              Icon(Icons.desktop_mac, size: 60, color: Color.fromRGBO(133, 136, 241, 1),),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text('Informatique', style: TextStyle(
+                                    color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 15
+                                ),),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Suivant()));
+                        },
+                        child: Container(
+                          height: 140,
+                          width: 140,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.1),
+                              border: Border.all(color: Color.fromRGBO(17, 122, 139, 1), width: 1),
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(height: 25,),
+                              Icon(Icons.library_music, size: 60, color: Color.fromRGBO(133, 136, 241, 1),),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text('Musique', style: TextStyle(
+                                    color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 15
+                                ),),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Suivant()));
+                        },
+                        child: Container(
+                          height: 140,
+                          width: 140,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.1),
+                              border: Border.all(color: Color.fromRGBO(17, 122, 139, 1), width: 1),
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(height: 25,),
+                              Icon(Icons.directions_bike, size: 60, color: Color.fromRGBO(133, 136, 241, 1),),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text('Sport', style: TextStyle(
+                                    color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 15
+                                ),),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Suivant()));
+                        },
+                        child: Container(
+                          height: 140,
+                          width: 140,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.1),
+                              border: Border.all(color: Color.fromRGBO(17, 122, 139, 1), width: 1),
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(height: 25,),
+                              Icon(Icons., size: 60, color: Color.fromRGBO(133, 136, 241, 1),),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text('Arts & loisirs', style: TextStyle(
+                                    color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 15
+                                ),),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                  ),
+                  Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: () {

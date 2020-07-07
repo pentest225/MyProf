@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/profProfil.dart';
 
 class Profspage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _ProfspageState extends State<Profspage> {
     var item;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(133, 136, 241, 1),
+        backgroundColor: themeColor,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white,),
           onPressed: () {
@@ -171,7 +172,7 @@ class _ProfspageState extends State<Profspage> {
                                   labelStyle: TextStyle(
                                       color: Colors.white, fontSize: 10
                                   ),
-                                  backgroundColor: Color.fromRGBO(133, 136, 241, 1),
+                                  backgroundColor: themeColor,
                                 ),
                                 SizedBox(width: 5,),
                                 Chip(

@@ -940,32 +940,127 @@ class SheetContainer extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  ...List.generate(
-                      5,
-                      (index) => Container(
-                            margin: EdgeInsets.all(5),
-                            height: sheetItemHeight,
-                        width: MediaQuery.of(context).size.width/1.8,
-                            decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(.3),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20)),
-                                image: DecorationImage(
-                                    image:
-                                        AssetImage('assets/images/books.jpg'),
-                                    fit: BoxFit.cover,
-                                    colorFilter: ColorFilter.mode(
-                                        Colors.black45, BlendMode.darken))),
-                            child: Center(
-                              child: Text(
-                                'Informatique',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 17),
-                              ),
-                            ),
-                          ))
+                  Container(
+                    margin: EdgeInsets.all(5),
+                    height: sheetItemHeight,
+                    width: MediaQuery.of(context).size.width/1.8,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(.3),
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(20)),
+                        image: DecorationImage(
+                            image:
+                            AssetImage('assets/images/code.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black45, BlendMode.darken)
+                        )),
+                    child: Center(
+                      child: Text(
+                        'Informatique',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(5),
+                    height: sheetItemHeight,
+                    width: MediaQuery.of(context).size.width/1.8,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(.3),
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(20)),
+                        image: DecorationImage(
+                            image:
+                            AssetImage('assets/images/english.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black45, BlendMode.darken))),
+                    child: Center(
+                      child: Text(
+                        'Anglais',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(5),
+                    height: sheetItemHeight,
+                    width: MediaQuery.of(context).size.width/1.8,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(.3),
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(20)),
+                        image: DecorationImage(
+                            image:
+                            AssetImage('assets/images/guitare.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black45, BlendMode.darken))),
+                    child: Center(
+                      child: Text(
+                        'Musique',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(5),
+                    height: sheetItemHeight,
+                    width: MediaQuery.of(context).size.width/1.8,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(.3),
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(20)),
+                        image: DecorationImage(
+                            image:
+                            AssetImage('assets/images/school.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black45, BlendMode.darken))),
+                    child: Center(
+                      child: Text(
+                        'Scolaire',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(5),
+                    height: sheetItemHeight,
+                    width: MediaQuery.of(context).size.width/1.8,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(.3),
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(20)),
+                        image: DecorationImage(
+                            image:
+                            AssetImage('assets/images/sport.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black45, BlendMode.darken))),
+                    child: Center(
+                      child: Text(
+                        'Sports',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

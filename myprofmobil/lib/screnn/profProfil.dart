@@ -9,7 +9,7 @@ class profProfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppBar myAppBar =   AppBar(
-    backgroundColor: Color.fromRGBO(133, 136, 241, 1),
+    backgroundColor: themeColor,
     leading: IconButton(
     icon: Icon(Icons.arrow_back, color: Colors.white,),
     onPressed: () {
