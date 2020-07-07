@@ -48,7 +48,7 @@ class _SuivantState extends State<Suivant> {
     var item;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(133, 136, 241, 1),
+        backgroundColor: themeColor,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white,),
           onPressed: () {
@@ -85,7 +85,7 @@ class _SuivantState extends State<Suivant> {
                         height: 30,
                         width: 30,
                         decoration: BoxDecoration(
-                            color: Color.fromRGBO(133, 136, 241, 1),
+                            color: themeColor,
                             borderRadius: BorderRadius.circular(5)),
                         child: Icon(Icons.desktop_mac, size: 20, color: Colors.white,)
                       ),
@@ -124,7 +124,7 @@ class _SuivantState extends State<Suivant> {
                               labelStyle: TextStyle(
                                   color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600
                               ),
-                              backgroundColor: Color.fromRGBO(133, 136, 241, 1).withOpacity(0.8),
+                              backgroundColor: themeColor.withOpacity(0.8),
                             ),
                           )
                       )
@@ -187,7 +187,7 @@ class _SuivantState extends State<Suivant> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Color.fromRGBO(17, 122, 139, 1),
+                              color: themeColor,
                               borderRadius: BorderRadius.circular(5)),
                           child: Icon(Icons.desktop_mac, size: 20, color: Colors.white,)
                       ),
@@ -214,7 +214,7 @@ class _SuivantState extends State<Suivant> {
                               labelStyle: TextStyle(
                                   color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600
                               ),
-                              backgroundColor: Color.fromRGBO(17, 122, 139, 1).withOpacity(0.8),
+                              backgroundColor: themeColor.withOpacity(0.8),
                             ),
                           )
                       )
@@ -310,7 +310,7 @@ class _SuivantState extends State<Suivant> {
                         height: 30,
                         width: 30,
                         decoration: BoxDecoration(
-                            color: Color.fromRGBO(17, 122, 139, 1),
+                            color: themeColor,
                             borderRadius: BorderRadius.circular(5)),
                         child: Icon(Icons.desktop_mac, size: 20, color: Colors.white,)
                     ),
@@ -340,7 +340,7 @@ class _SuivantState extends State<Suivant> {
                           SizedBox(
                             height: 15,
                           ),
-                          Icon(Icons.person, size: 60, color: Color.fromRGBO(17, 122, 139, 1),),
+                          Icon(Icons.person, size: 60, color: themeColor,),
                           SizedBox(height: 10,),
                           Text('Cours individuel', style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'Roboto'
@@ -362,7 +362,7 @@ class _SuivantState extends State<Suivant> {
                             SizedBox(
                               height: 15,
                             ),
-                            Icon(Icons.people, size: 60, color: Color.fromRGBO(17, 122, 139, 1),),
+                            Icon(Icons.people, size: 60, color: themeColor,),
                             SizedBox(height: 10,),
                             Text('Cours en groupe', style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'Roboto'
@@ -462,7 +462,7 @@ class _SuivantState extends State<Suivant> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Color.fromRGBO(17, 122, 139, 1),
+                              color: themeColor,
                               borderRadius: BorderRadius.circular(5)),
                           child: Icon(Icons.desktop_mac, size: 20, color: Colors.white,)
                       ),
