@@ -405,17 +405,17 @@ class _SuivantState extends State<Suivant> {
                       onTap: () {
                         setState(() {
                           singleCourMode = !singleCourMode;
-                          ;
                         });
                       },
                       child: Card(
                         elevation: singleCourMode ? 15 : 0,
-                        color: singleCourMode ? themeColor.withOpacity(.5) : bgColor,
+                        color: singleCourMode
+                            ? themeColor.withOpacity(.5)
+                            : bgColor,
                         child: Container(
                           height: 150,
                           width: 160,
                           decoration: BoxDecoration(
-                              
                               borderRadius: BorderRadius.circular(5)),
                           child: Column(
                             children: <Widget>[
@@ -425,7 +425,9 @@ class _SuivantState extends State<Suivant> {
                               Icon(
                                 Icons.person,
                                 size: 60,
-                                color: singleCourMode? Colors.white : Color.fromRGBO(17, 122, 139, 1),
+                                color: singleCourMode
+                                    ? Colors.white
+                                    : Color.fromRGBO(17, 122, 139, 1),
                               ),
                               SizedBox(
                                 height: 10,
@@ -453,12 +455,13 @@ class _SuivantState extends State<Suivant> {
                       },
                       child: Card(
                         elevation: multiCourMode ? 15 : 0,
-                        color: multiCourMode ?themeColor.withOpacity(.5) : bgColor,
+                        color: multiCourMode
+                            ? themeColor.withOpacity(.5)
+                            : bgColor,
                         child: Container(
                           height: 150,
                           width: 160,
                           decoration: BoxDecoration(
-                              
                               borderRadius: BorderRadius.circular(5)),
                           child: Column(
                             children: <Widget>[
@@ -468,7 +471,9 @@ class _SuivantState extends State<Suivant> {
                               Icon(
                                 Icons.people,
                                 size: 60,
-                                color: singleCourMode? Colors.white : Color.fromRGBO(17, 122, 139, 1),
+                                color: singleCourMode
+                                    ? Colors.white
+                                    : Color.fromRGBO(17, 122, 139, 1),
                               ),
                               SizedBox(
                                 height: 10,
