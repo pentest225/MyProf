@@ -50,7 +50,7 @@ class profProfil extends StatelessWidget {
                       height: 20,
                     ),
                     Container(
-                      height: deviceHeight * .6,
+                      height: deviceHeight * .7,
                       //color: Colors.blue,
                       //height: 600,
                       child: Column(
