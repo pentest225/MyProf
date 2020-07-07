@@ -143,14 +143,11 @@ class _SuivantState extends State<Suivant> {
                   SizedBox(
                     height: 20,
                   ),
-                  MultiSelectedChip(
-                    specialite,
-                    myReturnList: (myList) {
-                      setState(() {
-                        returnList = myList;
-                      });
-                    },
-                  ),
+                  MultiSelectedChip(specialite,myReturnList: (myList){
+                    setState(() {
+                      returnList = myList;
+                    });
+                  },),
                   SizedBox(
                     height: 100,
                   ),
