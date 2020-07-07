@@ -14,6 +14,8 @@ class _SuivantState extends State<Suivant> {
 
   List<String> selectedChoices = List();
   bool isSelected = false;
+  bool singleCourMode = false;
+  bool multiCourMode = false;
 
   List<String> specialite = [
     'Programmation',
@@ -143,11 +145,14 @@ class _SuivantState extends State<Suivant> {
                   SizedBox(
                     height: 20,
                   ),
-                  MultiSelectedChip(specialite,myReturnList: (myList){
-                    setState(() {
-                      returnList = myList;
-                    });
-                  },),
+                  MultiSelectedChip(
+                    specialite,
+                    myReturnList: (myList) {
+                      setState(() {
+                        returnList = myList;
+                      });
+                    },
+                  ),
                   SizedBox(
                     height: 100,
                   ),
@@ -246,26 +251,13 @@ class _SuivantState extends State<Suivant> {
                   SizedBox(
                     height: 20,
                   ),
-                  Wrap(
-                    children: <Widget>[
-                      for (item in competences)
-                        Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: InkWell(
-                              onTap: () {
-                                print('esthy');
-                              },
-                              child: Chip(
-                                label: Text('$item'),
-                                labelStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600),
-                                backgroundColor: Color.fromRGBO(17, 122, 139, 1)
-                                    .withOpacity(0.8),
-                              ),
-                            ))
-                    ],
+                  MultiSelectedChip(
+                    competences,
+                    myReturnList: (myList) {
+                      setState(() {
+                        returnList = myList;
+                      });
+                    },
                   ),
                   SizedBox(
                     height: 100,
@@ -409,65 +401,90 @@ class _SuivantState extends State<Suivant> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    Card(
-                      child: Container(
-                        height: 150,
-                        width: 160,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Icon(
-                              Icons.person,
-                              size: 60,
-                              color: Color.fromRGBO(17, 122, 139, 1),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Cours individuel',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Roboto'),
-                            )
-                          ],
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          singleCourMode = !singleCourMode;
+                          ;
+                        });
+                      },
+                      child: Card(
+                        elevation: singleCourMode ? 15 : 0,
+                        color: singleCourMode ? themeColor.withOpacity(.5) : bgColor,
+                        child: Container(
+                          height: 150,
+                          width: 160,
+                          decoration: BoxDecoration(
+                              
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Icon(
+                                Icons.person,
+                                size: 60,
+                                color: singleCourMode? Colors.white : Color.fromRGBO(17, 122, 139, 1),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Cours individuel',
+                                style: TextStyle(
+                                    color: singleCourMode
+                                        ? Colors.white
+                                        : accanceColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Roboto'),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                    Card(
-                      child: Container(
-                        height: 150,
-                        width: 160,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Icon(
-                              Icons.people,
-                              size: 60,
-                              color: Color.fromRGBO(17, 122, 139, 1),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Cours en groupe',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Roboto'),
-                            )
-                          ],
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          multiCourMode = !multiCourMode;
+                        });
+                      },
+                      child: Card(
+                        elevation: multiCourMode ? 15 : 0,
+                        color: multiCourMode ?themeColor.withOpacity(.5) : bgColor,
+                        child: Container(
+                          height: 150,
+                          width: 160,
+                          decoration: BoxDecoration(
+                              
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Icon(
+                                Icons.people,
+                                size: 60,
+                                color: singleCourMode? Colors.white : Color.fromRGBO(17, 122, 139, 1),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Cours en groupe',
+                                style: TextStyle(
+                                    color: multiCourMode
+                                        ? Colors.white
+                                        : accanceColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Roboto'),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
