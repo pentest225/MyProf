@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/outils/myStyle.dart';
 
 import 'Inscription.dart';
 
@@ -12,7 +13,7 @@ class _ConnexionState extends State<Connexion> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(133, 136, 241, 1),
+        backgroundColor: themeColor,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white,),
           onPressed: () {
@@ -44,6 +45,7 @@ class _ConnexionState extends State<Connexion> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: TextField(
+                    cursorColor: themeColor,
                     //keyboardType: TextInputType.multiline,
                     maxLines: null,
                     decoration: InputDecoration(
@@ -52,7 +54,7 @@ class _ConnexionState extends State<Connexion> {
                           color: Colors.black54, fontSize: 16, fontWeight: FontWeight.bold
                       ),
                       border: InputBorder.none,
-                      icon: Icon(Icons.mail, size: 18, color:  Color.fromRGBO(17, 122, 139, 1)),
+                      icon: Icon(Icons.mail, size: 18, color:  themeColor),
                     ),
                   )
               ),
@@ -67,6 +69,7 @@ class _ConnexionState extends State<Connexion> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: TextField(
+                    cursorColor: themeColor,
                     //keyboardType: TextInputType.multiline,
                     maxLines: null,
                     decoration: InputDecoration(
@@ -75,7 +78,7 @@ class _ConnexionState extends State<Connexion> {
                           color: Colors.black54, fontSize: 16, fontWeight: FontWeight.bold
                       ),
                       border: InputBorder.none,
-                      icon: Icon(Icons.lock, size: 18, color:  Color.fromRGBO(17, 122, 139, 1)),
+                      icon: Icon(Icons.lock, size: 18, color:  themeColor),
                     ),
                   )
               ),
