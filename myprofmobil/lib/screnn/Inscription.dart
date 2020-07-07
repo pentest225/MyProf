@@ -13,7 +13,7 @@ class _InscriptionState extends State<Inscription> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(133, 136, 241, 1),
+          backgroundColor: themeColor,
           leading: IconButton(
             icon: Icon(Icons.arrow_back, color: Colors.white,),
             onPressed: () {
