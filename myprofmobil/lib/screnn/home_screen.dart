@@ -7,6 +7,7 @@ import 'package:myprofmobil/screnn/profPage.dart';
 import 'package:myprofmobil/screnn/regis.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:myprofmobil/screnn/verify.dart';
+import 'package:myprofmobil/widgets/homeSteps.dart';
 import 'package:myprofmobil/widgets/myDrower.dart';
 import 'package:sprinkle/SprinkleExtension.dart';
 import '../screnn/searchPage.dart';
@@ -41,7 +42,7 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-     drawer: MyDrower(),
+      drawer: MyDrower(),
       backgroundColor: themeColor,
       body: SafeArea(child: LayoutStarts()),
     );
@@ -189,7 +190,7 @@ class SearchCard extends StatefulWidget {
   _SearchCardlState createState() => _SearchCardlState();
 }
 
-//Classe pour le champ de recherche 
+//Classe pour le champ de recherche
 class _SearchCardlState extends State<SearchCard> {
   @override
   Widget build(BuildContext context) {
@@ -198,7 +199,9 @@ class _SearchCardlState extends State<SearchCard> {
         children: <Widget>[
           InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed(SearchPage.routeName,);
+              Navigator.of(context).pushNamed(
+                SearchPage.routeName,
+              );
             },
             child: Container(
               height: 50,
@@ -319,7 +322,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
   }
 }
 
-// Les Autres elemense de la page 
+// Les Autres elemense de la page
 class SheetContainer extends StatelessWidget {
   List<String> matiere = ['Cuisine', 'Informatique', 'Musique', 'Scolaire'];
 
@@ -466,11 +469,8 @@ class SheetContainer extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 25),
       height: 3,
       width: 65,
-      
       decoration: BoxDecoration(
-        
           borderRadius: BorderRadius.circular(15), color: themeColor),
-          
     );
   }
 
@@ -526,130 +526,19 @@ class SheetContainer extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[
-                Container(
-                  padding: EdgeInsets.all(12),
-                  margin: EdgeInsets.all(3),
-                  height: itemHeight,
-                  width: MediaQuery.of(context).size.width/1.5,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/un.png'),
-                      fit: BoxFit.cover,
-                        colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.7), BlendMode.darken)
-                    ),
-                      color: themeColor.withOpacity(.6),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Center(
-                          child: Text(
-                        'Le professeur adéquat',
-                        style: TextStyle(
-                            color: themeColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      )),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Center(
-                          child: Text(
-                        'Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam).',
-                        style: TextStyle(
-                            fontFamily: 'BAARS',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white.withOpacity(0.8)),
-                      ))
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(12),
-                  margin: EdgeInsets.all(3),
-                  height: itemHeight,
-                  width: MediaQuery.of(context).size.width/1.5,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/deux.png'),
-                          fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.7), BlendMode.darken)
-                      ),
-                      color: themeColor.withOpacity(.6),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Center(
-                          child: Text(
-                        'Organisez vos cours',
-                        style: TextStyle(
-                            color: themeColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      )),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Center(
-                          child: Text(
-                        'Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.',
-                        style: TextStyle(
-                            fontFamily: 'BAARS',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white.withOpacity(0.8)),
-                      ))
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(12),
-                  margin: EdgeInsets.all(3),
-                  height: itemHeight,
-                  width: MediaQuery.of(context).size.width/1.5,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/trois.png'),
-                          fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.7), BlendMode.darken)
-                      ),
-                      color: themeColor.withOpacity(.6),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Center(
-                          child: Text(
-                        'Vivez de nouvelles expériences',
-                        style: TextStyle(
-                            color: themeColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      )),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Center(
-                          child: Text(
-                        'Le passe Élève vous donne un accès illimité à tous les professeurs, coachs et masterclass pendant 30 jours. Profitez-en pour découvrir de nouvelles passions !',
-                        style: TextStyle(
-                            fontFamily: 'BAARS',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white.withOpacity(0.8)),
-                      ))
-                    ],
-                  ),
-                )
-              ],
+                HomeSteps(
+                    'Le professeur adéquat',
+                    'Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam).',
+                    'assets/images/un.png'),
+                  HomeSteps(
+                    'Organisez vos cours',
+                    'Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.',
+                    'assets/images/deux.png'),
+                  HomeSteps(
+                    'Vivez de nouvelles expériences',
+                    'Le passe Élève vous donne un accès illimité à tous les professeurs, coachs et masterclass pendant 30 jours. Profitez-en pour découvrir de nouvelles passions !',
+                    'assets/images/trois.png'),
+                ],
             ),
           )
           /* Row(
@@ -715,18 +604,15 @@ class SheetContainer extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.all(5),
                     height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width/1.8,
+                    width: MediaQuery.of(context).size.width / 1.8,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(.3),
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(20)),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         image: DecorationImage(
-                            image:
-                            AssetImage('assets/images/code.jpg'),
+                            image: AssetImage('assets/images/code.jpg'),
                             fit: BoxFit.cover,
                             colorFilter: ColorFilter.mode(
-                                Colors.black45, BlendMode.darken)
-                        )),
+                                Colors.black45, BlendMode.darken))),
                     child: Center(
                       child: Text(
                         'Informatique',
@@ -740,14 +626,12 @@ class SheetContainer extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.all(5),
                     height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width/1.8,
+                    width: MediaQuery.of(context).size.width / 1.8,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(.3),
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(20)),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         image: DecorationImage(
-                            image:
-                            AssetImage('assets/images/english.jpg'),
+                            image: AssetImage('assets/images/english.jpg'),
                             fit: BoxFit.cover,
                             colorFilter: ColorFilter.mode(
                                 Colors.black45, BlendMode.darken))),
@@ -764,14 +648,12 @@ class SheetContainer extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.all(5),
                     height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width/1.8,
+                    width: MediaQuery.of(context).size.width / 1.8,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(.3),
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(20)),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         image: DecorationImage(
-                            image:
-                            AssetImage('assets/images/guitare.jpg'),
+                            image: AssetImage('assets/images/guitare.jpg'),
                             fit: BoxFit.cover,
                             colorFilter: ColorFilter.mode(
                                 Colors.black45, BlendMode.darken))),
@@ -788,14 +670,12 @@ class SheetContainer extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.all(5),
                     height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width/1.8,
+                    width: MediaQuery.of(context).size.width / 1.8,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(.3),
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(20)),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         image: DecorationImage(
-                            image:
-                            AssetImage('assets/images/school.jpg'),
+                            image: AssetImage('assets/images/school.jpg'),
                             fit: BoxFit.cover,
                             colorFilter: ColorFilter.mode(
                                 Colors.black45, BlendMode.darken))),
@@ -812,14 +692,12 @@ class SheetContainer extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.all(5),
                     height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width/1.8,
+                    width: MediaQuery.of(context).size.width / 1.8,
                     decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(.3),
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(20)),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         image: DecorationImage(
-                            image:
-                            AssetImage('assets/images/sport.jpg'),
+                            image: AssetImage('assets/images/sport.jpg'),
                             fit: BoxFit.cover,
                             colorFilter: ColorFilter.mode(
                                 Colors.black45, BlendMode.darken))),
