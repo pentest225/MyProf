@@ -416,7 +416,7 @@ class _DashboardState extends State<Dashboard> {
                                 SizedBox(width: 15,),
                                 Container(
                                   width: MediaQuery.of(context).size.width/1.6,
-                                  child: Text("Développeur junior en école de programmation donne des cours de developpement web et mobile", style: TextStyle(
+                                  child: Text("Développeur junior en école de programmation donne des cours de developpement web et mobile.", style: TextStyle(
                                       fontSize: 16, color: Colors.black87
                                   ),),
                                 )
