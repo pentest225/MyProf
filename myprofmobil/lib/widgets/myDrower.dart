@@ -59,6 +59,8 @@ class MyDrower extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    DrowerContainer(Icons.dashboard, "Dasbord",
+                        Dashboard.routeName),
                     DrowerContainer(Icons.perm_contact_calendar, "Inscription",
                         Inscription.routeName),
                     DrowerContainer(Icons.perm_contact_calendar, "Connexion",

@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/widgets/myDrower.dart';
 
 class Dashboard extends StatefulWidget {
 
@@ -16,16 +17,18 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: themeColor,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white,),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.arrow_back, color: Colors.white,),
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        // ),
+        
         title: Text('MyProfs'),
         centerTitle: true,
         elevation: 0,
       ),
+      drawer: MyDrower(),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
