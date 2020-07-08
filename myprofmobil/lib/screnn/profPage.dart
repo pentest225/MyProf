@@ -128,9 +128,13 @@ class _ProfspageState extends State<Profspage> {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => profProfil()));
                       },
                       child: Container(
-                        height:310,
+                        margin: EdgeInsets.only(left: 2),
+                        height:290,
                         width: 160,
-                        color: Colors.grey.withOpacity(0.3),
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.3),
+                          borderRadius: BorderRadius.circular(10)
+                        ),
                         child: Column(
                           children: <Widget>[
                             Container(
@@ -138,7 +142,7 @@ class _ProfspageState extends State<Profspage> {
                               width: MediaQuery.of(context).size.width/1.2,
                               decoration: BoxDecoration(
                                 //color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(2),
                                   image: DecorationImage(
                                       image: AssetImage('$item'),
                                       fit: BoxFit.cover,
