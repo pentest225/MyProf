@@ -233,7 +233,7 @@ class _SuivantState extends State<Suivant> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Color.fromRGBO(17, 122, 139, 1),
+                              color: themeColor,
                               borderRadius: BorderRadius.circular(5)),
                           child: Icon(
                             Icons.desktop_mac,
@@ -828,7 +828,7 @@ class _SuivantState extends State<Suivant> {
                             title: Text("je peux encadrer l'élève à mon domicile", style: TextStyle(
                               color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18
                             ),),
-                              value: null,
+                              value: "je peux encadrer l'élève à mon domicile",
                               groupValue: radioItem,
                             onChanged: (val) {
                               setState(() {
@@ -850,7 +850,7 @@ class _SuivantState extends State<Suivant> {
                               title: Text("je peux me déplacer chez l'élève", style: TextStyle(
                                   color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18
                               ),),
-                              value: null,
+                              value: "je peux me déplacer chez l'élève",
                               groupValue: radioItem,
                             onChanged: (val) {
                               setState(() {
@@ -872,7 +872,7 @@ class _SuivantState extends State<Suivant> {
                               title: Text("je peux donner des cours par webcam", style: TextStyle(
                                   color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18
                               ),),
-                              value: null,
+                              value: "je peux donner des cours par webcam",
                               groupValue: radioItem,
                             onChanged: (val) {
                               setState(() {
