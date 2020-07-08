@@ -8,17 +8,20 @@ class profProfil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppBar myAppBar =   AppBar(
-    backgroundColor: themeColor,
-    leading: IconButton(
-    icon: Icon(Icons.arrow_back, color: Colors.white,),
-    onPressed: () {
-    Navigator.pop(context);
-    },
-    ),
-    title: Text('MyProfs'),
-    centerTitle: true,
-    elevation: 0,
+    AppBar myAppBar = AppBar(
+      backgroundColor: themeColor,
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back,
+          color: Colors.white,
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+      title: Text('MyProfs'),
+      centerTitle: true,
+      elevation: 0,
     );
 
     final deviceHeight = MediaQuery.of(context).size.height;
@@ -35,7 +38,6 @@ class profProfil extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              
               Container(
                 //color: Colors.red,
                 height: deviceHeight - 3 * myAppBar.preferredSize.height,
@@ -43,7 +45,6 @@ class profProfil extends StatelessWidget {
 
                 // List insade the contaner
                 child: ListView(
-                  
                   children: [
                     //Image and name section
                     SizedBox(
@@ -56,13 +57,15 @@ class profProfil extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Nom est Icon 
+                          // Nom est Icon
                           Container(
                             margin: EdgeInsets.only(left: 80),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
-                                SizedBox(width: 3,),
+                                SizedBox(
+                                  width: 3,
+                                ),
                                 Text(
                                   "Esther Flutter ",
                                   style: TextStyle(
@@ -70,7 +73,6 @@ class profProfil extends StatelessWidget {
                                       fontWeight: FontWeight.w800,
                                       fontSize: 20),
                                 ),
-                                
                                 Row(
                                   children: <Widget>[
                                     Icon(
@@ -81,7 +83,8 @@ class profProfil extends StatelessWidget {
                                       Icons.share,
                                       color: textBoldColor,
                                     )
-                                  ],),
+                                  ],
+                                ),
                               ],
                             ),
                           ),
@@ -95,16 +98,23 @@ class profProfil extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(150),
                                   image: DecorationImage(
                                       image:
-                                      AssetImage("assets/images/fille.jpg"),
+                                          AssetImage("assets/images/fille.jpg"),
                                       fit: BoxFit.fitHeight)),
                             ),
                           ),
                           SizedBox(
-                            
-                            child: Text("N'Guessan ",style: TextStyle(color: themeColor,fontSize: 25,fontWeight: FontWeight.bold),),
+                            child: Text(
+                              "N'Guessan ",
+                              style: TextStyle(
+                                  color: themeColor,
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
-                          SizedBox(height: 5,),
-                          // Nombre d'etoile 
+                          SizedBox(
+                            height: 5,
+                          ),
+                          // Nombre d'etoile
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -255,7 +265,7 @@ class profProfil extends StatelessWidget {
                 ),
               ),
 
-              //Fouter section 
+              //Fouter section
               Container(
                 color: Colors.white.withOpacity(.3),
                 height: myAppBar.preferredSize.height + 15,
