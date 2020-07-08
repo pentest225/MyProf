@@ -7,10 +7,12 @@ import 'screnn/home_screen.dart';
 import 'screnn/home_screen.dart';
 import 'screnn/profPage.dart';
 import 'screnn/profProfil.dart';
+import 'screnn/Inscription.dart';
+import 'screnn/connexion.dart';
 
 import 'screnn/suivant.dart';
 import 'screnn/searchPage.dart';
-
+import 'screnn/demande.dart';
 import 'package:myprofmobil/screnn/launcher_screen.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 
@@ -39,6 +41,9 @@ class MyApp extends StatelessWidget {
           ContactPage.routeName : (context)=> ContactPage(),
           Dashboard.routeName : (context)=> Dashboard(),
           SearchPage.routeName :(context)=>SearchPage(),
+          DemandePage.routeName:(context)=>DemandePage(),
+          Inscription.routeName:(context)=>Inscription(),
+          Connexion.routeNamed:(context)=>Connexion(),
           
           // profProfil.routeName: (ctx)=>MyHome()
         },

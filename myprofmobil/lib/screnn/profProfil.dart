@@ -51,7 +51,7 @@ class profProfil extends StatelessWidget {
                       height: 20,
                     ),
                     Container(
-                      height: deviceHeight * .7,
+                      height: deviceHeight * .6,
                       //color: Colors.blue,
                       //height: 600,
                       child: Column(
@@ -74,11 +74,13 @@ class profProfil extends StatelessWidget {
                                       fontSize: 20),
                                 ),
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Icon(
                                       Icons.favorite_border,
                                       color: textBoldColor,
                                     ),
+                                    SizedBox(width: 3,),
                                     Icon(
                                       Icons.share,
                                       color: textBoldColor,

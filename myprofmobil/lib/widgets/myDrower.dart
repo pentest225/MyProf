@@ -38,11 +38,11 @@ class MyDrower extends StatelessWidget {
                       width: 5,
                     ),
                     Transform.rotate(
-                      angle: -180/15,
+                      angle: -180 / 15,
                       child: IconButton(
                         icon: Icon(
                           Icons.school,
-                          color:themeColor,
+                          color: themeColor,
                           size: 35,
                         ),
                         onPressed: null,
@@ -59,10 +59,12 @@ class MyDrower extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    DrowerContainer(Icons.home, "Home",HomeScreen.rooteName),
-                    DrowerContainer(Icons.perm_contact_calendar, "Inscription",Inscription.routeName),
-                    DrowerContainer(Icons.perm_contact_calendar, "Connexion",Connexion.routeNamed),
-                    DrowerContainer(Icons.add_location, "Ajouté une annonce ",DemandePage.routeName),
+                    DrowerContainer(Icons.perm_contact_calendar, "Inscription",
+                        Inscription.routeName),
+                    DrowerContainer(Icons.perm_contact_calendar, "Connexion",
+                        Connexion.routeNamed),
+                    DrowerContainer(Icons.add_location, "Ajouté une annonce ",
+                        DemandePage.routeName),
                   ],
                 ),
               ),

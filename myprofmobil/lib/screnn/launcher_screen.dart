@@ -148,7 +148,7 @@ class _MyHomeState extends State<LaunchApp> {
                 opacity: _currentPage != _numPages - 1 ? 0 : 1,
                 child: Container(
                   margin: EdgeInsets.only(top: 25, bottom: 0),
-                  width: deviceWidht,
+                  // width: deviceWidht,
                   alignment: Alignment.center,
                   child: RaisedButton(
                     child: Text(
