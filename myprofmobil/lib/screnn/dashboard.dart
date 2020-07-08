@@ -348,7 +348,7 @@ class _DashboardState extends State<Dashboard> {
                                 Container(
                                   width: MediaQuery.of(context).size.width/1.6,
                                   child: Text("Etudiante en école de doctorat donne des cours en anglais à moindre cout.", style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black87
+                                    fontSize: 16, color: Colors.black87
                                   ),),
                                 )
                               ],
@@ -414,7 +414,7 @@ class _DashboardState extends State<Dashboard> {
                                 Container(
                                   width: MediaQuery.of(context).size.width/1.6,
                                   child: Text("Développeur junior en école de programmation donne des cours de developpement web et mobile", style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black87
+                                      fontSize: 16, color: Colors.black87
                                   ),),
                                 )
                               ],
@@ -479,7 +479,7 @@ class _DashboardState extends State<Dashboard> {
                                 Container(
                                   width: MediaQuery.of(context).size.width/1.6,
                                   child: Text("Ingénieur et professeur à l'INSAAC donne des cours de musique(chants, instruments).", style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black87
+                                       fontSize: 16, color: Colors.black87
                                   ),),
                                 )
                               ],
