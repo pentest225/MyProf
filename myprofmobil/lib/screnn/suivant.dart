@@ -1514,7 +1514,7 @@ class _SuivantState extends State<Suivant> {
                               children: <Widget>[
                                 Container(
                                   height: 18,
-                                  width: 1,
+                                  width: 18,
                                   color: Colors.white,
                                   child: Center(
                                       child: Text(
