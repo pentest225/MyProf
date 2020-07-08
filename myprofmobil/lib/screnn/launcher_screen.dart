@@ -56,6 +56,7 @@ class _MyHomeState extends State<LaunchApp> {
           padding: EdgeInsets.only(top: 40),
           child: Column(
             children: [
+              // Bouton Annuler L'introduction
               Container(
                 child: Container(
                   height: 50,
@@ -73,9 +74,10 @@ class _MyHomeState extends State<LaunchApp> {
                   ),
                 ),
               ),
+              //Container Du Page View
               Container(
                 //margin: EdgeInsets.only(top: 10),
-                height: deviceHeight - 220,
+                height: deviceHeight - 240,
                 child: PageView(
                   controller: _pageController,
                   onPageChanged: (int page) {
@@ -107,9 +109,11 @@ class _MyHomeState extends State<LaunchApp> {
                   ],
                 ),
               ),
+              //Row des boutons d'indication 
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: _myIndicatorList()),
+              //Row du Nex Botom 
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -143,14 +147,18 @@ class _MyHomeState extends State<LaunchApp> {
                   ),
                 ],
               ),
+              //Bouton Commencé 
               AnimatedOpacity(
                 duration: Duration(milliseconds: 600),
                 opacity: _currentPage != _numPages - 1 ? 0 : 1,
                 child: Container(
-                  margin: EdgeInsets.only(top: 25, bottom: 0),
-                  // width: deviceWidht,
-                  alignment: Alignment.center,
+                  // color: Colors.red,
+                  margin: EdgeInsets.only(top: 25, bottom: 15),
+                  width: deviceWidht - 50 ,
+                  
+                  // alignment: Alignment.center,
                   child: RaisedButton(
+                    
                     child: Text(
                       "Commencé ",
                       style: TextStyle(

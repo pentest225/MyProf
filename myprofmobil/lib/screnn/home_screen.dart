@@ -189,6 +189,7 @@ class SearchCard extends StatefulWidget {
   _SearchCardlState createState() => _SearchCardlState();
 }
 
+//Classe pour le champ de recherche 
 class _SearchCardlState extends State<SearchCard> {
   @override
   Widget build(BuildContext context) {
@@ -318,6 +319,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
   }
 }
 
+// Les Autres elemense de la page 
 class SheetContainer extends StatelessWidget {
   List<String> matiere = ['Cuisine', 'Informatique', 'Musique', 'Scolaire'];
 
@@ -464,8 +466,11 @@ class SheetContainer extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 25),
       height: 3,
       width: 65,
+      
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), color: Color(0xffd9dbdb)),
+        
+          borderRadius: BorderRadius.circular(15), color: themeColor),
+          
     );
   }
 

@@ -78,7 +78,7 @@ class _SearchPageState extends State<SearchPage> {
                           },
                           decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: 'Quelle matierre ?',
+                              hintText: 'Quelle matière ?',
                               icon: Icon(
                                 Icons.search,
                                 color: themeColor,
@@ -128,7 +128,7 @@ class _SearchPageState extends State<SearchPage> {
                         children: [
                           Container(
                             child: Text(
-                              "Meilleur Matierres",
+                              "Meilleur Matières",
                               style: TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
@@ -226,9 +226,10 @@ class _SearchPageState extends State<SearchPage> {
                       child: Container(
                         child: Row(
                           children: [
-                            Icon(Icons.place, color: Colors.white),
+                            Icon(Icons.place, color: themeColor),
+                            SizedBox(width: 10,),
                             Text(
-                              "Lacalisé votre Prof",
+                              "Localisé votre Prof",
                               style: TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
