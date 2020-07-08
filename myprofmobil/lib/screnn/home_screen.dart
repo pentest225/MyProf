@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
@@ -323,8 +325,36 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
 }
 
 // Les Autres elemense de la page
-class SheetContainer extends StatelessWidget {
+class SheetContainer extends StatefulWidget {
+  @override
+  _SheetContainerState createState() => _SheetContainerState();
+}
+
+class _SheetContainerState extends State<SheetContainer>
+    with TickerProviderStateMixin {
   List<String> matiere = ['Cuisine', 'Informatique', 'Musique', 'Scolaire'];
+  TextEditingController matierreController = TextEditingController();
+  bool onTapInputMatierre;
+  AnimationController _controller;
+  Animation<double> _animation;
+  bool formSubmited = false;
+  double _miles = 0.0;
+  @override
+  void initState() {
+    _controller = new AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    );
+    _animation = _controller;
+    onTapInputMatierre = true;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -373,7 +403,7 @@ class SheetContainer extends StatelessWidget {
                           text: TextSpan(children: <TextSpan>[
                             TextSpan(text: "Partagez votre \n", style: h1),
                             TextSpan(
-                                text: "Passion ;)  ",
+                                text: "Passion  ",
                                 style: TextStyle(
                                     backgroundColor: Colors.white,
                                     color: themeColor,
@@ -383,7 +413,7 @@ class SheetContainer extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 15,
                       ),
                       Text(
                         "Devenez indépendant, enseignez à votre rythme, fixez vos tarifs sans commission et rencontrez des milliers d’élèves motivés !",
@@ -395,25 +425,144 @@ class SheetContainer extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
+                      // Formulaire pour voir combien j'peux gagné
                       Container(
-                        // height: 20,
-                        alignment: Alignment.center,
-                        width: deviceWidth - 150,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.topRight,
-                                colors: [
-                                  themeColor,
-                                  Colors.white,
-                                ])),
-                        child: Text(
-                          "Combien j'peux gagné ??",
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.w200),
+                        height: deviceHeight * .30,
+                        child: Column(
+                          children: [
+                            Text(
+                              "Découvrire combien j'peux \n gagner :",
+                              style: TextStyle(
+                                  color: themeColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  backgroundColor: Colors.white),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            //Container Estimation des gains
+                            Container(
+                              child: Column(
+                                children: [
+                                  Card(
+                                    elevation: onTapInputMatierre ? 15 : 0,
+                                    color: onTapInputMatierre
+                                        ? Colors.white
+                                        : Colors.grey.withOpacity(.5),
+                                    child: Container(
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5),
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 15),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: TextField(
+                                        controller: matierreController,
+                                        cursorColor: themeColor,
+                                        onTap: () {
+                                          setState(() {
+                                            onTapInputMatierre = true;
+                                          });
+                                          print("tap ...1");
+                                        },
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: 'Quelle matière ?',
+                                            icon: Icon(
+                                              Icons.search,
+                                              color: themeColor,
+                                            )),
+                                      ),
+                                    ),
+                                  ),
+                                  Card(
+                                    elevation: onTapInputMatierre ? 0 : 15,
+                                    color: onTapInputMatierre
+                                        ? Colors.grey.withOpacity(.5)
+                                        : Colors.white,
+                                    child: Container(
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5),
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 15),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        // color: Colors.grey,
+                                      ),
+                                      child: TextField(
+                                        onTap: () {
+                                          setState(() {
+                                            onTapInputMatierre = false;
+                                          });
+                                          print("tap ...2");
+                                        },
+                                        cursorColor: themeColor,
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: 'Adresse ou quartier ',
+                                            icon: Icon(
+                                              Icons.place,
+                                              color: themeColor,
+                                            )),
+                                        onSubmitted: (value) {
+                                          print("Submited Value $value");
+                                          setState(() {
+                                            Random rnd;
+                                            int min = 150000;
+                                            int max = 600000;
+                                            rnd = new Random();
+                                            int r = min + rnd.nextInt(max - min);
+                                            formSubmited = true;
+                                            _animation = new Tween<double>(
+                                              begin: _animation.value,
+                                              end: r.toDouble(),
+                                            ).animate(CurvedAnimation(
+                                              curve: Curves.fastOutSlowIn,
+                                              parent: _controller,
+                                            ));
+                                          });
+                                          _controller.forward(from: 0.0);
+                                        },
+                                      ),
+                                    ),
+                                  ),
+
+                                  // Afficheur du gain potentiel de l'utilisateur
+                                  if (formSubmited)
+                                    AnimatedBuilder(
+                                      animation: _animation,
+                                      builder:
+                                          (BuildContext context, Widget child) {
+                                        return Container(
+                                          color: Colors.white,
+                                          child: RichText(
+                                            text: TextSpan(
+                                              text:
+                                                  " ${_animation.value.toStringAsFixed(1)}   ",
+                                              style: TextStyle(
+                                                  color: themeColor,
+                                                  fontSize: 25,
+                                                  fontWeight: FontWeight.w200),
+                                              children: <TextSpan>[
+                                                TextSpan(
+                                                    text: 'Fr ',
+                                                    style: TextStyle(
+                                                        color: themeColor,
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       SizedBox(
@@ -430,7 +579,7 @@ class SheetContainer extends StatelessWidget {
                           width: deviceWidth - 150,
                           alignment: Alignment.center,
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
+                              horizontal: 20, vertical: 20),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
                               gradient: LinearGradient(
@@ -530,44 +679,17 @@ class SheetContainer extends StatelessWidget {
                     'Le professeur adéquat',
                     'Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam).',
                     'assets/images/un.png'),
-                  HomeSteps(
+                HomeSteps(
                     'Organisez vos cours',
                     'Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.',
                     'assets/images/deux.png'),
-                  HomeSteps(
+                HomeSteps(
                     'Vivez de nouvelles expériences',
                     'Le passe Élève vous donne un accès illimité à tous les professeurs, coachs et masterclass pendant 30 jours. Profitez-en pour découvrir de nouvelles passions !',
                     'assets/images/trois.png'),
-                ],
+              ],
             ),
           )
-          /* Row(
-            children: [
-            Flexible(child: Container(
-              margin: EdgeInsets.all(3),
-              height: itemHeight,
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(.3),
-                borderRadius: BorderRadius.all(Radius.circular(20))
-              ),
-            )),
-            Flexible(child: Container(
-              margin: EdgeInsets.all(3),
-              height: itemHeight,
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(.3),
-                borderRadius: BorderRadius.all(Radius.circular(20))
-              ),
-            )),
-            Flexible(child: Container(
-              margin: EdgeInsets.all(3),
-              height: itemHeight,
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(.3),
-                borderRadius: BorderRadius.all(Radius.circular(20))
-              ),
-            ))
-          ],)*/
         ],
       ),
     );
