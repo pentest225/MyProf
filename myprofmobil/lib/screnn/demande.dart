@@ -5,6 +5,7 @@ import 'profProfil.dart';
 import 'suivant.dart';
 
 class DemandePage extends StatefulWidget {
+  static const routeName = "anonces";
   @override
   _DemandePageState createState() => _DemandePageState();
 }

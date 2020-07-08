@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
+import '../widgets/multiSelectChip.dart';
 
 class Suivant extends StatefulWidget {
-
   static const routeName = "suivant";
 
   @override
@@ -13,11 +13,15 @@ class Suivant extends StatefulWidget {
 
 class _SuivantState extends State<Suivant> {
 
+
   String radioItem = '';
 
   PageController _controller = PageController();
 
   List<String> selectedChoices = List();
+  bool isSelected = false;
+  bool singleCourMode = false;
+  bool multiCourMode = false;
 
   List<String> specialite = [
     'Programmation',
@@ -44,17 +48,44 @@ class _SuivantState extends State<Suivant> {
     'Golang',
     'PHP',
   ];
-
+  List<String> reportList = [
+    "Not relevant",
+    "Illegal",
+    "Spam",
+    "Offensive",
+    "Uncivil"
+  ];
+  List<String> returnList;
   //int _defaultChoiceIndex = 1;
+  _showReportDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          //Here we will build the content of the dialog
+          return AlertDialog(
+            title: Text("Report Video"),
+            content: MultiSelectedChip(reportList),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("Report"),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
     var item;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: themeColor,
+        backgroundColor: Color.fromRGBO(133, 136, 241, 1),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white,),
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -74,7 +105,9 @@ class _SuivantState extends State<Suivant> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -82,83 +115,85 @@ class _SuivantState extends State<Suivant> {
                         "Informatique",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: Colors.black87, fontSize: 28, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
+                            color: Colors.black87,
+                            fontSize: 28,
+                            fontFamily: 'BAARS',
+                            fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(width: 5,),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            color: themeColor,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Icon(Icons.desktop_mac, size: 20, color: Colors.white,)
-                      ),
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(133, 136, 241, 1),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Icon(
+                            Icons.desktop_mac,
+                            size: 20,
+                            color: Colors.white,
+                          )),
                     ],
                   ),
-                  SizedBox(height: 50,),
+                  SizedBox(
+                    height: 50,
+                  ),
                   Text(
                     "Veuillez clicker sur votre spécialité...",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black54, fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
+                        color: Colors.black54,
+                        fontSize: 18,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700),
                   ),
-                  SizedBox(height: 20,),
-                  Wrap(
-                    children: <Widget>[
-                      for (item in specialite) Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child:   InkWell(
-                            onTap: () {
-                             print('esthy');
-                            },
-                            child:   /*ChoiceChip(
-                              label: Text(specialite[index]),
-                              /*selected: _defaultChoiceIndex == index,
-                              selectedColor: Colors.green,
-                              onSelected: (bool selected) {
-                                setState(() {
-                                  _defaultChoiceIndex = selected ? index : 0;
-                                });
-                              },*/
-                              backgroundColor: Colors.blue,
-                              labelStyle: TextStyle(color: Colors.white),
-                            )*/
-                            Chip(
-                              label: Text('$item'),
-                              labelStyle: TextStyle(
-                                  color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600
-                              ),
-                              backgroundColor: themeColor.withOpacity(0.8),
-                            ),
-                          )
-                      )
-                    ],
+                  SizedBox(
+                    height: 20,
                   ),
-                  SizedBox(height: 100,),
+                  MultiSelectedChip(
+                    specialite,
+                    myReturnList: (myList) {
+                      setState(() {
+                        returnList = myList;
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 100,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       child: Container(
-                        width:  250,
+                        width: 250,
                         height: 40.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
-                              colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                          ),
+                              colors: [
+                                Colors.deepPurple,
+                                Color.fromRGBO(133, 136, 241, 1)
+                              ]),
                         ),
                         child: Material(
                           color: Colors.transparent,
                           child: InkWell(
                             onTap: () {
-                              _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                              _controller.nextPage(
+                                  duration: Duration(milliseconds: 300),
+                                  curve: Curves.ease);
                             },
                             child: Center(
-                              child: Text('Suivant', style: TextStyle(
-                                  color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                              ),),
+                              child: Text(
+                                'Suivant',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16),
+                              ),
                             ),
                           ),
                         ),
@@ -176,7 +211,9 @@ class _SuivantState extends State<Suivant> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -184,47 +221,53 @@ class _SuivantState extends State<Suivant> {
                         "Informatique",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: Colors.black87, fontSize: 28, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
+                            color: Colors.black87,
+                            fontSize: 28,
+                            fontFamily: 'BAARS',
+                            fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(width: 5,),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Container(
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: themeColor,
+                              color: Color.fromRGBO(17, 122, 139, 1),
                               borderRadius: BorderRadius.circular(5)),
-                          child: Icon(Icons.desktop_mac, size: 20, color: Colors.white,)
-                      ),
+                          child: Icon(
+                            Icons.desktop_mac,
+                            size: 20,
+                            color: Colors.white,
+                          )),
                     ],
                   ),
-                  SizedBox(height: 40,),
+                  SizedBox(
+                    height: 40,
+                  ),
                   Text(
                     "Veuillez clicker sur vos compétences (5maximums)...",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black54, fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.w700),
+                        color: Colors.black54,
+                        fontSize: 18,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700),
                   ),
-                  SizedBox(height: 20,),
-                  Wrap(
-                    children: <Widget>[
-                      for (item in competences) Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child:   InkWell(
-                            onTap: () {
-                              print('esthy');
-                            },
-                            child:   Chip(
-                              label: Text('$item'),
-                              labelStyle: TextStyle(
-                                  color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600
-                              ),
-                              backgroundColor: themeColor.withOpacity(0.8),
-                            ),
-                          )
-                      )
-                    ],
+                  SizedBox(
+                    height: 20,
                   ),
-                  SizedBox(height: 100,),
+                  MultiSelectedChip(
+                    competences,
+                    myReturnList: (myList) {
+                      setState(() {
+                        returnList = myList;
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 100,
+                  ),
                   Row(
                     children: <Widget>[
                       Padding(
@@ -232,25 +275,33 @@ class _SuivantState extends State<Suivant> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: Container(
-                            width:  150,
+                            width: 150,
                             height: 40.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
-                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                              ),
+                                  colors: [
+                                    Colors.deepPurple,
+                                    Color.fromRGBO(133, 136, 241, 1)
+                                  ]),
                             ),
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
-                                  _controller.previousPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                  _controller.previousPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease);
                                 },
                                 child: Center(
-                                  child: Text('Retour', style: TextStyle(
-                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                  ),),
+                                  child: Text(
+                                    'Retour',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
                                 ),
                               ),
                             ),
@@ -262,25 +313,33 @@ class _SuivantState extends State<Suivant> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: Container(
-                            width:  150,
+                            width: 150,
                             height: 40.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
-                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                              ),
+                                  colors: [
+                                    Colors.deepPurple,
+                                    Color.fromRGBO(133, 136, 241, 1)
+                                  ]),
                             ),
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
-                                  _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                  _controller.nextPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease);
                                 },
                                 child: Center(
-                                  child: Text('Suivant', style: TextStyle(
-                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                  ),),
+                                  child: Text(
+                                    'Suivant',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
                                 ),
                               ),
                             ),
@@ -299,7 +358,9 @@ class _SuivantState extends State<Suivant> {
             color: Colors.white,
             child: Column(
               children: <Widget>[
-                SizedBox(height: 80,),
+                SizedBox(
+                  height: 80,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -307,76 +368,142 @@ class _SuivantState extends State<Suivant> {
                       "Informatique",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.black87, fontSize: 28, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
+                          color: Colors.black87,
+                          fontSize: 28,
+                          fontFamily: 'BAARS',
+                          fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(width: 5,),
+                    SizedBox(
+                      width: 5,
+                    ),
                     Container(
                         height: 30,
                         width: 30,
                         decoration: BoxDecoration(
-                            color: themeColor,
+                            color: Color.fromRGBO(17, 122, 139, 1),
                             borderRadius: BorderRadius.circular(5)),
-                        child: Icon(Icons.desktop_mac, size: 20, color: Colors.white,)
-                    ),
+                        child: Icon(
+                          Icons.desktop_mac,
+                          size: 20,
+                          color: Colors.white,
+                        )),
                   ],
                 ),
-                SizedBox(height: 60,),
+                SizedBox(
+                  height: 60,
+                ),
                 Text(
                   "Quel type de cours souhaitez-vous donner?",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      color: Colors.black, fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.w600),
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                  Card(
-                    child: Container(
-                      height: 150,
-                      width: 160,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(5)
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(
-                            height: 15,
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          singleCourMode = !singleCourMode;
+                        });
+                      },
+                      child: Card(
+                        elevation: singleCourMode ? 15 : 0,
+                        color: singleCourMode
+                            ? themeColor.withOpacity(.5)
+                            : bgColor,
+                        child: Container(
+                          height: 150,
+                          width: 160,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Icon(
+                                Icons.person,
+                                size: 60,
+                                color: singleCourMode
+                                    ? Colors.white
+                                    : Color.fromRGBO(17, 122, 139, 1),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Cours individuel',
+                                style: TextStyle(
+                                    color: singleCourMode
+                                        ? Colors.white
+                                        : accanceColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Roboto'),
+                              )
+                            ],
                           ),
-                          Icon(Icons.person, size: 60, color: themeColor,),
-                          SizedBox(height: 10,),
-                          Text('Cours individuel', style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'Roboto'
-                          ),)
-                        ],
-                      ),
-                    ),
-                  ),
-                    Card(
-                      child: Container(
-                        height: 150,
-                        width: 160,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(5)
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Icon(Icons.people, size: 60, color: themeColor,),
-                            SizedBox(height: 10,),
-                            Text('Cours en groupe', style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'Roboto'
-                            ),)
-                          ],
                         ),
                       ),
                     ),
-                ],),
-                SizedBox(height: 70,),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          multiCourMode = !multiCourMode;
+                        });
+                      },
+                      child: Card(
+                        elevation: multiCourMode ? 15 : 0,
+                        color: multiCourMode
+                            ? themeColor.withOpacity(.5)
+                            : bgColor,
+                        child: Container(
+                          height: 150,
+                          width: 160,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Icon(
+                                Icons.people,
+                                size: 60,
+                                color: singleCourMode
+                                    ? Colors.white
+                                    : Color.fromRGBO(17, 122, 139, 1),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Cours en groupe',
+                                style: TextStyle(
+                                    color: multiCourMode
+                                        ? Colors.white
+                                        : accanceColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Roboto'),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 70,
+                ),
                 Row(
                   children: <Widget>[
                     Padding(
@@ -384,25 +511,33 @@ class _SuivantState extends State<Suivant> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         child: Container(
-                          width:  150,
+                          width: 150,
                           height: 40.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
-                                colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                            ),
+                                colors: [
+                                  Colors.deepPurple,
+                                  Color.fromRGBO(133, 136, 241, 1)
+                                ]),
                           ),
                           child: Material(
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                _controller.previousPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                _controller.previousPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease);
                               },
                               child: Center(
-                                child: Text('Retour', style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                ),),
+                                child: Text(
+                                  'Retour',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16),
+                                ),
                               ),
                             ),
                           ),
@@ -414,25 +549,33 @@ class _SuivantState extends State<Suivant> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         child: Container(
-                          width:  150,
+                          width: 150,
                           height: 40.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
-                                colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                            ),
+                                colors: [
+                                  Colors.deepPurple,
+                                  Color.fromRGBO(133, 136, 241, 1)
+                                ]),
                           ),
                           child: Material(
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                _controller.nextPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease);
                               },
                               child: Center(
-                                child: Text('Suivant', style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                ),),
+                                child: Text(
+                                  'Suivant',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16),
+                                ),
                               ),
                             ),
                           ),
@@ -451,7 +594,9 @@ class _SuivantState extends State<Suivant> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 50,),
+                  SizedBox(
+                    height: 50,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -459,28 +604,46 @@ class _SuivantState extends State<Suivant> {
                         "Informatique",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: Colors.black87, fontSize: 28, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
+                            color: Colors.black87,
+                            fontSize: 28,
+                            fontFamily: 'BAARS',
+                            fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(width: 5,),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Container(
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: themeColor,
+                              color: Color.fromRGBO(17, 122, 139, 1),
                               borderRadius: BorderRadius.circular(5)),
-                          child: Icon(Icons.desktop_mac, size: 20, color: Colors.white,)
-                      ),
+                          child: Icon(
+                            Icons.desktop_mac,
+                            size: 20,
+                            color: Colors.white,
+                          )),
                     ],
                   ),
-                  SizedBox(height: 30,),
-                  Text('Trouvons un beau titre pour votre annonce', style: TextStyle(
-                      color: Colors.black54, fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.w700),),
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    'Trouvons un beau titre pour votre annonce',
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 18,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
                   Container(
                       padding: EdgeInsets.only(left: 12),
                       //smargin: EdgeInsets.only(left: 15),
                       height: 100,
-                      width: MediaQuery.of(context).size.width/1.05,
+                      width: MediaQuery.of(context).size.width / 1.05,
                       decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.3),
                         borderRadius: BorderRadius.circular(10),
@@ -490,42 +653,56 @@ class _SuivantState extends State<Suivant> {
                         //keyboardType: TextInputType.multiline,
                         maxLines: null,
                         decoration: InputDecoration(
-                          hintText: 'Ex: Ingénieur informatique donne des cours...',
-                          hintStyle: TextStyle(
-                              color: Colors.black54, fontSize: 18
-                          ),
+                          hintText:
+                              'Ex: Ingénieur informatique donne des cours...',
+                          hintStyle:
+                              TextStyle(color: Colors.black54, fontSize: 18),
                           border: InputBorder.none,
                           //icon: Icon(Icons.mail, size: 18, color:  Color.fromRGBO(17, 122, 139, 1)),
                         ),
-                      )
+                      )),
+                  SizedBox(
+                    height: 35,
                   ),
-                  SizedBox(height: 35,),
                   Container(
                     height: 150,
-                    width: MediaQuery.of(context).size.width/1.2,
+                    width: MediaQuery.of(context).size.width / 1.2,
                     decoration: BoxDecoration(
                         color: accanceColor,
-                      borderRadius: BorderRadius.circular(10)
-                    ),
+                        borderRadius: BorderRadius.circular(10)),
                     child: Column(
                       children: <Widget>[
-                        SizedBox(height: 10,),
-                        Text('Attention:', style: TextStyle(
-                            color: Colors.white, fontSize: 18, fontFamily: 'BAARS', fontWeight: FontWeight.w600
-                        ),),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          'Attention:',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontFamily: 'BAARS',
+                              fontWeight: FontWeight.w600),
+                        ),
                         Center(
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text('Votre titre est la clef de voûte de votre annonce. Bichonnez-le, il doit être accrocheur et contenir au moins 12 mots, comme'
-                                'L’intitulé des matières que vous enseignez,  Vos spécificités (diplôme, méthode, etc.)', style: TextStyle(
-                                color: Colors.white, fontSize: 15, fontFamily: 'BAARS', fontWeight: FontWeight.w400
-                            ),),
+                            child: Text(
+                              'Votre titre est la clef de voûte de votre annonce. Bichonnez-le, il doit être accrocheur et contenir au moins 12 mots, comme'
+                              'L’intitulé des matières que vous enseignez,  Vos spécificités (diplôme, méthode, etc.)',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontFamily: 'BAARS',
+                                  fontWeight: FontWeight.w400),
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Row(
                     children: <Widget>[
                       Padding(
@@ -533,25 +710,33 @@ class _SuivantState extends State<Suivant> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: Container(
-                            width:  150,
+                            width: 150,
                             height: 40.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
-                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                              ),
+                                  colors: [
+                                    Colors.deepPurple,
+                                    Color.fromRGBO(133, 136, 241, 1)
+                                  ]),
                             ),
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
-                                  _controller.previousPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                  _controller.previousPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease);
                                 },
                                 child: Center(
-                                  child: Text('Retour', style: TextStyle(
-                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                  ),),
+                                  child: Text(
+                                    'Retour',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
                                 ),
                               ),
                             ),
@@ -563,25 +748,33 @@ class _SuivantState extends State<Suivant> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: Container(
-                            width:  150,
+                            width: 150,
                             height: 40.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
-                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                              ),
+                                  colors: [
+                                    Colors.deepPurple,
+                                    Color.fromRGBO(133, 136, 241, 1)
+                                  ]),
                             ),
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
-                                  _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                  _controller.nextPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease);
                                 },
                                 child: Center(
-                                  child: Text('Suivant', style: TextStyle(
-                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                  ),),
+                                  child: Text(
+                                    'Suivant',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
                                 ),
                               ),
                             ),
@@ -1121,6 +1314,21 @@ class _SuivantState extends State<Suivant> {
                       ),
                     ),
                   ],
+                 ),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "Informations Personnelles",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 25,
+                      fontFamily: 'BAARS',
+                      fontWeight: FontWeight.w700),
+                ),
+                SizedBox(
+                  height: 30,
                 ),
               ],
             ),

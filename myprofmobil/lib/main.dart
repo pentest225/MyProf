@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
           ContactPage.routeName : (context)=> ContactPage(),
           Dashboard.routeName : (context)=> Dashboard(),
           SearchPage.routeName :(context)=>SearchPage(),
+          
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),
