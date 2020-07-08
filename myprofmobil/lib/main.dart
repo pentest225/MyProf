@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
           DemandePage.routeName:(context)=>DemandePage(),
           Inscription.routeName:(context)=>Inscription(),
           Connexion.routeNamed:(context)=>Connexion(),
+          Dashboard.routeName:(context)=>Dashboard(),
           
           // profProfil.routeName: (ctx)=>MyHome()
         },
