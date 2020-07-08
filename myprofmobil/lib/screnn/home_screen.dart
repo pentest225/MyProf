@@ -532,6 +532,11 @@ class SheetContainer extends StatelessWidget {
                   height: itemHeight,
                   width: MediaQuery.of(context).size.width/1.5,
                   decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/un.png'),
+                      fit: BoxFit.cover,
+                        colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.7), BlendMode.darken)
+                    ),
                       color: themeColor.withOpacity(.6),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Column(
@@ -543,7 +548,7 @@ class SheetContainer extends StatelessWidget {
                           child: Text(
                         'Le professeur adéquat',
                         style: TextStyle(
-                            color: Colors.white,
+                            color: themeColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 18),
                       )),
@@ -557,7 +562,7 @@ class SheetContainer extends StatelessWidget {
                             fontFamily: 'BAARS',
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black87.withOpacity(0.5)),
+                            color: Colors.white.withOpacity(0.8)),
                       ))
                     ],
                   ),
@@ -568,6 +573,11 @@ class SheetContainer extends StatelessWidget {
                   height: itemHeight,
                   width: MediaQuery.of(context).size.width/1.5,
                   decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/deux.png'),
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.7), BlendMode.darken)
+                      ),
                       color: themeColor.withOpacity(.6),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Column(
@@ -579,7 +589,7 @@ class SheetContainer extends StatelessWidget {
                           child: Text(
                         'Organisez vos cours',
                         style: TextStyle(
-                            color: Colors.white,
+                            color: themeColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 18),
                       )),
@@ -593,7 +603,7 @@ class SheetContainer extends StatelessWidget {
                             fontFamily: 'BAARS',
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black87.withOpacity(0.5)),
+                            color: Colors.white.withOpacity(0.8)),
                       ))
                     ],
                   ),
@@ -604,6 +614,11 @@ class SheetContainer extends StatelessWidget {
                   height: itemHeight,
                   width: MediaQuery.of(context).size.width/1.5,
                   decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/trois.png'),
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.7), BlendMode.darken)
+                      ),
                       color: themeColor.withOpacity(.6),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Column(
@@ -615,7 +630,7 @@ class SheetContainer extends StatelessWidget {
                           child: Text(
                         'Vivez de nouvelles expériences',
                         style: TextStyle(
-                            color: Colors.white,
+                            color: themeColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 18),
                       )),
@@ -629,7 +644,7 @@ class SheetContainer extends StatelessWidget {
                             fontFamily: 'BAARS',
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black87.withOpacity(0.5)),
+                            color: Colors.white.withOpacity(0.8)),
                       ))
                     ],
                   ),

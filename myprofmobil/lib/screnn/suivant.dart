@@ -80,7 +80,7 @@ class _SuivantState extends State<Suivant> {
     var item;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(133, 136, 241, 1),
+        backgroundColor: themeColor,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
@@ -127,7 +127,7 @@ class _SuivantState extends State<Suivant> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Color.fromRGBO(133, 136, 241, 1),
+                              color: themeColor,
                               borderRadius: BorderRadius.circular(5)),
                           child: Icon(
                             Icons.desktop_mac,
@@ -380,7 +380,7 @@ class _SuivantState extends State<Suivant> {
                         height: 30,
                         width: 30,
                         decoration: BoxDecoration(
-                            color: Color.fromRGBO(17, 122, 139, 1),
+                            color: themeColor,
                             borderRadius: BorderRadius.circular(5)),
                         child: Icon(
                           Icons.desktop_mac,
@@ -616,7 +616,7 @@ class _SuivantState extends State<Suivant> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Color.fromRGBO(17, 122, 139, 1),
+                              color: themeColor,
                               borderRadius: BorderRadius.circular(5)),
                           child: Icon(
                             Icons.desktop_mac,
@@ -825,6 +825,7 @@ class _SuivantState extends State<Suivant> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: RadioListTile(
+                            activeColor: accanceColor,
                             title: Text("je peux encadrer l'élève à mon domicile", style: TextStyle(
                               color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18
                             ),),
@@ -847,6 +848,7 @@ class _SuivantState extends State<Suivant> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: RadioListTile(
+                            activeColor: accanceColor,
                               title: Text("je peux me déplacer chez l'élève", style: TextStyle(
                                   color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18
                               ),),
@@ -869,6 +871,7 @@ class _SuivantState extends State<Suivant> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: RadioListTile(
+                            activeColor: accanceColor,
                               title: Text("je peux donner des cours par webcam", style: TextStyle(
                                   color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18
                               ),),
@@ -989,6 +992,7 @@ class _SuivantState extends State<Suivant> {
                         ),
                         child: Center(
                           child: TextField(
+                            keyboardType: TextInputType.number,
                             cursorColor: Colors.grey,
                             decoration: InputDecoration(
                               hintText: '2500',
@@ -1193,144 +1197,134 @@ class _SuivantState extends State<Suivant> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             color: Colors.white,
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 50,),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Votre plus beau profil",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.black87, fontSize: 25, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
-                  ),
-                ),
-               SizedBox(height: 30,),
-                Container(
-                  height: 200,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    color: themeColor,
-                    shape: BoxShape.circle,
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/books.jpg'),
-                          fit: BoxFit.cover)
-                  ),
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      height: MediaQuery.of(context).size.height/18,
-                      width: MediaQuery.of(context).size.width/3,
-                      decoration: BoxDecoration(
-                          color: accanceColor,
-                          borderRadius: BorderRadius.circular(100)
-                      ),
-                      child: Center(
-                          child: Text('Télécharger', style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14
-                          ),)
-                      ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 50,),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Votre plus beau profil",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black87, fontSize: 25, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(width: 10,),
-                    Container(
-                      height: MediaQuery.of(context).size.height/18,
-                      width: MediaQuery.of(context).size.width/3,
-                      decoration: BoxDecoration(
-                          color: accanceColor,
-                          borderRadius: BorderRadius.circular(100)
-                      ),
-                      child: Center(
-                          child: Text('Récadrer', style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14
-                          ),)
-                      ),
+                  ),
+                 SizedBox(height: 30,),
+                  Container(
+                    height: 200,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      color: themeColor,
+                      shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/books.jpg'),
+                            fit: BoxFit.cover)
                     ),
-                  ],
-                ),
-                SizedBox(height: 40,),
-                Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        child: Container(
-                          width:  100,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
+                  ),
+                  SizedBox(height: 20,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        height: MediaQuery.of(context).size.height/18,
+                        width: MediaQuery.of(context).size.width/3,
+                        decoration: BoxDecoration(
+                            color: accanceColor,
+                            borderRadius: BorderRadius.circular(100)
+                        ),
+                        child: Center(
+                            child: Text('Télécharger', style: TextStyle(
+                                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14
+                            ),)
+                        ),
+                      ),
+                      SizedBox(width: 10,),
+                      Container(
+                        height: MediaQuery.of(context).size.height/18,
+                        width: MediaQuery.of(context).size.width/3,
+                        decoration: BoxDecoration(
+                            color: accanceColor,
+                            borderRadius: BorderRadius.circular(100)
+                        ),
+                        child: Center(
+                            child: Text('Récadrer', style: TextStyle(
+                                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14
+                            ),)
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 40,),
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          child: Container(
+                            width:  100,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
+                              ),
                             ),
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {
-                                _controller.previousPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
-                              },
-                              child: Center(
-                                child: Text('Retour', style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                ),),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () {
+                                  _controller.previousPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                },
+                                child: Center(
+                                  child: Text('Retour', style: TextStyle(
+                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
+                                  ),),
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        child: Container(
-                          width:  210,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          child: Container(
+                            width:  210,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
+                              ),
                             ),
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {
-                                _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
-                              },
-                              child: Center(
-                                child: Text('Terminer mon annonce', style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                ),),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () {
+                                  _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                },
+                                child: Center(
+                                  child: Text('Terminer mon annonce', style: TextStyle(
+                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
+                                  ),),
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                 ),
-                SizedBox(
-                  height: 30,
-                ),
-                Text(
-                  "Informations Personnelles",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.black87,
-                      fontSize: 25,
-                      fontFamily: 'BAARS',
-                      fontWeight: FontWeight.w700),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-              ],
+                    ],
+                   ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                ],
+              ),
             ),
           ),
           Container(
@@ -1443,7 +1437,7 @@ class _SuivantState extends State<Suivant> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Icon(Icons.message, size: 18, color: Colors.white,),
+                                Icon(Icons.mail, size: 18, color: Colors.white,),
                                 SizedBox(width: 5,),
                                 Text('Mail', style: TextStyle(
                                     color: Colors.white, fontSize: 18, fontFamily: 'BAARS', fontWeight: FontWeight.w700
@@ -1466,8 +1460,14 @@ class _SuivantState extends State<Suivant> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Icon(Icons.message, size: 18, color: Colors.white,),
-                                SizedBox(width: 5,),
+                                Text(
+                                  'f',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: 18),
+                                ),
+                                SizedBox(width: 15,),
                                 Text('Facebook', style: TextStyle(
                                     color: Colors.white, fontSize: 18, fontFamily: 'BAARS', fontWeight: FontWeight.w700
                                 ),)
@@ -1506,13 +1506,25 @@ class _SuivantState extends State<Suivant> {
                             height: 50,
                             width: MediaQuery.of(context).size.width/1.2,
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(93, 153, 251, 1),
+                                color: accanceColor,
                                 borderRadius: BorderRadius.circular(100)
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Icon(Icons.message, size: 18, color: Colors.white,),
+                                Container(
+                                  height: 18,
+                                  width: 1,
+                                  color: Colors.white,
+                                  child: Center(
+                                      child: Text(
+                                        'in',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: accanceColor,
+                                            fontSize: 15),
+                                      )),
+                                ),
                                 SizedBox(width: 5,),
                                 Text('Linkedin', style: TextStyle(
                                     color: Colors.white, fontSize: 18, fontFamily: 'BAARS', fontWeight: FontWeight.w700
@@ -1556,6 +1568,7 @@ class _SuivantState extends State<Suivant> {
                       ),
                     ),
                   ),
+                  SizedBox(height: 30,),
                 ],
               ),
             ),
