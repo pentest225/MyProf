@@ -50,7 +50,6 @@ class _SuivantState extends State<Suivant> {
   Future getImageFromFils() async {
     try {
       setState(() {
-        
       _loadImage = true;
       });
       final pickedFile = await picker.getImage(source: ImageSource.gallery);
@@ -1544,6 +1543,7 @@ class _SuivantState extends State<Suivant> {
                     padding: const EdgeInsets.all(8.0),
                     child: FAProgressBar(
                       progressColor: accanceColor,
+                      
                       currentValue: 90,
                       displayText: '%',
                       animatedDuration: Duration(seconds: 1),
