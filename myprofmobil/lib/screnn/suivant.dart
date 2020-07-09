@@ -2,10 +2,15 @@ import 'dart:io';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
 import '../widgets/multiSelectChip.dart';
+
+import 'package:percent_indicator/percent_indicator.dart';
+
+
 import 'package:image_picker/image_picker.dart';
 
 class Suivant extends StatefulWidget {
@@ -145,6 +150,34 @@ class _SuivantState extends State<Suivant> {
                   SizedBox(
                     height: 20,
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FAProgressBar(
+                      progressColor: accanceColor,
+                      currentValue: 15,
+                      displayText: '%',
+                      animatedDuration: Duration(seconds: 1),
+                      maxValue: 100,
+                    ),
+                  ),
+                  /*Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: new LinearPercentIndicator(
+                      width: MediaQuery.of(context).size.width/1.1,
+                      animation: true,
+                      lineHeight: 20.0,
+                      animationDuration: 2000,
+                      percent: 0.15,
+                      center: Text("15.0%", style: TextStyle(
+                          color: Colors.white
+                      ),),
+                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      progressColor: accanceColor,
+                    ),
+                  ),*/
+                  SizedBox(
+                    height: 30,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -251,6 +284,34 @@ class _SuivantState extends State<Suivant> {
                 children: <Widget>[
                   SizedBox(
                     height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FAProgressBar(
+                      progressColor: accanceColor,
+                      currentValue: 25,
+                      displayText: '%',
+                     animatedDuration: Duration(seconds: 1),
+                      maxValue: 100,
+                    ),
+                  ),
+                  /*Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: new LinearPercentIndicator(
+                      width: MediaQuery.of(context).size.width/1.1,
+                      animation: true,
+                      lineHeight: 20.0,
+                      animationDuration: 2000,
+                      percent: 0.25,
+                      center: Text("25.0%", style: TextStyle(
+                          color: Colors.white
+                      ),),
+                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      progressColor: accanceColor,
+                    ),
+                  ),*/
+                  SizedBox(
+                    height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -398,7 +459,35 @@ class _SuivantState extends State<Suivant> {
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: 80,
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FAProgressBar(
+                    progressColor: accanceColor,
+                    currentValue: 30,
+                    displayText: '%',
+                    animatedDuration: Duration(seconds: 1),
+                    maxValue: 100,
+                  ),
+                ),
+                /*Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: new LinearPercentIndicator(
+                    width: MediaQuery.of(context).size.width/1.1,
+                    animation: true,
+                    lineHeight: 20.0,
+                    animationDuration: 2000,
+                    percent: 0.30,
+                    center: Text("30.0%", style: TextStyle(
+                        color: Colors.white
+                    ),),
+                    linearStrokeCap: LinearStrokeCap.roundAll,
+                    progressColor: accanceColor,
+                  ),
+                ),*/
+                SizedBox(
+                  height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -635,7 +724,35 @@ class _SuivantState extends State<Suivant> {
               child: Column(
                 children: <Widget>[
                   SizedBox(
-                    height: 50,
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FAProgressBar(
+                      progressColor: accanceColor,
+                      currentValue:45,
+                      displayText: '%',
+                      animatedDuration: Duration(seconds: 1),
+                      maxValue: 100,
+                    ),
+                  ),
+                  /*Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: new LinearPercentIndicator(
+                      width: MediaQuery.of(context).size.width/1.1,
+                      animation: true,
+                      lineHeight: 20.0,
+                      animationDuration: 2000,
+                      percent: 0.45,
+                      center: Text("45.0%", style: TextStyle(
+                          color: Colors.white
+                      ),),
+                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      progressColor: accanceColor,
+                    ),
+                  ),*/
+                  SizedBox(
+                    height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -835,6 +952,32 @@ class _SuivantState extends State<Suivant> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
+                  SizedBox(height: 30,),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FAProgressBar(
+                      progressColor: accanceColor,
+                      currentValue: 60,
+                      displayText: '%',
+                      animatedDuration: Duration(seconds: 1),
+                      maxValue: 100,
+                    ),
+                  ),
+                  /*Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: new LinearPercentIndicator(
+                      width: MediaQuery.of(context).size.width/1.1,
+                      animation: true,
+                      lineHeight: 20.0,
+                      animationDuration: 2000,
+                      percent: 0.60,
+                      center: Text("60.0%", style: TextStyle(
+                          color: Colors.white
+                      ),),
+                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      progressColor: accanceColor,
+                    ),
+                  ),*/
                   SizedBox(
                     height: 30,
                   ),
@@ -1052,8 +1195,37 @@ class _SuivantState extends State<Suivant> {
             color: Colors.white,
             child: Column(
               children: <Widget>[
+                SizedBox(height: 40,),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FAProgressBar(
+                    progressColor: accanceColor,
+                    currentValue: 75,
+                    displayText: '%',
+                    animatedDuration: Duration(seconds: 1),
+                    maxValue: 100,
+                  ),
+                ),
+                /*Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: new LinearPercentIndicator(
+                    width: MediaQuery.of(context).size.width/1.1,
+                    animation: true,
+                    lineHeight: 20.0,
+                    animationDuration: 2000,
+                    percent: 0.75,
+                    center: Text("75.0%", style: TextStyle(
+                        color: Colors.white
+                    ),),
+                    linearStrokeCap: LinearStrokeCap.roundAll,
+                    progressColor: accanceColor,
+                  ),
+                ),*/
+                SizedBox(
+                  height: 30,),
                 SizedBox(
                   height: 80,
+
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -1209,8 +1381,37 @@ class _SuivantState extends State<Suivant> {
             color: Colors.white,
             child: Column(
               children: <Widget>[
+                SizedBox(height: 40,),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FAProgressBar(
+                    progressColor: accanceColor,
+                    currentValue: 85,
+                    displayText: '%',
+                    animatedDuration: Duration(seconds: 1),
+                    maxValue: 100,
+                  ),
+                ),
+               /* Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: new LinearPercentIndicator(
+                    width: MediaQuery.of(context).size.width/1.1,
+                    animation: true,
+                    lineHeight: 20.0,
+                    animationDuration: 2000,
+                    percent: 0.85,
+                    center: Text("85.0%", style: TextStyle(
+                        color: Colors.white
+                    ),),
+                    linearStrokeCap: LinearStrokeCap.roundAll,
+                    progressColor: accanceColor,
+                  ),
+                ),*/
+                SizedBox(
+                  height: 30,),
                 SizedBox(
                   height: 120,
+
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -1338,6 +1539,34 @@ class _SuivantState extends State<Suivant> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
+                  SizedBox(height: 40,),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FAProgressBar(
+                      progressColor: accanceColor,
+                      currentValue: 90,
+                      displayText: '%',
+                      animatedDuration: Duration(seconds: 1),
+                      maxValue: 100,
+                    ),
+                  ),
+                  /*Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: new LinearPercentIndicator(
+                      width: MediaQuery.of(context).size.width/1.1,
+                      animation: true,
+                      lineHeight: 20.0,
+                      animationDuration: 2000,
+                      percent: 0.90,
+                      center: Text("90.0%", style: TextStyle(
+                          color: Colors.white
+                      ),),
+                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      progressColor: accanceColor,
+                    ),
+                  ),*/
+                  SizedBox(
+                    height: 30,),
                   SizedBox(
                     height: 50,
                   ),
@@ -1512,6 +1741,34 @@ class _SuivantState extends State<Suivant> {
                 children: <Widget>[
                   SizedBox(
                     height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FAProgressBar(
+                      progressColor: accanceColor,
+                      currentValue: 100,
+                      displayText: '%',
+                      animatedDuration: Duration(seconds: 1),
+                      maxValue: 100,
+                    ),
+                  ),
+                  /*Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: new LinearPercentIndicator(
+                      width: MediaQuery.of(context).size.width/1.1,
+                      animation: true,
+                      lineHeight: 20.0,
+                      animationDuration: 2000,
+                      percent: 1.0,
+                      center: Text("100.0%", style: TextStyle(
+                        color: Colors.white
+                      ),),
+                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      progressColor: accanceColor,
+                    ),
+                  ),*/
+                  SizedBox(
+                    height: 30,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
