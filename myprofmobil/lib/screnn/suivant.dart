@@ -1,8 +1,13 @@
+import 'dart:io';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
 import '../widgets/multiSelectChip.dart';
+import 'package:image_picker/image_picker.dart';
+
 
 class Suivant extends StatefulWidget {
   static const routeName = "suivant";
@@ -12,8 +17,6 @@ class Suivant extends StatefulWidget {
 }
 
 class _SuivantState extends State<Suivant> {
-
-
   String radioItem = '';
 
   PageController _controller = PageController();
@@ -22,6 +25,33 @@ class _SuivantState extends State<Suivant> {
   bool isSelected = false;
   bool singleCourMode = false;
   bool multiCourMode = false;
+  File _image;
+  final picker = ImagePicker();
+
+   Future getImage() async {
+    try {
+      final pickedFile = await picker.getImage(source: ImageSource.camera);
+      print("get Image ${pickedFile.runtimeType}");
+      print("get Image ${pickedFile.path}");
+      setState(() {
+        _image = File(pickedFile.path);
+        print(_image.runtimeType);
+      });
+    } catch (error) {
+      print("Error to picke Image ${error.toString()}");
+    }
+  }
+
+  
+  Future getImageFromFils() async {
+    try {
+      final pickedFile = await picker.getImage(source: ImageSource.gallery);
+      _image = File(pickedFile.path);
+      print("Image From Galerie ${_image}");
+    } catch (error) {
+      print("Error to get Image from fils ${error.toString()}");
+    }
+  }
 
   List<String> specialite = [
     'Programmation',
@@ -98,6 +128,7 @@ class _SuivantState extends State<Suivant> {
         controller: _controller,
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
+          // PAGE 1
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -204,6 +235,7 @@ class _SuivantState extends State<Suivant> {
               ),
             ),
           ),
+          //PAGE 2
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -352,6 +384,7 @@ class _SuivantState extends State<Suivant> {
               ),
             ),
           ),
+          // PAGE 3
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -587,6 +620,7 @@ class _SuivantState extends State<Suivant> {
               ],
             ),
           ),
+          // PAGE 4
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -787,6 +821,7 @@ class _SuivantState extends State<Suivant> {
               ),
             ),
           ),
+          // PAGE 5
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -794,28 +829,39 @@ class _SuivantState extends State<Suivant> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Container(
                       alignment: Alignment.center,
                       child: SvgPicture.asset(
                         "assets/images/c.svg",
                         width: MediaQuery.of(context).size.width / 2.1,
                       )),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     "Ou se déroulent vos cours ?",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black87, fontSize: 25, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
+                        color: Colors.black87,
+                        fontSize: 25,
+                        fontFamily: 'BAARS',
+                        fontWeight: FontWeight.w700),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Container(
-                    height: MediaQuery.of(context).size.height/1.9,
-                    width: MediaQuery.of(context).size.width/1.1,
+                    height: MediaQuery.of(context).size.height / 1.9,
+                    width: MediaQuery.of(context).size.width / 1.1,
                     color: Colors.grey.withOpacity(0.1),
                     child: Column(
                       children: <Widget>[
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Container(
                           padding: EdgeInsets.only(top: 20),
                           height: 100,
@@ -826,11 +872,15 @@ class _SuivantState extends State<Suivant> {
                           ),
                           child: RadioListTile(
                             activeColor: accanceColor,
-                            title: Text("je peux encadrer l'élève à mon domicile", style: TextStyle(
-                              color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18
-                            ),),
-                              value: "je peux encadrer l'élève à mon domicile",
-                              groupValue: radioItem,
+                            title: Text(
+                              "je peux encadrer l'élève à mon domicile",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                            value: "je peux encadrer l'élève à mon domicile",
+                            groupValue: radioItem,
                             onChanged: (val) {
                               setState(() {
                                 radioItem = val;
@@ -838,7 +888,9 @@ class _SuivantState extends State<Suivant> {
                             },
                           ),
                         ),
-                        SizedBox(height: 12,),
+                        SizedBox(
+                          height: 12,
+                        ),
                         Container(
                           padding: EdgeInsets.only(top: 20),
                           height: 100,
@@ -849,11 +901,15 @@ class _SuivantState extends State<Suivant> {
                           ),
                           child: RadioListTile(
                             activeColor: accanceColor,
-                              title: Text("je peux me déplacer chez l'élève", style: TextStyle(
-                                  color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18
-                              ),),
-                              value: "je peux me déplacer chez l'élève",
-                              groupValue: radioItem,
+                            title: Text(
+                              "je peux me déplacer chez l'élève",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                            value: "je peux me déplacer chez l'élève",
+                            groupValue: radioItem,
                             onChanged: (val) {
                               setState(() {
                                 radioItem = val;
@@ -861,7 +917,9 @@ class _SuivantState extends State<Suivant> {
                             },
                           ),
                         ),
-                        SizedBox(height: 12,),
+                        SizedBox(
+                          height: 12,
+                        ),
                         Container(
                           padding: EdgeInsets.only(top: 20),
                           height: 100,
@@ -872,11 +930,15 @@ class _SuivantState extends State<Suivant> {
                           ),
                           child: RadioListTile(
                             activeColor: accanceColor,
-                              title: Text("je peux donner des cours par webcam", style: TextStyle(
-                                  color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18
-                              ),),
-                              value: "je peux donner des cours par webcam",
-                              groupValue: radioItem,
+                            title: Text(
+                              "je peux donner des cours par webcam",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                            value: "je peux donner des cours par webcam",
+                            groupValue: radioItem,
                             onChanged: (val) {
                               setState(() {
                                 radioItem = val;
@@ -887,7 +949,9 @@ class _SuivantState extends State<Suivant> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Row(
                     children: <Widget>[
                       Padding(
@@ -895,25 +959,33 @@ class _SuivantState extends State<Suivant> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: Container(
-                            width:  150,
+                            width: 150,
                             height: 40.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
-                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                              ),
+                                  colors: [
+                                    Colors.deepPurple,
+                                    Color.fromRGBO(133, 136, 241, 1)
+                                  ]),
                             ),
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
-                                  _controller.previousPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                  _controller.previousPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease);
                                 },
                                 child: Center(
-                                  child: Text('Retour', style: TextStyle(
-                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                  ),),
+                                  child: Text(
+                                    'Retour',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
                                 ),
                               ),
                             ),
@@ -925,25 +997,33 @@ class _SuivantState extends State<Suivant> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: Container(
-                            width:  150,
+                            width: 150,
                             height: 40.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
-                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                              ),
+                                  colors: [
+                                    Colors.deepPurple,
+                                    Color.fromRGBO(133, 136, 241, 1)
+                                  ]),
                             ),
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
-                                  _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
+                                  _controller.nextPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease);
                                 },
                                 child: Center(
-                                  child: Text('Suivant', style: TextStyle(
-                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                  ),),
+                                  child: Text(
+                                    'Suivant',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
                                 ),
                               ),
                             ),
@@ -952,374 +1032,6 @@ class _SuivantState extends State<Suivant> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30,),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.white,
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 80,),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Quel est votre tarif pour une heure de cours ?",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.black87, fontSize: 25, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
-                  ),
-                ),
-                SizedBox(height: 10,),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.only(left: 20),
-                        height: MediaQuery.of(context).size.height/12,
-                        width: MediaQuery.of(context).size.width/1.8,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.1),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                          )
-                        ),
-                        child: Center(
-                          child: TextField(
-                            keyboardType: TextInputType.number,
-                            cursorColor: Colors.grey,
-                            decoration: InputDecoration(
-                              hintText: '2500',
-                              border: InputBorder.none
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: MediaQuery.of(context).size.height/12,
-                        width: MediaQuery.of(context).size.width/4,
-                        decoration: BoxDecoration(
-                            color: accanceColor,
-                          borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                          )
-                        ),
-                        child: Center(
-                          child: Text('Frs/h', style: TextStyle(
-                            color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold
-                          ),),
-                        ),
-                      )
-                    ],
-                  ),
-
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        child: Container(
-                          width:  150,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                            ),
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {
-                                _controller.previousPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
-                              },
-                              child: Center(
-                                child: Text('Retour', style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                ),),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        child: Container(
-                          width:  150,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                            ),
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {
-                                _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
-                              },
-                              child: Center(
-                                child: Text('Suivant', style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                ),),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.white,
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 120,),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Coordonnées pour vous contacter",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.black87, fontSize: 25, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
-                  ),
-                ),
-                SizedBox(height: 20,),
-                Container(
-                  padding: EdgeInsets.only(left: 20),
-                  height: MediaQuery.of(context).size.height/12,
-                  width: MediaQuery.of(context).size.width/1.2,
-                  decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(5)
-                  ),
-                  child: Center(
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      cursorColor: Colors.grey,
-                      decoration: InputDecoration(
-                          hintText: 'Numéro de téléphone',
-                          border: InputBorder.none
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10,),
-                Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        child: Container(
-                          width:  150,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                            ),
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {
-                                _controller.previousPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
-                              },
-                              child: Center(
-                                child: Text('Retour', style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                ),),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        child: Container(
-                          width:  150,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                            ),
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {
-                                _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
-                              },
-                              child: Center(
-                                child: Text('Suivant', style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                ),),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.white,
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: 50,),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Votre plus beau profil",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black87, fontSize: 25, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
-                    ),
-                  ),
-                 SizedBox(height: 30,),
-                  Container(
-                    height: 200,
-                    width: 200,
-                    decoration: BoxDecoration(
-                      color: themeColor,
-                      shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/books.jpg'),
-                            fit: BoxFit.cover)
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        height: MediaQuery.of(context).size.height/18,
-                        width: MediaQuery.of(context).size.width/3,
-                        decoration: BoxDecoration(
-                            color: accanceColor,
-                            borderRadius: BorderRadius.circular(100)
-                        ),
-                        child: Center(
-                            child: Text('Télécharger', style: TextStyle(
-                                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14
-                            ),)
-                        ),
-                      ),
-                      SizedBox(width: 10,),
-                      Container(
-                        height: MediaQuery.of(context).size.height/18,
-                        width: MediaQuery.of(context).size.width/3,
-                        decoration: BoxDecoration(
-                            color: accanceColor,
-                            borderRadius: BorderRadius.circular(100)
-                        ),
-                        child: Center(
-                            child: Text('Récadrer', style: TextStyle(
-                                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14
-                            ),)
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 40,),
-                  Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          child: Container(
-                            width:  100,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                              ),
-                            ),
-                            child: Material(
-                              color: Colors.transparent,
-                              child: InkWell(
-                                onTap: () {
-                                  _controller.previousPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
-                                },
-                                child: Center(
-                                  child: Text('Retour', style: TextStyle(
-                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                  ),),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          child: Container(
-                            width:  210,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                  colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                              ),
-                            ),
-                            child: Material(
-                              color: Colors.transparent,
-                              child: InkWell(
-                                onTap: () {
-                                  _controller.nextPage(duration: Duration(milliseconds: 300), curve:Curves.ease);
-                                },
-                                child: Center(
-                                  child: Text('Terminer mon annonce', style: TextStyle(
-                                      color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                                  ),),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                   ),
                   SizedBox(
                     height: 30,
                   ),
@@ -1327,6 +1039,292 @@ class _SuivantState extends State<Suivant> {
               ),
             ),
           ),
+          // PAGE 6
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 80,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Quel est votre tarif pour une heure de cours ?",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 25,
+                        fontFamily: 'BAARS',
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(left: 20),
+                        height: MediaQuery.of(context).size.height / 12,
+                        width: MediaQuery.of(context).size.width / 1.8,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(0.1),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                            )),
+                        child: Center(
+                          child: TextField(
+                            keyboardType: TextInputType.number,
+                            cursorColor: Colors.grey,
+                            decoration: InputDecoration(
+                                hintText: '2500', border: InputBorder.none),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height / 12,
+                        width: MediaQuery.of(context).size.width / 4,
+                        decoration: BoxDecoration(
+                            color: accanceColor,
+                            borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            )),
+                        child: Center(
+                          child: Text(
+                            'Frs/h',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        child: Container(
+                          width: 150,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Colors.deepPurple,
+                                  Color.fromRGBO(133, 136, 241, 1)
+                                ]),
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {
+                                _controller.previousPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease);
+                              },
+                              child: Center(
+                                child: Text(
+                                  'Retour',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        child: Container(
+                          width: 150,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Colors.deepPurple,
+                                  Color.fromRGBO(133, 136, 241, 1)
+                                ]),
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {
+                                _controller.nextPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease);
+                              },
+                              child: Center(
+                                child: Text(
+                                  'Suivant',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          // PAGE 7
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 120,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Coordonnées pour vous contacter",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 25,
+                        fontFamily: 'BAARS',
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 20),
+                  height: MediaQuery.of(context).size.height / 12,
+                  width: MediaQuery.of(context).size.width / 1.2,
+                  decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Center(
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      cursorColor: Colors.grey,
+                      decoration: InputDecoration(
+                          hintText: 'Numéro de téléphone',
+                          border: InputBorder.none),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        child: Container(
+                          width: 150,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Colors.deepPurple,
+                                  Color.fromRGBO(133, 136, 241, 1)
+                                ]),
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {
+                                _controller.previousPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease);
+                              },
+                              child: Center(
+                                child: Text(
+                                  'Retour',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        child: Container(
+                          width: 150,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Colors.deepPurple,
+                                  Color.fromRGBO(133, 136, 241, 1)
+                                ]),
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {
+                                _controller.nextPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease);
+                              },
+                              child: Center(
+                                child: Text(
+                                  'Suivant',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          //PAGE 8
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -1334,35 +1332,226 @@ class _SuivantState extends State<Suivant> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Votre plus beau profil",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 25,
+                          fontFamily: 'BAARS',
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  _image == null ?
+                  Container(
+                    height: 200,
+                    width: 200,
+                    decoration: BoxDecoration(
+                        color: themeColor,
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage(_image == null? 'assets/images/books.jpg':_image),
+                            fit: BoxFit.cover)),
+                  ):Container(
+                    height: 200,
+                    width: 200,
+                    decoration: BoxDecoration(
+                        color: themeColor,
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage(_image == null? 'assets/images/books.jpg':_image),
+                            fit: BoxFit.cover)),
+                            child:Image.file(_image,),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        height: MediaQuery.of(context).size.height / 18,
+                        // width: MediaQuery.of(context).size.width / 25,
+                        decoration: BoxDecoration(
+                            color: accanceColor,
+                            borderRadius: BorderRadius.circular(100)),
+                        child: FlatButton.icon(
+                            onPressed: getImageFromFils,
+                            icon: Icon(Icons.camera_alt),
+                            label: Text(
+                              'Télécharger',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14),
+                            )),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height / 18,
+                        width: MediaQuery.of(context).size.width / 3,
+                        decoration: BoxDecoration(
+                            color: accanceColor,
+                            borderRadius: BorderRadius.circular(100)),
+                        child: Center(
+                            child: Text(
+                          'Récadrer',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14),
+                        )),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          child: Container(
+                            width: 100,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  colors: [
+                                    Colors.deepPurple,
+                                    Color.fromRGBO(133, 136, 241, 1)
+                                  ]),
+                            ),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () {
+                                  _controller.previousPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease);
+                                },
+                                child: Center(
+                                  child: Text(
+                                    'Retour',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          child: Container(
+                            width: 210,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  colors: [
+                                    Colors.deepPurple,
+                                    Color.fromRGBO(133, 136, 241, 1)
+                                  ]),
+                            ),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () {
+                                  _controller.nextPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease);
+                                },
+                                child: Center(
+                                  child: Text(
+                                    'Terminer mon annonce',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          //PAFE 9
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 20,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "Felicitations votre annonce est complète !!!",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.black87, fontSize: 25, fontFamily: 'BAARS', fontWeight: FontWeight.w700),
+                          color: Colors.black87,
+                          fontSize: 25,
+                          fontFamily: 'BAARS',
+                          fontWeight: FontWeight.w700),
                     ),
                   ),
-                  SizedBox(height: 16,),
-                  Container(
-                    padding: EdgeInsets.all(12),
-                      child: Text("Dernière petite chose : enrichissez la avec des recommandations d'amis, de collègues ou d'anciens élèves..."
-                          "Plus vous en avez, plus elle sera appreciée et mieux elle sera positionnée .", style: TextStyle(
-                        color: Colors.black54, fontSize: 18
-                      ),)
+                  SizedBox(
+                    height: 16,
                   ),
-                  SizedBox(height: 16,),
                   Container(
-                    height: MediaQuery.of(context).size.height/1,
-                    width: MediaQuery.of(context).size.width/1.1,
+                      padding: EdgeInsets.all(12),
+                      child: Text(
+                        "Dernière petite chose : enrichissez la avec des recommandations d'amis, de collègues ou d'anciens élèves..."
+                        "Plus vous en avez, plus elle sera appreciée et mieux elle sera positionnée .",
+                        style: TextStyle(color: Colors.black54, fontSize: 18),
+                      )),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height / 1,
+                    width: MediaQuery.of(context).size.width / 1.1,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                      border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1)
-                    ),
+                        border: Border.all(
+                            color: Colors.grey.withOpacity(0.2), width: 1)),
                     child: Column(
                       children: <Widget>[
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Container(
                           height: 150,
                           width: 150,
@@ -1371,92 +1560,131 @@ class _SuivantState extends State<Suivant> {
                               shape: BoxShape.circle,
                               image: DecorationImage(
                                   image: AssetImage('assets/images/books.jpg'),
-                                  fit: BoxFit.cover)
-                          ),
+                                  fit: BoxFit.cover)),
                         ),
-                        SizedBox(height: 5,),
-                        Text('DAGOUAGA', style: TextStyle(
-                          fontSize: 25, fontWeight: FontWeight.bold
-                        ),),
-                        SizedBox(height: 5,),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'DAGOUAGA',
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
                         Container(
-                          height: MediaQuery.of(context).size.height/18,
-                          width: MediaQuery.of(context).size.width/4,
+                          height: MediaQuery.of(context).size.height / 18,
+                          width: MediaQuery.of(context).size.width / 4,
                           decoration: BoxDecoration(
                               color: accanceColor,
-                              borderRadius: BorderRadius.circular(10)
-                          ),
+                              borderRadius: BorderRadius.circular(10)),
                           child: Center(
-                              child: Text('100frs/h', style: TextStyle(
-                                  color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14
-                              ),)
-                          ),
+                              child: Text(
+                            '100frs/h',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
+                          )),
                         ),
-                        SizedBox(height: 15,),
+                        SizedBox(
+                          height: 15,
+                        ),
                         Padding(
                           padding: const EdgeInsets.all(15.0),
                           child: Center(
-                              child: Text('Simplissime, demandez des recommandations à vos amis via :', style: TextStyle(
-                                fontFamily: 'BAARS', fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black54
-                              ),)),
+                              child: Text(
+                            'Simplissime, demandez des recommandations à vos amis via :',
+                            style: TextStyle(
+                                fontFamily: 'BAARS',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Colors.black54),
+                          )),
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         InkWell(
                           onTap: () {},
                           child: Container(
                             padding: EdgeInsets.only(left: 10),
                             height: 50,
-                            width: MediaQuery.of(context).size.width/1.2,
+                            width: MediaQuery.of(context).size.width / 1.2,
                             decoration: BoxDecoration(
                                 color: Colors.green,
-                                borderRadius: BorderRadius.circular(100)
-                            ),
+                                borderRadius: BorderRadius.circular(100)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                              Icon(Icons.message, size: 18, color: Colors.white,),
-                                SizedBox(width: 5,),
-                                Text('SMS', style: TextStyle(
-                                    color: Colors.white, fontSize: 18, fontFamily: 'BAARS', fontWeight: FontWeight.w700
-                                ),)
+                                Icon(
+                                  Icons.message,
+                                  size: 18,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'SMS',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontFamily: 'BAARS',
+                                      fontWeight: FontWeight.w700),
+                                )
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         InkWell(
                           onTap: () {},
                           child: Container(
                             padding: EdgeInsets.only(left: 10),
                             height: 50,
-                            width: MediaQuery.of(context).size.width/1.2,
+                            width: MediaQuery.of(context).size.width / 1.2,
                             decoration: BoxDecoration(
                                 color: Colors.pink,
-                                borderRadius: BorderRadius.circular(100)
-                            ),
+                                borderRadius: BorderRadius.circular(100)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Icon(Icons.mail, size: 18, color: Colors.white,),
-                                SizedBox(width: 5,),
-                                Text('Mail', style: TextStyle(
-                                    color: Colors.white, fontSize: 18, fontFamily: 'BAARS', fontWeight: FontWeight.w700
-                                ),)
+                                Icon(
+                                  Icons.mail,
+                                  size: 18,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Mail',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontFamily: 'BAARS',
+                                      fontWeight: FontWeight.w700),
+                                )
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         InkWell(
                           onTap: () {},
                           child: Container(
                             padding: EdgeInsets.only(left: 10),
                             height: 50,
-                            width: MediaQuery.of(context).size.width/1.2,
+                            width: MediaQuery.of(context).size.width / 1.2,
                             decoration: BoxDecoration(
                                 color: Color.fromRGBO(59, 89, 152, 1),
-                                borderRadius: BorderRadius.circular(100)
-                            ),
+                                borderRadius: BorderRadius.circular(100)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
@@ -1467,48 +1695,68 @@ class _SuivantState extends State<Suivant> {
                                       color: Colors.white,
                                       fontSize: 18),
                                 ),
-                                SizedBox(width: 15,),
-                                Text('Facebook', style: TextStyle(
-                                    color: Colors.white, fontSize: 18, fontFamily: 'BAARS', fontWeight: FontWeight.w700
-                                ),)
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Text(
+                                  'Facebook',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontFamily: 'BAARS',
+                                      fontWeight: FontWeight.w700),
+                                )
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         InkWell(
                           onTap: () {},
                           child: Container(
                             padding: EdgeInsets.only(left: 10),
                             height: 50,
-                            width: MediaQuery.of(context).size.width/1.2,
+                            width: MediaQuery.of(context).size.width / 1.2,
                             decoration: BoxDecoration(
                                 color: Color.fromRGBO(93, 153, 251, 1),
-                                borderRadius: BorderRadius.circular(100)
-                            ),
+                                borderRadius: BorderRadius.circular(100)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Icon(Icons.message, size: 18, color: Colors.white,),
-                                SizedBox(width: 5,),
-                                Text('Messenger', style: TextStyle(
-                                    color: Colors.white, fontSize: 18, fontFamily: 'BAARS', fontWeight: FontWeight.w700
-                                ),)
+                                Icon(
+                                  Icons.message,
+                                  size: 18,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Messenger',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontFamily: 'BAARS',
+                                      fontWeight: FontWeight.w700),
+                                )
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         InkWell(
                           onTap: () {},
                           child: Container(
                             padding: EdgeInsets.only(left: 10),
                             height: 50,
-                            width: MediaQuery.of(context).size.width/1.2,
+                            width: MediaQuery.of(context).size.width / 1.2,
                             decoration: BoxDecoration(
                                 color: accanceColor,
-                                borderRadius: BorderRadius.circular(100)
-                            ),
+                                borderRadius: BorderRadius.circular(100)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
@@ -1518,17 +1766,24 @@ class _SuivantState extends State<Suivant> {
                                   color: Colors.white,
                                   child: Center(
                                       child: Text(
-                                        'in',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: accanceColor,
-                                            fontSize: 15),
-                                      )),
+                                    'in',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: accanceColor,
+                                        fontSize: 15),
+                                  )),
                                 ),
-                                SizedBox(width: 5,),
-                                Text('Linkedin', style: TextStyle(
-                                    color: Colors.white, fontSize: 18, fontFamily: 'BAARS', fontWeight: FontWeight.w700
-                                ),)
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Linkedin',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontFamily: 'BAARS',
+                                      fontWeight: FontWeight.w700),
+                                )
                               ],
                             ),
                           ),
@@ -1536,39 +1791,51 @@ class _SuivantState extends State<Suivant> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       child: Container(
-                        width:  200,
+                        width: 200,
                         height: 40.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
-                              colors: [Colors.deepPurple, Color.fromRGBO(133, 136, 241, 1)]
-                          ),
+                              colors: [
+                                Colors.deepPurple,
+                                Color.fromRGBO(133, 136, 241, 1)
+                              ]),
                         ),
                         child: Material(
                           color: Colors.transparent,
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => Dashboard()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Dashboard()));
                             },
                             child: Center(
-                              child: Text('Terminer', style: TextStyle(
-                                  color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16
-                              ),),
+                              child: Text(
+                                'Terminer',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16),
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                 ],
               ),
             ),
