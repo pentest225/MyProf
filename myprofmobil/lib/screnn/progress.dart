@@ -112,6 +112,3 @@ class _ProgressBarState extends State<ProgressBar> {
   }
 }
 
-//index i starts from 0!
-_progressAnimcontroller.reset(); //reset the animation first
-_setProgressAnim(maxWidth, i + 1);
