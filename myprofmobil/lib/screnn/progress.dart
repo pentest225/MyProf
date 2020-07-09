@@ -111,4 +111,5 @@ class _ProgressBarState extends State<ProgressBar> {
     );
   }
 }
+//index i starts from 0!
 

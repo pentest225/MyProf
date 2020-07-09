@@ -30,9 +30,10 @@ class _SuivantState extends State<Suivant> {
   bool singleCourMode = false;
   bool multiCourMode = false;
   File _image;
+  bool _loadImage = false;
   final picker = ImagePicker();
 
-   Future getImage() async {
+  Future getImage() async {
     try {
       final pickedFile = await picker.getImage(source: ImageSource.camera);
       print("get Image ${pickedFile.runtimeType}");
@@ -46,12 +47,17 @@ class _SuivantState extends State<Suivant> {
     }
   }
 
-  
   Future getImageFromFils() async {
     try {
+      setState(() {
+      _loadImage = true;
+      });
       final pickedFile = await picker.getImage(source: ImageSource.gallery);
       _image = File(pickedFile.path);
       print("Image From Galerie ${_image}");
+       setState(() {
+      _loadImage = false;
+      });
     } catch (error) {
       print("Error to get Image from fils ${error.toString()}");
     }
@@ -1537,6 +1543,7 @@ class _SuivantState extends State<Suivant> {
                     padding: const EdgeInsets.all(8.0),
                     child: FAProgressBar(
                       progressColor: accanceColor,
+                      
                       currentValue: 90,
                       displayText: '%',
                       animatedDuration: Duration(seconds: 1),
@@ -1578,7 +1585,6 @@ class _SuivantState extends State<Suivant> {
                   SizedBox(
                     height: 30,
                   ),
-                  _image == null ?
                   Container(
                     height: 200,
                     width: 200,
@@ -1586,21 +1592,14 @@ class _SuivantState extends State<Suivant> {
                         color: themeColor,
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                            image: AssetImage(_image == null? 'assets/images/books.jpg':_image),
+                            image: AssetImage(_image == null
+                                ? 'assets/images/books.jpg'
+                                : _image.path),
                             fit: BoxFit.cover)),
-                  ):Container(
-                    height: 200,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        color: themeColor,
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: AssetImage(_image == null? 'assets/images/books.jpg':_image),
-                            fit: BoxFit.cover)),
-                            child:Image.file(_image,),
                   ),
                   SizedBox(
                     height: 20,
+                    child: _loadImage ?Text("Loading ...",style: TextStyle(color: themeColor),):null,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
