@@ -15,7 +15,8 @@ import 'screnn/searchPage.dart';
 import 'screnn/demande.dart';
 import 'package:myprofmobil/screnn/launcher_screen.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
-
+import 'screnn/all_prof.dart';
+import 'widgets/profWidget.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,12 +29,11 @@ class MyApp extends StatelessWidget {
 
     return Provider(
       data: Overseer()
-      .register<StateBloc>(()=> StateBloc())
-      ,
+      .register<StateBloc>(()=> StateBloc()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',
-        initialRoute: LaunchApp.routeName,
+        initialRoute: ProfWidget.routeName,
         routes: {
           LaunchApp.routeName : (context)=> LaunchApp(),
           HomeScreen.rooteName : (context)=> HomeScreen(),
@@ -45,6 +45,8 @@ class MyApp extends StatelessWidget {
           Inscription.routeName:(context)=>Inscription(),
           Connexion.routeNamed:(context)=>Connexion(),
           Dashboard.routeName:(context)=>Dashboard(),
+          AllProf.routeName:(context)=>AllProf(),
+          ProfWidget.routeName:(context)=>ProfWidget(),
           
           // profProfil.routeName: (ctx)=>MyHome()
         },
