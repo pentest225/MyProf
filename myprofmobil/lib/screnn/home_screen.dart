@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       drawer: MyDrower(),
-      backgroundColor: themeColor,
+      backgroundColor: fondcolor,
       body: SafeArea(child: LayoutStarts()),
     );
   }
@@ -60,7 +60,7 @@ class LayoutStarts extends StatelessWidget {
           Container(
               alignment: Alignment.center,
               child: SvgPicture.asset(
-                "assets/images/math.svg",
+                "assets/images/thics.svg",
                 width: MediaQuery.of(context).size.width / 2.1,
               )),
           CarDetailsAnimation(),
@@ -242,7 +242,7 @@ class _SearchCardlState extends State<SearchCard> {
                         style: TextStyle(color: Colors.white),
                       ),
                       decoration: BoxDecoration(
-                          color: Colors.pink.withOpacity(.8),
+                          color: accanceColor.withOpacity(.8),
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                     )),
               ]),
@@ -368,7 +368,7 @@ class _SheetContainerState extends State<SheetContainer>
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-          color: Color(0xfff1f1f1)),
+        color: themeColor,),
       child: Column(
         children: <Widget>[
           drawerHandle(),

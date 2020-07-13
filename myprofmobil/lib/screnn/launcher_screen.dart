@@ -30,7 +30,7 @@ class _MyHomeState extends State<LaunchApp> {
       height: 8.0,
       width: isCurrent ? 20.0 : 12.0,
       decoration: BoxDecoration(
-        color: isCurrent ? Colors.white : Color(0xFF7B51D3),
+        color: isCurrent ? Colors.white : themeColor,
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -51,7 +51,7 @@ class _MyHomeState extends State<LaunchApp> {
       body: Container(
         height: deviceHeight,
         width: deviceWidht,
-        color: themeColor,
+        color: fondcolor,
         child: Padding(
           padding: EdgeInsets.only(top: 40),
           child: Column(
@@ -90,21 +90,21 @@ class _MyHomeState extends State<LaunchApp> {
                     SlederPage(
                         "trouvez \n le professeur parfait",
                         "Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam)",
-                        "assets/images/a.svg"),
+                        "assets/images/pupu.svg"),
                     SlederPage(
                       "Apprenez \n en toute confiance",
                       "Devenez indépendant, enseignez à votre rythme, fixez vos tarifs sans commission et rencontrez des milliers d’élèves motivés !",
-                      "assets/images/d.svg",
+                      "assets/images/pipi.svg",
                     ),
                     SlederPage(
                       "Apprenez \ntout ce que vous voulez",
                       "Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.",
-                      "assets/images/b.svg",
+                      "assets/images/popo.svg",
                     ),
                     SlederPage(
                       "Apprenez \n d'où vous voulez",
                       "Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.",
-                      "assets/images/c.svg",
+                      "assets/images/papa.svg",
                     ),
                   ],
                 ),
@@ -164,7 +164,7 @@ class _MyHomeState extends State<LaunchApp> {
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
-                    color: accanceColor,
+                    color: themeColor,
                     onPressed: () {
                       Navigator.of(context)
                           .pushReplacementNamed(HomeScreen.rooteName);

@@ -6,6 +6,7 @@ import 'package:myprofmobil/screnn/Inscription.dart';
 import 'package:myprofmobil/screnn/connexion.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
 import 'package:myprofmobil/screnn/demande.dart';
+import 'package:myprofmobil/screnn/homeScreen2.dart';
 import 'package:myprofmobil/screnn/home_screen.dart';
 import 'package:myprofmobil/screnn/progress.dart';
 import 'package:myprofmobil/widgets/drowerContainer.dart';
@@ -96,7 +97,7 @@ class MyDrower extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => ProgressBar()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen2()));
                             },
                             child: Text(
                               "Aide",
