@@ -24,11 +24,13 @@ class HomeSteps extends StatelessWidget {
           color: themeColor.withOpacity(.6),
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: Column(
+
         children: <Widget>[
           SizedBox(
             height: 10,
           ),
           Center(
+
               child: Text(
             titre,
             style: TextStyle(
