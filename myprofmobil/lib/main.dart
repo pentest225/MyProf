@@ -22,6 +22,7 @@ import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 
 import 'screnn/verify.dart';
 
+import 'screnn/all_prof.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,12 +35,11 @@ class MyApp extends StatelessWidget {
 
     return Provider(
       data: Overseer()
-      .register<StateBloc>(()=> StateBloc())
-      ,
+      .register<StateBloc>(()=> StateBloc()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',
-        initialRoute: LaunchApp.routeName,
+        initialRoute: AllProf.routeName,
         routes: {
           LaunchApp.routeName : (context)=> LaunchApp(),
           HomeScreen.rooteName : (context)=> HomeScreen(),
@@ -56,6 +56,9 @@ class MyApp extends StatelessWidget {
           Regis.routeName:(context)=>Regis(),
           Registered.routeName:(context)=>Registered(),
           CategoriePage.routeName:(context)=>CategoriePage(),
+          AllProf.routeName:(context)=>AllProf(),
+
+
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),
