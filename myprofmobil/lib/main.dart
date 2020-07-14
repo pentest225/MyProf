@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/sync.dart';
 import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
+import 'pages/categorie.dart';
 import 'screnn/contactPage.dart';
 import 'screnn/dashboard.dart';
 import 'screnn/home_screen.dart';
@@ -10,11 +12,15 @@ import 'screnn/profProfil.dart';
 import 'screnn/Inscription.dart';
 import 'screnn/connexion.dart';
 
+import 'screnn/regis.dart';
+import 'screnn/register.dart';
 import 'screnn/suivant.dart';
 import 'screnn/searchPage.dart';
 import 'screnn/demande.dart';
 import 'package:myprofmobil/screnn/launcher_screen.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
+
+import 'screnn/verify.dart';
 
 
 void main() {
@@ -45,7 +51,11 @@ class MyApp extends StatelessWidget {
           Inscription.routeName:(context)=>Inscription(),
           Connexion.routeNamed:(context)=>Connexion(),
           Dashboard.routeName:(context)=>Dashboard(),
-          
+          Syncr.routeName:(context)=>Syncr(),
+          Verify.routeName:(context)=>Verify(),
+          Regis.routeName:(context)=>Regis(),
+          Registered.routeName:(context)=>Registered(),
+          CategoriePage.routeName:(context)=>CategoriePage(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),

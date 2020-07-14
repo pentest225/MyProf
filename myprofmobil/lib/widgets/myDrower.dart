@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/pages/categorie.dart';
+import 'package:myprofmobil/pages/interface1.dart';
 import 'package:myprofmobil/screnn/Inscription.dart';
 import 'package:myprofmobil/screnn/connexion.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
@@ -9,6 +11,10 @@ import 'package:myprofmobil/screnn/demande.dart';
 import 'package:myprofmobil/screnn/homeScreen2.dart';
 import 'package:myprofmobil/screnn/home_screen.dart';
 import 'package:myprofmobil/screnn/progress.dart';
+import 'package:myprofmobil/screnn/regis.dart';
+import 'package:myprofmobil/screnn/register.dart';
+import 'package:myprofmobil/screnn/sync.dart';
+import 'package:myprofmobil/screnn/verify.dart';
 import 'package:myprofmobil/widgets/drowerContainer.dart';
 
 class MyDrower extends StatelessWidget {
@@ -64,9 +70,9 @@ class MyDrower extends StatelessWidget {
                     DrowerContainer(Icons.dashboard, "Dasbord",
                         Dashboard.routeName),
                     DrowerContainer(Icons.perm_contact_calendar, "Inscription",
-                        Inscription.routeName),
+                        Regis.routeName),
                     DrowerContainer(Icons.perm_contact_calendar, "Connexion",
-                        Connexion.routeNamed),
+                        CategoriePage.routeName),
                     DrowerContainer(Icons.add_location, "Ajouté une annonce ",
                         DemandePage.routeName),
                   ],
@@ -127,12 +133,17 @@ class MyDrower extends StatelessWidget {
                           SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            "Logout",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w200,
-                                color: themeColor),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => InterfaceOne()));
+                            },
+                            child: Text(
+                              "Logout",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w200,
+                                  color: themeColor),
+                            ),
                           )
                         ],
                       ),
