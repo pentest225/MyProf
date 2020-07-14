@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/pages/interface1.dart';
 import '../outils/myStyle.dart';
 import '../widgets/profWidget.dart';
 
@@ -27,9 +28,14 @@ class AllProf extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Icon(
-                      Icons.filter_list,
-                      color: Colors.white,
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.filter_list,
+                        color: Colors.white,
+                      ),
                     ),
                     Icon(
                       Icons.search,
@@ -81,19 +87,24 @@ class AllProf extends StatelessWidget {
                       color: Colors.transparent,
                       child: ListView(
                         children: <Widget>[
-                        Container(
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.only(top: 35),
-                                  child: ProfWidget()),
-                                Container(
-                                  
-                                  padding: EdgeInsets.only(bottom: 35),
-                                  child: ProfWidget())
-                              ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => InterfaceOne()));
+                          },
+                          child: Container(
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(top: 35),
+                                    child: ProfWidget()),
+                                  Container(
+
+                                    padding: EdgeInsets.only(bottom: 35),
+                                    child: ProfWidget())
+                                ],
+                              ),
                             ),
-                          ),
+                        ),
                           Container(
                             child: Row(
                               children: <Widget>[

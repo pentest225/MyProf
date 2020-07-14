@@ -25,68 +25,73 @@ class ProfWidget extends StatelessWidget {
                   height: containerHeiht * .3,
                   color: Colors.transparent,
                 ),
-                Container(
-                  height: containerHeiht * .7,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10)),
+                InkWell(
+                  onTap: () {
+
+                  },
                   child: Container(
-                    margin: EdgeInsets.only(top: 50),
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                    child: Center(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            "Dagouaga",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "Patrick Ben - Sira",
-                            style: TextStyle(
+                    height: containerHeiht * .7,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Container(
+                      margin: EdgeInsets.only(top: 50),
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              "Dagouaga",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "Patrick Ben - Sira",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey),
+                            ),
+                            SizedBox(
+                              height:15,
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 20),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.star_border,
+                                    color: themeColor,
+                                  ),
+                                  Icon(
+                                    Icons.star_border,
+                                    color: themeColor,
+                                  ),
+                                  Icon(
+                                    Icons.star_border,
+                                    color: themeColor,
+                                  ),
+                                  Icon(
+                                    Icons.star_half,
+                                    color: themeColor,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Divider(),
+                            Text(
+                              "Dévéloppeur Flutter",
+                              style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.grey),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.star_border,
-                                  color: themeColor,
-                                ),
-                                Icon(
-                                  Icons.star_border,
-                                  color: themeColor,
-                                ),
-                                Icon(
-                                  Icons.star_border,
-                                  color: themeColor,
-                                ),
-                                Icon(
-                                  Icons.star_half,
-                                  color: themeColor,
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Divider(),
-                          Text(
-                            "Dévéloppeur Flutter",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
