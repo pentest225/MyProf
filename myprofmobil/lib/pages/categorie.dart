@@ -50,11 +50,15 @@ class _CategoriePageState extends State<CategoriePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(height: 40,),
-                      InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Icon(Icons.arrow_back, color: Colors.white,)),
+                      Row(
+                        children: <Widget>[
+                          InkWell(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(Icons.arrow_back, color: Colors.white,)),
+                        ],
+                      ),
                       SizedBox(height: 50,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -63,232 +67,221 @@ class _CategoriePageState extends State<CategoriePage> {
                               fontFamily: 'BAARS', fontWeight: FontWeight.bold, fontSize: 40, color: Colors.white
                           ),),
                           SizedBox(width: 5,),
-                          Icon(Icons.school, size: 40, color: themeColor,)
+                          Icon(Icons.school, size: 40, color: accanceColor,)
                         ],
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 50,),
+              SizedBox(height: 40,),
+              Card(
+                elevation: 3,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child:  Container(
+                  padding: EdgeInsets.only(left: 15),
+                  height: 50,
+                  width: 320,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Recherche',
+                        icon: Icon(Icons.search, size: 18, color: themeColor,)
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 30,),
               InkWell(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => AllProf()));
                 },
                 child: Wrap(
+                  //spacing: 20,
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          margin: EdgeInsets.all(5),
-                          height: 140,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(.3),
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/html.jpg'),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black26, BlendMode.darken))),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.only(left: 10, top: 50, right: 10),
-                                height: 30,
-                                width: 100,
-                                color: themeColor.withOpacity(0.8),
-                                child: Center(
-                                  child: Text(
-                                    'Informatique',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14),
-                                  ),
+                      child:    Container(
+                        margin: EdgeInsets.all(5),
+                        height: 150,
+                        width: MediaQuery.of(context).size.width /2.5,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(.3),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/code.jpg'),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black38, BlendMode.darken))),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
+                              height: 30,
+                              width: 100,
+                              color: themeColor.withOpacity(0.8),
+                              child: Center(
+                                child: Text(
+                                  'Informatique',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14),
                                 ),
                               ),
-                            ],
-                          )
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          margin: EdgeInsets.all(5),
-                          height: 140,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(.3),
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/english.jpg'),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black26, BlendMode.darken))),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.only(left: 10, top: 50, right: 10),
-                                height: 30,
-                                width: 100,
-                                color: themeColor.withOpacity(0.8),
-                                child: Center(
-                                  child: Text(
-                                    'Anglais',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14),
-                                  ),
+                      child:  Container(
+                        margin: EdgeInsets.all(5),
+                        height: 150,
+                        width:  MediaQuery.of(context).size.width /2.5,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(.3),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/english.jpg'),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black38, BlendMode.darken))),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
+                              height: 30,
+                              width: 100,
+                              color: themeColor.withOpacity(0.8),
+                              child: Center(
+                                child: Text(
+                                  'Anglais',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14),
                                 ),
                               ),
-                            ],
-                          )
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          margin: EdgeInsets.all(5),
-                          height: 140,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(.3),
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/guitare.jpg'),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black26, BlendMode.darken))),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.only(left: 10, top: 50, right: 10),
-                                height: 30,
-                                width: 100,
-                                color: themeColor.withOpacity(0.8),
-                                child: Center(
-                                  child: Text(
-                                    'Musique',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14),
-                                  ),
+                      child:  Container(
+                        margin: EdgeInsets.all(5),
+                        height: 150,
+                        width: MediaQuery.of(context).size.width /2.5,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(.3),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/guitare.jpg'),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black38, BlendMode.darken))),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
+                              height: 30,
+                              width: 100,
+                              color: themeColor.withOpacity(0.8),
+                              child: Center(
+                                child: Text(
+                                  'Musique',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 17),
                                 ),
                               ),
-                            ],
-                          )
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          margin: EdgeInsets.all(5),
-                          height: 140,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(.3),
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/school.jpg'),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black26, BlendMode.darken))),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.only(left: 10, top: 50, right: 10),
-                                height: 30,
-                                width: 100,
-                                color: themeColor.withOpacity(0.8),
-                                child: Center(
-                                  child: Text(
-                                    'Scolaire',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14),
-                                  ),
+                      child:     Container(
+                        margin: EdgeInsets.all(5),
+                        height: 150,
+                        width: MediaQuery.of(context).size.width /2.5,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(.3),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/school.jpg'),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black38, BlendMode.darken))),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
+                              height: 30,
+                              width: 100,
+                              color: themeColor.withOpacity(0.8),
+                              child: Center(
+                                child: Text(
+                                  'Scolaire',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 17),
                                 ),
                               ),
-                            ],
-                          )
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          margin: EdgeInsets.all(5),
-                          height: 140,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(.3),
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/sport.jpg'),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black26, BlendMode.darken))),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.only(left: 10, top: 50, right: 10),
-                                height: 30,
-                                width: 100,
-                                color: themeColor.withOpacity(0.8),
-                                child: Center(
-                                  child: Text(
-                                    'Sport',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14),
-                                  ),
+                      child:   Container(
+                        margin: EdgeInsets.all(5),
+                        height: 150,
+                        width: MediaQuery.of(context).size.width /2.5,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(.3),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/sport.jpg'),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black38, BlendMode.darken))),
+                        child:  Column(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
+                              height: 30,
+                              width: 100,
+                              color: themeColor.withOpacity(0.8),
+                              child: Center(
+                                child: Text(
+                                  'Sport',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 17),
                                 ),
                               ),
-                            ],
-                          )
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          margin: EdgeInsets.all(5),
-                          height: 140,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(.3),
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/html.jpg'),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black26, BlendMode.darken))),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.only(left: 10, top: 50, right: 10),
-                                height: 30,
-                                width: 100,
-                                color: themeColor.withOpacity(0.8),
-                                child: Center(
-                                  child: Text(
-                                    'Informatique',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
+                            ),
+                          ],
+                        ),
                       ),
                     ),
 
-                  ],
+            ]
                 ),
               ),
               SizedBox(height: 40,),
