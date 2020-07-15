@@ -58,6 +58,7 @@ class LayoutStarts extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
+            color: themeColor,
               alignment: Alignment.center,
               child: SvgPicture.asset(
                 "assets/images/thics.svg",
@@ -368,7 +369,7 @@ class _SheetContainerState extends State<SheetContainer>
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-        color: themeColor,),
+        color: fondcolor,),
       child: Column(
         children: <Widget>[
           drawerHandle(),
@@ -386,7 +387,7 @@ class _SheetContainerState extends State<SheetContainer>
                 ),
 
                 // SECTION VIVRE DE SA PASSION
-                Container(
+                /*Container(
                   // height: deviceHeight * .20,
                   margin: EdgeInsets.symmetric(horizontal: 15),
                   padding: EdgeInsets.all(10),
@@ -599,7 +600,7 @@ class _SheetContainerState extends State<SheetContainer>
                       ),
                     ],
                   ),
-                ),
+                ),*/
                 SizedBox(
                   height: 20,
                 ),
@@ -655,40 +656,96 @@ class _SheetContainerState extends State<SheetContainer>
 
   offerDetails(double itemHeight, context) {
     return Container(
-      padding: EdgeInsets.only(top: 15, left: 20, right: 20),
+      //margin: EdgeInsets.only(top: 20, left: 20, right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            "Apprenez en toute confiance",
-            style: TextStyle(
-              color: accanceColor,
-              fontWeight: FontWeight.w700,
-              fontSize: 18,
+          Padding(
+            padding: const EdgeInsets.only(left : 20.0),
+            child: Text(
+              "About",
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                fontSize: 22,
+                fontFamily: 'BAARS'
+              ),
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height / 3.2,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                HomeSteps(
-                    'Le professeur adéquat',
-                    'Consultez librement les profils et contactez votre fantastique professeur selon vos critères (tarifs, diplôme, avis, cours à domicile ou par webcam).',
-                    'assets/images/un.png'),
-                HomeSteps(
-                    'Organisez vos cours',
-                    'Echangez avec votre professeur pour lui préciser vos besoins et vos disponibilités. Programmez vos cours et réglez-les en toute sécurité depuis votre messagerie.',
-                    'assets/images/deux.png'),
-                HomeSteps(
-                    'Vivez de nouvelles expériences',
-                    'Le passe Élève vous donne un accès illimité à tous les professeurs, coachs et masterclass pendant 30 jours. Profitez-en pour découvrir de nouvelles passions !',
-                    'assets/images/trois.png'),
-              ],
-            ),
+          SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: 150,
+                width: MediaQuery.of(context).size.width/2.4,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(0.0, 1.5),
+                          blurRadius: 1.5
+                      )
+                    ]
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('9.7', style: TextStyle(
+                        color: themeColor, fontSize: 35, fontWeight: FontWeight.bold
+                      ),),
+                      SizedBox(height: 25,),
+                      Text('Assessement', style: TextStyle(
+                          color: themeColor, fontSize: 14, fontWeight: FontWeight.bold
+                      ),),
+                      SizedBox(height: 2,),
+                      Text('Score', style: TextStyle(
+                          color: themeColor, fontSize: 14, fontWeight: FontWeight.bold
+                      ),),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(width: 5,),
+              Container(
+                height: 150,
+                width: MediaQuery.of(context).size.width/2.4,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(0.0, 1.5),
+                          blurRadius: 1.5
+                      )
+                    ]
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('12', style: TextStyle(
+                          color: Colors.black54, fontSize: 35, fontWeight: FontWeight.bold
+                      ),),
+                      SizedBox(height: 25,),
+                      Text('Years', style: TextStyle(
+                          color: Colors.black54, fontSize: 14, fontWeight: FontWeight.bold
+                      ),),
+                      SizedBox(height: 2,),
+                      Text('With Pepsico', style: TextStyle(
+                          color: Colors.black54, fontSize: 14, fontWeight: FontWeight.bold
+                      ),),
+                    ],
+                  ),
+                ),
+              )
+            ],
           )
         ],
       ),
@@ -700,182 +757,188 @@ class _SheetContainerState extends State<SheetContainer>
     return Container(
       padding: EdgeInsets.only(top: 30, left: 20, right: 20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            "Apprenez ce que vous voulez",
-            style: TextStyle(
-              color: accanceColor,
-              fontWeight: FontWeight.w700,
-              fontSize: 18,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Profspage()));
-            },
-            child: Container(
-              height: MediaQuery.of(context).size.height / 6,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                children: <Widget>[
                   Container(
-                    margin: EdgeInsets.all(5),
-                    height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width / 1.8,
+                    height: 70,
+                    width: 70,
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(.3),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/code.jpg'),
-                            fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(
-                                Colors.black45, BlendMode.darken))),
-                    child: Center(
-                      child: Text(
-                        'Informatique',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17),
-                      ),
+                      color: accanceColor.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(10)
                     ),
+                    child: Icon(Icons.perm_identity, color: accanceColor, size: 28,),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(5),
-                    height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width / 1.8,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(.3),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/english.jpg'),
-                            fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(
-                                Colors.black45, BlendMode.darken))),
-                    child: Center(
-                      child: Text(
-                        'Anglais',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(5),
-                    height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width / 1.8,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(.3),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/guitare.jpg'),
-                            fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(
-                                Colors.black45, BlendMode.darken))),
-                    child: Center(
-                      child: Text(
-                        'Musique',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(5),
-                    height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width / 1.8,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(.3),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/school.jpg'),
-                            fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(
-                                Colors.black45, BlendMode.darken))),
-                    child: Center(
-                      child: Text(
-                        'Scolaire',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(5),
-                    height: sheetItemHeight,
-                    width: MediaQuery.of(context).size.width / 1.8,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(.3),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/sport.jpg'),
-                            fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(
-                                Colors.black45, BlendMode.darken))),
-                    child: Center(
-                      child: Text(
-                        'Sports',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17),
-                      ),
-                    ),
-                  )
+                  SizedBox(height: 8,),
+                  Text('LinkedIn', style: TextStyle(
+                    color: Colors.grey
+                  ),)
                 ],
               ),
-            ),
+              SizedBox(width: 30,),
+              Column(
+                children: <Widget>[
+                  Container(
+                    height: 70,
+                    width: 70,
+                    decoration: BoxDecoration(
+                        color: accanceColor.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: Icon(Icons.mail_outline, color: accanceColor, size: 25,),
+                  ),
+                  SizedBox(height: 8,),
+                  Text('Email', style: TextStyle(
+                      color: Colors.grey
+                  ),)
+                ],
+              ),
+              SizedBox(width: 30,),
+              Column(
+                children: <Widget>[
+                  Container(
+                    height: 70,
+                    width: 70,
+                    decoration: BoxDecoration(
+                        color: accanceColor.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: Icon(Icons.call, color: accanceColor, size: 25,),
+                  ),
+                  SizedBox(height: 8,),
+                  Text('Call', style: TextStyle(
+                      color: Colors.grey
+                  ),)
+                ],
+              )
+            ],
+          ),
+          SizedBox(height: 20,),
+          Container(
+            height: 2,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.grey.withOpacity(0.2),
           )
         ],
-      ),
+      )
     );
   }
 
   listMagazine(double sheetItemHeight, context) {
     return Container(
-      padding: EdgeInsets.only(top: 15, left: 20, right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            "Le Magazine Myprof",
-            style: TextStyle(
-              color: accanceColor,
-              fontWeight: FontWeight.w700,
-              fontSize: 18,
+          Padding(
+            padding: const EdgeInsets.only(left : 20.0),
+            child: Text(
+              "Previous Companies",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 22,
+                  fontFamily: 'BAARS'
+              ),
             ),
           ),
           SizedBox(
             height: 10,
           ),
-          ...List.generate(
-              5,
-              (index) => ListTile(
-                    title: Text('Confinement education $index'),
-                    subtitle: Text('1200 article  selectionner $index'),
-                    leading: Container(
-                      margin: EdgeInsets.all(5),
-                      height: sheetItemHeight,
-                      width: 70,
-                      decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(.3),
-                          image: DecorationImage(
-                              image:
-                                  AssetImage('assets/images/architecture.jpg'),
-                              fit: BoxFit.cover)),
-                    ),
-                  ))
+         Container(
+           height: 230,
+           child: ListView(
+             scrollDirection: Axis.horizontal,
+             children: <Widget>[
+               Padding(
+                 padding: const EdgeInsets.all(8.0),
+                 child: Container(
+                   height: 230,
+                   width: MediaQuery.of(context).size.width/2.4,
+                   decoration: BoxDecoration(
+                       color: Colors.red,
+                     borderRadius: BorderRadius.circular(10)
+                   ),
+                   child: Padding(
+                     padding: const EdgeInsets.all(12.0),
+                     child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: <Widget>[
+                        Icon(Icons.cloud_circle, color: Colors.white, size: 50,),
+                         SizedBox(height: 75,),
+                         Text('Vodafone', style: TextStyle(
+                             color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold
+                         ),),
+                         SizedBox(height: 2,),
+                         Text('Score lavage yop', style: TextStyle(
+                             color: Colors.white70, fontSize: 14, fontWeight: FontWeight.w200
+                         ),),
+                       ],
+                     ),
+                   ),
+                 ),
+               ),
+               Padding(
+                 padding: const EdgeInsets.all(8.0),
+                 child: Container(
+                   height: 230,
+                   width: MediaQuery.of(context).size.width/2.4,
+                   decoration: BoxDecoration(
+                       color: accanceColor,
+                       borderRadius: BorderRadius.circular(10)
+                   ),
+                   child: Padding(
+                     padding: const EdgeInsets.all(12.0),
+                     child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: <Widget>[
+                         Icon(Icons.brush, color: Colors.white, size: 50,),
+                         SizedBox(height: 75,),
+                         Text('American', style: TextStyle(
+                             color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold
+                         ),),
+                         SizedBox(height: 2,),
+                         Text('Airlines yop blabla', style: TextStyle(
+                             color: Colors.white70, fontSize: 14, fontWeight: FontWeight.w200
+                         ),),
+                       ],
+                     ),
+                   ),
+                 ),
+               ),
+               Padding(
+                 padding: const EdgeInsets.all(8.0),
+                 child: Container(
+                   height: 230,
+                   width: MediaQuery.of(context).size.width/2.4,
+                   decoration: BoxDecoration(
+                       color: Colors.pink,
+                       borderRadius: BorderRadius.circular(10)
+                   ),
+                   child: Padding(
+                     padding: const EdgeInsets.all(12.0),
+                     child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: <Widget>[
+                         Icon(Icons.directions_car, color: Colors.white, size: 50,),
+                         SizedBox(height: 75,),
+                         Text('Toyota', style: TextStyle(
+                             color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold
+                         ),),
+                         SizedBox(height: 2,),
+                         Text('Voiture cadeau et joli', style: TextStyle(
+                             color: Colors.white70, fontSize: 14, fontWeight: FontWeight.w200
+                         ),),
+                       ],
+                     ),
+                   ),
+                 ),
+               )
+             ],
+           ),
+         )
         ],
       ),
     );
