@@ -10,33 +10,31 @@ class ProfWidget extends StatelessWidget {
     final containerHeiht = deviceHeight * .4;
     final containerWidth = deviceWidth * .5 - 10;
     return Container(
-      height: containerHeiht,
+      margin: EdgeInsets.only(top: 35),
+      height: containerHeiht * .7,
       width: containerWidth,
       child: Stack(
+        overflow: Overflow.visible,
         children: <Widget>[
           Container(
-            height: containerHeiht,
-            color: Colors.transparent,
+            height: containerHeiht * .7,
+            
             margin: EdgeInsets.only(left: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Container(
-                  height: containerHeiht * .3,
-                  color: Colors.transparent,
-                ),
                 InkWell(
-                  onTap: () {
-
-                  },
+                  onTap: () {},
                   child: Container(
+                    alignment: AlignmentDirectional.bottomCenter,
                     height: containerHeiht * .7,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
                     child: Container(
                       margin: EdgeInsets.only(top: 50),
-                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                       child: Center(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,13 +51,14 @@ class ProfWidget extends StatelessWidget {
                                   color: Colors.grey),
                             ),
                             SizedBox(
-                              height:15,
+                              height: 15,
                             ),
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 20),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Icon(
                                     Icons.star_border,
@@ -100,17 +99,22 @@ class ProfWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: containerHeiht * .5,
-            top: 45,
-            left: 40,
-            right: 40,
+            top: -35,
+            bottom: containerHeiht * .6 - 10,
+            left: 52,
+            right: 52,
+
             child: Container(
-              height: containerHeiht * .3,
+              
               decoration: BoxDecoration(
-                  shape: BoxShape.circle,
+                color: Colors.black26,
+                  
                   image: DecorationImage(
                       image: AssetImage("assets/images/fille.jpg"),
-                      fit: BoxFit.fitHeight)),
+                      fit: BoxFit.cover
+                      ),
+                  shape: BoxShape.circle,
+                  ),
             ),
           )
         ],

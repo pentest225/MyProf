@@ -14,7 +14,7 @@ class AllProf extends StatelessWidget {
     return Scaffold(
       body: Container(
         height: deviceHeight,
-        color: themeColor.withOpacity(.2),
+        color: fondcolor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
@@ -95,68 +95,100 @@ class AllProf extends StatelessWidget {
                               child: Row(
                                 children: <Widget>[
                                   Container(
-                                    padding: EdgeInsets.only(top: 35),
+                                    padding: EdgeInsets.only(top: 55),
                                     child: ProfWidget()),
                                   Container(
-
-                                    padding: EdgeInsets.only(bottom: 35),
+                                    padding: EdgeInsets.only(bottom: 55),
                                     child: ProfWidget())
                                 ],
                               ),
                             ),
                         ),
-                          Container(
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.only(top: 35),
-                                  child: ProfWidget()),
-                                Container(
-                                  
-                                  padding: EdgeInsets.only(bottom: 35),
-                                  child: ProfWidget())
-                              ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => InterfaceOne()));
+                          },
+                          child: Container(
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(top: 55),
+                                    child: ProfWidget()),
+                                  Container(
+                                    padding: EdgeInsets.only(bottom: 55),
+                                    child: ProfWidget())
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.only(top: 35),
-                                  child: ProfWidget()),
-                                Container(
-                                  
-                                  padding: EdgeInsets.only(bottom: 35),
-                                  child: ProfWidget())
-                              ],
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => InterfaceOne()));
+                          },
+                          child: Container(
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(top: 55),
+                                    child: ProfWidget()),
+                                  Container(
+                                    padding: EdgeInsets.only(bottom: 55),
+                                    child: ProfWidget())
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.only(top: 35),
-                                  child: ProfWidget()),
-                                Container(
-                                  
-                                  padding: EdgeInsets.only(bottom: 35),
-                                  child: ProfWidget())
-                              ],
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => InterfaceOne()));
+                          },
+                          child: Container(
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(top: 55),
+                                    child: ProfWidget()),
+                                  Container(
+                                    padding: EdgeInsets.only(bottom: 55),
+                                    child: ProfWidget())
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.only(top: 35),
-                                  child: ProfWidget()),
-                                Container(
-                                  
-                                  padding: EdgeInsets.only(bottom: 35),
-                                  child: ProfWidget())
-                              ],
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => InterfaceOne()));
+                          },
+                          child: Container(
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(top: 55),
+                                    child: ProfWidget()),
+                                  Container(
+                                    padding: EdgeInsets.only(bottom: 55),
+                                    child: ProfWidget())
+                                ],
+                              ),
                             ),
-                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => InterfaceOne()));
+                          },
+                          child: Container(
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.only(top: 55),
+                                    child: ProfWidget()),
+                                  Container(
+                                    padding: EdgeInsets.only(bottom: 55),
+                                    child: ProfWidget())
+                                ],
+                              ),
+                            ),
+                        ),
                           ]
                           ,
                       ),
