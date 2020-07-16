@@ -154,7 +154,7 @@ class CarDetails extends StatelessWidget {
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(left: 10, right: 10),
-          child: _carTitle(),
+          child: _carTitle(context),
         ),
         SizedBox(height: 15),
         Container(
@@ -165,7 +165,7 @@ class CarDetails extends StatelessWidget {
     ));
   }
 
-  _carTitle() {
+  _carTitle(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -173,14 +173,17 @@ class CarDetails extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-          Container(
-            height: 40,
-            width: 40,
-           decoration: BoxDecoration(
-             color: Colors.white.withOpacity(0.3),
-             borderRadius: BorderRadius.circular(10)
-           ),
-            child: Icon(Icons.filter_list, color: themeColor, size: 30,),
+          InkWell(
+            onTap:()=> Scaffold.of(context).openDrawer(),
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(10)
+              ),
+              child: Icon(Icons.filter_list, color: themeColor, size: 30,),
+            ),
           ),
           Text('MyProfs', style: TextStyle(
             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28, fontFamily: 'BAARS'
