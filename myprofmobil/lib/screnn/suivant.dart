@@ -119,7 +119,7 @@ class _SuivantState extends State<Suivant> {
   Widget build(BuildContext context) {
     var item;
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         backgroundColor: themeColor,
         leading: IconButton(
           icon: Icon(
@@ -130,10 +130,12 @@ class _SuivantState extends State<Suivant> {
             Navigator.pop(context);
           },
         ),
-        title: Text('MyProfs'),
+        title: Text('MyProfs', style: TextStyle(
+            fontFamily: 'BAARS', fontSize: 22
+        ),),
         centerTitle: true,
         elevation: 0,
-      ),
+      ),*/
       body: PageView(
         controller: _controller,
         physics: NeverScrollableScrollPhysics(),
@@ -142,14 +144,14 @@ class _SuivantState extends State<Suivant> {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            color: Colors.white,
+            color: fondcolor,
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
                   SizedBox(
                     height: 20,
                   ),
-                  Padding(
+                  /*Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FAProgressBar(
                       progressColor: accanceColor,
@@ -158,7 +160,7 @@ class _SuivantState extends State<Suivant> {
                       animatedDuration: Duration(seconds: 1),
                       maxValue: 100,
                     ),
-                  ),
+                  ),*/
                   /*Padding(
                     padding: EdgeInsets.all(8.0),
                     child: new LinearPercentIndicator(
@@ -177,33 +179,34 @@ class _SuivantState extends State<Suivant> {
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Informatique",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 28,
-                            fontFamily: 'BAARS',
-                            fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                              color: themeColor,
-                              borderRadius: BorderRadius.circular(5)),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                  },
                           child: Icon(
-                            Icons.desktop_mac,
-                            size: 20,
-                            color: Colors.white,
-                          )),
-                    ],
+                            Icons.arrow_back,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 100,
+                        ),
+                        Text(
+                          "MyProf",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 28,
+                              fontFamily: 'BAARS',
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 50,
@@ -239,13 +242,12 @@ class _SuivantState extends State<Suivant> {
                         width: 250,
                         height: 40.0,
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: [
-                                Colors.deepPurple,
-                                Color.fromRGBO(133, 136, 241, 1)
-                              ]),
+                          color: themeColor.withOpacity(0.9)
+                           /* gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [themeColor, Colors.orangeAccent]
+                            )*/
                         ),
                         child: Material(
                           color: Colors.transparent,
@@ -284,7 +286,7 @@ class _SuivantState extends State<Suivant> {
                   SizedBox(
                     height: 20,
                   ),
-                  Padding(
+                  /*Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FAProgressBar(
                       progressColor: accanceColor,
@@ -293,7 +295,7 @@ class _SuivantState extends State<Suivant> {
                      animatedDuration: Duration(seconds: 1),
                       maxValue: 100,
                     ),
-                  ),
+                  ),*/
                   /*Padding(
                     padding: EdgeInsets.all(8.0),
                     child: new LinearPercentIndicator(
@@ -312,33 +314,34 @@ class _SuivantState extends State<Suivant> {
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Informatique",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 28,
-                            fontFamily: 'BAARS',
-                            fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                              color: themeColor,
-                              borderRadius: BorderRadius.circular(5)),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
                           child: Icon(
-                            Icons.desktop_mac,
-                            size: 20,
-                            color: Colors.white,
-                          )),
-                    ],
+                            Icons.arrow_back,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 100,
+                        ),
+                        Text(
+                          "MyProf",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 28,
+                              fontFamily: 'BAARS',
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 40,
@@ -376,13 +379,14 @@ class _SuivantState extends State<Suivant> {
                             width: 150,
                             height: 40.0,
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
+                              color: themeColor.withOpacity(0.9)
+                              /*gradient: LinearGradient(
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
                                   colors: [
                                     Colors.deepPurple,
                                     Color.fromRGBO(133, 136, 241, 1)
-                                  ]),
+                                  ]),*/
                             ),
                             child: Material(
                               color: Colors.transparent,
@@ -414,13 +418,14 @@ class _SuivantState extends State<Suivant> {
                             width: 150,
                             height: 40.0,
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
+                                color: themeColor.withOpacity(0.9)
+                              /*gradient: LinearGradient(
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
                                   colors: [
                                     Colors.deepPurple,
                                     Color.fromRGBO(133, 136, 241, 1)
-                                  ]),
+                                  ]),*/
                             ),
                             child: Material(
                               color: Colors.transparent,

@@ -579,14 +579,14 @@ class _SheetContainerState extends State<SheetContainer>
           ),
           SizedBox(height: 10,),
           Padding(
-            padding: const EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.only(left: 10),
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Container(
                 // height: deviceHeight * .20,
-                width: 290,
+                width: 310,
                 margin: EdgeInsets.only(left: 10, right: 10),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -765,7 +765,7 @@ class _SheetContainerState extends State<SheetContainer>
                     ),
                     InkWell(
                       onTap: () {
-                        //Navigator.push(context, MaterialPageRoute(builder: (context) => Testpage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DemandePage()));
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: 20, right: 20),

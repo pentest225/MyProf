@@ -31,9 +31,9 @@ class _MultiSelectedChipState extends State<MultiSelectedChip> {
               widget.myReturnList(selectedChoices);
             });
           },
-          selectedColor: accanceColor,
+          selectedColor: themeColor,
           
-          backgroundColor: themeColor,
+          backgroundColor: Colors.grey,
           
         ),
       ));
