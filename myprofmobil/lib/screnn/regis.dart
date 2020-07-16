@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 
+import 'connexion.dart';
+import 'pass.dart';
 import 'verify.dart';
 
 class Regis extends StatefulWidget {
@@ -264,7 +266,7 @@ class _RegisState extends State<Regis> {
                           SizedBox(height: 40),
                           InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Verify()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Passcode()));
                             },
                             child: Container(
                               margin: EdgeInsets.only(left: 60, right: 60),
@@ -302,7 +304,7 @@ class _RegisState extends State<Regis> {
                               ),),
                               InkWell(
                                 onTap: () {
-                                  print('esthy');
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => Connexion()));
                                 },
                                 child: Text('Se connecter', style: TextStyle(
                                     color: themeColor, fontSize: 16, fontFamily: 'BAARS', fontWeight: FontWeight.bold

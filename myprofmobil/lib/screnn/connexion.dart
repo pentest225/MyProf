@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 
 import 'Inscription.dart';
+import 'home_screen.dart';
+import 'regis.dart';
 
 class Connexion extends StatefulWidget {
   static const routeNamed = "/connexion";
@@ -12,245 +14,225 @@ class Connexion extends StatefulWidget {
 class _ConnexionState extends State<Connexion> {
   @override
   Widget build(BuildContext context) {
+
+    final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceWidth = MediaQuery.of(context).size.width;
+
+
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: themeColor,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text('MyProfs'),
-        centerTitle: true,
-        elevation: 0,
-      ),
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        height: deviceHeight,
+        width: deviceWidth,
+        //color: themeColor,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [themeColor, Colors.orangeAccent]
+            )
+        ),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              SizedBox(
-                height: 50,
-              ),
-              Text(
-                'Connectez-vous',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                  padding: EdgeInsets.only(left: 12),
-                  margin: EdgeInsets.only(left: 15),
-                  height: 50,
-                  width: MediaQuery.of(context).size.width / 1.1,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: TextField(
-                    cursorColor: themeColor,
-                    //keyboardType: TextInputType.multiline,
-                    maxLines: null,
-                    decoration: InputDecoration(
-                      hintText: 'Adresse email',
-                      hintStyle: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
-                      border: InputBorder.none,
-                      icon: Icon(Icons.mail, size: 18, color: themeColor),
-                    ),
-                  )),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                  padding: EdgeInsets.only(left: 12),
-                  margin: EdgeInsets.only(left: 15),
-                  height: 50,
-                  width: MediaQuery.of(context).size.width / 1.1,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: TextField(
-                    cursorColor: themeColor,
-                    //keyboardType: TextInputType.multiline,
-                    maxLines: null,
-                    decoration: InputDecoration(
-                      hintText: 'Mot de passe',
-                      hintStyle: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
-                      border: InputBorder.none,
-                      icon: Icon(Icons.lock, size: 18, color: themeColor),
-                    ),
-                  )),
-              SizedBox(
-                height: 20,
-              ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  child: Container(
-                    width: 240,
-                    height: 40.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [
-                            Colors.deepPurple,
-                            Color.fromRGBO(133, 136, 241, 1)
-                          ]),
-                    ),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Center(
-                          child: Text(
-                            'Connexion',
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  height: 250,
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: 50),
+                      Row(
+                        children: <Widget>[
+                          InkWell(
+                            onTap:() {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(Icons.arrow_back_ios,
+                                color: Colors.white, size: 25),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 30),
+                      Text(
+                        "Connexion",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontFamily: 'BAARS',
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        children: <Widget>[
+                          Text(
+                            "20%",
                             style: TextStyle(
                                 color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16),
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "Complete",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 5,),
+              Container(
+                height: deviceHeight/1.56,
+                decoration: BoxDecoration(
+                  color: fondcolor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 50, right: 50),
+                        child:  Text(
+                          "Entrez vos identifiants",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  InkWell(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.only(left: 20),
-                      height: 60,
-                      width: MediaQuery.of(context).size.width / 2.2,
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(59, 89, 152, 1),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Row(
+                      //SizedBox(height: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle, color: Colors.white),
-                            child: Center(
-                                child: Text(
-                              'f',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromRGBO(59, 89, 152, 1),
-                                  fontSize: 18),
-                            )),
-                          ),
                           SizedBox(
-                            width: 5,
+                            height: 20,
                           ),
                           Text(
-                            'Facebook',
+                            "Username",
                             style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontFamily: 'BAARS',
-                                fontWeight: FontWeight.w700),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5,),
+                          Container(
+                            height: 40,
+                            width: MediaQuery.of(context).size.width / 1.2,
+                            decoration: BoxDecoration(
+                                color: fondcolor,
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.grey),
+                                )),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "username",
+                                    hintStyle:
+                                    TextStyle(color: Colors.black26),
+                                    prefixIcon: Icon(Icons.person,
+                                      color: Colors.grey, size: 22,)),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Mot de passe",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5,),
+                          Container(
+                            height: 40,
+                            width: MediaQuery.of(context).size.width / 1.2,
+                            decoration: BoxDecoration(
+                                color: fondcolor,
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.grey),
+                                )),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "mot de passe",
+                                  hintStyle:
+                                  TextStyle(color: Colors.black26),
+                                  prefixIcon:
+                                  Icon(Icons.lock, color: Colors.grey, size: 20,),),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 40),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(left: 60, right: 60),
+                              height: 40,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                  color: themeColor,
+                                  borderRadius: BorderRadius.circular(50),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.black87,
+                                        offset: Offset(0.0, 1.5),
+                                        blurRadius: 1.5
+                                    )
+                                  ]
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Connecter",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text('Pas de compte? ', style: TextStyle(
+                                  color: Colors.black54, fontSize: 16, fontFamily: 'BAARS'
+                              ),),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => Regis()));
+                                },
+                                child: Text("S'inscrire", style: TextStyle(
+                                    color: themeColor, fontSize: 16, fontFamily: 'BAARS', fontWeight: FontWeight.bold
+                                ),),
+                              ),
+
+                            ],
                           )
                         ],
                       ),
-                    ),
+                    ],
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.only(left: 30),
-                      height: 60,
-                      width: MediaQuery.of(context).size.width / 2.2,
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(93, 153, 251, 1),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle, color: Colors.white),
-                            child: Center(
-                                child: Text(
-                              'G',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromRGBO(93, 153, 251, 1),
-                                  fontSize: 16),
-                            )),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'Google',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontFamily: 'BAARS',
-                                fontWeight: FontWeight.w700),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                "Vous n'avez pas encore de compte ?",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Inscription()));
-                },
-                child: Text(
-                  "Inscrivez-vous",
-                  style: TextStyle(
-                      color: Colors.pink.withOpacity(.8),
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16),
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              InkWell(
-                onTap: () {},
-                child: Text(
-                  "Mot de passe oublié ?",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                ),
-              ),
+              )
             ],
           ),
         ),

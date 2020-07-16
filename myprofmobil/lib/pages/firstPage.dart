@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/screnn/connexion.dart';
+import 'package:myprofmobil/screnn/regis.dart';
 
 class FirstPage extends StatelessWidget {
 
@@ -20,9 +22,9 @@ class FirstPage extends StatelessWidget {
           ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 150,),
+           // SizedBox(height: 150,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -33,14 +35,48 @@ class FirstPage extends StatelessWidget {
                 Icon(Icons.school, size: 50, color: themeColor,)
               ],
             ),
-           // SizedBox(height: 150,),
-            Container(
-              height: MediaQuery.of(context).size.height/14,
-              width: MediaQuery.of(context).size.width/1.3,
-              decoration: BoxDecoration(
-                  color: themeColor,
-                borderRadius: BorderRadius.circular(50)
-              ),
+           SizedBox(height: 150,),
+            Column(
+              children: <Widget>[
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Connexion()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height/14,
+                    width: MediaQuery.of(context).size.width/1.3,
+                    decoration: BoxDecoration(
+                        color: themeColor,
+                      borderRadius: BorderRadius.circular(50)
+                    ),
+                    child: Center(
+                        child: Text("Se connecter", style: TextStyle(
+                            color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold
+                        ),)
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Regis()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height/14,
+                    width: MediaQuery.of(context).size.width/1.3,
+                    decoration: BoxDecoration(
+                        color: fondcolor,
+                        borderRadius: BorderRadius.circular(50),
+                      //border: Border.all(color: themeColor, width: 2)
+                    ),
+                    child: Center(
+                        child: Text("S'inscrire", style: TextStyle(
+                          color: themeColor, fontSize: 22, fontWeight: FontWeight.bold
+                        ),)
+                    ),
+                  ),
+                ),
+              ],
             )
           ],
         ),
