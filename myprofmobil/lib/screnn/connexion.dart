@@ -54,7 +54,7 @@ class _ConnexionState extends State<Connexion> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 60),
                       Text(
                         "Connexion",
                         style: TextStyle(
@@ -62,23 +62,6 @@ class _ConnexionState extends State<Connexion> {
                             fontSize: 30,
                             fontFamily: 'BAARS',
                             fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            "20%",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(width: 10),
-                          Text(
-                            "Complete",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
                       ),
                       SizedBox(height: 20),
                     ],
