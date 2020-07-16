@@ -146,11 +146,18 @@ class UserDash extends StatelessWidget {
                               Container(
                                 height: deviceWidth * .25,
                                 width: deviceWidth * .25,
+                                padding: EdgeInsets.all(20),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: Colors.white.withOpacity(.3),
                                 ),
-                                
+                                child: Column(
+                                  children: <Widget>[
+                                    Icon(Icons.done_all,color: Colors.green,size: 35,),
+                                    Text("Diplôme ",style: TextStyle(fontSize: 10),),
+                                    Text("Verifié ",style: TextStyle(fontSize: 8),)
+                                  ],
+                                ),
                               ),
                               Container(
                                 height: deviceWidth * .25,
