@@ -12,7 +12,6 @@ import 'screnn/profPage.dart';
 import 'screnn/profProfil.dart';
 import 'screnn/Inscription.dart';
 import 'screnn/connexion.dart';
-
 import 'screnn/regis.dart';
 import 'screnn/register.dart';
 import 'screnn/suivant.dart';
@@ -20,8 +19,8 @@ import 'screnn/searchPage.dart';
 import 'screnn/demande.dart';
 import 'package:myprofmobil/screnn/launcher_screen.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
-
 import 'screnn/verify.dart';
+import 'screnn/dash_user.dart';
 
 import 'screnn/all_prof.dart';
 
@@ -59,6 +58,7 @@ class MyApp extends StatelessWidget {
           CategoriePage.routeName:(context)=>CategoriePage(),
           AllProf.routeName:(context)=>AllProf(),
           FirstPage.routeName:(context)=>FirstPage(),
+          UserDash.routeName:(context)=>UserDash(),
 
           // profProfil.routeName: (ctx)=>MyHome()
         },

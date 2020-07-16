@@ -7,6 +7,7 @@ import 'package:myprofmobil/pages/firstPage.dart';
 import 'package:myprofmobil/pages/interface1.dart';
 import 'package:myprofmobil/screnn/Inscription.dart';
 import 'package:myprofmobil/screnn/connexion.dart';
+import 'package:myprofmobil/screnn/dash_user.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
 import 'package:myprofmobil/screnn/demande.dart';
 import 'package:myprofmobil/screnn/homeScreen2.dart';
@@ -32,21 +33,22 @@ class MyDrower extends StatelessWidget {
           children: [
             //SECTION DU HAUT
             Container(
-              height: deviceHeight/4,
+              height: deviceHeight / 4,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [themeColor, Colors.orangeAccent]
-                  )
-              ),
+                      colors: [themeColor, Colors.orangeAccent])),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     'MyProf',
-                    style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 35, fontFamily: 'BAARS', color: Colors.white),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 35,
+                        fontFamily: 'BAARS',
+                        color: Colors.white),
                   ),
                   SizedBox(
                     width: 5,
@@ -66,7 +68,9 @@ class MyDrower extends StatelessWidget {
               ),
             ),
             //SECTION NAVIGATION
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(
@@ -76,73 +80,108 @@ class MyDrower extends StatelessWidget {
                     width: 40,
                     decoration: BoxDecoration(
                         color: themeColor.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(50)
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Icon(
+                      Icons.dashboard,
+                      color: themeColor,
+                      size: 20,
                     ),
-                    child: Icon(Icons.dashboard, color: themeColor, size: 20,),
                   ),
-                  SizedBox(width: 10,),
-                  Text('Tableau de bord', style: TextStyle(
-                    fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'BAARS'
-                  ),)
-              ],),
-            ),
-            SizedBox(height: 5,),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 2,
-              color: Colors.grey.withOpacity(0.1),
-            ),
-            SizedBox(height: 5,),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        color: themeColor.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(50)
-                    ),
-                    child: Icon(Icons.account_circle, color: themeColor, size: 20,),
+                  SizedBox(
+                    width: 10,
                   ),
-                  SizedBox(width: 10,),
-                  Text('Mon Profil', style: TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'BAARS'
-                  ),)
-                ],),
-            ),
-            SizedBox(height: 5,),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 2,
-              color: Colors.grey.withOpacity(0.1),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => DemandePage()));
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          color: themeColor.withOpacity(0.3),
-                          borderRadius: BorderRadius.circular(50)
-                      ),
-                      child: Icon(Icons.image_aspect_ratio, color: themeColor, size: 20,),
-                    ),
-                    SizedBox(width: 10,),
-                    Text('Creer une annonce', style: TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'BAARS'
-                    ),)
-                  ],),
+                  Text(
+                    'Tableau de bord',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'BAARS'),
+                  )
+                ],
               ),
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 2,
+              color: Colors.grey.withOpacity(0.1),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        color: themeColor.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Icon(
+                      Icons.account_circle,
+                      color: themeColor,
+                      size: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    'Mon Profil',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'BAARS'),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 2,
+              color: Colors.grey.withOpacity(0.1),
+            ),
+            InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DemandePage()));
+                },
+                child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Row(children: [
+                      Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                            color: themeColor.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(50)),
+                        child: Icon(
+                          Icons.image_aspect_ratio,
+                          color: themeColor,
+                          size: 20,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Creer une annonce',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'BAARS'),
+                      )
+                    ]))),
+            SizedBox(
+              height: 5,
+            ),
             Container(
               width: MediaQuery.of(context).size.width,
               height: 2,
@@ -157,17 +196,29 @@ class MyDrower extends StatelessWidget {
                     width: 40,
                     decoration: BoxDecoration(
                         color: themeColor.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(50)
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Icon(
+                      Icons.collections_bookmark,
+                      color: themeColor,
+                      size: 20,
                     ),
-                    child: Icon(Icons.collections_bookmark, color: themeColor, size: 20,),
                   ),
-                  SizedBox(width: 10,),
-                  Text('Mes demandes de cours', style: TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'BAARS'
-                  ),)
-                ],),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    'Mes demandes de cours',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'BAARS'),
+                  )
+                ],
+              ),
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             Container(
               width: MediaQuery.of(context).size.width,
               height: 2,
@@ -175,7 +226,8 @@ class MyDrower extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => FirstPage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => FirstPage()));
               },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -186,16 +238,25 @@ class MyDrower extends StatelessWidget {
                       width: 40,
                       decoration: BoxDecoration(
                           color: themeColor.withOpacity(0.3),
-                          borderRadius: BorderRadius.circular(50)
+                          borderRadius: BorderRadius.circular(50)),
+                      child: Icon(
+                        Icons.system_update_alt,
+                        color: themeColor,
+                        size: 20,
                       ),
-                      child: Icon(Icons.system_update_alt
-                        , color: themeColor, size: 20,),
                     ),
-                    SizedBox(width: 10,),
-                    Text('Déconnexion', style: TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'BAARS'
-                    ),)
-                  ],),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Déconnexion',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'BAARS'),
+                    )
+                  ],
+                ),
               ),
             ),
             /*Container(
