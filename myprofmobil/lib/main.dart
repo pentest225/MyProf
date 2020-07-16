@@ -3,6 +3,7 @@ import 'package:myprofmobil/screnn/sync.dart';
 import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
 import 'pages/categorie.dart';
+import 'pages/firstPage.dart';
 import 'screnn/contactPage.dart';
 import 'screnn/dashboard.dart';
 import 'screnn/home_screen.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',
-        initialRoute: LaunchApp.routeName,
+        initialRoute: FirstPage.routeName,
         routes: {
           LaunchApp.routeName : (context)=> LaunchApp(),
           HomeScreen.rooteName : (context)=> HomeScreen(),
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
           Registered.routeName:(context)=>Registered(),
           CategoriePage.routeName:(context)=>CategoriePage(),
           AllProf.routeName:(context)=>AllProf(),
-
+          FirstPage.routeName:(context)=>FirstPage(),
 
           // profProfil.routeName: (ctx)=>MyHome()
         },

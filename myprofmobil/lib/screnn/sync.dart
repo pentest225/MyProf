@@ -237,7 +237,7 @@ class _SyncrState extends State<Syncr> {
                     SizedBox(height: 40,),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen2()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: 60, right: 60),

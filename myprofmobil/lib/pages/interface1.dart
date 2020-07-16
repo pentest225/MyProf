@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/screnn/contactPage.dart';
 import 'package:myprofmobil/widgets/myDrower.dart';
 
 class InterfaceOne extends StatefulWidget {
@@ -359,30 +360,35 @@ class _InterfaceOneState extends State<InterfaceOne> {
                     ),
                   ),
                   SizedBox(height: 30,),
-                  Container(
-                    height: 40,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        color: themeColor,
-                      border: Border.all(color: themeColor, width: 1),
-                      borderRadius: BorderRadius.circular(50),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black87,
-                              offset: Offset(0.0, 1.5),
-                              blurRadius: 1.5
-                          )
-                        ]
-                        /*gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [themeColor, Colors.orangeAccent]
-                        )*/
-                    ),
-                    child: Center(
-                        child: Text('Réservez', style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white
-                        ),)
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ContactPage()));
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          color: themeColor,
+                        border: Border.all(color: themeColor, width: 1),
+                        borderRadius: BorderRadius.circular(50),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black87,
+                                offset: Offset(0.0, 1.5),
+                                blurRadius: 1.5
+                            )
+                          ]
+                          /*gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [themeColor, Colors.orangeAccent]
+                          )*/
+                      ),
+                      child: Center(
+                          child: Text('Réservez', style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white
+                          ),)
+                      ),
                     ),
                   ),
                   SizedBox(height: 20,),
