@@ -6,6 +6,7 @@ import 'package:myprofmobil/pages/categorie.dart';
 import 'package:myprofmobil/pages/interface1.dart';
 import 'package:myprofmobil/screnn/Inscription.dart';
 import 'package:myprofmobil/screnn/connexion.dart';
+import 'package:myprofmobil/screnn/dash_user.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
 import 'package:myprofmobil/screnn/demande.dart';
 import 'package:myprofmobil/screnn/homeScreen2.dart';
@@ -68,7 +69,7 @@ class MyDrower extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     DrowerContainer(Icons.dashboard, "Dasbord",
-                        Dashboard.routeName),
+                        UserDash.routeName),
                     DrowerContainer(Icons.perm_contact_calendar, "Inscription",
                         Regis.routeName),
                     DrowerContainer(Icons.perm_contact_calendar, "Connexion",
