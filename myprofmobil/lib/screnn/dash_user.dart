@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/widgets/annonceCard.dart';
 import '../outils/myStyle.dart';
 
 class UserDash extends StatelessWidget {
@@ -10,13 +11,16 @@ class UserDash extends StatelessWidget {
     final appBarHeight = deviceHeight * .1;
     final bodyHeight = deviceHeight - appBarHeight;
     final roundedSectionHeight = bodyHeight - bodyHeight * .25;
+    final demandeCardWidth = deviceWidth - 20;
+    print("demandeCar $demandeCardWidth");
     return Scaffold(
-      backgroundColor: bgColor,
+      // backgroundColor: bgColor,
       body: Container(
         height: deviceHeight,
-        decoration: BoxDecoration(image: DecorationImage(
-                                  image: AssetImage("assets/images/books.png"),
-                                  fit: BoxFit.cover),),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/int3.jpg"), fit: BoxFit.cover),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -133,7 +137,7 @@ class UserDash extends StatelessWidget {
                   Container(
                     //height: roundedSectionHeight,
                     decoration: BoxDecoration(
-                        color: themeColor,
+                        color: themeColor.withOpacity(.7),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40))),
@@ -235,6 +239,9 @@ class UserDash extends StatelessWidget {
                               horizontal: 20, vertical: 20),
                           height: roundedSectionHeight,
                           decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/images/int3.jpg"),
+                                  fit: BoxFit.fitHeight),
                               color: Colors.white,
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(30),
@@ -249,62 +256,11 @@ class UserDash extends StatelessWidget {
                                     fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 20,
                               ),
-                              Container(
-                                height: 200,
-                                color: Colors.black12,
-                                child: Column(
-                                  children: <Widget>[
-                                    Container(
-                                      height: 125,
-                                      color: themeColor.withOpacity(.5),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: <Widget>[
-                                          CircleAvatar(
-                                            backgroundImage: AssetImage(
-                                                "assets/images/guitare.jpg"),
-                                          ),
-                                          Container(
-                                            color: Colors.lightBlueAccent,
-                                            child: Column(
-                                              children: <Widget>[
-                                                Container(
-                                                  width: 300,
-                                                  child: Text(
-                                                      "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de"),
-                                                ),
-                                                Text('25/27')
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Divider(),
-                                    Container(
-                                      child: FlatButton(
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Text(
-                                              "Finalisé la demande ",
-                                            ),
-                                            Icon(
-                                              Icons.arrow_forward_ios,
-                                              size: 12,
-                                            )
-                                          ],
-                                        ),
-                                        color: Colors.red,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
+                              AnonceCard(),
+                              AnonceCard(),
+                              ],
                           ),
                         )
                       ],
