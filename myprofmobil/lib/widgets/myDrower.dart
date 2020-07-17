@@ -72,10 +72,7 @@ class MyDrower extends StatelessWidget {
               height: 40,
             ),
             InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => UserDash()));
-              },
+              onTap: () => Navigator.of(context).pushNamed(UserDash.routeName),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
