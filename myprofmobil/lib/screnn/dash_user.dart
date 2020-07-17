@@ -19,7 +19,7 @@ class UserDash extends StatelessWidget {
         height: deviceHeight,
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/int3.jpg"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/designmobil.png"), fit: BoxFit.cover),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -239,9 +239,7 @@ class UserDash extends StatelessWidget {
                               horizontal: 20, vertical: 20),
                           height: roundedSectionHeight,
                           decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("assets/images/int3.jpg"),
-                                  fit: BoxFit.fitHeight),
+                             
                               color: Colors.white,
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(30),
