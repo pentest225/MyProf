@@ -141,7 +141,7 @@ class UserDash extends StatelessWidget {
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40))),
-                    child: ListView(
+                    child: Column(
                       children: <Widget>[
                         // SECTION COLOR THEME
                         Container(
@@ -257,7 +257,7 @@ class UserDash extends StatelessWidget {
                                 height: 20,
                               ),
                               AnonceCard(),
-                              AnonceCard(),
+                              // AnonceCard(),
                               ],
                           ),
                         )
