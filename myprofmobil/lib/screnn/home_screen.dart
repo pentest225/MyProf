@@ -966,7 +966,7 @@ class _SheetContainerState extends State<SheetContainer>
                          Container(
                              height: 70,
                              width: 100,
-                             child: SvgPicture.asset('assets/images/papou.svg')),
+                             child: SvgPicture.asset('assets/images/python.svg')),
                          SizedBox(height: 30,),
                          Text('Informatique', style: TextStyle(
                              fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 20
@@ -1011,7 +1011,7 @@ class _SheetContainerState extends State<SheetContainer>
                          Container(
                              height: 70,
                              width: 100,
-                             child: SvgPicture.asset('assets/images/papou.svg')),
+                             child: SvgPicture.asset('assets/images/world.svg')),
                          SizedBox(height: 30,),
                          Text('Anglais', style: TextStyle(
                              fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 20

@@ -33,7 +33,7 @@ class AllProf extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Icon(
-                        Icons.filter_list,
+                        Icons.arrow_back,
                         color: Colors.white,
                       ),
                     ),

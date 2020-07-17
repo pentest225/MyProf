@@ -125,7 +125,7 @@ class _CategoriePageState extends State<CategoriePage> {
                               Container(
                                 height: 60,
                                   width: 100,
-                                  child: SvgPicture.asset('assets/images/papou.svg')),
+                                  child: SvgPicture.asset('assets/images/python.svg')),
                               SizedBox(height: 20,),
                               Text('Informatique', style: TextStyle(
                                 fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 20
@@ -170,7 +170,7 @@ class _CategoriePageState extends State<CategoriePage> {
                               Container(
                                   height: 60,
                                   width: 100,
-                                  child: SvgPicture.asset('assets/images/papou.svg')),
+                                  child: SvgPicture.asset('assets/images/world.svg')),
                               SizedBox(height: 20,),
                               Text('Anglais', style: TextStyle(
                                   fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 20
@@ -215,7 +215,7 @@ class _CategoriePageState extends State<CategoriePage> {
                               Container(
                                   height: 60,
                                   width: 100,
-                                  child: SvgPicture.asset('assets/images/papou.svg')),
+                                  child: SvgPicture.asset('assets/images/musik.svg')),
                               SizedBox(height: 20,),
                               Text('Musique', style: TextStyle(
                                   fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 20
@@ -305,7 +305,7 @@ class _CategoriePageState extends State<CategoriePage> {
                               Container(
                                   height: 60,
                                   width: 100,
-                                  child: SvgPicture.asset('assets/images/papou.svg')),
+                                  child: SvgPicture.asset('assets/images/fitness.svg')),
                               SizedBox(height: 20,),
                               Text('Sport', style: TextStyle(
                                   fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 20
