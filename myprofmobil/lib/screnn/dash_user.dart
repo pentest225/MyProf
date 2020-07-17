@@ -19,7 +19,7 @@ class UserDash extends StatelessWidget {
         height: deviceHeight,
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/designmobil.png"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/designmobil1.png"), fit: BoxFit.cover),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,7 +67,7 @@ class UserDash extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 color: Colors.white.withOpacity(.3)),
                             child: Text(
-                              "P",
+                              "PA",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
