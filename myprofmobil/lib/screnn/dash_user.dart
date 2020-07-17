@@ -154,7 +154,7 @@ class UserDash extends StatelessWidget {
                               Container(
                                 height: deviceWidth * .25,
                                 width: deviceWidth * .25,
-                                padding: EdgeInsets.all(20),
+                                padding: EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: Colors.white.withOpacity(.3),
@@ -198,7 +198,7 @@ class UserDash extends StatelessWidget {
                                           color: Colors.white),
                                     ),
                                     Text(
-                                      "Nombre d'avie ",
+                                      "Nombre d'avis ",
                                       style: TextStyle(fontSize: 10),
                                     ),
                                   ],
