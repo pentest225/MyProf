@@ -14,6 +14,9 @@ class UserDash extends StatelessWidget {
       backgroundColor: bgColor,
       body: Container(
         height: deviceHeight,
+        decoration: BoxDecoration(image: DecorationImage(
+                                  image: AssetImage("assets/images/books.png"),
+                                  fit: BoxFit.cover),),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -42,7 +45,7 @@ class UserDash extends StatelessWidget {
                                 color: Colors.white.withOpacity(.3)),
                             child: Text(
                               "Ajouter une annonce ",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.w100),
                             ),
                           ),
                         ),
@@ -128,7 +131,7 @@ class UserDash extends StatelessWidget {
                   ),
                   //Rounded Section
                   Container(
-                    height: roundedSectionHeight,
+                    //height: roundedSectionHeight,
                     decoration: BoxDecoration(
                         color: themeColor,
                         borderRadius: BorderRadius.only(
@@ -136,6 +139,7 @@ class UserDash extends StatelessWidget {
                             topRight: Radius.circular(40))),
                     child: Column(
                       children: <Widget>[
+                        // SECTION COLOR THEME
                         Container(
                           height: roundedSectionHeight * .25,
                           color: Colors.transparent,
@@ -153,9 +157,46 @@ class UserDash extends StatelessWidget {
                                 ),
                                 child: Column(
                                   children: <Widget>[
-                                    Icon(Icons.done_all,color: Colors.green,size: 35,),
-                                    Text("Diplôme ",style: TextStyle(fontSize: 10),),
-                                    Text("Verifié ",style: TextStyle(fontSize: 8),)
+                                    Icon(
+                                      Icons.done_all,
+                                      color: Colors.green,
+                                      size: 35,
+                                    ),
+                                    Text(
+                                      "Diplôme ",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                    Text(
+                                      "Verifié ",
+                                      style: TextStyle(fontSize: 8),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: deviceWidth * .25,
+                                width: deviceWidth * .25,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.white.withOpacity(.3),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      "15",
+                                      style: TextStyle(
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white),
+                                    ),
+                                    Text(
+                                      "Nombre d'avie ",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -166,26 +207,106 @@ class UserDash extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(20),
                                   color: Colors.white.withOpacity(.3),
                                 ),
-                              ),
-                              Container(
-                                height: deviceWidth * .25,
-                                width: deviceWidth * .25,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.white.withOpacity(.3),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      "17",
+                                      style: TextStyle(
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.green),
+                                    ),
+                                    Text(
+                                      "Recomendations ",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
                               )
-
                             ],
                           ),
                         ),
+                        // WHITE BOTTOM SECTION
                         Container(
-                            height: roundedSectionHeight * .75,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(40),
-                                    topRight: Radius.circular(40))))
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          height: roundedSectionHeight,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                  topRight: Radius.circular(30))),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "Mes demandes de cours",
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                height: 200,
+                                color: Colors.black12,
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                      height: 125,
+                                      color: themeColor.withOpacity(.5),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        children: <Widget>[
+                                          CircleAvatar(
+                                            backgroundImage: AssetImage(
+                                                "assets/images/guitare.jpg"),
+                                          ),
+                                          Container(
+                                            color: Colors.lightBlueAccent,
+                                            child: Column(
+                                              children: <Widget>[
+                                                Container(
+                                                  width: 300,
+                                                  child: Text(
+                                                      "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de"),
+                                                ),
+                                                Text('25/27')
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Divider(),
+                                    Container(
+                                      child: FlatButton(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Text(
+                                              "Finalisé la demande ",
+                                            ),
+                                            Icon(
+                                              Icons.arrow_forward_ios,
+                                              size: 12,
+                                            )
+                                          ],
+                                        ),
+                                        color: Colors.red,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
