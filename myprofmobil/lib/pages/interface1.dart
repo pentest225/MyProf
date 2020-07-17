@@ -60,7 +60,8 @@ class _InterfaceOneState extends State<InterfaceOne> {
                               ),
                             ),
                           ),
-                          InkWell(
+                          /*
+                          ` b bInkWell(
                             onTap: () {
                              print('esthy');
                             },
@@ -75,7 +76,7 @@ class _InterfaceOneState extends State<InterfaceOne> {
                                   child:  Icon(Icons.settings, color: Colors.white,),
                               ),
                             ),
-                          )
+                          )*/
                         ],
                       ),
                       SizedBox(height: 25,),

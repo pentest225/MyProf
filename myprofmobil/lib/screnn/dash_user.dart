@@ -93,7 +93,7 @@ class UserDash extends StatelessWidget {
                               color: Colors.blue,
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                  image: AssetImage("assets/images/fille.jpg"),
+                                  image: AssetImage("assets/images/man.jpg"),
                                   fit: BoxFit.cover),
                             ),
                           ),
