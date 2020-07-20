@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/demande.dart';
 import 'package:myprofmobil/widgets/annonceCard.dart';
 import '../outils/myStyle.dart';
 
@@ -19,7 +20,8 @@ class UserDash extends StatelessWidget {
         height: deviceHeight,
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/designmobil1.png"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/designmobil1.png"),
+              fit: BoxFit.cover),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,11 +37,19 @@ class UserDash extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Icon(Icons.arrow_back_ios),
+                    IconButton(
+                      icon: Icon(Icons.arrow_back_ios),
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
                     Row(
                       children: <Widget>[
                         InkWell(
-                          onTap: () => Scaffold.of(context).openDrawer(),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DemandePage()));
+                          },
                           child: Container(
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             alignment: Alignment.center,
@@ -239,7 +249,6 @@ class UserDash extends StatelessWidget {
                               horizontal: 20, vertical: 20),
                           height: roundedSectionHeight,
                           decoration: BoxDecoration(
-                             
                               color: Colors.white,
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(30),
@@ -258,7 +267,7 @@ class UserDash extends StatelessWidget {
                               ),
                               AnonceCard(),
                               // AnonceCard(),
-                              ],
+                            ],
                           ),
                         )
                       ],

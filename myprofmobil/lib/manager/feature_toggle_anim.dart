@@ -4,7 +4,7 @@ import 'package:sprinkle/Manager.dart';
 
 class StateBloc implements Manager {
 
-  StreamController animationController = StreamController();
+  StreamController animationController = StreamController.broadcast();
   final StateProvider provider = StateProvider();
 
   Stream get animationStatus => animationController.stream;
@@ -18,6 +18,7 @@ class StateBloc implements Manager {
   void dispose() {
     animationController?.close();
   }
+  
 }
 
 class StateProvider {
