@@ -5,19 +5,13 @@ import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/pages/categorie.dart';
 import 'package:myprofmobil/pages/firstPage.dart';
 import 'package:myprofmobil/pages/interface1.dart';
+import 'package:myprofmobil/pages/profil.dart';
 import 'package:myprofmobil/screnn/Inscription.dart';
 import 'package:myprofmobil/screnn/connexion.dart';
 import 'package:myprofmobil/screnn/dash_user.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
 import 'package:myprofmobil/screnn/demande.dart';
-import 'package:myprofmobil/screnn/homeScreen2.dart';
-import 'package:myprofmobil/screnn/home_screen.dart';
-import 'package:myprofmobil/screnn/progress.dart';
-import 'package:myprofmobil/screnn/regis.dart';
-import 'package:myprofmobil/screnn/register.dart';
-import 'package:myprofmobil/screnn/sync.dart';
-import 'package:myprofmobil/screnn/verify.dart';
-import 'package:myprofmobil/widgets/drowerContainer.dart';
+
 
 class MyDrower extends StatelessWidget {
   const MyDrower({Key key}) : super(key: key);
@@ -114,33 +108,39 @@ class MyDrower extends StatelessWidget {
             SizedBox(
               height: 5,
             ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        color: themeColor.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(50)),
-                    child: Icon(
-                      Icons.account_circle,
-                      color: themeColor,
-                      size: 20,
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilPage()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: themeColor.withOpacity(0.3),
+                          borderRadius: BorderRadius.circular(50)),
+                      child: Icon(
+                        Icons.account_circle,
+                        color: themeColor,
+                        size: 20,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Mon Profil',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'BAARS'),
-                  )
-                ],
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Mon Profil',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'BAARS'),
+                    )
+                  ],
+                ),
               ),
             ),
             SizedBox(

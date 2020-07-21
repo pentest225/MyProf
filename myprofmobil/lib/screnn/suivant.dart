@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/screnn/dash_user.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
 import 'package:myprofmobil/screnn/home_screen.dart';
 import '../widgets/multiSelectChip.dart';
@@ -2458,7 +2459,7 @@ class _SuivantState extends State<Suivant> {
                           child: InkWell(
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => HomeScreen()));
+                                  builder: (context) => UserDash()));
                             },
                             child: Center(
                               child: Text(
