@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/screnn/dash_user.dart';
 import 'package:myprofmobil/widgets/myDrower.dart';
 
 import 'profil_adresse.dart';
@@ -86,9 +87,7 @@ class _ProfilPageState extends State<ProfilPage> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilAdresse()));
-                      },
+                      onTap: () => Navigator.of(context).pushNamed(ProfilAdresse.routeName),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(

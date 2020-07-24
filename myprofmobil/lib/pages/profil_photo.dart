@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 
 class ProfilPhoto extends StatefulWidget {
@@ -10,6 +13,27 @@ class ProfilPhoto extends StatefulWidget {
 }
 
 class _ProfilPhotoState extends State<ProfilPhoto> {
+
+  File _image;
+  bool _loadImage = false;
+  final picker = ImagePicker();
+
+  Future getImageFromFils() async {
+    try {
+      setState(() {
+        _loadImage = true;
+      });
+      final pickedFile = await picker.getImage(source: ImageSource.gallery);
+      _image = File(pickedFile.path);
+      print("Image From Galerie ${_image}");
+      setState(() {
+        _loadImage = false;
+      });
+    } catch (error) {
+      print("Error to get Image from fils ${error.toString()}");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,11 +87,17 @@ class _ProfilPhotoState extends State<ProfilPhoto> {
                         width: 220,
                         decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.3),
-                          shape: BoxShape.circle
+                          shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: AssetImage(_image == null
+                                    ? 'assets/images/man.jpg'
+                                    : _image.path),
+                                fit: BoxFit.cover)
                         ),
-                        child: Icon(Icons.person, color: Colors.white, size: 200,),
                       ),
-                      SizedBox(height: 50,),
+                      SizedBox(height: 50,
+                        child: _loadImage ?Text("Loading ...",style: TextStyle(color: themeColor),):null,
+                      ),
                       Center(
                         child: InkWell(
                           onTap: () {
@@ -80,22 +110,24 @@ class _ProfilPhotoState extends State<ProfilPhoto> {
                                 color: themeColor,
                                 borderRadius: BorderRadius.circular(50)
                             ),
-                            child: Center(
-                                child: Text('Télécharger', style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18, fontFamily: 'BAARS'
-                                ),)
-                            ),
+                            child: FlatButton.icon(
+                                onPressed: getImageFromFils,
+                                icon: Icon(Icons.camera_alt, color: Colors.white,),
+                                label: Text(
+                                  'Télécharger',
+                                  style: TextStyle(
+                                      color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18, fontFamily: 'BAARS'),
+                                )),)
                           ),
                         ),
-                      ),
                     ],
                   ),
                 )
               ],
             ),
           ),
-        ),
-      ),
+              ))
+
     );
   }
 }

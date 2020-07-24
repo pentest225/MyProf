@@ -4,6 +4,7 @@ import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
 import 'pages/categorie.dart';
 import 'pages/firstPage.dart';
+import 'pages/profil_adresse.dart';
 import 'screnn/contactPage.dart';
 import 'screnn/dashboard.dart';
 import 'screnn/home_screen.dart';
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
           AllProf.routeName:(context)=>AllProf(),
           FirstPage.routeName:(context)=>FirstPage(),
           UserDash.routeName:(context)=>UserDash(),
-
+          ProfilAdresse.routeName:(context)=>ProfilAdresse(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),
