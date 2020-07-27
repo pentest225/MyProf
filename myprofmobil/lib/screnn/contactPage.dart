@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
 
+import 'dash_user.dart';
 import 'home_screen.dart';
 
 class ContactPage extends StatefulWidget {
@@ -330,7 +331,7 @@ class _ContactPageState extends State<ContactPage> {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, Dashboard.routeName);
+                            Navigator.pushNamed(context, UserDash.routeName);
                           },
                           child: Center(
                             child: Text(

@@ -26,6 +26,7 @@ dependencies:
   sprinkle: ^0.0.2
   image_picker: ^0.6.7+4
   flutter_svg:
+  google_maps_flutter:
   percent_indicator: ^2.1.5
   flutter_animation_progress_bar: ^1.0.0
   floating_search_bar: ^0.3.0
