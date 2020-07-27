@@ -138,6 +138,7 @@ class _SuivantState extends State<Suivant> {
         elevation: 0,
       ),*/
       body: PageView(
+        
         controller: _controller,
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
