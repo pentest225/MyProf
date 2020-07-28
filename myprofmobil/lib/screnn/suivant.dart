@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/widgets/CertifAndLinkSteep.dart';
 import 'package:myprofmobil/widgets/CoursPlaceStep.dart';
 import 'package:myprofmobil/widgets/PriceAndNumberStep.dart';
 import 'package:myprofmobil/widgets/SousSpecialiteStep.dart';
@@ -9,6 +10,7 @@ import 'package:myprofmobil/widgets/finalStep.dart';
 import 'package:myprofmobil/widgets/imageStep.dart';
 import 'package:myprofmobil/widgets/socialBtn.dart';
 import 'package:myprofmobil/widgets/titleStep.dart';
+import 'package:myprofmobil/widgets/youtubeStepp.dart';
 import '../widgets/multiSelectChip.dart';
 
 class Suivant extends StatefulWidget {
@@ -91,6 +93,8 @@ class _SuivantState extends State<Suivant> {
                   CoursModeStep(),
                   PlaceCours(),
                   PriceAndNumber(),
+                  CertifStepp(),
+                  YoutubeLink(),
                   ImageStep(),
                   FinalStep()
                   ],

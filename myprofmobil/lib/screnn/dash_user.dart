@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/calendarTask1.dart';
 import 'package:myprofmobil/screnn/demande.dart';
+import 'package:myprofmobil/widgets/Specialite.dart';
 import 'package:myprofmobil/widgets/annonceCard.dart';
+import 'package:myprofmobil/widgets/dashCard.dart';
 import '../outils/myStyle.dart';
 
 class UserDash extends StatelessWidget {
@@ -9,7 +12,7 @@ class UserDash extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
-    final appBarHeight = deviceHeight * .1;
+    final appBarHeight = deviceHeight * .1 +10;
     final bodyHeight = deviceHeight - appBarHeight;
     final roundedSectionHeight = bodyHeight - bodyHeight * .25;
     final demandeCardWidth = deviceWidth - 20;
@@ -19,8 +22,9 @@ class UserDash extends StatelessWidget {
       body: Container(
         height: deviceHeight,
         decoration: BoxDecoration(
+          color: Colors.grey.withOpacity(.5),
           image: DecorationImage(
-              image: AssetImage("assets/images/designmobil1.png"),
+              image: AssetImage("assets/images/designmobil2.jpg"),
               fit: BoxFit.cover),
         ),
         child: Column(
@@ -29,11 +33,11 @@ class UserDash extends StatelessWidget {
             // I=> MY APPBAR
             Container(
               height: appBarHeight,
-              // color: themeColor,
+              // color: Colors.grey.withOpacity(.5),
               child: Container(
-                margin: EdgeInsets.only(top: deviceHeight * .055),
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                // color: Colors.blue,
+                margin: EdgeInsets.only(top: deviceHeight * .045),
+                padding: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+                // color: Colors.grey.withOpacity(.5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -54,9 +58,10 @@ class UserDash extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                border: Border.all(color: themeColor, width: 1),
+                                border:
+                                    Border.all(color: themeColor, width: .5),
                                 borderRadius: BorderRadius.circular(20),
-                                color: Colors.white.withOpacity(.3)),
+                                color: Colors.white),
                             child: Text(
                               "Ajouter une annonce ",
                               style: TextStyle(fontWeight: FontWeight.w100),
@@ -73,9 +78,10 @@ class UserDash extends StatelessWidget {
                             width: 35,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                border: Border.all(color: themeColor, width: 1),
+                                border:
+                                    Border.all(color: themeColor, width: 1),
                                 shape: BoxShape.circle,
-                                color: Colors.white.withOpacity(.3)),
+                                color: Colors.white),
                             child: Text(
                               "PA",
                               style: TextStyle(fontWeight: FontWeight.bold),
@@ -98,14 +104,14 @@ class UserDash extends StatelessWidget {
                     height: bodyHeight * .25,
                     child: Container(
                         child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Container(
                           alignment: Alignment.center,
                           width: deviceWidth * .3,
                           child: Container(
-                            height: bodyHeight * .25 - 80,
-                            width: bodyHeight * .25 - 80,
+                            height: bodyHeight * .25 - 100,
+                            width: bodyHeight * .25 - 100,
                             decoration: BoxDecoration(
                               color: Colors.blue,
                               shape: BoxShape.circle,
@@ -147,7 +153,7 @@ class UserDash extends StatelessWidget {
                   Container(
                     //height: roundedSectionHeight,
                     decoration: BoxDecoration(
-                        color: themeColor.withOpacity(.7),
+                        color: themeColor,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40))),
@@ -247,28 +253,26 @@ class UserDash extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.symmetric(
                               horizontal: 20, vertical: 20),
-                          height: roundedSectionHeight,
+                          
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: fondcolor,
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(30),
                                   topRight: Radius.circular(30))),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Mes demandes de cours",
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              AnonceCard(),
-                              // AnonceCard(),
-                            ],
-                          ),
+                          child: Container(
+                            margin: EdgeInsets.only(top: 15),
+                            width: deviceWidth,
+                            child: Wrap(
+                              
+                              children: <Widget>[
+                                DashCard("Mes Annonces",Icons.card_membership,''),
+                                DashCard("Mes Demandes ",Icons.school,''),
+                                DashCard("Parrametres ",Icons.settings,''),
+                                DashCard("Agenda ",Icons.calendar_today,Calendartask1.routeName),
+                              ],
+                            ),
+                          )
+                          
                         )
                       ],
                     ),

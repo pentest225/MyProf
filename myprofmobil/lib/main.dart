@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/calendarTask1.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
@@ -61,6 +62,7 @@ class MyApp extends StatelessWidget {
           FirstPage.routeName:(context)=>FirstPage(),
           UserDash.routeName:(context)=>UserDash(),
           ProfilAdresse.routeName:(context)=>ProfilAdresse(),
+          Calendartask1.routeName:(context)=>Calendartask1()
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),
