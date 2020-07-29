@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:myprofmobil/screnn/contactPage.dart';
 import '../outils/myStyle.dart';
 
-class profProfil extends StatelessWidget {
+//PAGE DE DETAILLE D'UNE ANONCE PRESENTATIONS DU PROF DE CES MATIERRE ET TOUTE INFO SUR SON ANNONCE
+class ProfProfil extends StatelessWidget {
   static const routeName = "profProfil";
 
   @override

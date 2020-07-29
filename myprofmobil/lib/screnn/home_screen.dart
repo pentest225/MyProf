@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/pages/categorie.dart';
 import 'package:myprofmobil/pages/interface1.dart';
+import 'package:myprofmobil/screnn/all_prof.dart';
 import 'package:myprofmobil/widgets/myDrower.dart';
 import 'package:sprinkle/SprinkleExtension.dart';
 import '../screnn/searchPage.dart';
@@ -926,7 +927,7 @@ class _SheetContainerState extends State<SheetContainer>
           ),
          InkWell(
            onTap: () {
-             Navigator.push(context, MaterialPageRoute(builder: (context) => InterfaceOne()));
+             Navigator.of(context).pushNamed(AllProf.routeName);
            },
            child: Container(
              height: 220,

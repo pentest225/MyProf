@@ -3,6 +3,7 @@ import '../outils/myStyle.dart';
 import '../widgets/slederPage.dart';
 import 'home_screen.dart';
 
+//PAGE DE PRESENTATION DE L'APPLICATION AVEC SLEEDER PAGEVIEW
 class LaunchApp extends StatefulWidget {
   static const routeName = '/';
   @override

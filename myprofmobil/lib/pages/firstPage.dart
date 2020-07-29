@@ -3,6 +3,7 @@ import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/connexion.dart';
 import 'package:myprofmobil/screnn/regis.dart';
 
+//PAGE DE CONNEXION OU INSCRIPTION
 class FirstPage extends StatelessWidget {
 
   static const routeName = '/firstpage';

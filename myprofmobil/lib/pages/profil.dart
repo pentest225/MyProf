@@ -12,6 +12,7 @@ import 'profil_password.dart';
 import 'profil_photo.dart';
 import 'profil_suppresion.dart';
 
+//PAGE PROFIL UTILISATEUR 
 class ProfilPage extends StatefulWidget {
 
   static const routeName = 'profil';

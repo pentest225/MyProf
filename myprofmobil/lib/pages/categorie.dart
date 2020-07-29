@@ -4,6 +4,7 @@ import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/all_prof.dart';
 import 'package:myprofmobil/screnn/homeScreen2.dart';
 
+//PAGE POUR LISTER TOUTE LES CATEGORIE DE FORMATION 
 class CategoriePage extends StatefulWidget {
 
   static const routeName = '/categorie';

@@ -30,18 +30,7 @@ class _DaysRowState extends State<DaysRow> {
     isWeek = myService.isWeek(DateTime.now(), widget.index);
     
     print(DateTime.now());
-    return isWeek? Container(
-      width: MediaQuery.of(context).size.width / 1.1,
-      height: 40,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        color: Colors.grey
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: generatRowChilds(),
-      ),
-    ):Container(
+    return Container(
       width: MediaQuery.of(context).size.width / 1.1,
       height: 40,
       child: Row(

@@ -5,6 +5,7 @@ import 'package:myprofmobil/screnn/home_screen.dart';
 import 'homeScreen2.dart';
 import 'pass.dart';
 
+//L'UNE DES PAGES D'INSCRIPTION 
 class Syncr extends StatefulWidget {
 
   static const routeName = '/sync';

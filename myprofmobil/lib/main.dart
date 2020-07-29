@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/pages/profil.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:sprinkle/Overseer.dart';
@@ -23,6 +24,7 @@ import 'package:myprofmobil/screnn/launcher_screen.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 import 'screnn/verify.dart';
 import 'screnn/dash_user.dart';
+import 'screnn/annonceList.dart';
 
 import 'screnn/all_prof.dart';
 
@@ -45,14 +47,13 @@ class MyApp extends StatelessWidget {
         routes: {
           LaunchApp.routeName : (context)=> LaunchApp(),
           HomeScreen.rooteName : (context)=> HomeScreen(),
-          profProfil.routeName : (context)=> profProfil(),
+          ProfProfil.routeName : (context)=> ProfProfil(),
           ContactPage.routeName : (context)=> ContactPage(),
           Dashboard.routeName : (context)=> Dashboard(),
           SearchPage.routeName :(context)=>SearchPage(),
           DemandePage.routeName:(context)=>DemandePage(),
           Inscription.routeName:(context)=>Inscription(),
           Connexion.routeNamed:(context)=>Connexion(),
-          Dashboard.routeName:(context)=>Dashboard(),
           Syncr.routeName:(context)=>Syncr(),
           Verify.routeName:(context)=>Verify(),
           Regis.routeName:(context)=>Regis(),
@@ -62,7 +63,9 @@ class MyApp extends StatelessWidget {
           FirstPage.routeName:(context)=>FirstPage(),
           UserDash.routeName:(context)=>UserDash(),
           ProfilAdresse.routeName:(context)=>ProfilAdresse(),
-          Calendartask1.routeName:(context)=>Calendartask1()
+          Calendartask1.routeName:(context)=>Calendartask1(),
+          DemandeList.routeName:(context)=>DemandeList(),
+          ProfilPage.routeName:(context)=>ProfilPage()
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),

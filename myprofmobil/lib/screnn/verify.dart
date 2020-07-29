@@ -3,6 +3,7 @@ import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/pass.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 
+//L'UNE DES PAGE D'INSCRIPTION 
 class Verify extends StatefulWidget {
 
   static const routeName = '/verify';

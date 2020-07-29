@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/profProfil.dart';
 import '../outils/myStyle.dart';
 
-class AnonceCard extends StatelessWidget {
+class DemandeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
@@ -12,10 +13,10 @@ class AnonceCard extends StatelessWidget {
     final demandeCardWidth = deviceWidth - 20;
     return Container(
       // height: 200,
-      margin: EdgeInsets.only(top: 10),
+      margin: EdgeInsets.only(top: 10,left: 10,right: 10),
       width: demandeCardWidth,
       decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(.5),
+          color: Colors.black.withOpacity(.5),
           borderRadius: BorderRadius.circular(10)),
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
@@ -51,7 +52,7 @@ class AnonceCard extends StatelessWidget {
                             Container(
                               width: demandeCardWidth - 110,
                               child: Text(
-                                "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de",
+                                "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",
                                 style: TextStyle(color: Colors.grey),
                               ),
                             ),
@@ -67,6 +68,8 @@ class AnonceCard extends StatelessWidget {
           ),
           Divider(),
           Container(
+            // color: Colors.red,
+            width: deviceWidth * .45,
             child: FlatButton(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -82,7 +85,8 @@ class AnonceCard extends StatelessWidget {
                   )
                 ],
               ),
-              color: Colors.red,
+              
+              onPressed: ()=>Navigator.of(context).pushNamed(ProfProfil.routeName),
             ),
           )
         ],

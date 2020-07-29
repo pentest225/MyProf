@@ -1,8 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/all_prof.dart';
 import 'package:myprofmobil/widgets/matierreCard.dart';
 import '../outils/myStyle.dart';
+import 'profProfil.dart';
 
+//PAGE DE RECHECHE D'ANNONCE OU PROFFESSEURS EN FONCTION DE LA MATIERRE ET VILLE 
 class SearchPage extends StatefulWidget {
   static const routeName = '/searchPage';
 
@@ -113,6 +116,9 @@ class _SearchPageState extends State<SearchPage> {
                                 Icons.place,
                                 color: themeColor,
                               )),
+                              onSubmitted:(val){
+                                Navigator.of(context).pushNamed(AllProf.routeName);
+                              },
                         ),
                       ),
                     )
