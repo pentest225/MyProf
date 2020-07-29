@@ -6,7 +6,7 @@ class CalandarDay extends StatelessWidget {
   CalandarDay(this.indDay,[this.isToday]);
   @override
   Widget build(BuildContext context) {
-    print("IS TOdat $isToday");
+   
     return Container(
             height: 40,
             width: 40,

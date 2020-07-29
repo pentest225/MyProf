@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/widgets/dayContainer.dart';
 import 'package:myprofmobil/widgets/daySRow.dart';
 import '../services/calendarServices.dart';
 
@@ -11,11 +12,12 @@ class Calendartask1 extends StatefulWidget {
 class _Calendartask1State extends State<Calendartask1> {
   CalendarServices mySerice = CalendarServices();
   int numberRow = 2;
+  List<DateTime> currenteWeek = [];
   @override
   Widget build(BuildContext context) {
-    
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
+    currenteWeek = mySerice.currentWeek();
     return Scaffold(
       body: Container(
         width: deviceWidth,
@@ -75,7 +77,8 @@ class _Calendartask1State extends State<Calendartask1> {
                       //Calendar
                       child: Container(
                         // color: Colors.grey.withOpacity(.7),
-                        margin: EdgeInsets.only(left:10,right: 10,bottom: 15),
+                        margin:
+                            EdgeInsets.only(left: 10, right: 10, bottom: 15),
                         child: Column(
                           children: <Widget>[
                             // Liste Day
@@ -129,7 +132,9 @@ class _Calendartask1State extends State<Calendartask1> {
                               child: ListView.builder(
                                 itemCount: 7,
                                 itemBuilder: (BuildContext context, int index) {
-                                  return DaysRow(index+1);
+                                  return DaysRow(
+                                    index + 1,
+                                  );
                                 },
                               ),
                             )
@@ -160,35 +165,9 @@ class _Calendartask1State extends State<Calendartask1> {
                                 width: MediaQuery.of(context).size.width,
                                 child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: 6,
+                                    itemCount: currenteWeek.length,
                                     itemBuilder: (context, i) {
-                                      return Container(
-                                        height: 60,
-                                        width: 60,
-                                        margin: EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                            color: Colors.blue),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: <Widget>[
-                                            Text(
-                                              "15",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              "Lun",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold),
-                                            )
-                                          ],
-                                        ),
-                                      );
+                                      return DayContainer(currenteWeek[i]);
                                     }),
                               ),
                               SizedBox(height: 20),
@@ -349,8 +328,6 @@ class _Calendartask1State extends State<Calendartask1> {
                       ),
                     ),
                   ),
-                
-                
                 ],
               ),
             )

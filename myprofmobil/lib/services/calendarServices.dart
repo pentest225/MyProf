@@ -2,6 +2,7 @@ import 'package:date_util/date_util.dart';
 
 class CalendarServices {
   DateUtil myUtilityDate = DateUtil();
+  
   int daysBeforeStart(String day) {
     int index = 0;
     switch (day) {
@@ -33,6 +34,7 @@ class CalendarServices {
     return index;
   }
 
+  // GENERATION DE LA LISTE DES DATES DU MOIS 
   List<DateTime> generateAgendat(DateTime myDate) {
     List<DateTime> myCalendar = [];
     var myDateUtility = DateUtil();
@@ -70,7 +72,9 @@ class CalendarServices {
     return myCalendar;
   }
 
+  // GENERATION DE LA LISTE DES SEMAINES
   List<DateTime> generateWeek(DateTime myDate,int weekIndex){
+    
     List<DateTime> myWeekList = [];
     List<DateTime> myCalandarList = this.generateAgendat(myDate);
     switch (weekIndex) {
@@ -113,11 +117,21 @@ class CalendarServices {
     return generateWeek(myDate,indexWeek).contains(DateTime(DateTime.now().year,DateTime.now().month,DateTime.now().day));
   }
   
+  List<DateTime> currentWeek(){
+    List<DateTime>myDays;
+    for(int i=1;i<7;i++){
+      bool myWeek = isWeek(DateTime.now(), i);
+      if(myWeek){
+        myDays = generateWeek(DateTime.now(), i);
+      }
+    }
+    return myDays;
+  }
+
   bool isToday(DateTime myDate){
     DateTime today = DateTime.now();
     return today.day == myDate.day && today.month == myDate.month && today.year == myDate.year;
   }
-
   bool isMonth(DateTime myDate){
     DateTime today = DateTime.now();
     return today.day == myDate.day && today.month == myDate.month ;

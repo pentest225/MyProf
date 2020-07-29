@@ -5,7 +5,8 @@ import 'CalandarDay.dart';
 
 class DaysRow extends StatefulWidget {
   int index;
-  DaysRow(this.index);
+  
+  DaysRow(this.index,);
   @override
   _DaysRowState createState() => _DaysRowState();
 }
@@ -28,7 +29,7 @@ class _DaysRowState extends State<DaysRow> {
   Widget build(BuildContext context) {
     isWeek = myService.isWeek(DateTime.now(), widget.index);
     
-    print(DateTime(DateTime.now().year,DateTime.now().month,DateTime.now().day));
+    print(DateTime.now());
     return isWeek? Container(
       width: MediaQuery.of(context).size.width / 1.1,
       height: 40,
