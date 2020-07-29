@@ -12,6 +12,7 @@ class DaysRow extends StatefulWidget {
 
 class _DaysRowState extends State<DaysRow> {
   CalendarServices myService = CalendarServices();
+  bool isWeek = false;
 
   List<DateTime> myCalendarList = [];
   List<Widget>myRow;
@@ -19,16 +20,27 @@ class _DaysRowState extends State<DaysRow> {
     List<Widget>myRow = [];
     myCalendarList = myService.generateWeek(DateTime.now(),widget.index);
     myCalendarList.forEach((el){
-      myRow.add(CalandarDay(el.day));
+      myRow.add(CalandarDay(el.day,myService.isToday(el)));
     });
     return myRow;
   }
   @override
   Widget build(BuildContext context) {
+    isWeek = myService.isWeek(DateTime.now(), widget.index);
     
-    print("First Weeek of Manth ");
-    print(myCalendarList);
-    return Container(
+    print(DateTime(DateTime.now().year,DateTime.now().month,DateTime.now().day));
+    return isWeek? Container(
+      width: MediaQuery.of(context).size.width / 1.1,
+      height: 40,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: Colors.grey
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: generatRowChilds(),
+      ),
+    ):Container(
       width: MediaQuery.of(context).size.width / 1.1,
       height: 40,
       child: Row(

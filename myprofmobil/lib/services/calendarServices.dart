@@ -108,6 +108,11 @@ class CalendarServices {
     }
     return myWeekList;
   }
+  
+  bool isWeek(DateTime myDate,int indexWeek){
+    return generateWeek(myDate,indexWeek).contains(DateTime(DateTime.now().year,DateTime.now().month,DateTime.now().day));
+  }
+  
   bool isToday(DateTime myDate){
     DateTime today = DateTime.now();
     return today.day == myDate.day && today.month == myDate.month && today.year == myDate.year;

@@ -9,7 +9,7 @@ class Calendartask1 extends StatefulWidget {
 }
 
 class _Calendartask1State extends State<Calendartask1> {
-  
+  CalendarServices mySerice = CalendarServices();
   int numberRow = 2;
   @override
   Widget build(BuildContext context) {
@@ -49,16 +49,16 @@ class _Calendartask1State extends State<Calendartask1> {
                           onPressed: () => Navigator.of(context).pop(),
                         ),
                         Text(
-                          "Juillet",
+                          mySerice.strMonth(DateTime.now()),
                           style: TextStyle(color: Colors.white, fontSize: 22),
                         ),
                         Container(),
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
                 ],
               ),
             ),
