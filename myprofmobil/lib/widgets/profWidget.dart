@@ -11,116 +11,168 @@ class ProfWidget extends StatelessWidget {
     final containerHeiht = deviceHeight * .4;
     final containerWidth = deviceWidth * .5 - 10;
     return Container(
-        margin: EdgeInsets.only(top: 35),
-        height: containerHeiht * .7,
-        width: containerWidth,
-        child: Stack(
-    overflow: Overflow.visible,
-    children: <Widget>[
-      Container(
-        height: containerHeiht * .7,
-        
-        margin: EdgeInsets.only(left: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(ProfProfil.routeName);
-              },
-              child: Container(
-                alignment: AlignmentDirectional.bottomCenter,
-                height: containerHeiht * .7,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Container(
-                  margin: EdgeInsets.only(top: 50),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                  child: Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "Dagouaga",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          "Patrick Ben - Sira",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 20),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Icon(
-                                Icons.star_border,
-                                color: themeColor,
+      margin: EdgeInsets.only(top: 35),
+      height: containerHeiht * .7,
+      width: containerWidth,
+      child: Stack(
+        overflow: Overflow.visible,
+        children: <Widget>[
+          Container(
+            height: containerHeiht * .7,
+            margin: EdgeInsets.only(left: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(ProfProfil.routeName);
+                  },
+                  child: Container(
+                    alignment: AlignmentDirectional.bottomCenter,
+                    height: containerHeiht * .7,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Container(
+                      margin: EdgeInsets.only(top: 35),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              "Dagouaga ",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Container(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.location_on,
+                                    size: 15,
+                                    color: accanceColor,
+                                  ),
+                                  Text(
+                                    "Abidjan Cocody",
+                                    style: TextStyle(color: accanceColor),
+                                  )
+                                ],
                               ),
-                              Icon(
-                                Icons.star_border,
-                                color: themeColor,
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 2),
+                              child: RichText(
+                                text: TextSpan(
+                                 style: DefaultTextStyle.of(context).style,
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                        text: '4000 fr/',
+                                        style: TextStyle(
+                                            color: themeColor)),
+                                    TextSpan(text: 'h ',style: TextStyle(
+                                            color: themeColor,fontSize: 10)),
+                                    
+                                  ],
+                                ),
                               ),
-                              Icon(
-                                Icons.star_border,
-                                color: themeColor,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: themeColor),
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                           SizedBox(height: 10,),
+                           Container(
+                             child: Row(
+                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                               children: <Widget>[
+                                 Container(
+                                   child: Row(
+                                     children: <Widget>[
+                                       Text("3.7",style: TextStyle(color: themeColor,fontSize: 14),),
+                                       Icon(Icons.star,color: themeColor,size: 14,)
+                                   ],),
+                                 ),
+                                 Container(
+                                   child: Row(
+                                     children: <Widget>[
+                                       Text("93 ",style: TextStyle(color: accanceColor,fontSize: 14),),
+                                       Text("avis",style: TextStyle(color: accanceColor,fontSize: 14),)
+                                   ],),
+                                 ),
+                                 Container(
+                                   child: Row(
+                                     children: <Widget>[
+                                       Icon(Icons.redeem,color: themeColor,size: 14,)
+                                       
+                                   ],),
+                                 )
+                               ],
+                             ),
+                           ),
+                           
+                            // SizedBox(
+                            //   height: 5,
+                            // ),
+                            Divider(),
+                             Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 2),
+                              child: RichText(
+                                text: TextSpan(
+                                 style: DefaultTextStyle.of(context).style,
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                        text: '1er ',
+                                        style: TextStyle(
+                                            color: accanceColor)),
+                                    TextSpan(text: 'cours gratuit ',style: TextStyle(
+                                            color: accanceColor,)),
+                                    
+                                  ],
+                                ),
                               ),
-                              Icon(
-                                Icons.star_half,
-                                color: themeColor,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: accanceColor),
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                            
+                            Container(
+                              child: Text(
+                                "Dévéloppeur Flutter ",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Divider(),
-                        Text(
-                          "Dévéloppeur Flutter",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
+                )
+              ],
+            ),
+          ),
+          Positioned(
+            top: -35,
+            bottom: containerHeiht * .6 - 10,
+            left: 52,
+            right: 52,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.black26,
+                image: DecorationImage(
+                    image: AssetImage("assets/images/fille.jpg"),
+                    fit: BoxFit.cover),
+                shape: BoxShape.circle,
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
-      Positioned(
-        top: -35,
-        bottom: containerHeiht * .6 - 10,
-        left: 52,
-        right: 52,
-        child: Container(
-          
-          decoration: BoxDecoration(
-            color: Colors.black26,
-              
-              image: DecorationImage(
-                  image: AssetImage("assets/images/fille.jpg"),
-                  fit: BoxFit.cover
-                  ),
-              shape: BoxShape.circle,
-              ),
-        ),
-      )
-    ],
-        ),
-      );
+    );
   }
 }

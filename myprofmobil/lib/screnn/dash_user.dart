@@ -1,12 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/pages/profil.dart';
 import 'package:myprofmobil/screnn/annonceList.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
 import 'package:myprofmobil/screnn/demande.dart';
-import 'package:myprofmobil/widgets/Specialite.dart';
-import 'package:myprofmobil/widgets/demandeCours.dart';
 import 'package:myprofmobil/widgets/dashCard.dart';
 import '../outils/myStyle.dart';
 
@@ -21,7 +18,7 @@ class UserDash extends StatelessWidget {
     final bodyHeight = deviceHeight - appBarHeight;
     final roundedSectionHeight = bodyHeight - bodyHeight * .25;
     final demandeCardWidth = deviceWidth - 20;
-    print("demandeCar $demandeCardWidth");
+
     return Scaffold(
       backgroundColor: Colors.black26,
       body: Container(
