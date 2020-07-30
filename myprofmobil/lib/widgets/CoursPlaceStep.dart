@@ -8,6 +8,8 @@ class PlaceCours extends StatefulWidget {
 
 class _PlaceCoursState extends State<PlaceCours> {
   String radioItem = '';
+  String radioItem1 = '';
+  String radioItem2 = '';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -86,10 +88,10 @@ class _PlaceCoursState extends State<PlaceCours> {
                             fontSize: 18),
                       ),
                       value: "je peux me déplacer chez l'élève",
-                      groupValue: radioItem,
+                      groupValue: radioItem1,
                       onChanged: (val) {
                         setState(() {
-                          radioItem = val;
+                          radioItem1 = val;
                         });
                       },
                     ),
@@ -115,10 +117,10 @@ class _PlaceCoursState extends State<PlaceCours> {
                             fontSize: 18),
                       ),
                       value: "je peux donner des cours par webcam",
-                      groupValue: radioItem,
+                      groupValue: radioItem2,
                       onChanged: (val) {
                         setState(() {
-                          radioItem = val;
+                          radioItem2 = val;
                         });
                       },
                     ),

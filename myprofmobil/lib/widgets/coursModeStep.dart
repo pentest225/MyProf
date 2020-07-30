@@ -54,7 +54,7 @@ class _CoursModeStepState extends State<CoursModeStep> {
                   child: Card(
                     elevation: singleCourMode ? 15 : 0,
                     color:
-                        singleCourMode ? themeColor.withOpacity(.5) : bgColor,
+                        singleCourMode ? Colors.green : bgColor,
                     child: Container(
                       height: 150,
                       width: 160,
@@ -96,7 +96,7 @@ class _CoursModeStepState extends State<CoursModeStep> {
                   },
                   child: Card(
                     elevation: multiCourMode ? 15 : 0,
-                    color: multiCourMode ? themeColor.withOpacity(.5) : bgColor,
+                    color: multiCourMode ? Colors.green : bgColor,
                     child: Container(
                       height: 150,
                       width: 160,

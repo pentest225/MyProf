@@ -70,7 +70,7 @@ class _MyHomeState extends State<LaunchApp> {
                     child: Text(
                       "Annuler ",
                       style: TextStyle(
-                          color: bgColor, fontWeight: FontWeight.bold),
+                          color: themeColor, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),

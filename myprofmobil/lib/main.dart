@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',
-        initialRoute: FirstPage.routeName,
+        initialRoute: LaunchApp.routeName,
         routes: {
           LaunchApp.routeName : (context)=> LaunchApp(),
           HomeScreen.rooteName : (context)=> HomeScreen(),
