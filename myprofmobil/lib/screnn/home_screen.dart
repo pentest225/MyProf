@@ -5,20 +5,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/pages/categorie.dart';
 import 'package:myprofmobil/pages/interface1.dart';
-import 'package:myprofmobil/screnn/dashboard.dart';
-import 'package:myprofmobil/screnn/pass.dart';
-import 'package:myprofmobil/screnn/profPage.dart';
-import 'package:myprofmobil/screnn/regis.dart';
-import 'package:myprofmobil/screnn/sync.dart';
-import 'package:myprofmobil/screnn/verify.dart';
-import 'package:myprofmobil/widgets/homeSteps.dart';
+import 'package:myprofmobil/screnn/all_prof.dart';
 import 'package:myprofmobil/widgets/myDrower.dart';
 import 'package:sprinkle/SprinkleExtension.dart';
 import '../screnn/searchPage.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
-
-import 'Inscription.dart';
-import 'connexion.dart';
 import 'demande.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -149,8 +140,6 @@ class CarDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(left: 10, right: 10),
@@ -938,7 +927,7 @@ class _SheetContainerState extends State<SheetContainer>
           ),
          InkWell(
            onTap: () {
-             Navigator.push(context, MaterialPageRoute(builder: (context) => InterfaceOne()));
+             Navigator.of(context).pushNamed(AllProf.routeName);
            },
            child: Container(
              height: 220,

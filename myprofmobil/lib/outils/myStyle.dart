@@ -19,3 +19,4 @@ final h2 = TextStyle(
   fontFamily: 'BAARS'
 
 );
+final backImage = 'assets/images/ecole.jpg';

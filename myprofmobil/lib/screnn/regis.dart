@@ -4,7 +4,7 @@ import 'package:myprofmobil/outils/myStyle.dart';
 import 'connexion.dart';
 import 'pass.dart';
 import 'verify.dart';
-
+//L'UNE DES PAGES D'INSCRIPTION 
 class Regis extends StatefulWidget {
 
   static const routeName = '/regis';

@@ -122,7 +122,7 @@ class _PouPageState extends State<PouPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => profProfil()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfProfil()));
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: 2),

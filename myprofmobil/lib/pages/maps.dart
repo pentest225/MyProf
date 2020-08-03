@@ -3,19 +3,14 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 
 class MapsFlutter extends StatefulWidget {
-
   static const routeName = 'mapsflutter';
-
   @override
   _MapsFlutterState createState() => _MapsFlutterState();
 }
 
 class _MapsFlutterState extends State<MapsFlutter> {
-
   GoogleMapController mapController;
-
   final LatLng _center = const LatLng(45.521563, -122.677433);
-
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
