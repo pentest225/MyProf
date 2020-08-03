@@ -7,13 +7,13 @@ import 'package:myprofmobil/widgets/demandeCours.dart';
 
 
 // PAGE POUR LISTER LES DEMANDE DE COURS DE L'UTILISATEUR 
-class DemandeList extends StatefulWidget {
+class AnnonceListe extends StatefulWidget {
   static const routeName = "";
   @override
-  _DemandeListState createState() => _DemandeListState();
+  _AnnonceListeState createState() => _AnnonceListeState();
 }
 
-class _DemandeListState extends State<DemandeList>
+class _AnnonceListeState extends State<AnnonceListe>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 

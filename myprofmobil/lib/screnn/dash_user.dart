@@ -267,7 +267,7 @@ class UserDash extends StatelessWidget {
                               width: deviceWidth,
                               child: Wrap(
                                 children: <Widget>[
-                                  DashCard("Mes Annonces",Icons.card_membership,DemandeList.routeName),
+                                  DashCard("Mes Annonces",Icons.card_membership,AnnonceListe.routeName),
                                   DashCard("Mes Demandes ",Icons.school,''),
                                   DashCard("Parrametres ",Icons.settings,ProfilPage.routeName),
                                   DashCard("Agenda ",Icons.calendar_today,Calendartask1.routeName),

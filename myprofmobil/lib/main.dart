@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
           UserDash.routeName:(context)=>UserDash(),
           ProfilAdresse.routeName:(context)=>ProfilAdresse(),
           Calendartask1.routeName:(context)=>Calendartask1(),
-          DemandeList.routeName:(context)=>DemandeList(),
+          AnnonceListe.routeName:(context)=>AnnonceListe(),
           ProfilPage.routeName:(context)=>ProfilPage(),
           ProfilInformations.routeName:(context)=>ProfilInformations(),
           ProfilPhoto.routeName:(context)=>ProfilPhoto(),
