@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:geolocator/geolocator.dart';
 
 class ProfilAdresse extends StatefulWidget {
 
@@ -17,9 +18,11 @@ class _ProfilAdresseState extends State<ProfilAdresse> {
 
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = LatLng(5.316667, -4.033333);
-  final Set<Marker> _markers = {};
+  //final Set<Marker> _markers = {};
   LatLng _lastMapPosition = _center;
   MapType _currentMapType = MapType.normal;
+
+  final Map<String, Marker> _markers = {};
 
   static final CameraPosition _position1 = CameraPosition(
     bearing: 192.833,
@@ -54,8 +57,8 @@ class _ProfilAdresseState extends State<ProfilAdresse> {
   }
 
   // ignore: always_declare_return_types
-  _onAddMarkerButtonPressed() {
-    setState(() {
+  /*_onAddMarkerButtonPressed() {
+   setState(() {
       _markers.add(
         Marker(
           markerId: MarkerId(_lastMapPosition.toString()),
@@ -67,6 +70,21 @@ class _ProfilAdresseState extends State<ProfilAdresse> {
           icon: BitmapDescriptor.defaultMarker,
         ),
       );
+    });
+  }*/
+
+  void _getLocation() async {
+    var currentLocation = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+
+    setState(() {
+      _markers.clear();
+      final marker = Marker(
+        markerId: MarkerId("curr_loc"),
+        position: LatLng(currentLocation.latitude, currentLocation.longitude),
+        infoWindow: InfoWindow(title: 'Your Location'),
+      );
+      _markers['Current Location'] = marker;
     });
   }
 
@@ -87,7 +105,7 @@ class _ProfilAdresseState extends State<ProfilAdresse> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text('Mon Compte', style: TextStyle(
+        title: Text('Ma position', style: TextStyle(
             fontSize: 25, fontWeight: FontWeight.bold, fontFamily: 'BAARS', color: Colors.black
         ),),
         centerTitle: true,
@@ -99,40 +117,26 @@ class _ProfilAdresseState extends State<ProfilAdresse> {
             child: Icon(Icons.arrow_back, color: Colors.black,)
         ),
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        color: fondcolor,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('Ma position', style: TextStyle(
-                      fontFamily: 'BAARS', fontSize: 22, fontWeight: FontWeight.bold
-                  ),),
-                  Icon(Icons.location_on, color: themeColor,)
-                ],
+      body:  Stack(
+        children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            //color: themeColor,
+            child: GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: CameraPosition(
+                target: _center,
+                zoom: 11.0,
               ),
-              SizedBox(height: 20,),
-              Container(
-                height: 450,
-                width: MediaQuery.of(context).size.width,
-                //color: themeColor,
-                child: GoogleMap(
-                  onMapCreated: _onMapCreated,
-                  initialCameraPosition: CameraPosition(
-                    target: _center,
-                    zoom: 11.0,
-                  ),
-                ),
-              )
-            ],
+            ),
           ),
-        ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _getLocation,
+        tooltip: 'Get Location',
+        child: Icon(Icons.flag),
       ),
     );
   }
