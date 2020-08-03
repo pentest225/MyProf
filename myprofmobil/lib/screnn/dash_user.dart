@@ -104,7 +104,7 @@ class UserDash extends StatelessWidget {
                   children: <Widget>[
                     //Image Section
                     Container(
-                      height: bodyHeight * .25,
+                      height: bodyHeight * .15,
                       child: Container(
                           child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,

@@ -26,11 +26,12 @@ class _Calendartask1State extends State<Calendartask1> {
       body: Container(
         width: deviceWidth,
         height: deviceHeight,
-        // color: Color.fromRGBO(30, 32, 39, 1),
+         
         decoration: BoxDecoration(
+          
           image: DecorationImage(
               image: ExactAssetImage("assets/images/ecole.jpg"),
-              fit: BoxFit.cover),
+              fit: BoxFit.cover,colorFilter: ColorFilter.mode(Colors.black87.withOpacity(.8) ,BlendMode.darken)),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
@@ -45,7 +46,7 @@ class _Calendartask1State extends State<Calendartask1> {
                       height: 40,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -73,7 +74,6 @@ class _Calendartask1State extends State<Calendartask1> {
               // Main Container
               Container(
                 height: deviceHeight - 100,
-                color:Colors.black.withOpacity(.5),
                 child: Column(
                   children: <Widget>[
                     Container(

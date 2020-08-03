@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/widgets/AnnonceWidget.dart';
 import 'package:myprofmobil/widgets/demandeCours.dart';
 
 
@@ -65,7 +66,7 @@ class _DemandeListState extends State<DemandeList>
                         icon: Icon(Icons.arrow_back_ios),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
-                      Text("Mes Demandes",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                      Text("Mes Annonces",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                       Row(
                         children: <Widget>[
                           SizedBox(
@@ -106,7 +107,7 @@ class _DemandeListState extends State<DemandeList>
                     ),
                     Container(
                       height: bodyHeight *.925,
-                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(.7),
                           borderRadius: BorderRadius.only(
@@ -114,12 +115,15 @@ class _DemandeListState extends State<DemandeList>
                               topRight: Radius.circular(40))),
                               child: ListView(
                                 children: <Widget>[
-                                  DemandeCard(),
-                                  DemandeCard(),
-                                  DemandeCard(),
-                                  DemandeCard(),
-                                  DemandeCard(),
-                                  DemandeCard(),
+                                  PageDisc(),
+                                  PageDisc(),
+                                  PageDisc(),
+                                  PageDisc(),
+                                  PageDisc(),
+                                  PageDisc(),
+                                  PageDisc(),
+                                  
+                                 
                                 ],
                               ),
                     )

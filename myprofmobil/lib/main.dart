@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/pages/profil.dart';
+import 'package:myprofmobil/pages/profil_diplome.dart';
+import 'package:myprofmobil/pages/profil_identite.dart';
+import 'package:myprofmobil/pages/profil_information.dart';
+import 'package:myprofmobil/pages/profil_notification.dart';
+import 'package:myprofmobil/pages/profil_password.dart';
+import 'package:myprofmobil/pages/profil_photo.dart';
+import 'package:myprofmobil/pages/profil_suppresion.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:sprinkle/Overseer.dart';
@@ -65,7 +72,14 @@ class MyApp extends StatelessWidget {
           ProfilAdresse.routeName:(context)=>ProfilAdresse(),
           Calendartask1.routeName:(context)=>Calendartask1(),
           DemandeList.routeName:(context)=>DemandeList(),
-          ProfilPage.routeName:(context)=>ProfilPage()
+          ProfilPage.routeName:(context)=>ProfilPage(),
+          ProfilInformations.routeName:(context)=>ProfilInformations(),
+          ProfilPhoto.routeName:(context)=>ProfilPhoto(),
+          ProfilDiplome.routeName:(context)=>ProfilDiplome(),
+          ProfilIdentite.routeName:(context)=>ProfilIdentite(),
+          ProfilPassword.routeName:(context)=>ProfilPassword(),
+          ProfilNotification.routeName:(context)=>ProfilNotification(),
+          ProfilSuppresion.routeName:(context)=>ProfilSuppresion(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),
