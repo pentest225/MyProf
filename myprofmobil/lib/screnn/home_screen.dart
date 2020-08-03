@@ -97,7 +97,7 @@ class _CarDetailsAnimationState extends State<CarDetailsAnimation>
     scaleController =
         AnimationController(duration: Duration(milliseconds: 350), vsync: this);
 
-    fadeAnimation = Tween(begin: 0.0, end: 1.0).animate(fadeController);
+    fadeAnimation = Tween(begin: 1.0, end: 1.0).animate(fadeController);
     scaleAnimation = Tween(begin: 0.8, end: 1.0).animate(CurvedAnimation(
       parent: scaleController,
       curve: Curves.easeInOut,
