@@ -6,10 +6,11 @@ import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/pages/categorie.dart';
 import 'package:myprofmobil/pages/interface1.dart';
 import 'package:myprofmobil/screnn/all_prof.dart';
+import 'package:myprofmobil/widgets/SearchCard.dart';
 import 'package:myprofmobil/widgets/myDrower.dart';
-import 'package:sprinkle/SprinkleExtension.dart';
-import '../screnn/searchPage.dart';
+
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
+import 'package:provider/provider.dart';
 import 'demande.dart';
 
 // LA PAGE INDEX DE L'APPLICATIONS 
@@ -18,26 +19,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-          backgroundColor: Colors.transparent,
-        elevation: 0,
-        /*leading: Container(
-            margin: EdgeInsets.only(left: 25),
-            child: IconButton(
-              icon: Icon(Icons.home),
-              color: Colors.white,
-              onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (_)=> Verify())),
-            )
-        ),*/
-        actions: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 10),
-            margin: EdgeInsets.only(right: 25),
-            child: Text('MyProf',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-          )
-        ],
-      ),*/
       drawer: MyDrower(),
       backgroundColor: fondcolor,
       body: SafeArea(child: LayoutStarts()),
@@ -56,16 +37,11 @@ class LayoutStarts extends StatelessWidget {
               decoration: BoxDecoration(
                 color: themeColor,
                 image: DecorationImage(
-                    image: AssetImage('assets/images/ecole.jpg'),
+                    image: AssetImage(backImage),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(Colors.black45, BlendMode.darken)
                 ),
               ),
-
-              /*child: SvgPicture.asset(
-                "assets/images/thics.svg",
-                width: MediaQuery.of(context).size.width / 2.1,
-              )*/
           ),
           CarDetailsAnimation(),
           CustomBottomSheet(),
@@ -118,13 +94,11 @@ class _CarDetailsAnimationState extends State<CarDetailsAnimation>
 
   @override
   Widget build(BuildContext context) {
-    final manager = context.fetch<StateBloc>();
+    // final manager = context.fetch<StateBloc>();
+    final toggleAnim = Provider.of<ToggleBottomSheet>(context);
+    toggleAnim.isAnimating? forward() : reverse();
 
-    return StreamBuilder<Object>(
-        initialData: StateProvider().isAnimating,
-        stream: manager.animationStatus,
-        builder: (context, snapshot) {
-          snapshot.data ? forward() : reverse();
+
           return ScaleTransition(
             scale: scaleAnimation,
             child: FadeTransition(
@@ -132,14 +106,33 @@ class _CarDetailsAnimationState extends State<CarDetailsAnimation>
               child: CarDetails(),
             ),
           );
-        });
+
+
+        //   return StreamBuilder<Object>(
+        // initialData: StateProvider().isAnimating,
+        // stream: manager.animationStatus,
+        // builder: (context, snapshot) {
+
+        //   snapshot.data 
+        //   ? forward() 
+        //   : reverse();
+        //   return ScaleTransition(
+        //     scale: scaleAnimation,
+        //     child: FadeTransition(
+        //       opacity: fadeAnimation,
+        //       child: CarDetails(),
+        //     ),
+        //   );
+        // });
   }
 }
 
+//SECTION HEADER (APPBAR TITRE DROWER ETC...) 
 class CarDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height / 2,
         child: Column(
       children: <Widget>[
         Container(
@@ -153,13 +146,13 @@ class CarDetails extends StatelessWidget {
         )
       ],
     ));
-  }
-
+  } 
   _carTitle(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         SizedBox(height: 10,),
+        //APPBARE
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -200,72 +193,6 @@ class CarDetails extends StatelessWidget {
   }
 }
 
-class SearchCard extends StatefulWidget {
-  @override
-  _SearchCardlState createState() => _SearchCardlState();
-}
-
-//Classe pour le champ de recherche
-class _SearchCardlState extends State<SearchCard> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          InkWell(
-            onTap: () {
-              Navigator.of(context).pushNamed(
-                SearchPage.routeName,
-              );
-            },
-            child: Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width / 1.1,
-              decoration: BoxDecoration(
-                  color: Color(0xfff1f1f1),
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: Row(children: <Widget>[
-                Flexible(
-                    flex: 4,
-                    child: Container(
-                        padding: EdgeInsets.only(top: 3, left: 10),
-                        alignment: Alignment.center,
-                        child: Row(
-                          children: [
-                            Flexible(
-                                child: Icon(
-                              Icons.search,
-                              size: 22,
-                            )),
-                            Flexible(
-                              flex: 2,
-                              child: Text("essayer Maths,.."),
-                            ),
-                          ],
-                        ))),
-                Flexible(
-                    flex: 2,
-                    child: Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.all(4),
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      child: Text(
-                        "Rechercher",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      decoration: BoxDecoration(
-                          color: accanceColor.withOpacity(.8),
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                    )),
-              ]),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 class CustomBottomSheet extends StatefulWidget {
   @override
@@ -297,15 +224,13 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
   }
 
   forwardAnimation() {
-    final manager = context.fetch<StateBloc>();
     controller.forward();
-    manager.toggleAnimation();
+     
   }
 
   reverseAnimation() {
-    final manager = context.fetch<StateBloc>();
     controller.reverse();
-    manager.toggleAnimation();
+    Provider.of<ToggleBottomSheet>(context).toggleAnimation();
   }
 
   bool isExpanded = false;
@@ -337,7 +262,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
   }
 }
 
-// Les Autres elemense de la page
+//Container dynamique (arrondie)  
 class SheetContainer extends StatefulWidget {
   @override
   _SheetContainerState createState() => _SheetContainerState();
@@ -354,7 +279,7 @@ class _SheetContainerState extends State<SheetContainer>
   double _miles = 0.0;
   @override
   void initState() {
-    _controller = new AnimationController(
+    _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1500),
     );
@@ -412,6 +337,7 @@ class _SheetContainerState extends State<SheetContainer>
     );
   }
 
+  // Divider Container 
   drawerHandle() {
     return Container(
       margin: EdgeInsets.only(bottom: 25),
@@ -421,39 +347,47 @@ class _SheetContainerState extends State<SheetContainer>
           borderRadius: BorderRadius.circular(15), color: themeColor),
     );
   }
+  // Je ne sait pas a quoi il sert 
 
-  specifications(double sheetItemHeight) {
-    return Container(
-      padding: EdgeInsets.only(top: 15, left: 40),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            "Specifications",
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w700,
-              fontSize: 18,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 15),
-            height: sheetItemHeight,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                return Text('hi');
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
+  // specifications(double sheetItemHeight) {
+  //   return Container(
+  //     padding: EdgeInsets.only(top: 15, left: 40),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: <Widget>[
+  //         Text(
+  //           "Specifications",
+  //           style: TextStyle(
+  //             color: Colors.black,
+  //             fontWeight: FontWeight.w700,
+  //             fontSize: 18,
+  //           ),
+  //         ),
+  //         Container(
+  //           margin: EdgeInsets.only(top: 15),
+  //           height: sheetItemHeight,
+  //           child: ListView.builder(
+  //             scrollDirection: Axis.horizontal,
+  //             itemCount: 3,
+  //             itemBuilder: (context, index) {
+  //               return Text('hi');
+  //             },
+  //           ),
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
+  // Je ne sais pas  a quoi il sert 
+
+
+
+//####################################
+// Classes Externe 
   offerDetails(double itemHeight, context) {
     return Container(
+      
       //margin: EdgeInsets.only(top: 20, left: 20, right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -549,7 +483,6 @@ class _SheetContainerState extends State<SheetContainer>
       ),
     );
   }
-
   marmaille(context) {
     return   Container(
       child: Column(
@@ -796,7 +729,6 @@ class _SheetContainerState extends State<SheetContainer>
       ),
     );
   }
-
   listModule(double sheetItemHeight, context) {
     var item;
     return Container(
@@ -905,7 +837,6 @@ class _SheetContainerState extends State<SheetContainer>
       )
     );
   }
-
   listMagazine(double sheetItemHeight, context) {
     return Container(
       child: Column(

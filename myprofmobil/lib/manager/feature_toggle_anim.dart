@@ -1,27 +1,12 @@
-import 'dart:async';
+import 'package:flutter/foundation.dart';
 
-import 'package:sprinkle/Manager.dart';
+class ToggleBottomSheet with ChangeNotifier{
 
-class StateBloc implements Manager {
+  bool _isAnimating = true;
+  bool get isAnimating => _isAnimating;
 
-  StreamController animationController = StreamController.broadcast();
-  final StateProvider provider = StateProvider();
-
-  Stream get animationStatus => animationController.stream;
-
-  void toggleAnimation() {
-    provider.toggleAnimationValue();
-    animationController.sink.add(provider.isAnimating);
+  void toggleAnimation(){
+    _isAnimating = !_isAnimating;
+    notifyListeners();
   }
-
-  @override
-  void dispose() {
-    animationController?.close();
-  }
-  
-}
-
-class StateProvider {
-  bool isAnimating = true;
-  void toggleAnimationValue() => isAnimating = !isAnimating;
 }

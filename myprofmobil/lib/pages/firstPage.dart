@@ -17,7 +17,7 @@ class FirstPage extends StatelessWidget {
         decoration: BoxDecoration(
           //color: Colors.green,
           image: DecorationImage(
-            image: AssetImage('assets/images/ecole.jpg',),
+            image: AssetImage(backImage),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(Colors.black45, BlendMode.darken)
           ),

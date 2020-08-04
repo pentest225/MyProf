@@ -1,42 +1,98 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/services/calendarServices.dart';
 import 'package:myprofmobil/widgets/AnnonceWidget.dart';
 import 'package:myprofmobil/widgets/dayContainer.dart';
 import 'package:myprofmobil/widgets/daySRow.dart';
-import 'package:myprofmobil/widgets/demandeCours.dart';
-import '../services/calendarServices.dart';
 
-//PAGE D'AGENDA DE L'UTILISATEUR BY PATRICK
-class Calendartask1 extends StatefulWidget {
-  static const routeName = "calendar";
+class Calendar extends StatelessWidget {
   @override
-  _Calendartask1State createState() => _Calendartask1State();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: MyBody(),
+      ),
+    );
+  }
 }
 
-class _Calendartask1State extends State<Calendartask1> {
+class MyBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: <Widget>[
+          Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: ExactAssetImage(backImage),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                      Colors.black87.withOpacity(.8), BlendMode.darken)),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+//CONTAINER AMMINAT DU HAUT (DOIT PRENDRE EN CHILD LE CALENDRIE )
+
+class TopCarAnimated extends StatefulWidget {
+  @override
+  _TopCarAnimatedState createState() => _TopCarAnimatedState();
+}
+
+class _TopCarAnimatedState extends State<TopCarAnimated>
+    with TickerProviderStateMixin {
+  AnimationController fadeController;
+  AnimationController scaleController;
+
+  Animation fadeAnimation;
+  Animation scaleAnimation;
+
   CalendarServices mySerice = CalendarServices();
   int numberRow = 2;
   List<DateTime> currenteWeek = [];
+  @override
+  void initState() {
+    super.initState();
+    fadeController =
+        AnimationController(duration: Duration(milliseconds: 180), vsync: this);
+
+    scaleController =
+        AnimationController(duration: Duration(milliseconds: 350), vsync: this);
+
+    fadeAnimation = Tween(begin: 1.0, end: 1.0).animate(fadeController);
+    scaleAnimation = Tween(begin: 0.8, end: 1.0).animate(CurvedAnimation(
+      parent: scaleController,
+      curve: Curves.easeInOut,
+      reverseCurve: Curves.easeInOut,
+    ));
+  }
+
+  forward() {
+    scaleController.forward();
+    fadeController.forward();
+  }
+
+  reverse() {
+    scaleController.reverse();
+    fadeController.reverse();
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     currenteWeek = mySerice.currentWeek();
-    return Scaffold(
-      body: Container(
-        width: deviceWidth,
-        height: deviceHeight,
-         
-        decoration: BoxDecoration(
-          
-          image: DecorationImage(
-              image: ExactAssetImage(backImage),
-              fit: BoxFit.cover,colorFilter: ColorFilter.mode(Colors.black87.withOpacity(.8) ,BlendMode.darken)),
-        ),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+    return ScaleTransition(
+      scale: scaleAnimation,
+      child: FadeTransition(
+        opacity: fadeAnimation,
+        //Container Heider
+        child: Container(
           child: Column(
             children: <Widget>[
               // AppBare
@@ -84,7 +140,8 @@ class _Calendartask1State extends State<Calendartask1> {
                       child: SingleChildScrollView(
                         //Calendar
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 0,vertical: 10),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 0, vertical: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             // color: Colors.black.withOpacity(.5),
@@ -170,7 +227,6 @@ class _Calendartask1State extends State<Calendartask1> {
                         padding: EdgeInsets.only(top: 35),
                         margin: EdgeInsets.symmetric(horizontal: 2),
                         width: MediaQuery.of(context).size.width,
-
                         decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.9),
                             borderRadius: BorderRadius.only(
@@ -180,7 +236,8 @@ class _Calendartask1State extends State<Calendartask1> {
                           children: <Widget>[
                             Column(
                               children: <Widget>[
-                                SizedBox(height: 10,
+                                SizedBox(
+                                  height: 10,
                                 ),
                                 Container(
                                   height: 70,
@@ -212,7 +269,8 @@ class _Calendartask1State extends State<Calendartask1> {
                                 SizedBox(height: 20),
                                 PageDisc(),
                                 SizedBox(height: 20),
-                                PageDisc(),],
+                                PageDisc(),
+                              ],
                             ),
                           ],
                         ),

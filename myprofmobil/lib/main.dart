@@ -10,6 +10,7 @@ import 'package:myprofmobil/pages/profil_suppresion.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
 import 'package:myprofmobil/screnn/demandeList.dart';
 import 'package:myprofmobil/screnn/sync.dart';
+import 'package:provider/provider.dart';
 import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
 import 'pages/categorie.dart';
@@ -45,9 +46,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Provider(
-      data: Overseer()
-      .register<StateBloc>(()=> StateBloc()),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: ToggleBottomSheet(),)
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',

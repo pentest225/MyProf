@@ -83,7 +83,7 @@ class _HomeScreen2State extends State<HomeScreen2> {
                             decoration: BoxDecoration(
                               //color: Colors.teal,
                               image: DecorationImage(
-                                  image: AssetImage('assets/images/ecole.jpg'),
+                                  image: AssetImage(backImage),
                                   fit: BoxFit.cover,
                                   colorFilter: ColorFilter.mode(Colors.black45, BlendMode.darken)
                               ),
