@@ -238,46 +238,6 @@ class MyDrower extends StatelessWidget {
             InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ForumPage()));
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          color: themeColor.withOpacity(0.3),
-                          borderRadius: BorderRadius.circular(50)),
-                      child: Icon(
-                        Icons.forum,
-                        color: themeColor,
-                        size: 20,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'Forum',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'BAARS'),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 2,
-              color: Colors.grey.withOpacity(0.1),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(context,
                     MaterialPageRoute(builder: (context) => FirstPage()));
               },
               child: Padding(
