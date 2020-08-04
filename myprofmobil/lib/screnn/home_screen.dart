@@ -225,7 +225,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
 
   reverseAnimation() {
     controller.reverse();
-    Provider.of<ToggleBottomSheet>(context).toggleAnimation();
+    Provider.of<ToggleBottomSheet>(context,listen: false).toggleAnimation();
   }
 
   bool isExpanded = false;

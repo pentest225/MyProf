@@ -129,8 +129,8 @@ class UserDash extends StatelessWidget {
                           Container(
                             width: deviceWidth * .7,
                             height: bodyHeight * .25 - 80,
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            // color: Colors.red,
+                            
+                        
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -104,6 +104,7 @@ class AllProf extends StatelessWidget {
                       right: 0,
                       child: Container(
                         height: bodyHeight,
+                        padding: EdgeInsets.only(bottom:10),
                         color: Colors.transparent,
                         child: ListView(
                           children: <Widget>[

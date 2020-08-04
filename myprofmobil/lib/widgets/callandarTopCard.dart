@@ -75,20 +75,25 @@ class _TopCarAnimatedState extends State<TopCarAnimated>
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 5),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           IconButton(
                             icon: Icon(
                               Icons.arrow_back_ios,
-                              color: Colors.white,
+                              color: themeColor,
                             ),
                             onPressed: () => Navigator.of(context).pop(),
                           ),
-                          Text(
-                            mySerice.strMonth(DateTime.now()),
-                            style: TextStyle(color: themeColor, fontSize: 22),
+                          Container(
+                            width: deviceWidth - 60,
+                          
+                            alignment: Alignment.center,
+                            child: Text(
+                              mySerice.strMonth(DateTime.now()),
+                              style: TextStyle(color: themeColor, fontSize: 22),
+                            ),
                           ),
-                          Container(),
+                          
                         ],
                       ),
                     ),

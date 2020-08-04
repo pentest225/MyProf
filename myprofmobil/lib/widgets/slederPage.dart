@@ -3,13 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../outils/myStyle.dart';
 
 class SlederPage extends StatefulWidget {
-
   final String title;
   final String subtitle;
   final String imagePath;
-
   SlederPage(this.title, this.subtitle, this.imagePath);
-
   @override
   _SlederPageState createState() => _SlederPageState();
 }
@@ -26,10 +23,8 @@ class _SlederPageState extends State<SlederPage>
         AnimationController(vsync: this, duration: Duration(milliseconds: 800));
 
     _heightAnimation = Tween<Size>(
-            begin: Size(double.infinity, 0), end: Size(double.infinity, 50))
+            begin: Size(double.infinity, 0), end: Size(double.infinity, 35))
         .animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
-
-
     _heightAnimation.addListener(() {setState(() {
 
     });});
@@ -59,13 +54,7 @@ class _SlederPageState extends State<SlederPage>
               child: Container(
                 height: 190,
                 margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                   /*image: DecorationImage(
-                        image: SvgPicture.asset(this.widget.imagePath),
-                        fit: BoxFit.fitHeight,
-                        colorFilter:
-                        ColorFilter.mode(bgColor, BlendMode.darken))*/
-                ),
+               
                 child: SvgPicture.asset(this.widget.imagePath),
               ),
             ),
