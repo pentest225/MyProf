@@ -12,13 +12,13 @@ class ProfWidget extends StatelessWidget {
     final containerWidth = deviceWidth * .5 - 10;
     return Container(
       margin: EdgeInsets.only(top: 35),
-      height: containerHeiht * .7,
+      height: containerHeiht * .8,
       width: containerWidth,
       child: Stack(
         overflow: Overflow.visible,
         children: <Widget>[
           Container(
-            height: containerHeiht * .7,
+            height: containerHeiht * .8,
             margin: EdgeInsets.only(left: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,18 +29,17 @@ class ProfWidget extends StatelessWidget {
                   },
                   child: Container(
                     alignment: AlignmentDirectional.bottomCenter,
-                    height: containerHeiht * .7,
+                    height: containerHeiht * .8,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
                     child: Container(
-                      margin: EdgeInsets.only(top: 35),
+                      margin: EdgeInsets.only(top: 50),
                       padding:
                           EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                       child: Center(
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             Text(
                               "Dagouaga ",
@@ -67,15 +66,15 @@ class ProfWidget extends StatelessWidget {
                                   horizontal: 10, vertical: 2),
                               child: RichText(
                                 text: TextSpan(
-                                 style: DefaultTextStyle.of(context).style,
+                                  style: DefaultTextStyle.of(context).style,
                                   children: <TextSpan>[
                                     TextSpan(
                                         text: '4000 fr/',
+                                        style: TextStyle(color: themeColor)),
+                                    TextSpan(
+                                        text: 'h ',
                                         style: TextStyle(
-                                            color: themeColor)),
-                                    TextSpan(text: 'h ',style: TextStyle(
-                                            color: themeColor,fontSize: 10)),
-                                    
+                                            color: themeColor, fontSize: 10)),
                                   ],
                                 ),
                               ),
@@ -83,54 +82,75 @@ class ProfWidget extends StatelessWidget {
                                   border: Border.all(color: themeColor),
                                   borderRadius: BorderRadius.circular(10)),
                             ),
-                           SizedBox(height: 10,),
-                           Container(
-                             child: Row(
-                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                               children: <Widget>[
-                                 Container(
-                                   child: Row(
-                                     children: <Widget>[
-                                       Text("3.7",style: TextStyle(color: themeColor,fontSize: 14),),
-                                       Icon(Icons.star,color: themeColor,size: 14,)
-                                   ],),
-                                 ),
-                                 Container(
-                                   child: Row(
-                                     children: <Widget>[
-                                       Text("93 ",style: TextStyle(color: accanceColor,fontSize: 14),),
-                                       Text("avis",style: TextStyle(color: accanceColor,fontSize: 14),)
-                                   ],),
-                                 ),
-                                 Container(
-                                   child: Row(
-                                     children: <Widget>[
-                                       Icon(Icons.redeem,color: themeColor,size: 14,)
-                                       
-                                   ],),
-                                 )
-                               ],
-                             ),
-                           ),
-                           
-                            // SizedBox(
-                            //   height: 5,
-                            // ),
+                            Container(
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "3.7",
+                                          style: TextStyle(
+                                              color: themeColor, fontSize: 14),
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: themeColor,
+                                          size: 14,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "93 ",
+                                          style: TextStyle(
+                                              color: accanceColor,
+                                              fontSize: 14),
+                                        ),
+                                        Text(
+                                          "avis",
+                                          style: TextStyle(
+                                              color: accanceColor,
+                                              fontSize: 14),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.redeem,
+                                          color: themeColor,
+                                          size: 14,
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                             Divider(),
-                             Container(
+                            Container(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 2),
                               child: RichText(
                                 text: TextSpan(
-                                 style: DefaultTextStyle.of(context).style,
+                                  style: DefaultTextStyle.of(context).style,
                                   children: <TextSpan>[
                                     TextSpan(
                                         text: '1er ',
+                                        style: TextStyle(color: accanceColor)),
+                                    TextSpan(
+                                        text: 'cours gratuit ',
                                         style: TextStyle(
-                                            color: accanceColor)),
-                                    TextSpan(text: 'cours gratuit ',style: TextStyle(
-                                            color: accanceColor,)),
-                                    
+                                          color: accanceColor,
+                                        )),
                                   ],
                                 ),
                               ),
@@ -138,10 +158,9 @@ class ProfWidget extends StatelessWidget {
                                   border: Border.all(color: accanceColor),
                                   borderRadius: BorderRadius.circular(10)),
                             ),
-                            
                             Container(
                               child: Text(
-                                "Dévéloppeur Flutter ",
+                                "Flutter ",
                                 style: TextStyle(
                                   color: Colors.grey,
                                 ),
@@ -157,15 +176,15 @@ class ProfWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: -35,
-            bottom: containerHeiht * .6 - 10,
+            top: -25,
+            bottom: containerHeiht * .65 - 10,
             left: 52,
             right: 52,
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.black26,
                 image: DecorationImage(
-                    image: AssetImage("assets/images/fille.jpg"),
+                    image: AssetImage("assets/images/man.jpg"),
                     fit: BoxFit.cover),
                 shape: BoxShape.circle,
               ),

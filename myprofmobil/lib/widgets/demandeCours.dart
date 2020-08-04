@@ -68,8 +68,6 @@ class DemandeCard extends StatelessWidget {
           ),
           Divider(),
           Container(
-            // color: Colors.red,
-            width: deviceWidth * .45,
             child: FlatButton(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,

@@ -47,7 +47,7 @@ class _PouPageState extends State<PouPage> {
                 decoration: BoxDecoration(
                     color: themeColor,
                     image: DecorationImage(
-                        image: AssetImage('assets/images/ecole.jpg'),
+                        image: AssetImage(backImage),
                         fit: BoxFit.cover,
                         colorFilter: ColorFilter.mode(
                            Colors.black54, BlendMode.darken)

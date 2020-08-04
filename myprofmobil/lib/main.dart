@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/pages/profil.dart';
+import 'package:myprofmobil/pages/profil_diplome.dart';
+import 'package:myprofmobil/pages/profil_identite.dart';
+import 'package:myprofmobil/pages/profil_information.dart';
+import 'package:myprofmobil/pages/profil_notification.dart';
+import 'package:myprofmobil/pages/profil_password.dart';
+import 'package:myprofmobil/pages/profil_photo.dart';
+import 'package:myprofmobil/pages/profil_suppresion.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
+import 'package:myprofmobil/screnn/calendarUser.dart';
+import 'package:myprofmobil/screnn/demandeList.dart';
 import 'package:myprofmobil/screnn/sync.dart';
+import 'package:provider/provider.dart';
 import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
 import 'pages/categorie.dart';
@@ -37,9 +47,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Provider(
-      data: Overseer()
-      .register<StateBloc>(()=> StateBloc()),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: ToggleBottomSheet(),)
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',
@@ -64,8 +75,17 @@ class MyApp extends StatelessWidget {
           UserDash.routeName:(context)=>UserDash(),
           ProfilAdresse.routeName:(context)=>ProfilAdresse(),
           Calendartask1.routeName:(context)=>Calendartask1(),
-          DemandeList.routeName:(context)=>DemandeList(),
-          ProfilPage.routeName:(context)=>ProfilPage()
+          AnnonceListe.routeName:(context)=>AnnonceListe(),
+          ProfilPage.routeName:(context)=>ProfilPage(),
+          ProfilInformations.routeName:(context)=>ProfilInformations(),
+          ProfilPhoto.routeName:(context)=>ProfilPhoto(),
+          ProfilDiplome.routeName:(context)=>ProfilDiplome(),
+          ProfilIdentite.routeName:(context)=>ProfilIdentite(),
+          ProfilPassword.routeName:(context)=>ProfilPassword(),
+          ProfilNotification.routeName:(context)=>ProfilNotification(),
+          ProfilSuppresion.routeName:(context)=>ProfilSuppresion(),
+          DemandeListe.routeName:(context)=>DemandeListe(),
+          Calendar.routeName:(context)=>Calendar()
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),

@@ -4,39 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/pages/categorie.dart';
-import 'package:myprofmobil/pages/interface1.dart';
+
 import 'package:myprofmobil/screnn/all_prof.dart';
+import 'package:myprofmobil/widgets/SearchCard.dart';
 import 'package:myprofmobil/widgets/myDrower.dart';
-import 'package:sprinkle/SprinkleExtension.dart';
-import '../screnn/searchPage.dart';
+
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
+import 'package:provider/provider.dart';
 import 'demande.dart';
 
+// LA PAGE INDEX DE L'APPLICATIONS
 class HomeScreen extends StatelessWidget {
   static const rooteName = '/home';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-          backgroundColor: Colors.transparent,
-        elevation: 0,
-        /*leading: Container(
-            margin: EdgeInsets.only(left: 25),
-            child: IconButton(
-              icon: Icon(Icons.home),
-              color: Colors.white,
-              onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (_)=> Verify())),
-            )
-        ),*/
-        actions: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 10),
-            margin: EdgeInsets.only(right: 25),
-            child: Text('MyProf',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-          )
-        ],
-      ),*/
       drawer: MyDrower(),
       backgroundColor: fondcolor,
       body: SafeArea(child: LayoutStarts()),
@@ -52,19 +34,14 @@ class LayoutStarts extends StatelessWidget {
         children: <Widget>[
           Container(
             alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: themeColor,
-                image: DecorationImage(
-                    image: AssetImage('assets/images/ecole.jpg'),
-                    fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(Colors.black45, BlendMode.darken)
-                ),
-              ),
-
-              /*child: SvgPicture.asset(
-                "assets/images/thics.svg",
-                width: MediaQuery.of(context).size.width / 2.1,
-              )*/
+            decoration: BoxDecoration(
+              color: themeColor,
+              image: DecorationImage(
+                  image: AssetImage(backImage),
+                  fit: BoxFit.cover,
+                  colorFilter:
+                      ColorFilter.mode(Colors.black45, BlendMode.darken)),
+            ),
           ),
           CarDetailsAnimation(),
           CustomBottomSheet(),
@@ -97,7 +74,7 @@ class _CarDetailsAnimationState extends State<CarDetailsAnimation>
     scaleController =
         AnimationController(duration: Duration(milliseconds: 350), vsync: this);
 
-    fadeAnimation = Tween(begin: 0.0, end: 1.0).animate(fadeController);
+    fadeAnimation = Tween(begin: 1.0, end: 1.0).animate(fadeController);
     scaleAnimation = Tween(begin: 0.8, end: 1.0).animate(CurvedAnimation(
       parent: scaleController,
       curve: Curves.easeInOut,
@@ -117,68 +94,80 @@ class _CarDetailsAnimationState extends State<CarDetailsAnimation>
 
   @override
   Widget build(BuildContext context) {
-    final manager = context.fetch<StateBloc>();
+    // final manager = context.fetch<StateBloc>();
+    final toggleAnim = Provider.of<ToggleBottomSheet>(context);
+    toggleAnim.isAnimating ? forward() : reverse();
 
-    return StreamBuilder<Object>(
-        initialData: StateProvider().isAnimating,
-        stream: manager.animationStatus,
-        builder: (context, snapshot) {
-          snapshot.data ? forward() : reverse();
-          return ScaleTransition(
-            scale: scaleAnimation,
-            child: FadeTransition(
-              opacity: fadeAnimation,
-              child: CarDetails(),
-            ),
-          );
-        });
+    return ScaleTransition(
+      scale: scaleAnimation,
+      child: FadeTransition(
+        opacity: fadeAnimation,
+        child: CarDetails(),
+      ),
+    );
   }
 }
 
+//SECTION HEADER (APPBAR TITRE DROWER ETC...)
 class CarDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        height: MediaQuery.of(context).size.height / 2,
         child: Column(
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.only(left: 10, right: 10),
-          child: _carTitle(context),
-        ),
-        SizedBox(height: 15),
-        Container(
-          width: double.infinity,
-          child: SearchCard(),
-        )
-      ],
-    ));
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: _carTitle(context),
+            ),
+            SizedBox(height: 15),
+            Container(
+              width: double.infinity,
+              child: SearchCard(),
+            )
+          ],
+        ));
   }
 
   _carTitle(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
+        //APPBARE
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-          InkWell(
-            onTap:()=> Scaffold.of(context).openDrawer(),
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(10)
+            InkWell(
+              onTap: () => Scaffold.of(context).openDrawer(),
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Icon(
+                  Icons.filter_list,
+                  color: themeColor,
+                  size: 30,
+                ),
               ),
-              child: Icon(Icons.filter_list, color: themeColor, size: 30,),
             ),
-          ),
-          Text('MyProfs', style: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28, fontFamily: 'BAARS'
-          ),)
-        ],),
-        SizedBox(height: 40,),
+            Text(
+              'MyProfs',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                  fontFamily: 'BAARS'),
+            )
+          ],
+        ),
+        SizedBox(
+          height: 40,
+        ),
         RichText(
           text: TextSpan(
               style: TextStyle(
@@ -189,79 +178,14 @@ class CarDetails extends StatelessWidget {
                 TextSpan(
                     text: "Parfait",
                     style: TextStyle(
-                        fontWeight: FontWeight.w700, fontFamily: 'BAARS', color: themeColor)),
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'BAARS',
+                        color: themeColor)),
               ]),
         ),
         SizedBox(height: 40),
         // ),
       ],
-    );
-  }
-}
-
-class SearchCard extends StatefulWidget {
-  @override
-  _SearchCardlState createState() => _SearchCardlState();
-}
-
-//Classe pour le champ de recherche
-class _SearchCardlState extends State<SearchCard> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          InkWell(
-            onTap: () {
-              Navigator.of(context).pushNamed(
-                SearchPage.routeName,
-              );
-            },
-            child: Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width / 1.1,
-              decoration: BoxDecoration(
-                  color: Color(0xfff1f1f1),
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: Row(children: <Widget>[
-                Flexible(
-                    flex: 4,
-                    child: Container(
-                        padding: EdgeInsets.only(top: 3, left: 10),
-                        alignment: Alignment.center,
-                        child: Row(
-                          children: [
-                            Flexible(
-                                child: Icon(
-                              Icons.search,
-                              size: 22,
-                            )),
-                            Flexible(
-                              flex: 2,
-                              child: Text("essayer Maths,.."),
-                            ),
-                          ],
-                        ))),
-                Flexible(
-                    flex: 2,
-                    child: Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.all(4),
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      child: Text(
-                        "Rechercher",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      decoration: BoxDecoration(
-                          color: accanceColor.withOpacity(.8),
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                    )),
-              ]),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
@@ -296,15 +220,12 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
   }
 
   forwardAnimation() {
-    final manager = context.fetch<StateBloc>();
     controller.forward();
-    manager.toggleAnimation();
   }
 
   reverseAnimation() {
-    final manager = context.fetch<StateBloc>();
     controller.reverse();
-    manager.toggleAnimation();
+    Provider.of<ToggleBottomSheet>(context,listen: false).toggleAnimation();
   }
 
   bool isExpanded = false;
@@ -336,7 +257,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
   }
 }
 
-// Les Autres elemense de la page
+//Container dynamique (arrondie)
 class SheetContainer extends StatefulWidget {
   @override
   _SheetContainerState createState() => _SheetContainerState();
@@ -353,7 +274,7 @@ class _SheetContainerState extends State<SheetContainer>
   double _miles = 0.0;
   @override
   void initState() {
-    _controller = new AnimationController(
+    _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1500),
     );
@@ -379,8 +300,9 @@ class _SheetContainerState extends State<SheetContainer>
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-        color: fondcolor.withOpacity(0.9),),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+        color: fondcolor.withOpacity(0.9),
+      ),
       child: Column(
         children: <Widget>[
           drawerHandle(),
@@ -411,6 +333,7 @@ class _SheetContainerState extends State<SheetContainer>
     );
   }
 
+  // Divider Container
   drawerHandle() {
     return Container(
       margin: EdgeInsets.only(bottom: 25),
@@ -420,37 +343,42 @@ class _SheetContainerState extends State<SheetContainer>
           borderRadius: BorderRadius.circular(15), color: themeColor),
     );
   }
+  // Je ne sait pas a quoi il sert
 
-  specifications(double sheetItemHeight) {
-    return Container(
-      padding: EdgeInsets.only(top: 15, left: 40),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            "Specifications",
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w700,
-              fontSize: 18,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 15),
-            height: sheetItemHeight,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                return Text('hi');
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
+  // specifications(double sheetItemHeight) {
+  //   return Container(
+  //     padding: EdgeInsets.only(top: 15, left: 40),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: <Widget>[
+  //         Text(
+  //           "Specifications",
+  //           style: TextStyle(
+  //             color: Colors.black,
+  //             fontWeight: FontWeight.w700,
+  //             fontSize: 18,
+  //           ),
+  //         ),
+  //         Container(
+  //           margin: EdgeInsets.only(top: 15),
+  //           height: sheetItemHeight,
+  //           child: ListView.builder(
+  //             scrollDirection: Axis.horizontal,
+  //             itemCount: 3,
+  //             itemBuilder: (context, index) {
+  //               return Text('hi');
+  //             },
+  //           ),
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
+  // Je ne sais pas  a quoi il sert
+
+//####################################
+// Classes Externe
   offerDetails(double itemHeight, context) {
     return Container(
       //margin: EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -458,59 +386,25 @@ class _SheetContainerState extends State<SheetContainer>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left : 20.0),
+            padding: const EdgeInsets.only(left: 20.0),
             child: Text(
               "A propos",
               style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w700,
-                fontSize: 22,
-                fontFamily: 'BAARS'
-              ),
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 22,
+                  fontFamily: 'BAARS'),
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
                 height: 150,
-                width: MediaQuery.of(context).size.width/2.4,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black54,
-                          offset: Offset(0.0, 1.5),
-                          blurRadius: 1.5
-                      )
-                    ]
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('+100', style: TextStyle(
-                        color: themeColor, fontSize: 35, fontWeight: FontWeight.bold
-                      ),),
-                      SizedBox(height: 25,),
-                      Text('Professeurs et', style: TextStyle(
-                          color: themeColor, fontSize: 14, fontWeight: FontWeight.w500
-                      ),),
-                      SizedBox(height: 2,),
-                      Text('Enseignants', style: TextStyle(
-                          color: themeColor, fontSize: 14, fontWeight: FontWeight.w500
-                      ),),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(width: 5,),
-              Container(
-                height: 150,
-                width: MediaQuery.of(context).size.width/2.4,
+                width: MediaQuery.of(context).size.width / 2.4,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
@@ -518,26 +412,91 @@ class _SheetContainerState extends State<SheetContainer>
                       BoxShadow(
                           color: Colors.black54,
                           offset: Offset(0.0, 1.5),
-                          blurRadius: 1.5
-                      )
-                    ]
-                ),
+                          blurRadius: 1.5)
+                    ]),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('+200', style: TextStyle(
-                          color: Colors.black54, fontSize: 35, fontWeight: FontWeight.bold
-                      ),),
-                      SizedBox(height: 25,),
-                      Text('Etudiants et', style: TextStyle(
-                          color: Colors.black54, fontSize: 14, fontWeight: FontWeight.w500
-                      ),),
-                      SizedBox(height: 2,),
-                      Text('Elèves', style: TextStyle(
-                          color: Colors.black54, fontSize: 14, fontWeight: FontWeight.w500
-                      ),),
+                      Text(
+                        '+100',
+                        style: TextStyle(
+                            color: themeColor,
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Text(
+                        'Professeurs et',
+                        style: TextStyle(
+                            color: themeColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Text(
+                        'Enseignants',
+                        style: TextStyle(
+                            color: themeColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Container(
+                height: 150,
+                width: MediaQuery.of(context).size.width / 2.4,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black54,
+                          offset: Offset(0.0, 1.5),
+                          blurRadius: 1.5)
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        '+200',
+                        style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Text(
+                        'Etudiants et',
+                        style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Text(
+                        'Elèves',
+                        style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ],
                   ),
                 ),
@@ -550,7 +509,7 @@ class _SheetContainerState extends State<SheetContainer>
   }
 
   marmaille(context) {
-    return   Container(
+    return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -562,11 +521,12 @@ class _SheetContainerState extends State<SheetContainer>
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
                   fontSize: 22,
-                  fontFamily: 'BAARS'
-              ),
+                  fontFamily: 'BAARS'),
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: const EdgeInsets.only(left: 10),
             child: Card(
@@ -590,9 +550,7 @@ class _SheetContainerState extends State<SheetContainer>
                       child: RichText(
                         text: TextSpan(children: <TextSpan>[
                           TextSpan(text: "Partagez votre \n", style: h1),
-                          TextSpan(
-                              text: "Passion  ",
-                              style: h1),
+                          TextSpan(text: "Passion  ", style: h1),
                         ]),
                       ),
                     ),
@@ -635,10 +593,9 @@ class _SheetContainerState extends State<SheetContainer>
                                       ? Colors.white
                                       : Colors.grey.withOpacity(.5),
                                   child: Container(
-                                    margin:
-                                    EdgeInsets.symmetric(horizontal: 5),
+                                    margin: EdgeInsets.symmetric(horizontal: 5),
                                     padding:
-                                    EdgeInsets.symmetric(horizontal: 15),
+                                        EdgeInsets.symmetric(horizontal: 15),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                     ),
@@ -667,10 +624,9 @@ class _SheetContainerState extends State<SheetContainer>
                                       ? Colors.grey.withOpacity(.5)
                                       : Colors.white,
                                   child: Container(
-                                    margin:
-                                    EdgeInsets.symmetric(horizontal: 5),
+                                    margin: EdgeInsets.symmetric(horizontal: 5),
                                     padding:
-                                    EdgeInsets.symmetric(horizontal: 15),
+                                        EdgeInsets.symmetric(horizontal: 15),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       // color: Colors.grey,
@@ -724,7 +680,7 @@ class _SheetContainerState extends State<SheetContainer>
                                         child: RichText(
                                           text: TextSpan(
                                             text:
-                                            " ${_animation.value.toStringAsFixed(1)}   ",
+                                                " ${_animation.value.toStringAsFixed(1)}   ",
                                             style: TextStyle(
                                                 color: themeColor,
                                                 fontSize: 25,
@@ -736,7 +692,7 @@ class _SheetContainerState extends State<SheetContainer>
                                                       color: themeColor,
                                                       fontSize: 30,
                                                       fontWeight:
-                                                      FontWeight.bold)),
+                                                          FontWeight.bold)),
                                             ],
                                           ),
                                         ),
@@ -754,7 +710,10 @@ class _SheetContainerState extends State<SheetContainer>
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => DemandePage()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DemandePage()));
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: 20, right: 20),
@@ -767,18 +726,15 @@ class _SheetContainerState extends State<SheetContainer>
                               BoxShadow(
                                   color: Colors.black87,
                                   offset: Offset(0.0, 1.5),
-                                  blurRadius: 1.5
-                              )
-                            ]
-                        ),
+                                  blurRadius: 1.5)
+                            ]),
                         child: Center(
                           child: Text(
                             "Commencer mon annonce",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 16
-                            ),
+                                fontSize: 16),
                           ),
                         ),
                       ),
@@ -799,110 +755,130 @@ class _SheetContainerState extends State<SheetContainer>
   listModule(double sheetItemHeight, context) {
     var item;
     return Container(
-      padding: EdgeInsets.only(top: 30, left: 20, right: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-        Text(
-        "Possibilités de s'inscrire par :",
-        style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w700,
-            fontSize: 22,
-            fontFamily: 'BAARS'
-        ),
-      ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  InkWell(
-                    onTap: () {
-                      print('esthy');
-                    },
-                    child: Container(
-                      height: 70,
-                      width: 70,
-                      decoration: BoxDecoration(
-                        color: accanceColor.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(10)
-                      ),
-                      child: Center(
-                          child: Text('f', style: TextStyle(
-                              color: accanceColor, fontWeight: FontWeight.bold, fontSize: 25
-                          ),))
+        padding: EdgeInsets.only(top: 30, left: 20, right: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Possibilités de s'inscrire par :",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 22,
+                  fontFamily: 'BAARS'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        print('esthy');
+                      },
+                      child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: BoxDecoration(
+                              color: accanceColor.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Center(
+                              child: Text(
+                            'f',
+                            style: TextStyle(
+                                color: accanceColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25),
+                          ))),
                     ),
-                  ),
-                  SizedBox(height: 8,),
-                  Text('Facebook', style: TextStyle(
-                    color: Colors.grey
-                  ),)
-                ],
-              ),
-              SizedBox(width: 30,),
-              Column(
-                children: <Widget>[
-                  InkWell(
-                    onTap: () {
-                      print('kiki');
-                    },
-                    child: Container(
-                      height: 70,
-                      width: 70,
-                      decoration: BoxDecoration(
-                          color: accanceColor.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(10)
-                      ),
-                      child: Icon(Icons.mail_outline, color: accanceColor, size: 25,),
+                    SizedBox(
+                      height: 8,
                     ),
-                  ),
-                  SizedBox(height: 8,),
-                  Text('Email', style: TextStyle(
-                      color: Colors.grey
-                  ),)
-                ],
-              ),
-              SizedBox(width: 30,),
-              Column(
-                children: <Widget>[
-                  InkWell(
-                    onTap: () {
-                      print('koko');
-                    },
-                    child: Container(
-                      height: 70,
-                      width: 70,
-                      decoration: BoxDecoration(
-                          color: accanceColor.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(10)
+                    Text(
+                      'Facebook',
+                      style: TextStyle(color: Colors.grey),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Column(
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        print('kiki');
+                      },
+                      child: Container(
+                        height: 70,
+                        width: 70,
+                        decoration: BoxDecoration(
+                            color: accanceColor.withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Icon(
+                          Icons.mail_outline,
+                          color: accanceColor,
+                          size: 25,
+                        ),
                       ),
-                      child: Center(
-                          child: Text('G', style: TextStyle(
-                            color: accanceColor, fontWeight: FontWeight.bold, fontSize: 25
-                          ),))
                     ),
-                  ),
-                  SizedBox(height: 8,),
-                  Text('Google', style: TextStyle(
-                      color: Colors.grey
-                  ),)
-                ],
-              )
-            ],
-          ),
-          SizedBox(height: 20,),
-          Container(
-            height: 2,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.grey.withOpacity(0.2),
-          )
-        ],
-      )
-    );
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      'Email',
+                      style: TextStyle(color: Colors.grey),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Column(
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        print('koko');
+                      },
+                      child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: BoxDecoration(
+                              color: accanceColor.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Center(
+                              child: Text(
+                            'G',
+                            style: TextStyle(
+                                color: accanceColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25),
+                          ))),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      'Google',
+                      style: TextStyle(color: Colors.grey),
+                    )
+                  ],
+                )
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 2,
+              width: MediaQuery.of(context).size.width,
+              color: Colors.grey.withOpacity(0.2),
+            )
+          ],
+        ));
   }
 
   listMagazine(double sheetItemHeight, context) {
@@ -911,172 +887,201 @@ class _SheetContainerState extends State<SheetContainer>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left : 20.0),
+            padding: const EdgeInsets.only(left: 20.0),
             child: Text(
               "Nos Catégories",
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
                   fontSize: 22,
-                  fontFamily: 'BAARS'
-              ),
+                  fontFamily: 'BAARS'),
             ),
           ),
           SizedBox(
             height: 10,
           ),
-         InkWell(
-           onTap: () {
-             Navigator.of(context).pushNamed(AllProf.routeName);
-           },
-           child: Container(
-             height: 220,
-             child: ListView(
-               scrollDirection: Axis.horizontal,
-               children: <Widget>[
-                 Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child:    Container(
-                     margin: EdgeInsets.all(5),
-                     height: 170,
-                     width: MediaQuery.of(context).size.width /2.5,
-                     decoration: BoxDecoration(
-                       color: Colors.white,
-                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                       /*image: DecorationImage(
-                                image: AssetImage('assets/images/code.jpg'),
-                                fit: BoxFit.cover,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.black38, BlendMode.darken))*/
-                     ),
-                     child: Column(
-                       children: <Widget>[
-                         SizedBox(height: 30,),
-                         Container(
-                             height: 70,
-                             width: 100,
-                             child: SvgPicture.asset('assets/images/python.svg')),
-                         SizedBox(height: 30,),
-                         Text('Informatique', style: TextStyle(
-                             fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 20
-                         ),)
-                         /*Container(
-                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
-                              height: 30,
-                              width: 100,
-                              color: themeColor.withOpacity(0.8),
-                              child: Center(
-                                child: Text(
-                                  'Informatique',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),*/
-                       ],
-                     ),
-                   ),
-                 ),
-                 Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child:    Container(
-                     margin: EdgeInsets.all(5),
-                     height: 170,
-                     width: MediaQuery.of(context).size.width /2.5,
-                     decoration: BoxDecoration(
-                       color: Colors.white,
-                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                       /*image: DecorationImage(
-                                image: AssetImage('assets/images/code.jpg'),
-                                fit: BoxFit.cover,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.black38, BlendMode.darken))*/
-                     ),
-                     child: Column(
-                       children: <Widget>[
-                         SizedBox(height: 30,),
-                         Container(
-                             height: 70,
-                             width: 100,
-                             child: SvgPicture.asset('assets/images/world.svg')),
-                         SizedBox(height: 30,),
-                         Text('Anglais', style: TextStyle(
-                             fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 20
-                         ),)
-                         /*Container(
-                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
-                              height: 30,
-                              width: 100,
-                              color: themeColor.withOpacity(0.8),
-                              child: Center(
-                                child: Text(
-                                  'Informatique',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),*/
-                       ],
-                     ),
-                   ),
-                 ),
-                 Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child:    Container(
-                     margin: EdgeInsets.all(5),
-                     height: 170,
-                     width: MediaQuery.of(context).size.width /2.5,
-                     decoration: BoxDecoration(
-                       color: Colors.white,
-                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                       /*image: DecorationImage(
-                                image: AssetImage('assets/images/code.jpg'),
-                                fit: BoxFit.cover,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.black38, BlendMode.darken))*/
-                     ),
-                     child: Column(
-                       children: <Widget>[
-                         SizedBox(height: 30,),
-                         Container(
-                             height: 70,
-                             width: 100,
-                             child: SvgPicture.asset('assets/images/papou.svg')),
-                         SizedBox(height: 30,),
-                         Text('Scolaire', style: TextStyle(
-                             fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 20
-                         ),)
-                         /*Container(
-                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
-                              height: 30,
-                              width: 100,
-                              color: themeColor.withOpacity(0.8),
-                              child: Center(
-                                child: Text(
-                                  'Informatique',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),*/
-                       ],
-                     ),
-                   ),
-                 ),
-               ],
-             ),
-           ),
-         ),
-          SizedBox(height: 20,),
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CategoriePage()));
+              Navigator.of(context).pushNamed(AllProf.routeName);
+            },
+            child: Container(
+              height: 220,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      margin: EdgeInsets.all(5),
+                      height: 170,
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        /*image: DecorationImage(
+                                image: AssetImage('assets/images/code.jpg'),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black38, BlendMode.darken))*/
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Container(
+                              height: 70,
+                              width: 100,
+                              child:
+                                  SvgPicture.asset('assets/images/python.svg')),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            'Informatique',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'BAARS',
+                                fontSize: 20),
+                          )
+                          /*Container(
+                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
+                              height: 30,
+                              width: 100,
+                              color: themeColor.withOpacity(0.8),
+                              child: Center(
+                                child: Text(
+                                  'Informatique',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14),
+                                ),
+                              ),
+                            ),*/
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      margin: EdgeInsets.all(5),
+                      height: 170,
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        /*image: DecorationImage(
+                                image: AssetImage('assets/images/code.jpg'),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black38, BlendMode.darken))*/
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Container(
+                              height: 70,
+                              width: 100,
+                              child:
+                                  SvgPicture.asset('assets/images/world.svg')),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            'Anglais',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'BAARS',
+                                fontSize: 20),
+                          )
+                          /*Container(
+                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
+                              height: 30,
+                              width: 100,
+                              color: themeColor.withOpacity(0.8),
+                              child: Center(
+                                child: Text(
+                                  'Informatique',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14),
+                                ),
+                              ),
+                            ),*/
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      margin: EdgeInsets.all(5),
+                      height: 170,
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        /*image: DecorationImage(
+                                image: AssetImage('assets/images/code.jpg'),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black38, BlendMode.darken))*/
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Container(
+                              height: 70,
+                              width: 100,
+                              child:
+                                  SvgPicture.asset('assets/images/papou.svg')),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            'Scolaire',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'BAARS',
+                                fontSize: 20),
+                          )
+                          /*Container(
+                              margin: EdgeInsets.only(left: 15, top: 60, right: 15),
+                              height: 30,
+                              width: 100,
+                              color: themeColor.withOpacity(0.8),
+                              child: Center(
+                                child: Text(
+                                  'Informatique',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14),
+                                ),
+                              ),
+                            ),*/
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CategoriePage()));
             },
             child: Container(
               margin: EdgeInsets.only(left: 60, right: 60),
@@ -1089,18 +1094,15 @@ class _SheetContainerState extends State<SheetContainer>
                     BoxShadow(
                         color: Colors.black87,
                         offset: Offset(0.0, 1.5),
-                        blurRadius: 1.5
-                    )
-                  ]
-              ),
+                        blurRadius: 1.5)
+                  ]),
               child: Center(
                 child: Text(
                   "Plus de catégories",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 16
-                  ),
+                      fontSize: 16),
                 ),
               ),
             ),
