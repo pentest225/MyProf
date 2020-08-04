@@ -2,8 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/widgets/AnnonceWidget.dart';
 import 'package:myprofmobil/widgets/dayContainer.dart';
 import 'package:myprofmobil/widgets/daySRow.dart';
+import 'package:myprofmobil/widgets/demandeCours.dart';
 import '../services/calendarServices.dart';
 
 //PAGE D'AGENDA DE L'UTILISATEUR BY PATRICK
@@ -164,6 +166,7 @@ class _Calendartask1State extends State<Calendartask1> {
                     ),
                     Expanded(
                       child: Container(
+                        padding: EdgeInsets.only(top: 35),
                         margin: EdgeInsets.symmetric(horizontal: 2),
                         width: MediaQuery.of(context).size.width,
                         // height: deviceHeight * 55,
@@ -176,7 +179,11 @@ class _Calendartask1State extends State<Calendartask1> {
                           children: <Widget>[
                             Column(
                               children: <Widget>[
-                                SizedBox(height: 10),
+                                SizedBox(height: 10,
+                                child: Center(
+                                  child:Divider(height: 2,color: themeColor,),
+                                ),
+                                ),
                                 Container(
                                   height: 70,
                                   margin: EdgeInsets.only(left: 20),
@@ -205,146 +212,9 @@ class _Calendartask1State extends State<Calendartask1> {
                                   ),
                                 ),
                                 SizedBox(height: 20),
-                                Container(
-                                  height: 90,
-                                  width:
-                                      MediaQuery.of(context).size.width / 1.2,
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Row(
-                                            children: <Widget>[
-                                              Text(
-                                                "Morning Meeting",
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Icon(
-                                                Icons.free_breakfast,
-                                                color: Colors.black,
-                                                size: 15,
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(height: 5),
-                                          Row(
-                                            children: <Widget>[
-                                              Icon(Icons.location_on,
-                                                  color: Colors.black),
-                                              Text(
-                                                "Morning Meeting",
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    color: Colors.purple),
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Row(
-                                            children: <Widget>[
-                                              Text("08:15"),
-                                            ],
-                                          ),
-                                          SizedBox(height: 5),
-                                          Row(
-                                            children: <Widget>[
-                                              Text(" 09:00"),
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
+                                PageDisc(),
                                 SizedBox(height: 20),
-                                Container(
-                                  height: 90,
-                                  width:
-                                      MediaQuery.of(context).size.width / 1.2,
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Row(
-                                            children: <Widget>[
-                                              Text(
-                                                "Morning Meeting",
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Icon(
-                                                Icons.free_breakfast,
-                                                color: Colors.black,
-                                                size: 15,
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(height: 5),
-                                          Row(
-                                            children: <Widget>[
-                                              Icon(Icons.location_on,
-                                                  color: Colors.black),
-                                              Text(
-                                                "Morning Meeting",
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    color: Colors.purple),
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Row(
-                                            children: <Widget>[
-                                              Text("08:15"),
-                                            ],
-                                          ),
-                                          SizedBox(height: 5),
-                                          Row(
-                                            children: <Widget>[
-                                              Text(" 09:00"),
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
+                                PageDisc(),],
                             ),
                           ],
                         ),

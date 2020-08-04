@@ -12,6 +12,7 @@ import '../screnn/searchPage.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 import 'demande.dart';
 
+// LA PAGE INDEX DE L'APPLICATIONS 
 class HomeScreen extends StatelessWidget {
   static const rooteName = '/home';
   @override

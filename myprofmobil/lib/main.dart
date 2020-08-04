@@ -8,6 +8,7 @@ import 'package:myprofmobil/pages/profil_password.dart';
 import 'package:myprofmobil/pages/profil_photo.dart';
 import 'package:myprofmobil/pages/profil_suppresion.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
+import 'package:myprofmobil/screnn/demandeList.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
@@ -80,6 +81,7 @@ class MyApp extends StatelessWidget {
           ProfilPassword.routeName:(context)=>ProfilPassword(),
           ProfilNotification.routeName:(context)=>ProfilNotification(),
           ProfilSuppresion.routeName:(context)=>ProfilSuppresion(),
+          DemandeListe.routeName:(context)=>DemandeListe(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),

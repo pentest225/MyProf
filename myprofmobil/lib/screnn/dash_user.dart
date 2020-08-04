@@ -4,6 +4,7 @@ import 'package:myprofmobil/pages/profil.dart';
 import 'package:myprofmobil/screnn/annonceList.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
 import 'package:myprofmobil/screnn/demande.dart';
+import 'package:myprofmobil/screnn/demandeList.dart';
 import 'package:myprofmobil/widgets/dashCard.dart';
 import '../outils/myStyle.dart';
 
@@ -268,7 +269,7 @@ class UserDash extends StatelessWidget {
                               child: Wrap(
                                 children: <Widget>[
                                   DashCard("Mes Annonces",Icons.card_membership,AnnonceListe.routeName),
-                                  DashCard("Mes Demandes ",Icons.school,''),
+                                  DashCard("Mes Demandes ",Icons.school,DemandeListe.routeName),
                                   DashCard("Parrametres ",Icons.settings,ProfilPage.routeName),
                                   DashCard("Agenda ",Icons.calendar_today,Calendartask1.routeName),
                                 ],

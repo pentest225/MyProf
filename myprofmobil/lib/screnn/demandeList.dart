@@ -6,14 +6,14 @@ import 'package:myprofmobil/widgets/AnnonceWidget.dart';
 import 'package:myprofmobil/widgets/demandeCours.dart';
 
 
-// PAGE POUR LISTER LES ANNONCES DE L'UTILISATEUR 
-class AnnonceListe extends StatefulWidget {
-  static const routeName = "annonceListe";
+// PAGE POUR LISTER LES DEMANDE DE COURS DE L'UTILISATEUR 
+class DemandeListe extends StatefulWidget {
+  static const routeName = "DemandeListe";
   @override
-  _AnnonceListeState createState() => _AnnonceListeState();
+  _DemandeListeState createState() => _DemandeListeState();
 }
 
-class _AnnonceListeState extends State<AnnonceListe>
+class _DemandeListeState extends State<DemandeListe>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
@@ -114,13 +114,11 @@ class _AnnonceListeState extends State<AnnonceListe>
                               topRight: Radius.circular(40))),
                               child: ListView(
                                 children: <Widget>[
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
+                                  DemandeCard(),
+                                  DemandeCard(),
+                                  DemandeCard(),
+                                  DemandeCard(),
+                                  DemandeCard(),
                                   
                                  
                                 ],

@@ -7,7 +7,7 @@ import 'suivant.dart';
 
 //PAGE POUR COMMENCE LA PUBLICATIONS D'UNE ANNONCE 
 class DemandePage extends StatefulWidget {
-  static const routeName = "anonces";
+  static const routeName = "demande";
   @override
   _DemandePageState createState() => _DemandePageState();
 }
