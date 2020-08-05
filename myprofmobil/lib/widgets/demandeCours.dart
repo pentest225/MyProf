@@ -63,7 +63,7 @@ class DemandeCard extends StatelessWidget {
                     ],
                   ),
                 )
-              ],
+              ], 
             ),
           ),
           Divider(),
@@ -83,7 +83,6 @@ class DemandeCard extends StatelessWidget {
                   )
                 ],
               ),
-              
               onPressed: ()=>Navigator.of(context).pushNamed(ProfProfil.routeName),
             ),
           )

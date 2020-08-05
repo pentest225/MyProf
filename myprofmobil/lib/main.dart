@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/pages/interface1.dart';
 import 'package:myprofmobil/pages/profil.dart';
 import 'package:myprofmobil/pages/profil_diplome.dart';
 import 'package:myprofmobil/pages/profil_identite.dart';
@@ -85,7 +86,8 @@ class MyApp extends StatelessWidget {
           ProfilNotification.routeName:(context)=>ProfilNotification(),
           ProfilSuppresion.routeName:(context)=>ProfilSuppresion(),
           DemandeListe.routeName:(context)=>DemandeListe(),
-          Calendar.routeName:(context)=>Calendar()
+          Calendar.routeName:(context)=>Calendar(),
+          InterfaceOne.routeName:(context)=>InterfaceOne(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),
