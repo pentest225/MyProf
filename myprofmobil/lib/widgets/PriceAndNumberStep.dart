@@ -7,10 +7,7 @@ class PriceAndNumber extends StatefulWidget {
 }
 
 class _PriceAndNumberState extends State<PriceAndNumber> {
-  List<String> categories = [
-    '1 H',
-    '45 M',
-  ];
+  List<String> categories = ['1 H','45 M'];
   String radioItem = '';
   String _chosenValue = '1 H';
   @override

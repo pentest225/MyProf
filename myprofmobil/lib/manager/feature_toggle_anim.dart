@@ -16,3 +16,8 @@ class ToggleBottomSheet with ChangeNotifier{
     notifyListeners();
   }
 }
+
+class StateProvider {
+  bool isAnimating = true;
+  void toggleAnimationValue() => isAnimating = !isAnimating;
+}

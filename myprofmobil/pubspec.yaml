@@ -86,6 +86,25 @@ flutter:
       fonts:
         - asset: assets/fonts/BAARS___.TTF
           style: italic
+
+    - family: Barlow
+      fonts:
+        - asset: assets/fonts/Barlow-Regular.otf
+        - asset: assets/fonts/Barlow-Medium.otf
+          weight: 500
+        - asset: assets/fonts/Barlow-MediumItalic.otf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Barlow-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/Barlow-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Barlow-ExtraBold.ttf
+          weight: 800
+    - family: Baloo
+      fonts:
+        - asset: assets/fonts/Baloo-Regular.ttf
+        
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
