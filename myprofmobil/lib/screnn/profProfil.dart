@@ -34,24 +34,24 @@ class _ProfProfilState extends State<ProfProfil> {
     final photoHeight = deviceWidth * .25;
     final lefAndReightSpace = ((deviceWidth - 20) - photoHeight) / 2;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: themeColor,
-        title: Text(
-          'MyProfs',
-          style: TextStyle(
-              color: Colors.white,
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'BAARS'),
-        ),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   title: Text(
+      //     'MyProfs',
+      //     style: TextStyle(
+      //         color: Colors.white,
+      //         fontSize: 25,
+      //         fontWeight: FontWeight.bold,
+      //         fontFamily: 'BAARS'),
+      //   ),
+      //   centerTitle: true,
+      // ),
       body: Container(
         height: deviceHeight,
         decoration: BoxDecoration(
           color: fondcolor,
-          image: DecorationImage(
-              image: ExactAssetImage(backImage), fit: BoxFit.cover),
+          // image: DecorationImage(
+          //     image: ExactAssetImage(backImage), fit: BoxFit.cover),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
@@ -59,36 +59,36 @@ class _ProfProfilState extends State<ProfProfil> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               // I Container de la AppBarr
-              // Container(
-              //   height: appBarHeight,
-              //   color: themeColor,
-              //   padding: EdgeInsets.symmetric(horizontal: 20),
-              //   child: Container(
-              //     margin: EdgeInsets.only(top: appBarHeight * .5),
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //       children: <Widget>[
-              //         InkWell(
-              //           onTap: () {
-              //             Navigator.pop(context);
-              //           },
-              //           child: Icon(
-              //             Icons.arrow_back,
-              //             color: Colors.white,
-              //           ),
-              //         ),
-              //         Text(
-              //           'MyProfs',
-              //           style: TextStyle(
-              //               color: Colors.white,
-              //               fontSize: 25,
-              //               fontWeight: FontWeight.bold,
-              //               fontFamily: 'BAARS'),
-              //         )
-              //       ],
-              //     ),
-              //   ),
-              // ),
+              Container(
+                height: appBarHeight,
+                color: Colors.transparent,
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  margin: EdgeInsets.only(top: appBarHeight * .5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Text(
+                        'MyProfs',
+                        style: TextStyle(
+                            color: themeColor,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'BAARS'),
+                      )
+                    ],
+                  ),
+                ),
+              ),
               // II Container Body
               Container(
                 height: bodyHeight,
@@ -144,107 +144,119 @@ class _ProfProfilState extends State<ProfProfil> {
                                     children: <Widget>[
                                       Container(
                                         height: bodyHeight * 45,
-                                        margin: EdgeInsets.only(
-                                            top: photoHeight / 2 + 5),
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
+                                          // mainAxisAlignment:
+                                              // MainAxisAlignment.spaceAround,
                                           children: <Widget>[
-                                            Center(
-                                              child: Text(
-                                                "Franck N'guessan",
-                                                style: h1,
-                                              ),
-                                            ),
-                                            Center(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: <Widget>[
-                                                  Icon(
-                                                    Icons.place,
-                                                    color: accanceColor,
-                                                  ),
-                                                  Text("Cocody Gescocy")
-                                                ],
-                                              ),
-                                            ),
-                                            //Price Row
-                                            Center(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                children: <Widget>[
-                                                  Container(
-                                                    child: RichText(
-                                                      text: TextSpan(
-                                                        children: <TextSpan>[
-                                                          TextSpan(
-                                                              text: '4000 fr/',
-                                                              style: TextStyle(
-                                                                  color:
-                                                                      themeColor,
-                                                                  fontSize: 25,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400)),
-                                                          TextSpan(
-                                                              text: 'h ',
-                                                              style: TextStyle(
-                                                                  color:
-                                                                      themeColor,
-                                                                  fontSize:
-                                                                      10)),
+                                            Spacer(),
+                                            Expanded(
+                                              flex: 6,
+                                              child: Container(
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                  children: <Widget>[
+                                                    Text(
+                                                      "Franck N'guessan",
+                                                      style: TextStyle(
+                                                          fontSize: 24,
+                                                          fontWeight: FontWeight.bold,
+                                                          color: accanceColor,
+                                                          fontFamily: 'BAARS'),
+                                                    ),
+                                                    Container(
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment.center,
+                                                        children: <Widget>[
+                                                          Icon(
+                                                            Icons.place,
+                                                            color: accanceColor,
+                                                          ),
+                                                          Text("Cocody Gescocy",style: TextStyle(fontWeight: FontWeight.w300),)
                                                         ],
                                                       ),
                                                     ),
-                                                  ),
+                                               //Titre de l'annonce
                                                   Container(
-                                                    width: 100,
-                                                    height: 25,
+                                                    width: deviceWidth /1.2,
                                                     alignment: Alignment.center,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              15),
-                                                      gradient: LinearGradient(
-                                                          begin: Alignment
-                                                              .centerLeft,
-                                                          end: Alignment
-                                                              .bottomRight,
-                                                          colors: [
-                                                            themeColor,
-                                                            Color.fromRGBO(254,
-                                                                229, 233, 1)
-                                                          ]),
-                                                    ),
                                                     child: Text(
-                                                      "Flutter",
-                                                      style: TextStyle(
-                                                          color: Colors.black),
+                                                        "Devenir Full Stack Mobil avec Flutter Un Framework Dart Conçue pour la créations de belle Applications Native",
+                                                        style: TextStyle(
+                                                            fontSize: 20,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontFamily: 'BAARS'),
+                                                        // overflow:
+                                                        //     TextOverflow.ellipsis,
                                                     ),
-                                                  )
-                                                ],
+                                                  ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
 
-                                            //Titre de l'annonce
-                                            Container(
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.all(20),
-                                              child: Text(
-                                                  "Devenir Full Stack Mobil avec Flutter Un Framework Dart Concue pour la créations de belle Applications Native",
-                                                  style: TextStyle(
-                                                      fontSize: 24,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontFamily: 'BAARS'),
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  maxLines: 2,
-                                                  softWrap: true),
-                                            ),
+                                            //Price Row
+                                            // Center(
+                                            //   child: Row(
+                                            //     mainAxisAlignment:
+                                            //         MainAxisAlignment
+                                            //             .spaceAround,
+                                            //     children: <Widget>[
+                                            //       Container(
+                                            //         child: RichText(
+                                            //           text: TextSpan(
+                                            //             children: <TextSpan>[
+                                            //               TextSpan(
+                                            //                   text: '4000 fr/',
+                                            //                   style: TextStyle(
+                                            //                       color:
+                                            //                           themeColor,
+                                            //                       fontSize: 25,
+                                            //                       fontWeight:
+                                            //                           FontWeight
+                                            //                               .w400)),
+                                            //               TextSpan(
+                                            //                   text: 'h ',
+                                            //                   style: TextStyle(
+                                            //                       color:
+                                            //                           themeColor,
+                                            //                       fontSize:
+                                            //                           10)),
+                                            //             ],
+                                            //           ),
+                                            //         ),
+                                            //       ),
+                                            //       Container(
+                                            //         width: 100,
+                                            //         height: 25,
+                                            //         alignment: Alignment.center,
+                                            //         decoration: BoxDecoration(
+                                            //           borderRadius:
+                                            //               BorderRadius.circular(
+                                            //                   15),
+                                            //           gradient: LinearGradient(
+                                            //               begin: Alignment
+                                            //                   .centerLeft,
+                                            //               end: Alignment
+                                            //                   .bottomRight,
+                                            //               colors: [
+                                            //                 themeColor,
+                                            //                 Color.fromRGBO(254,
+                                            //                     229, 233, 1)
+                                            //               ]),
+                                            //         ),
+                                            //         child: Text(
+                                            //           "Flutter",
+                                            //           style: TextStyle(
+                                            //               color: Colors.black),
+                                            //         ),
+                                            //       )
+                                            //     ],
+                                            //   ),
+                                            // ),
+
+
                                             // Nombres d'etoilles
                                             Container(
                                               child: Row(

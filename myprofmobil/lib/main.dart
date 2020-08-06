@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:myprofmobil/pages/interface1.dart';
 import 'package:myprofmobil/pages/profil.dart';
 import 'package:myprofmobil/pages/profil_diplome.dart';
@@ -35,9 +36,15 @@ import 'screnn/verify.dart';
 import 'screnn/dash_user.dart';
 import 'screnn/annonceList.dart';
 
+
 import 'screnn/all_prof.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  statusBarColor: Color.fromRGBO(250, 112, 53, 1).withOpacity(.8),
+  statusBarIconBrightness: Brightness.light,
+  // systemNavigationBarColor: Colors.white
+));
   runApp(MyApp());
 }
 
