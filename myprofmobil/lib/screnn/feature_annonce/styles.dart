@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'main.dart';
-
 class Styles {
   static double formRadius = 20;
   static double checkRadius = 5;

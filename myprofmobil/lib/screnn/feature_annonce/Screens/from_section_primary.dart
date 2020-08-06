@@ -1,10 +1,11 @@
-import 'package:audio_player_stage/components/section_separator.dart';
-import 'package:audio_player_stage/components/section_title.dart';
-import 'package:audio_player_stage/components/stack_pages_route.dart';
-import 'package:audio_player_stage/components/submit_button.dart';
-import 'package:audio_player_stage/form_inputs/multi_selected_chip.dart';
-import 'package:audio_player_stage/form_inputs/text_input.dart';
+
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/feature_annonce/components/section_separator.dart';
+import 'package:myprofmobil/screnn/feature_annonce/components/section_title.dart';
+import 'package:myprofmobil/screnn/feature_annonce/components/stack_pages_route.dart';
+import 'package:myprofmobil/screnn/feature_annonce/components/submit_button.dart';
+import 'package:myprofmobil/screnn/feature_annonce/form_inputs/multi_selected_chip.dart';
+import 'package:myprofmobil/screnn/feature_annonce/form_inputs/text_input.dart';
 
 import '../styles.dart';
 import 'form_screen.dart';

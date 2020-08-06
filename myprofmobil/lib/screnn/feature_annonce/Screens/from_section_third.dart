@@ -1,11 +1,11 @@
 import 'dart:io';
-import 'package:audio_player_stage/components/button_upload_diplome.dart';
-import 'package:audio_player_stage/components/button_upload_photo.dart';
-import 'package:audio_player_stage/components/section_separator.dart';
-import 'package:audio_player_stage/components/section_title.dart';
-import 'package:audio_player_stage/components/submit_button.dart';
-import 'package:audio_player_stage/form_inputs/text_input.dart';
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/feature_annonce/components/button_upload_diplome.dart';
+import 'package:myprofmobil/screnn/feature_annonce/components/button_upload_photo.dart';
+import 'package:myprofmobil/screnn/feature_annonce/components/section_separator.dart';
+import 'package:myprofmobil/screnn/feature_annonce/components/section_title.dart';
+import 'package:myprofmobil/screnn/feature_annonce/components/submit_button.dart';
+import 'package:myprofmobil/screnn/feature_annonce/form_inputs/text_input.dart';
 
 import 'form_screen.dart';
 import '../styles.dart';

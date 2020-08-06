@@ -1,5 +1,5 @@
-import 'package:audio_player_stage/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/feature_annonce/styles.dart';
 
 class ButtonUploadDiplome extends StatelessWidget {
   VoidCallback _onPressed;

@@ -1,4 +1,3 @@
-import 'package:audio_player_stage/styles.dart';
 import 'package:flutter/material.dart';
 
 class ButtonUpload extends StatelessWidget {
