@@ -97,7 +97,7 @@ class ProfProfil extends StatelessWidget {
                       right: 0,
                       child: Container(
                         height: bodyHeight,
-                        margin: EdgeInsets.only(bottom:15),
+                        margin: EdgeInsets.only(bottom: 15),
                         padding:
                             EdgeInsets.only(bottom: 10, left: 10, right: 10),
                         color: Colors.transparent,
@@ -444,7 +444,114 @@ class ProfProfil extends StatelessWidget {
                                     Container(
                                         padding: EdgeInsets.symmetric(
                                             horizontal: 10),
-                                            margin: EdgeInsets.only(bottom: 15),
+                                        margin: EdgeInsets.only(bottom: 15),
+                                        child: Text(
+                                          "Ces cours peuvent se dérouler",
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'BAARS'),
+                                        )),
+                                    Row(
+                                      children: <Widget>[
+                                        Card(
+                                          elevation: 0,
+                                          color: Colors.grey.withOpacity(.3),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Container(
+                                            height: 80,
+                                            width: deviceWidth / 2 - 40,
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                Container(
+                                                  height: 50,
+                                                  width: 50,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.white70,
+                                                      shape: BoxShape.circle),
+                                                  child: Icon(
+                                                    Icons.place,
+                                                    size: 30,
+                                                    color: themeColor,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "A Domicile ",
+                                                  style: TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontFamily: 'BAARS'),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Card(
+                                          elevation: 0,
+                                          color: Colors.grey.withOpacity(.3),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Container(
+                                            height: 80,
+                                            width: deviceWidth / 2 - 40,
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                Container(
+                                                  height: 50,
+                                                  width: 50,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.white70,
+                                                      shape: BoxShape.circle),
+                                                  child: Icon(
+                                                    Icons.videocam,
+                                                    size: 30,
+                                                    color: themeColor,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "Par Webcam ",
+                                                  style: TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontFamily: 'BAARS'),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                            //Siessieme Card
+                            ,
+                            Card(
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Container(
+                                // height: bodyHeight * .5,
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 20),
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10),
+                                        margin: EdgeInsets.only(bottom: 15),
                                         child: Text(
                                           "Cours proposés ",
                                           style: TextStyle(
@@ -468,17 +575,20 @@ class ProfProfil extends StatelessWidget {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
-                                               Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white70,
-                                          shape: BoxShape.circle
-                                      ),
-                                      child:  Icon(Icons.account_circle, size: 30, color: themeColor,),
-                                    ),
+                                                Container(
+                                                  height: 50,
+                                                  width: 50,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.white70,
+                                                      shape: BoxShape.circle),
+                                                  child: Icon(
+                                                    Icons.account_circle,
+                                                    size: 30,
+                                                    color: themeColor,
+                                                  ),
+                                                ),
                                                 Text(
-                                                  "A Domicile ",
+                                                  "Individuel ",
                                                   style: TextStyle(
                                                       fontSize: 18,
                                                       fontWeight:
@@ -489,7 +599,7 @@ class ProfProfil extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                         Card(
+                                        Card(
                                           elevation: 0,
                                           color: Colors.grey.withOpacity(.3),
                                           shape: RoundedRectangleBorder(
@@ -503,9 +613,20 @@ class ProfProfil extends StatelessWidget {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
-                                               Icon(Icons.camera_alt),
+                                                Container(
+                                                  height: 50,
+                                                  width: 50,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.white70,
+                                                      shape: BoxShape.circle),
+                                                  child: Icon(
+                                                    Icons.group,
+                                                    size: 30,
+                                                    color: themeColor,
+                                                  ),
+                                                ),
                                                 Text(
-                                                  "Par Webcam ",
+                                                  "En groupe ",
                                                   style: TextStyle(
                                                       fontSize: 18,
                                                       fontWeight:
@@ -522,8 +643,19 @@ class ProfProfil extends StatelessWidget {
                                 ),
                               ),
                             )
-                            //Siessieme Card
-
+                            ,Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Container(
+                                child: Column(children: <Widget>[
+                                  Container(child: Text("Niveaux ",style: h1,),),
+                                  Container(
+                                    child: null,
+                                  )
+                                ],),
+                              ),
+                            )
                           ],
                         ),
                       ),

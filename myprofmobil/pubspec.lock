@@ -263,13 +263,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.3"
-  rxdart:
-    dependency: transitive
-    description:
-      name: rxdart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.23.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -282,13 +275,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-  sprinkle:
-    dependency: "direct main"
-    description:
-      name: sprinkle
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
   stack_trace:
     dependency: transitive
     description:

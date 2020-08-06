@@ -13,8 +13,6 @@ import 'package:myprofmobil/screnn/calendarUser.dart';
 import 'package:myprofmobil/screnn/demandeList.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:provider/provider.dart';
-import 'package:sprinkle/Overseer.dart';
-import 'package:sprinkle/Provider.dart';
 import 'pages/categorie.dart';
 import 'pages/firstPage.dart';
 import 'pages/profil_adresse.dart';
