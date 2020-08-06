@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/pages/interface1.dart';
 import 'package:myprofmobil/pages/profil.dart';
 import 'package:myprofmobil/pages/profil_diplome.dart';
 import 'package:myprofmobil/pages/profil_identite.dart';
@@ -8,8 +9,10 @@ import 'package:myprofmobil/pages/profil_password.dart';
 import 'package:myprofmobil/pages/profil_photo.dart';
 import 'package:myprofmobil/pages/profil_suppresion.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
+import 'package:myprofmobil/screnn/calendarUser.dart';
 import 'package:myprofmobil/screnn/demandeList.dart';
 import 'package:myprofmobil/screnn/sync.dart';
+import 'package:provider/provider.dart';
 import 'package:sprinkle/Overseer.dart';
 import 'package:sprinkle/Provider.dart';
 import 'pages/categorie.dart';
@@ -45,9 +48,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Provider(
-      data: Overseer()
-      .register<StateBloc>(()=> StateBloc()),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: ToggleBottomSheet(),)
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',
@@ -82,6 +86,8 @@ class MyApp extends StatelessWidget {
           ProfilNotification.routeName:(context)=>ProfilNotification(),
           ProfilSuppresion.routeName:(context)=>ProfilSuppresion(),
           DemandeListe.routeName:(context)=>DemandeListe(),
+          Calendar.routeName:(context)=>Calendar(),
+          InterfaceOne.routeName:(context)=>InterfaceOne(),
           // profProfil.routeName: (ctx)=>MyHome()
         },
       ),

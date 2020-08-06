@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/pages/filtrePage.dart';
 import 'package:myprofmobil/pages/interface1.dart';
 import '../outils/myStyle.dart';
 import '../widgets/profWidget.dart';
@@ -104,6 +105,7 @@ class AllProf extends StatelessWidget {
                       right: 0,
                       child: Container(
                         height: bodyHeight,
+                        padding: EdgeInsets.only(bottom:10),
                         color: Colors.transparent,
                         child: ListView(
                           children: <Widget>[
@@ -237,6 +239,13 @@ class AllProf extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: themeColor,
+        child: Icon(Icons.filter, color: Colors.white,),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => FiltrePage()));
+        },
       ),
     );
   }

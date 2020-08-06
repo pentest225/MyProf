@@ -5,10 +5,11 @@ class ProfilCard extends StatelessWidget {
   IconData icon;
   String title;
   String route;
-  ProfilCard(this.icon,this.title,this.route);
+  ProfilCard(this.icon, this.title, this.route);
   @override
   Widget build(BuildContext context) {
-
+    final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceWidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, route);
@@ -16,8 +17,8 @@ class ProfilCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: 150,
-          width: 160,
+          height: deviceWidth / 2 - 10,
+          width: deviceWidth / 2.5,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
@@ -35,12 +36,15 @@ class ProfilCard extends StatelessWidget {
               ),
               Container(
                 margin: EdgeInsets.only(left: 25, right: 25),
-                child: Text(
-                  title,
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'BAARS'),
+                child: FittedBox(
+                  fit: BoxFit.fitHeight,
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'BAARS'),
+                  ),
                 ),
               )
             ],

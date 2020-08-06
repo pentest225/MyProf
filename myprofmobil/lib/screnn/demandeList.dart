@@ -1,8 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-import 'package:myprofmobil/widgets/AnnonceWidget.dart';
 import 'package:myprofmobil/widgets/demandeCours.dart';
 
 
@@ -44,7 +42,7 @@ class _DemandeListeState extends State<DemandeListe>
           color: themeColor.withOpacity(.5),
           image: DecorationImage(
             
-              image: ExactAssetImage("assets/images/ecole.jpg"),
+              image: ExactAssetImage(backImage),
               fit: BoxFit.cover),
         ),
         child: BackdropFilter(

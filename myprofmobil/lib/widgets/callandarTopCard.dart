@@ -1,69 +1,99 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/services/calendarServices.dart';
 import 'package:myprofmobil/widgets/AnnonceWidget.dart';
 import 'package:myprofmobil/widgets/dayContainer.dart';
 import 'package:myprofmobil/widgets/daySRow.dart';
-import 'package:myprofmobil/widgets/demandeCours.dart';
-import '../services/calendarServices.dart';
+import 'package:provider/provider.dart';
+//CONTAINER AMMINAT DU HAUT (DOIT PRENDRE EN CHILD LE CALENDRIE )
 
-//PAGE D'AGENDA DE L'UTILISATEUR BY PATRICK
-class Calendartask1 extends StatefulWidget {
-  static const routeName = "calendar";
+class TopCarAnimated extends StatefulWidget {
   @override
-  _Calendartask1State createState() => _Calendartask1State();
+  _TopCarAnimatedState createState() => _TopCarAnimatedState();
 }
 
-class _Calendartask1State extends State<Calendartask1> {
+class _TopCarAnimatedState extends State<TopCarAnimated>
+    with TickerProviderStateMixin {
+  AnimationController fadeController;
+  AnimationController scaleController;
+
+  Animation fadeAnimation;
+  Animation scaleAnimation;
+
   CalendarServices mySerice = CalendarServices();
   int numberRow = 2;
   List<DateTime> currenteWeek = [];
+  @override
+  void initState() {
+    super.initState();
+    fadeController =
+        AnimationController(duration: Duration(milliseconds: 180), vsync: this);
+
+    scaleController =
+        AnimationController(duration: Duration(milliseconds: 350), vsync: this);
+
+    fadeAnimation = Tween(begin: 1.0, end: 1.0).animate(fadeController);
+    scaleAnimation = Tween(begin: 0.8, end: 1.0).animate(CurvedAnimation(
+      parent: scaleController,
+      curve: Curves.easeInOut,
+      reverseCurve: Curves.easeInOut,
+    ));
+  }
+
+  forward() {
+    scaleController.forward();
+    fadeController.forward();
+  }
+
+  reverse() {
+    scaleController.reverse();
+    fadeController.reverse();
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     currenteWeek = mySerice.currentWeek();
-    return Scaffold(
-      body: Container(
-        width: deviceWidth,
-        height: deviceHeight,
-         
-        decoration: BoxDecoration(
-          
-          image: DecorationImage(
-              image: ExactAssetImage(backImage),
-              fit: BoxFit.cover,colorFilter: ColorFilter.mode(Colors.black87.withOpacity(.8) ,BlendMode.darken)),
-        ),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+    final toggleAnim = Provider.of<ToggleBottomSheet>(context);
+    toggleAnim.agendaAnimating ? forward() : reverse();
+
+    return ScaleTransition(
+      scale: scaleAnimation,
+      child: FadeTransition(
+        opacity: fadeAnimation,
+        //Container Heider
+        child: Container(
           child: Column(
             children: <Widget>[
               // AppBare
               Container(
-
+                // color: Colors.grey.withOpacity(.5),
                 child: Column(
                   children: <Widget>[
-                    SizedBox(
-                      height: 40,
-                    ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 5),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           IconButton(
                             icon: Icon(
                               Icons.arrow_back_ios,
-                              color: Colors.white,
+                              color: themeColor,
                             ),
                             onPressed: () => Navigator.of(context).pop(),
                           ),
-                          Text(
-                            mySerice.strMonth(DateTime.now()),
-                            style: TextStyle(color: themeColor, fontSize: 22),
+                          Container(
+                            width: deviceWidth - 60,
+                          
+                            alignment: Alignment.center,
+                            child: Text(
+                              mySerice.strMonth(DateTime.now()),
+                              style: TextStyle(color: themeColor, fontSize: 22),
+                            ),
                           ),
-                          Container(),
+                          
                         ],
                       ),
                     ),
@@ -84,7 +114,8 @@ class _Calendartask1State extends State<Calendartask1> {
                       child: SingleChildScrollView(
                         //Calendar
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 0,vertical: 10),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 0, vertical: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             // color: Colors.black.withOpacity(.5),
@@ -164,61 +195,7 @@ class _Calendartask1State extends State<Calendartask1> {
                         ),
                       ),
                     ),
-                    //RoundedSection
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.only(top: 35),
-                        margin: EdgeInsets.symmetric(horizontal: 2),
-                        width: MediaQuery.of(context).size.width,
-
-                        decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.9),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(35),
-                                topRight: Radius.circular(35))),
-                        child: ListView(
-                          children: <Widget>[
-                            Column(
-                              children: <Widget>[
-                                SizedBox(height: 10,
-                                ),
-                                Container(
-                                  height: 70,
-                                  margin: EdgeInsets.only(left: 20),
-                                  width: MediaQuery.of(context).size.width,
-                                  child: ListView.builder(
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: currenteWeek.length,
-                                      itemBuilder: (context, i) {
-                                        return DayContainer(currenteWeek[i]);
-                                      }),
-                                ),
-                                SizedBox(height: 20),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 30),
-                                  child: Row(
-                                    children: <Widget>[
-                                      Text(
-                                        "Today's Shedule",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            // fontWeight: FontWeight.bold,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(height: 20),
-                                PageDisc(),
-                                SizedBox(height: 20),
-                                PageDisc(),],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                      ],
                 ),
               )
             ],

@@ -3,7 +3,7 @@ import 'package:myprofmobil/outils/myStyle.dart';
 
 class ProfilSuppresion extends StatefulWidget {
 
-  static const routeName = 'profilnotification';
+  static const routeName = 'profilSuppression';
 
   @override
   _ProfilSuppresionState createState() => _ProfilSuppresionState();
