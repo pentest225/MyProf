@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -5,28 +6,52 @@ import 'package:flutter/material.dart';
 import 'package:myprofmobil/pages/filtrePage.dart';
 import 'package:myprofmobil/pages/interface1.dart';
 import 'package:myprofmobil/screnn/contactPage.dart';
+import 'package:myprofmobil/widgets/TextCardAnnonceDetail.dart';
+import 'package:myprofmobil/widgets/avisContainer.dart';
+import 'package:myprofmobil/widgets/demandeCours.dart';
 import 'package:myprofmobil/widgets/profWidget.dart';
 import '../outils/myStyle.dart';
+import 'feature_annonce/form_inputs/multi_selected_chip.dart';
 
 //PAGE DE DETAILLE D'UNE ANONCE PRESENTATIONS DU PROF DE CES MATIERRE ET TOUTE INFO SUR SON ANNONCE
-class ProfProfil extends StatelessWidget {
+class ProfProfil extends StatefulWidget {
   static const routeName = "profProfil";
+
+  @override
+  _ProfProfilState createState() => _ProfProfilState();
+}
+
+class _ProfProfilState extends State<ProfProfil> {
+  var _expended = false;
+
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     final appBarHeight = deviceHeight / 10 + 10;
     final bodyHeight = deviceHeight - appBarHeight;
-    final firstCardHeight = bodyHeight * .35;
+    final firstCardHeight = bodyHeight * .50;
     final imageDecalage = appBarHeight;
     final photoHeight = deviceWidth * .25;
     final lefAndReightSpace = ((deviceWidth - 20) - photoHeight) / 2;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: themeColor,
+        title: Text(
+          'MyProfs',
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'BAARS'),
+        ),
+        centerTitle: true,
+      ),
       body: Container(
         height: deviceHeight,
         decoration: BoxDecoration(
           color: fondcolor,
-          // image: DecorationImage(
-          //     image: ExactAssetImage(backImage), fit: BoxFit.cover),
+          image: DecorationImage(
+              image: ExactAssetImage(backImage), fit: BoxFit.cover),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
@@ -34,36 +59,36 @@ class ProfProfil extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               // I Container de la AppBarr
-              Container(
-                height: appBarHeight,
-                color: themeColor,
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
-                  margin: EdgeInsets.only(top: appBarHeight * .5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        'MyProfs',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'BAARS'),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              // Container(
+              //   height: appBarHeight,
+              //   color: themeColor,
+              //   padding: EdgeInsets.symmetric(horizontal: 20),
+              //   child: Container(
+              //     margin: EdgeInsets.only(top: appBarHeight * .5),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       children: <Widget>[
+              //         InkWell(
+              //           onTap: () {
+              //             Navigator.pop(context);
+              //           },
+              //           child: Icon(
+              //             Icons.arrow_back,
+              //             color: Colors.white,
+              //           ),
+              //         ),
+              //         Text(
+              //           'MyProfs',
+              //           style: TextStyle(
+              //               color: Colors.white,
+              //               fontSize: 25,
+              //               fontWeight: FontWeight.bold,
+              //               fontFamily: 'BAARS'),
+              //         )
+              //       ],
+              //     ),
+              //   ),
+              // ),
               // II Container Body
               Container(
                 height: bodyHeight,
@@ -204,6 +229,22 @@ class ProfProfil extends StatelessWidget {
                                               ),
                                             ),
 
+                                            //Titre de l'annonce
+                                            Container(
+                                              alignment: Alignment.center,
+                                              padding: EdgeInsets.all(20),
+                                              child: Text(
+                                                  "Devenir Full Stack Mobil avec Flutter Un Framework Dart Concue pour la créations de belle Applications Native",
+                                                  style: TextStyle(
+                                                      fontSize: 24,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontFamily: 'BAARS'),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  maxLines: 2,
+                                                  softWrap: true),
+                                            ),
                                             // Nombres d'etoilles
                                             Container(
                                               child: Row(
@@ -267,6 +308,7 @@ class ProfProfil extends StatelessWidget {
                                           ],
                                         ),
                                       ),
+                                      //Top image
                                       Positioned(
                                         top: -photoHeight / 2,
                                         left: lefAndReightSpace,
@@ -331,23 +373,33 @@ class ProfProfil extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: <Widget>[
-                                        RichText(
-                                          text: TextSpan(
-                                            children: <TextSpan>[
-                                              TextSpan(
-                                                  text: '2',
-                                                  style: TextStyle(
-                                                      color: accanceColor,
-                                                      fontSize: 25,
-                                                      fontWeight:
-                                                          FontWeight.w400)),
-                                              TextSpan(
-                                                  text: 'h ',
-                                                  style: TextStyle(
-                                                      color: accanceColor,
-                                                      fontSize: 18)),
-                                            ],
-                                          ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            RichText(
+                                              text: TextSpan(
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                      text: '2',
+                                                      style: TextStyle(
+                                                          color: accanceColor,
+                                                          fontSize: 25,
+                                                          fontWeight:
+                                                              FontWeight.w400)),
+                                                  TextSpan(
+                                                      text: 'h ',
+                                                      style: TextStyle(
+                                                          color: accanceColor,
+                                                          fontSize: 18)),
+                                                ],
+                                              ),
+                                            ),
+                                            Icon(
+                                              Icons.flash_on,
+                                              color: themeColor,
+                                            )
+                                          ],
                                         ),
                                         Text(
                                           "Temps de reponses",
@@ -362,74 +414,16 @@ class ProfProfil extends StatelessWidget {
                                 )
                               ],
                             ),
-                            // Troisiemme Container
-                            Card(
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Container(
-                                // height: bodyHeight * .5,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 20),
-                                child: Column(
-                                  children: <Widget>[
-                                    Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        child: Text(
-                                          "Devenir Un prod en dévéloppement Mobil",
-                                          style: TextStyle(
-                                              fontSize: 24,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'BAARS'),
-                                        )),
-                                    Container(
-                                        padding: EdgeInsets.all(10),
-                                        child: Text(
-                                          "Je propose \n1) Des cours privés de Piano pour enfants, adultes, tous âges et tous niveaux, basé sur un suivi musical personnalisé : Découverte - Apprentissage méthodique - Perfectionnement - Concert de fin d'année.\n2) Coaching de comédiens et d'acteurs (piano)\nJ'ai par exemple été le professeur de Piano du comédien Romain Cottard dans la préparation de la pièce de Yasmina Reza, 'Comment vous racontez la partie'.",
-                                          style: TextStyle(
-                                              color: Colors.blueGrey,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w500),
-                                        ))
-                                  ],
-                                ),
-                              ),
+                            TextCardAnnonce(
+                              "Methodologie d'enseignement",
+                              "Je propose \n1) Des cours privés de Piano pour enfants, adultes, tous âges et tous niveaux, basé sur un suivi musical personnalisé : Découverte - Apprentissage méthodique - Perfectionnement - Concert de fin d'année.\n2) Coaching de comédiens et d'acteurs (piano)\nJ'ai par exemple été le professeur de Piano du comédien Romain Cottard dans la préparation de la pièce de Yasmina Reza, 'Comment vous racontez la partie'.",
                             ),
                             //Quatrieme Card
-                            Card(
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Container(
-                                // height: bodyHeight * .5,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 20),
-                                child: Column(
-                                  children: <Widget>[
-                                    Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        child: Text(
-                                          "Mon Parcour",
-                                          style: TextStyle(
-                                              fontSize: 24,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'BAARS'),
-                                        )),
-                                    Container(
-                                        padding: EdgeInsets.all(10),
-                                        child: Text(
-                                          "J’ai d’abord enseigné en école de Musique avant de proposer depuis plusieurs années des cours particuliers qui me permettent d’offrir un enseignement original basé sur le plaisir de jouer et la passion du Piano.Je prépare également les élèves qui le souhaitent aux concours nationaux et internationaux.",
-                                          style: TextStyle(
-                                              color: Colors.blueGrey,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w500),
-                                        ))
-                                  ],
-                                ),
-                              ),
+                            TextCardAnnonce(
+                              "Mon Parcour",
+                              "J’ai d’abord enseigné en école de Musique avant de proposer depuis plusieurs ann��es des cours particuliers qui me permettent d’offrir un enseignement original basé sur le plaisir de jouer et la passion du Piano.Je prépare également les élèves qui le souhaitent aux concours nationaux et internationaux.",
                             ),
+
                             //Quatrieme Card
                             Card(
                               elevation: 0,
@@ -643,17 +637,112 @@ class ProfProfil extends StatelessWidget {
                                 ),
                               ),
                             )
-                            ,Card(
+                            //Septeme Card
+                            ,
+                            Card(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Container(
-                                child: Column(children: <Widget>[
-                                  Container(child: Text("Niveaux ",style: h1,),),
-                                  Container(
-                                    child: null,
-                                  )
-                                ],),
+                                padding: EdgeInsets.all(10),
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                        "Niveaux ",
+                                        style: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'BAARS'),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: MultiSelectedChip([
+                                        "Terminal",
+                                        "Premierre",
+                                        "2 emd",
+                                        "Troisiemme",
+                                        "Tous niveaux "
+                                      ]),
+                                    ),
+                                    Container(
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                        "Tarif",
+                                        style: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'BAARS'),
+                                      ),
+                                    ),
+                                    Container(
+                                        child: RichText(
+                                      text: TextSpan(
+                                        children: <TextSpan>[
+                                          TextSpan(
+                                            text:
+                                                "Tarifs pour des cours par webcam :",
+                                            style: TextStyle(
+                                                color: Colors.black54,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          TextSpan(
+                                              text: "5000 fr/h",
+                                              style: TextStyle(
+                                                  color: themeColor,
+                                                  fontSize: 20))
+                                        ],
+                                      ),
+                                    )),
+                                    Container(
+                                        child: RichText(
+                                      text: TextSpan(
+                                        children: <TextSpan>[
+                                          TextSpan(
+                                            text:
+                                                "Tarifs pour des cours par webcam :",
+                                            style: TextStyle(
+                                                color: Colors.black54,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          TextSpan(
+                                              text: "5000 fr/h",
+                                              style: TextStyle(
+                                                  color: themeColor,
+                                                  fontSize: 20))
+                                        ],
+                                      ),
+                                    ))
+                                  ],
+                                ),
+                              ),
+                            ),
+
+                            Container(
+                                margin: EdgeInsets.only(
+                                  left: 10,
+                                  top: 10,
+                                ),
+                                child: Text(
+                                  "Quelque Avis ",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'BAARS',
+                                      backgroundColor: Colors.white),
+                                )),
+                            Container(
+                              height: bodyHeight * .20,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: <Widget>[
+                                  AvisCard(),
+                                  AvisCard(),
+                                  AvisCard(),
+                                ],
                               ),
                             )
                           ],
