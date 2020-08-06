@@ -18,7 +18,6 @@ class StateBloc implements Manager {
   void dispose() {
     animationController?.close();
   }
-  
 }
 
 class StateProvider {
