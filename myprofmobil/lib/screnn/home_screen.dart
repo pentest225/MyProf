@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyDrower(),
-      backgroundColor: fondcolor,
+      // backgroundColor: fondcolor,
       body: SafeArea(child: LayoutStarts()),
     );
   }

@@ -5,6 +5,18 @@ import '../outils/myStyle.dart';
 
 class ProfWidget extends StatelessWidget {
   static const routeName = "profWidget";
+  List<String> competences = [
+    'JavaScript',
+    'Python',
+    'Html',
+    'Intelligence artificielle',
+    'Css',
+    'PostgreSql',
+    'Visual basic',
+    'Flutter',
+    'Golang',
+    'PHP',
+  ];
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;

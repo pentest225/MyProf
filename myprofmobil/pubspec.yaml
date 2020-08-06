@@ -23,7 +23,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  sprinkle: ^0.0.2
   image_picker: ^0.6.7+4
   flutter_svg:
   google_maps_flutter:
