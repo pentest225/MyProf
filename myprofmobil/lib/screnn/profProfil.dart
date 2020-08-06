@@ -25,8 +25,8 @@ class ProfProfil extends StatelessWidget {
         height: deviceHeight,
         decoration: BoxDecoration(
           color: fondcolor,
-          // image: DecorationImage(
-          //     image: ExactAssetImage(backImage), fit: BoxFit.cover),
+          image: DecorationImage(
+           image: ExactAssetImage(backImage), fit: BoxFit.cover),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
@@ -535,19 +535,24 @@ class ProfProfil extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: Container(
-        height: 40,
-        width: 200,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: themeColor.withOpacity(.7),
-          border: Border.all(color: themeColor, width: 1),
-          borderRadius: BorderRadius.circular(50),
-        ),
-        child: Text(
-          'Réservez',
-          style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+      floatingActionButton: InkWell(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ContactPage()));
+        },
+        child: Container(
+          height: 40,
+          width: 200,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: themeColor.withOpacity(.7),
+            border: Border.all(color: themeColor, width: 1),
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: Text(
+            'Réservez',
+            style: TextStyle(
+                fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
         ),
       ),
     );

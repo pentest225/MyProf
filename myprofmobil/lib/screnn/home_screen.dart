@@ -12,6 +12,7 @@ import 'package:myprofmobil/widgets/myDrower.dart';
 import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 import 'package:provider/provider.dart';
 import 'demande.dart';
+import 'feature_annonce/main_annonce.dart';
 
 // LA PAGE INDEX DE L'APPLICATIONS
 class HomeScreen extends StatelessWidget {
@@ -714,7 +715,7 @@ class _SheetContainerState extends State<SheetContainer>
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DemandePage()));
+                                builder: (context) => MainAnnonce()));
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: 20, right: 20),

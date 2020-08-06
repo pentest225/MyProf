@@ -25,72 +25,64 @@ class _ProfilPageState extends State<ProfilPage> {
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceW = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: MyDrower(),
+     appBar: AppBar(
+       backgroundColor: fondcolor,
+       elevation: 0,
+       automaticallyImplyLeading: false,
+       leading: IconButton(
+         icon: Icon(Icons.arrow_back, color: Colors.black,),
+         onPressed: () {
+           Navigator.pop(context);
+         },
+       ),
+       centerTitle: true,
+       title: Text(
+         'Mon Compte',
+         style: TextStyle(
+           color: Colors.black,
+             fontSize: 25,
+             fontWeight: FontWeight.bold,
+             fontFamily: 'BAARS'),
+       ),
+     ),
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        alignment: Alignment.center,
+        width: deviceW ,
         color: fondcolor,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            
             //AppBar
+
             Container(
-              height: deviceHeight * .1,
-              // color: Colors.teal,
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              margin: EdgeInsets.only(top: 20),
-              child: Row(
+              margin: EdgeInsets.only(top: 10),
+              alignment: Alignment.center,
+              height: deviceHeight * .85,
+              child: ListView(
                 children: <Widget>[
-                  InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: themeColor,
-                        size: 30,
-                      )),
-                  SizedBox(
-                    width: 60,
+                  Container(
+                    alignment: Alignment.center,
+                    child: Wrap(
+                      children: <Widget>[
+                        ProfilCard(Icons.book,"Informations",ProfilInformations.routeName),
+                        ProfilCard(Icons.location_on,"Adresse",ProfilAdresse.routeName),
+                        ProfilCard(Icons.photo_camera,"Photo de profil",ProfilPhoto.routeName),
+                        ProfilCard(Icons.school,"Diplome",ProfilDiplome.routeName),
+                        ProfilCard(Icons.person,"Identité",ProfilIdentite.routeName),
+                        ProfilCard(Icons.lock,"Mot de passe",ProfilPassword.routeName),
+                        ProfilCard(Icons.notifications_active,"Notifications",ProfilNotification.routeName),
+                        ProfilCard(Icons.delete_sweep,"Suppression",ProfilSuppresion.routeName),
+                      ],
+                    ),
                   ),
-                  Text(
-                    'Mon Compte',
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'BAARS'),
-                  ),
+
                 ],
               ),
             ),
-         
-            SingleChildScrollView(
-              child: Container(
-                height: deviceHeight * .85,
-                child: ListView(
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Wrap(
-                        children: <Widget>[
-                          ProfilCard(Icons.book,"Informations",ProfilInformations.routeName),
-                          ProfilCard(Icons.location_on,"Adresse",ProfilAdresse.routeName),
-                          ProfilCard(Icons.photo_camera,"Photo de profil",ProfilPhoto.routeName),
-                          ProfilCard(Icons.school,"Diplome",ProfilDiplome.routeName),
-                          ProfilCard(Icons.person,"Identité",ProfilIdentite.routeName),
-                          ProfilCard(Icons.lock,"Mot de passe",ProfilPassword.routeName),
-                          ProfilCard(Icons.notifications_active,"Notifications",ProfilNotification.routeName),
-                          ProfilCard(Icons.delete_sweep,"Suppression du compte",ProfilSuppresion.routeName),
-                         ],
-                      ),
-                    ),
-                  
-                  ],
-                ),
-              ),
-            )
-          
+
            ],
         ),
       ),

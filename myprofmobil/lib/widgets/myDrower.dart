@@ -13,6 +13,8 @@ import 'package:myprofmobil/screnn/connexion.dart';
 import 'package:myprofmobil/screnn/dash_user.dart';
 import 'package:myprofmobil/screnn/dashboard.dart';
 import 'package:myprofmobil/screnn/demande.dart';
+import 'package:myprofmobil/screnn/demandeList.dart';
+import 'package:myprofmobil/screnn/feature_annonce/main_annonce.dart';
 
 
 class MyDrower extends StatelessWidget {
@@ -156,7 +158,7 @@ class MyDrower extends StatelessWidget {
             InkWell(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => DemandePage()));
+                      MaterialPageRoute(builder: (context) => MainAnnonce()));
                 },
                 child: Padding(
                     padding: const EdgeInsets.all(12.0),
@@ -195,7 +197,7 @@ class MyDrower extends StatelessWidget {
             InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MapsFlutter()));
+                    MaterialPageRoute(builder: (context) => DemandeListe()));
               },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),

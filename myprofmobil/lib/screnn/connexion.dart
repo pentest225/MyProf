@@ -23,13 +23,17 @@ class _ConnexionState extends State<Connexion> {
       body: Container(
         height: deviceHeight,
         width: deviceWidth,
-        //color: themeColor,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
+          image: DecorationImage(
+            image: AssetImage('assets/images/ecole.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(Colors.black54, BlendMode.darken)
+          )
+            /*gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [themeColor, Colors.orangeAccent]
-            )
+            )*/
         ),
         child: SingleChildScrollView(
           child: Column(
@@ -72,7 +76,7 @@ class _ConnexionState extends State<Connexion> {
               Container(
                 height: deviceHeight/1.56,
                 decoration: BoxDecoration(
-                  color: fondcolor,
+                  color: fondcolor.withOpacity(0.9),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),

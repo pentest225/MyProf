@@ -37,20 +37,26 @@ class _ProfilPhotoState extends State<ProfilPhoto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text('Mon Compte', style: TextStyle(
-            fontSize: 25, fontWeight: FontWeight.bold, fontFamily: 'BAARS', color: Colors.black
-        ),),
-        centerTitle: true,
-        elevation: 0,
-        leading: InkWell(
-            onTap: () {
+        appBar: AppBar(
+          backgroundColor: fondcolor,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.black,),
+            onPressed: () {
               Navigator.pop(context);
             },
-            child: Icon(Icons.arrow_back, color: Colors.black,)
+          ),
+          centerTitle: true,
+          title: Text(
+            'Mon Compte',
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'BAARS'),
+          ),
         ),
-      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,

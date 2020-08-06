@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/outils/myStyle.dart';
 
 import '../styles.dart';
 
@@ -14,10 +15,13 @@ class Header extends StatelessWidget {
           width: screenSize.width,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/cho.png'),
-                  // image: AssetImage('assets/ecole.jpg'),
+                  //image: AssetImage('assets/images/cho.png'),
+                  image: AssetImage('assets/images/ecole.jpg'),
                   fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(Colors.white60, BlendMode.screen))
+                  colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.6), BlendMode.darken),
+
+                  //colorFilter: ColorFilter.mode(Colors.white60, BlendMode.screen)
+                  )
                   ),
           child: SafeArea(
             child: Padding(
@@ -26,7 +30,10 @@ class Header extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text('MyProf'.toUpperCase(), style: Styles.appTitle1),
-                  Text('Annonce', style: Styles.appTitle2),
+                  Text('Annonce', style: TextStyle(
+                    color: themeColor,  fontSize: 32, fontFamily: 'BAARS', fontWeight: FontWeight.bold
+                  )),
+                 // Text('Annonce', style: Styles.appTitle2),
                 ],
               ),
             ),

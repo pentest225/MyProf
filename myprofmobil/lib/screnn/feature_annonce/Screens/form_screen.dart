@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myprofmobil/outils/myStyle.dart';
 
 import '../styles.dart';
 
@@ -56,7 +57,10 @@ class FormPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                      Text(title, style: Styles.formTitle),
+                      Text(title, style: TextStyle(
+                          color: themeColor,  fontSize: 20, letterSpacing: 0.22, fontFamily: 'BAARS', fontWeight: FontWeight.bold
+                      )),
+                      //Text(title, style: Styles.formTitle),
                       Expanded(
                         child: Form(
                           key: formKey,

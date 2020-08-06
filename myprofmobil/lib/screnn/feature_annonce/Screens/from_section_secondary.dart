@@ -401,7 +401,7 @@ class _SecondStepAnnonceState extends State<SecondStepAnnonce> with FormMixin {
           StackPagesRoute(previousPages: [
             FirstStepAnnonce(isHidden: true, pageSize: .85),
             SecondStepAnnonce(isHidden: true, pageSize: .85),
-          ], enterPage: SecondStepAnnonce()));
+          ], enterPage: ThirdStepAnnonce()));
     } else
       setState(() {
         isFormErrorVisible = true;

@@ -17,11 +17,24 @@ class ProfilCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: deviceWidth / 2 - 10,
+          height: deviceWidth / 2.7 - 10,
           width: deviceWidth / 2.5,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+
+                    color: Color(0x1a000000),
+                    blurRadius: 10,
+                    spreadRadius: 0,
+                    offset: Offset(0, 10)
+
+                    /*color: Colors.black87,
+                    offset: Offset(0.0, 1.5),
+                    blurRadius: 1.5*/
+                )
+              ]
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
