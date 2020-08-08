@@ -32,11 +32,16 @@ class _RegisteredState extends State<Registered> {
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(100)
                   ),
-                  gradient: LinearGradient(
+                  image: DecorationImage(
+            image: AssetImage('assets/images/ecole.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(Colors.black54, BlendMode.darken)
+          )
+                  /*gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [themeColor, Colors.orangeAccent]
-                  )
+                  )*/
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

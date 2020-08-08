@@ -54,7 +54,7 @@ class _ConnexionState extends State<Connexion> {
                               Navigator.pop(context);
                             },
                             child: Icon(Icons.arrow_back_ios,
-                                color: Colors.white, size: 25),
+                                color: themeColor, size: 25),
                           ),
                         ],
                       ),
@@ -62,7 +62,7 @@ class _ConnexionState extends State<Connexion> {
                       Text(
                         "Connexion",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: themeColor,
                             fontSize: 30,
                             fontFamily: 'BAARS',
                             fontWeight: FontWeight.bold),
@@ -127,7 +127,7 @@ class _ConnexionState extends State<Connexion> {
                                     border: InputBorder.none,
                                     hintText: "username",
                                     hintStyle:
-                                    TextStyle(color: Colors.black26),
+                                    TextStyle(color: Colors.black26, fontFamily: 'Barlow'),
                                     prefixIcon: Icon(Icons.person,
                                       color: Colors.grey, size: 22,)),
                               ),
@@ -158,7 +158,7 @@ class _ConnexionState extends State<Connexion> {
                                   border: InputBorder.none,
                                   hintText: "mot de passe",
                                   hintStyle:
-                                  TextStyle(color: Colors.black26),
+                                  TextStyle(color: Colors.black26, fontFamily: 'Barlow'),
                                   prefixIcon:
                                   Icon(Icons.lock, color: Colors.grey, size: 20,),),
                               ),
