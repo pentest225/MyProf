@@ -39,16 +39,14 @@ class MyDrower extends StatelessWidget {
               //LEFT SECTION
               Expanded(
                 flex: 2,
-                child: Center(
-                  // color: Colors.white,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      InkWell(
-                        onTap: () {
-                          //Navigator.pushNamed(context, route);
-                        },
-                        child: Padding(
+                child: InkWell(
+                  onTap: () =>
+                      Navigator.of(context).pushNamed(MainAnnonce.routeName),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Card(
                             child: Container(
@@ -80,24 +78,24 @@ class MyDrower extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),
-                      Text(
-                        'Annonce',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                            fontSize: 22,
-                            fontFamily: 'BAARS'),
-                      ),
-                      Container(
-                          margin: EdgeInsets.only(
-                            top: 15,
-                          ),
-                          child: Text(
-                            '+',
-                            style: TextStyle(color: themeColor, fontSize: 40),
-                          )),
-                    ],
+                        Text(
+                          'Annonce',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 22,
+                              fontFamily: 'BAARS'),
+                        ),
+                        Container(
+                            margin: EdgeInsets.only(
+                              top: 15,
+                            ),
+                            child: Text(
+                              '+',
+                              style: TextStyle(color: themeColor, fontSize: 40),
+                            )),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -130,8 +128,7 @@ class MyDrower extends StatelessWidget {
                                     //color: Colors.white,
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
-                                        image:
-                                            AssetImage(logo),
+                                        image: AssetImage(logo),
                                         fit: BoxFit.cover)),
                               ),
                             ),
@@ -172,7 +169,7 @@ class MyDrower extends StatelessWidget {
                             MyRoute(
                                 Icons.person, "Profil", ProfilPage.routeName),
                             MyRoute(Icons.add, "Annonce", MainAnnonce.routeName)
-                            ],
+                          ],
                         ),
                       ),
                       //Custom rom

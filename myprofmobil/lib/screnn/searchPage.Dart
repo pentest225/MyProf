@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:myprofmobil/screnn/all_prof.dart';
 import 'package:myprofmobil/widgets/matierreCard.dart';
 import '../outils/myStyle.dart';
-import 'profProfil.dart';
+import 'detailleDemande.dart';
 
 //PAGE DE RECHECHE D'ANNONCE OU PROFFESSEURS EN FONCTION DE LA MATIERRE ET VILLE
 class SearchPage extends StatefulWidget {
@@ -46,8 +46,7 @@ class _SearchPageState extends State<SearchPage> {
               Container(
                 height: deviceHeight * .10,
                 margin: EdgeInsets.only(top: 15),
-                // padding: EdgeInsets.all(10),
-                // color: Colors.red,
+         
                 child: Row(
                   children: <Widget>[
                     IconButton(

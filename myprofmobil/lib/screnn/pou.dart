@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-import 'package:myprofmobil/screnn/profProfil.dart';
+import 'package:myprofmobil/screnn/detailleDemande.dart';
 
 class PouPage extends StatefulWidget {
   @override
@@ -122,7 +122,7 @@ class _PouPageState extends State<PouPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfProfil()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailleAnnonce()));
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: 2),
@@ -203,97 +203,7 @@ class _PouPageState extends State<PouPage> {
                     ),
                   )
                 ],
-              )
-              /*Container(
-                height: 400,
-                width: MediaQuery.of(context).size.width,
-                child: GridView.builder(
-                  itemCount: 4,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: (MediaQuery.of(context).size.width * .3/200),
-                      crossAxisSpacing: 1,
-                      mainAxisSpacing: 1,
-                    ),
-                    itemBuilder: (context, i) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 700,
-                          width: 100,
-                          color: Colors.grey.withOpacity(0.3),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                height: 150,
-                                width: MediaQuery.of(context).size.width/1.2,
-                                decoration: BoxDecoration(
-                                  //color: Colors.grey,
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: DecorationImage(
-                                        image: AssetImage('assets/books.jpg'),
-                                        fit: BoxFit.cover,
-                                        colorFilter: ColorFilter.mode(
-                                            Colors.black54.withOpacity(0.2), BlendMode.darken)
-                                    )
-                                ),
-                                child: Column(
-                                  children: <Widget>[
-                                    Container(
-                                        margin: EdgeInsets.only(top: 100, right: 60),
-                                        child: Text("Guillaume", style: TextStyle(
-                                            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18
-                                        ),)
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only( right: 80),
-                                      child: Text('Yopougon', style: TextStyle(
-                                          color: Colors.white, fontSize: 15, fontWeight: FontWeight.w400
-                                      ),),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              SizedBox(height: 10,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Chip(
-                                    label: Text('2500frs/h'),
-                                    labelStyle: TextStyle(
-                                      color: Colors.white, fontSize: 10
-                                    ),
-                                    backgroundColor: Color.fromRGBO(133, 136, 241, 1),
-                                  ),
-                                  SizedBox(width: 5,),
-                                  Chip(
-                                    label: Row(
-                                      children: <Widget>[
-                                        Text('4,9'),
-                                        Icon(Icons.star, color: Colors.orangeAccent, size: 16,),
-                                      ],
-                                    ),
-                                    labelStyle: TextStyle(
-                                        color: Colors.white, fontSize: 10
-                                    ),
-                                    backgroundColor: Color.fromRGBO(17, 122, 139, 1),
-                                  )
-                                ],
-                              ),
-                              SizedBox(height: 10,),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Faites-vous plaisir avec votre appareil numérique en oubliant le mode automatique !', style: TextStyle(
-                                    color: Colors.black, fontSize: 14, fontFamily: 'BAARS', fontWeight: FontWeight.w700
-                                ),),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
-                    }
-                ),
-              ),*/,
+              ),
               SizedBox(height: 15,),
               Padding(
                 padding: const EdgeInsets.all(12.0),

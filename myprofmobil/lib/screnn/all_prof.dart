@@ -15,6 +15,7 @@ class AllProf extends StatelessWidget {
     final deviceWidth = MediaQuery.of(context).size.width;
     final appBarHeight = deviceHeight / 10 + 10;
     final bodyHeight = deviceHeight - appBarHeight;
+
     return Scaffold(
       body: Container(
         height: deviceHeight,
@@ -79,19 +80,22 @@ class AllProf extends StatelessWidget {
                                           const Radius.circular(50.0))),
                               child: RichText(
                                 text: TextSpan(
-                                  
                                   children: <TextSpan>[
                                     TextSpan(
                                         text: 'Environ ',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold)),
-                                      TextSpan(
+                                    TextSpan(
                                         text: '245 professeurs de\n',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold)),
-                                    
-                                    TextSpan(text: "informatique \n",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,backgroundColor: themeColor)),
-                                    TextSpan(text:"pres de chéz vous  ."),
+                                    TextSpan(
+                                        text: "informatique \n",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                            backgroundColor: themeColor)),
+                                    TextSpan(text: "pres de chéz vous  ."),
                                   ],
                                 ),
                               ))
@@ -105,16 +109,13 @@ class AllProf extends StatelessWidget {
                       right: 0,
                       child: Container(
                         height: bodyHeight,
-                        padding: EdgeInsets.only(bottom:10),
+                        padding: EdgeInsets.only(bottom: 10),
                         color: Colors.transparent,
                         child: ListView(
                           children: <Widget>[
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => InterfaceOne()));
+                                
                               },
                               child: Container(
                                 child: Row(
@@ -131,10 +132,7 @@ class AllProf extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => InterfaceOne()));
+                                
                               },
                               child: Container(
                                 child: Row(
@@ -151,10 +149,7 @@ class AllProf extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => InterfaceOne()));
+                                
                               },
                               child: Container(
                                 child: Row(
@@ -171,10 +166,7 @@ class AllProf extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => InterfaceOne()));
+                                
                               },
                               child: Container(
                                 child: Row(
@@ -191,10 +183,7 @@ class AllProf extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => InterfaceOne()));
+                                
                               },
                               child: Container(
                                 child: Row(
@@ -211,10 +200,7 @@ class AllProf extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => InterfaceOne()));
+                                
                               },
                               child: Container(
                                 child: Row(
@@ -242,9 +228,13 @@ class AllProf extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: themeColor,
-        child: Icon(Icons.filter, color: Colors.white,),
+        child: Icon(
+          Icons.filter,
+          color: Colors.white,
+        ),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => FiltrePage()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => FiltrePage()));
         },
       ),
     );

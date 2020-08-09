@@ -8,6 +8,7 @@ import 'package:myprofmobil/screnn/demande.dart';
 import 'package:myprofmobil/screnn/demandeList.dart';
 import 'package:myprofmobil/widgets/dashCard.dart';
 import '../outils/myStyle.dart';
+import 'feature_annonce/main_annonce.dart';
 
 //NOUVEAUX DASHBORD BY PATRICK
 class UserDash extends StatelessWidget {
@@ -39,24 +40,25 @@ class UserDash extends StatelessWidget {
                 height: appBarHeight,
                 // color: Colors.grey.withOpacity(.5),
                 child: Container(
-                  margin: EdgeInsets.only(top: deviceHeight * .045),
+                  margin: EdgeInsets.only(top: deviceHeight * .055),
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   // color: Colors.grey.withOpacity(.5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(Icons.arrow_back_ios),
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: themeColor,
+                        ),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
                       Row(
                         children: <Widget>[
                           InkWell(
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DemandePage()));
+                              Navigator.of(context)
+                                  .pushNamed(MainAnnonce.routeName);
                             },
                             child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -75,23 +77,7 @@ class UserDash extends StatelessWidget {
                           SizedBox(
                             width: 5,
                           ),
-                          InkWell(
-                            onTap: () => Scaffold.of(context).openDrawer(),
-                            child: Container(
-                              height: 35,
-                              width: 35,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: themeColor, width: 1),
-                                  shape: BoxShape.circle,
-                                  color: Colors.white),
-                              child: Text(
-                                "PA",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
+                          IconWidget
                         ],
                       )
                     ],

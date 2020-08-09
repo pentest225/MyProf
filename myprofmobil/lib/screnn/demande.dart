@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/widgets/Specialite.dart';
 
-import 'profProfil.dart';
+import 'detailleDemande.dart';
 import 'suivant.dart';
 
 //PAGE POUR COMMENCE LA PUBLICATIONS D'UNE ANNONCE 

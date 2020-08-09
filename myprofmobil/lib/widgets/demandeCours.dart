@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myprofmobil/screnn/profProfil.dart';
+import 'package:myprofmobil/screnn/detailleDemande.dart';
 import '../outils/myStyle.dart';
 
 class DemandeCard extends StatelessWidget {
@@ -83,7 +83,7 @@ class DemandeCard extends StatelessWidget {
                   )
                 ],
               ),
-              onPressed: ()=>Navigator.of(context).pushNamed(ProfProfil.routeName),
+              onPressed: ()=>Navigator.of(context).pushNamed(DetailleAnnonce.routeName),
             ),
           )
         ],
