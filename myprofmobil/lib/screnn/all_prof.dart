@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/pages/filtrePage.dart';
 import 'package:myprofmobil/pages/interface1.dart';
+import 'package:myprofmobil/screnn/searchPage.dart';
 import '../outils/myStyle.dart';
 import '../widgets/profWidget.dart';
 
@@ -48,10 +49,13 @@ class AllProf extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      Icon(
-                        Icons.search,
-                        color: Colors.white,
-                      )
+                      IconButton(
+                          icon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                          onPressed: () => Navigator.of(context)
+                              .pushNamed(SearchPage.routeName))
                     ],
                   ),
                 ),
@@ -102,6 +106,7 @@ class AllProf extends StatelessWidget {
                         ],
                       ),
                     ),
+
                     Positioned(
                       top: 20,
                       bottom: 0,
@@ -114,9 +119,7 @@ class AllProf extends StatelessWidget {
                         child: ListView(
                           children: <Widget>[
                             InkWell(
-                              onTap: () {
-                                
-                              },
+                              onTap: () {},
                               child: Container(
                                 child: Row(
                                   children: <Widget>[
@@ -131,9 +134,7 @@ class AllProf extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {
-                                
-                              },
+                              onTap: () {},
                               child: Container(
                                 child: Row(
                                   children: <Widget>[
@@ -148,9 +149,7 @@ class AllProf extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {
-                                
-                              },
+                              onTap: () {},
                               child: Container(
                                 child: Row(
                                   children: <Widget>[
@@ -165,9 +164,7 @@ class AllProf extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {
-                                
-                              },
+                              onTap: () {},
                               child: Container(
                                 child: Row(
                                   children: <Widget>[
@@ -182,9 +179,7 @@ class AllProf extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {
-                                
-                              },
+                              onTap: () {},
                               child: Container(
                                 child: Row(
                                   children: <Widget>[
@@ -199,9 +194,7 @@ class AllProf extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {
-                                
-                              },
+                              onTap: () {},
                               child: Container(
                                 child: Row(
                                   children: <Widget>[

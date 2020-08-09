@@ -143,15 +143,16 @@ class MyDrower extends StatelessWidget {
                                     fontFamily: 'BAARS'),
                               ),
                             ),
-                            Container(
-                                margin: EdgeInsets.only(top: 8),
-                                padding: EdgeInsets.only(left: 15),
-                                child: Text(
-                                  'youss.nan.ci',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black54),
-                                )),
+                            //S'affiche quand l'utilisateur est connecté
+                            // Container(
+                            //     margin: EdgeInsets.only(top: 8),
+                            //     padding: EdgeInsets.only(left: 15),
+                            //     child: Text(
+                            //       'youss.nan.ci',
+                            //       style: TextStyle(
+                            //           fontWeight: FontWeight.bold,
+                            //           color: Colors.black54),
+                            //     )),
                           ],
                         ),
                       ),
@@ -166,8 +167,10 @@ class MyDrower extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             MyRoute(Icons.navigation, "Navigation", "route"),
+                            Spacer(),
                             MyRoute(
                                 Icons.person, "Profil", ProfilPage.routeName),
+                            Spacer(),
                             MyRoute(Icons.add, "Annonce", MainAnnonce.routeName)
                           ],
                         ),
@@ -184,8 +187,10 @@ class MyDrower extends StatelessWidget {
                           children: <Widget>[
                             MyRoute(Icons.dashboard, "Tableaux de bord",
                                 UserDash.routeName),
+                            Spacer(),
                             MyRoute(Icons.bookmark_border, "Denamde de coure",
                                 DemandeListe.routeName),
+                            Spacer(),
                             MyRoute(Icons.system_update_alt, "Déconnexion",
                                 Connexion.routeNamed),
                           ],

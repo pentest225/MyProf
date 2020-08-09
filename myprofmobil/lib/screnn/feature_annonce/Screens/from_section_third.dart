@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/screnn/dash_user.dart';
 import 'package:myprofmobil/screnn/feature_annonce/Screens/from_section_primary.dart';
 import 'package:myprofmobil/screnn/feature_annonce/Screens/from_section_secondary.dart';
 import 'package:myprofmobil/screnn/feature_annonce/components/button_upload_diplome.dart';
@@ -12,6 +14,7 @@ import 'package:myprofmobil/screnn/feature_annonce/form_inputs/text_input.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'form_screen.dart';
 import '../styles.dart';
+
 class ThirdStepAnnonce extends StatefulWidget {
   final double pageSize;
 
@@ -20,7 +23,8 @@ class ThirdStepAnnonce extends StatefulWidget {
   _ThirdStepAnnonceState createState() => _ThirdStepAnnonceState();
 }
 
-class _ThirdStepAnnonceState extends State<ThirdStepAnnonce> /*with FormMixin*/ {
+class _ThirdStepAnnonceState
+    extends State<ThirdStepAnnonce> /*with FormMixin*/ {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -31,7 +35,7 @@ class _ThirdStepAnnonceState extends State<ThirdStepAnnonce> /*with FormMixin*/ 
 
   File _image;
   bool _loadImage = false;
-   String _chosenValue = '1 H';
+  String _chosenValue = '1 H';
   bool isOffert = true;
   bool isDomicile = false;
   bool isStudent = true;
@@ -292,14 +296,13 @@ class _ThirdStepAnnonceState extends State<ThirdStepAnnonce> /*with FormMixin*/ 
           ),
         ]),
 
-       
         // _builProfil(),
-         Separator(),
-         Container(
-           alignment: Alignment.topLeft,
-           child: FormSectionTitle('Liens chaine Youtube')),
-         _buildUrlChaineYoutube(),
-         Separator(),
+        Separator(),
+        Container(
+            alignment: Alignment.topLeft,
+            child: FormSectionTitle('Liens chaine Youtube')),
+        _buildUrlChaineYoutube(),
+        Separator(),
         //  Container(
         //    alignment: Alignment.topLeft,
         //    child: FormSectionTitle('Uploader Diplome, curriculome vitae ou certificat')),
@@ -309,16 +312,42 @@ class _ThirdStepAnnonceState extends State<ThirdStepAnnonce> /*with FormMixin*/ 
         //     height: 40,
         //     child: ButtonUploadDiplome(title: "upload", onPressed: (){},)),
         //   Separator(),
-       
-        _buildSubmitButton()
+        Container(
+          color: accanceColor,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                FlatButton(
+                  child: Text('Soumetre 1', style: Styles.submitButtonText),
+                  onPressed: () {
+                    print("Soumissions");
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed(UserDash.routeName);
+                  },
+                ),
+                FlatButton(
+                  child: Text('Complete ', style: Styles.submitButtonText),
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed(UserDash.routeName),
+                ),
+              ],
+            ),
+          ),
+        )
+        // _buildSubmitButton()
       ],
     );
-    
   }
 
-    Widget _buildUrlChaineYoutube()=> TextInput(onValidate: null, helper: 'https://www.youtube.com', isRequired: false, onChange: null);
+  Widget _buildUrlChaineYoutube() => TextInput(
+      onValidate: null,
+      helper: 'https://www.youtube.com',
+      isRequired: false,
+      onChange: null);
 
-    Widget _builProfil() {
+  Widget _builProfil() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -329,12 +358,15 @@ class _ThirdStepAnnonceState extends State<ThirdStepAnnonce> /*with FormMixin*/ 
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width * .3,
               height: 135,
-              child: Icon(Icons.person, size: 50,),
+              child: Icon(
+                Icons.person,
+                size: 50,
+              ),
               decoration: BoxDecoration(
-                  border: Border.all(color: Styles.grayColor),
-                  borderRadius: BorderRadius.circular(4),
-                  //  image: DecorationImage(image: AssetImage('images/plant_header_background.png'))
-                  ),
+                border: Border.all(color: Styles.grayColor),
+                borderRadius: BorderRadius.circular(4),
+                //  image: DecorationImage(image: AssetImage('images/plant_header_background.png'))
+              ),
             ),
             Positioned(
                 top: -10,
@@ -355,20 +387,18 @@ class _ThirdStepAnnonceState extends State<ThirdStepAnnonce> /*with FormMixin*/ 
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text('Votre\nPlus \nBeau Profil', style: Styles.productName),
-            ButtonUpload(title: "Upload", onPressed: (){})
-            
+            ButtonUpload(title: "Upload", onPressed: () {})
           ],
         )
       ],
     );
   }
 
-  onItemValidate(String key, bool isValid, {String value}){
+  onItemValidate(String key, bool isValid, {String value}) {
     print("////////////////////////");
     print(key);
     print(isValid);
     print(value);
-
   }
 
   // @override
@@ -388,7 +418,6 @@ class _ThirdStepAnnonceState extends State<ThirdStepAnnonce> /*with FormMixin*/ 
   //   );
   // }
 
-  
   Widget _buildSubmitButton() {
     return SubmitButton(
       child: Padding(
@@ -396,8 +425,8 @@ class _ThirdStepAnnonceState extends State<ThirdStepAnnonce> /*with FormMixin*/ 
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text('Soumettre ', style: Styles.submitButtonText),
-            Text('complet', style: Styles.submitButtonText),
+            Text('Soumetre ', style: Styles.submitButtonText),
+            Text('Complete ', style: Styles.submitButtonText),
           ],
         ),
       ),
@@ -410,7 +439,7 @@ class _ThirdStepAnnonceState extends State<ThirdStepAnnonce> /*with FormMixin*/ 
   void _handleSubmit() {
     // if (_formKey.currentState.validate() && formCompletion == 1) {
     // } else
-      // setState(() => isFormErrorVisible = true);
+    // setState(() => isFormErrorVisible = true);
   }
 
   // void _handleItemChange(CreditCardNetwork cardNetwork) {
