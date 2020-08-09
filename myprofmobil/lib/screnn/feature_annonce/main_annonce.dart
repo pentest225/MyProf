@@ -6,6 +6,7 @@ import 'components/stack_pages_route.dart';
 import 'Screens/from_section_primary.dart';
 
 class MainAnnonce extends StatefulWidget {
+  static const routeName = "newAnnonce";
   @override
   _MainAnnonceState createState() => _MainAnnonceState();
 }
@@ -16,7 +17,6 @@ class SharedFormState {
 }
 
 class _MainAnnonceState extends State<MainAnnonce> {
-
   GlobalKey<NavigatorState> navKey = new GlobalKey();
 
   @override
@@ -33,12 +33,13 @@ class _MainAnnonceState extends State<MainAnnonce> {
             child: Navigator(
               key: navKey,
               onGenerateRoute: (route) {
-                return StackPagesRoute(previousPages: [], enterPage: FirstStepAnnonce());
+                return StackPagesRoute(
+                    previousPages: [], enterPage: FirstStepAnnonce());
               },
             ),
           ),
         ),
-      ], 
+      ],
     );
   }
 

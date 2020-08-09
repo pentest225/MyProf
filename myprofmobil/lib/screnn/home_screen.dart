@@ -156,14 +156,7 @@ class CarDetails extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
-              'MyProfs',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 28,
-                  fontFamily: 'BAARS'),
-            )
+            IconWidget,
           ],
         ),
         SizedBox(
@@ -222,12 +215,12 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
 
   forwardAnimation() {
     controller.forward();
-      Provider.of<ToggleBottomSheet>(context,listen: false).toggleAnimation();
-
+    Provider.of<ToggleBottomSheet>(context, listen: false).toggleAnimation();
   }
+
   reverseAnimation() {
     controller.reverse();
-    Provider.of<ToggleBottomSheet>(context,listen: false).toggleAnimation();
+    Provider.of<ToggleBottomSheet>(context, listen: false).toggleAnimation();
   }
 
   bool isExpanded = false;
@@ -346,36 +339,6 @@ class _SheetContainerState extends State<SheetContainer>
     );
   }
   // Je ne sait pas a quoi il sert
-
-  // specifications(double sheetItemHeight) {
-  //   return Container(
-  //     padding: EdgeInsets.only(top: 15, left: 40),
-  //     child: Column(
-  //       crossAxisAlignment: CrossAxisAlignment.start,
-  //       children: <Widget>[
-  //         Text(
-  //           "Specifications",
-  //           style: TextStyle(
-  //             color: Colors.black,
-  //             fontWeight: FontWeight.w700,
-  //             fontSize: 18,
-  //           ),
-  //         ),
-  //         Container(
-  //           margin: EdgeInsets.only(top: 15),
-  //           height: sheetItemHeight,
-  //           child: ListView.builder(
-  //             scrollDirection: Axis.horizontal,
-  //             itemCount: 3,
-  //             itemBuilder: (context, index) {
-  //               return Text('hi');
-  //             },
-  //           ),
-  //         )
-  //       ],
-  //     ),
-  //   );
-  // }
 
   // Je ne sais pas  a quoi il sert
 

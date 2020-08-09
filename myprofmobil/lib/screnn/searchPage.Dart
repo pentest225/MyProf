@@ -5,7 +5,7 @@ import 'package:myprofmobil/widgets/matierreCard.dart';
 import '../outils/myStyle.dart';
 import 'profProfil.dart';
 
-//PAGE DE RECHECHE D'ANNONCE OU PROFFESSEURS EN FONCTION DE LA MATIERRE ET VILLE 
+//PAGE DE RECHECHE D'ANNONCE OU PROFFESSEURS EN FONCTION DE LA MATIERRE ET VILLE
 class SearchPage extends StatefulWidget {
   static const routeName = '/searchPage';
 
@@ -36,25 +36,29 @@ class _SearchPageState extends State<SearchPage> {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: bgColor,
-      appBar: AppBar(
-        backgroundColor: themeColor,
-        elevation: 0,
-        actions: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 10),
-            margin: EdgeInsets.only(right: 25),
-            child: Text('MyProf',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-          )
-        ],
-      ),
+      backgroundColor: fondcolor,
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 10),
           height: deviceHeight,
           child: Column(
             children: [
+              Container(
+                height: deviceHeight * .10,
+                margin: EdgeInsets.only(top: 15),
+                // padding: EdgeInsets.all(10),
+                // color: Colors.red,
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                        icon: Icon(
+                          Icons.close,
+                          color: themeColor,
+                        ),
+                        onPressed: () => Navigator.of(context).pop())
+                  ],
+                ),
+              ),
               Container(
                 height: deviceHeight * .2,
                 child: Column(
@@ -116,9 +120,9 @@ class _SearchPageState extends State<SearchPage> {
                                 Icons.place,
                                 color: themeColor,
                               )),
-                              onSubmitted:(val){
-                                Navigator.of(context).pushNamed(AllProf.routeName);
-                              },
+                          onSubmitted: (val) {
+                            Navigator.of(context).pushNamed(AllProf.routeName);
+                          },
                         ),
                       ),
                     )
@@ -233,7 +237,9 @@ class _SearchPageState extends State<SearchPage> {
                         child: Row(
                           children: [
                             Icon(Icons.place, color: themeColor),
-                            SizedBox(width: 10,),
+                            SizedBox(
+                              width: 10,
+                            ),
                             Text(
                               "Localisé votre Prof",
                               style: TextStyle(

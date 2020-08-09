@@ -5,8 +5,7 @@ import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/widgets/AnnonceWidget.dart';
 import 'package:myprofmobil/widgets/demandeCours.dart';
 
-
-// PAGE POUR LISTER LES ANNONCES DE L'UTILISATEUR 
+// PAGE POUR LISTER LES ANNONCES DE L'UTILISATEUR
 class AnnonceListe extends StatefulWidget {
   static const routeName = "annonceListe";
   @override
@@ -38,12 +37,10 @@ class _AnnonceListeState extends State<AnnonceListe>
     final bodyHeight = deviceHeight - appBarHeight;
     return Scaffold(
       body: Container(
-        
         height: deviceHeight,
         decoration: BoxDecoration(
           color: themeColor.withOpacity(.5),
           image: DecorationImage(
-            
               image: ExactAssetImage("assets/images/ecole.jpg"),
               fit: BoxFit.cover),
         ),
@@ -66,13 +63,16 @@ class _AnnonceListeState extends State<AnnonceListe>
                         icon: Icon(Icons.arrow_back_ios),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
-                      Text("Mes Annonces",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                      Text(
+                        "Mes Annonces",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
                       Row(
                         children: <Widget>[
                           SizedBox(
                             width: 5,
                           ),
-                          
                           InkWell(
                             onTap: () => Scaffold.of(context).openDrawer(),
                             child: Container(
@@ -98,33 +98,31 @@ class _AnnonceListeState extends State<AnnonceListe>
               ),
               Container(
                 height: bodyHeight,
-                
                 child: Column(
                   children: <Widget>[
                     Container(
                       height: bodyHeight * .075,
                     ),
                     Container(
-                      height: bodyHeight *.925,
-                      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
+                      height: bodyHeight * .925,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 20),
                       decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(.7),
+                          color: Colors.white,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(40),
                               topRight: Radius.circular(40))),
-                              child: ListView(
-                                children: <Widget>[
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
-                                  PageDisc(),
-                                  
-                                 
-                                ],
-                              ),
+                      child: ListView(
+                        children: <Widget>[
+                          PageDisc(),
+                          PageDisc(),
+                          PageDisc(),
+                          PageDisc(),
+                          PageDisc(),
+                          PageDisc(),
+                          PageDisc(),
+                        ],
+                      ),
                     )
                   ],
                 ),

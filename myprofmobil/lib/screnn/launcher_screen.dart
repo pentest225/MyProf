@@ -31,7 +31,7 @@ class _MyHomeState extends State<LaunchApp> {
       height: 8.0,
       width: isCurrent ? 20.0 : 12.0,
       decoration: BoxDecoration(
-        color: isCurrent ? Colors.white : themeColor,
+        color: isCurrent ? accanceColor : themeColor,
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -135,11 +135,11 @@ class _MyHomeState extends State<LaunchApp> {
                         children: [
                           Text(
                             "Next",
-                            style: TextStyle(color: bgColor),
+                            style: TextStyle(color: themeColor),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
-                            color: bgColor,
+                            color: themeColor,
                             size: 18,
                           )
                         ],

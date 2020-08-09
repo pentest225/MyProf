@@ -16,7 +16,7 @@ class DemandeCard extends StatelessWidget {
       margin: EdgeInsets.only(top: 10,left: 10,right: 10),
       width: demandeCardWidth,
       decoration: BoxDecoration(
-          color: Colors.black.withOpacity(.5),
+          color: fondcolor,
           borderRadius: BorderRadius.circular(10)),
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
