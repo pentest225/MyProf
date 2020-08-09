@@ -53,7 +53,7 @@ flutter_icons:
   ios: true
   image_path: "assets/Images/logo.png"
   adaptive_icon_backbround: "#f0a656" #la couleur d'arrier plan du logo
-  adaptive_icon_foreground: "assets/Images/logo.png"
+  adaptive_icon_foreground: "assets/Images/gitlogo.gif"
 
 
 # For information on the generic Dart part of this file, see the
