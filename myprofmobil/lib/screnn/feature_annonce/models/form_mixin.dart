@@ -5,6 +5,7 @@ mixin FormMixin {
   bool isFormErrorVisible = false;
 
   void onItemValidate(String name, bool isValid, {String value});
+  
   void onItemChange(String name, String value);
 
   int countValidItems() {

@@ -3,7 +3,6 @@ import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:google_maps_webservice/places.dart';
 
 import 'package:myprofmobil/outils/myStyle.dart';
-import '../screnn/searchPage.dart';
 //Classe pour le champ widget de recherche
 
 const kGoogleApiKey = "AIzaSyCk77TfuPCTmAYFGMB2sF27Tb3LhJYHt7Q";
@@ -16,7 +15,7 @@ class SearchCard extends StatefulWidget {
 
 class _SearchCardlState extends State<SearchCard> {
 
-  Mode _mode = Mode.overlay;
+  Mode _mode = Mode.fullscreen;
   final homeScaffoldKey = GlobalKey<ScaffoldState>();
   
   @override

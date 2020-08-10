@@ -85,7 +85,6 @@ class Niveau {
 
     int pk;
     String titre;
-
     factory Niveau.fromJson(Map<String, dynamic> json) => _$NiveauFromJson(json);
 
 

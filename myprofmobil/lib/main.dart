@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:myprofmobil/pages/interface1.dart';
-import 'package:myprofmobil/pages/profil.dart';
-import 'package:myprofmobil/pages/profil_diplome.dart';
-import 'package:myprofmobil/pages/profil_identite.dart';
-import 'package:myprofmobil/pages/profil_information.dart';
-import 'package:myprofmobil/pages/profil_notification.dart';
-import 'package:myprofmobil/pages/profil_password.dart';
-import 'package:myprofmobil/pages/profil_photo.dart';
-import 'package:myprofmobil/pages/profil_suppresion.dart';
+import 'package:myprofmobil/screnn/interface1.dart';
+import 'package:myprofmobil/screnn/profil/profil.dart';
+import 'package:myprofmobil/screnn/profil/profil_diplome.dart';
+import 'package:myprofmobil/screnn/profil/profil_identite.dart';
+import 'package:myprofmobil/screnn/profil/profil_information.dart';
+import 'package:myprofmobil/screnn/profil/profil_notification.dart';
+import 'package:myprofmobil/screnn/profil/profil_password.dart';
+import 'package:myprofmobil/screnn/profil/profil_photo.dart';
+import 'package:myprofmobil/screnn/profil/profil_suppresion.dart';
 import 'package:myprofmobil/providers/annonces/annonces.dart';
 import 'package:myprofmobil/providers/specialites/specialites.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
@@ -18,9 +18,9 @@ import 'package:myprofmobil/screnn/detailleDemande.dart';
 import 'package:myprofmobil/screnn/feature_annonce/main_annonce.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:provider/provider.dart';
-import 'pages/categorie.dart';
-import 'pages/firstPage.dart';
-import 'pages/profil_adresse.dart';
+import 'screnn/categorie.dart';
+import 'screnn/firstPage.dart';
+import 'screnn/profil/profil_adresse.dart';
 import 'screnn/contactPage.dart';
 import 'screnn/dashboard.dart';
 import 'screnn/home_screen.dart';
@@ -38,10 +38,6 @@ import 'screnn/annonceList.dart';
 import 'screnn/all_prof.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Color.fromRGBO(250, 112, 53, 1).withOpacity(.8),
-    statusBarIconBrightness: Brightness.light,
-  ));
   runApp(MyApp());
 }
 

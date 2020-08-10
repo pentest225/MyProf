@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-import 'package:myprofmobil/pages/firstPage.dart';
+import 'package:myprofmobil/screnn/firstPage.dart';
 
 class MyRoute extends StatelessWidget {
   IconData icon;

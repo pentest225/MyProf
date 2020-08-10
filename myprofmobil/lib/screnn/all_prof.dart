@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:myprofmobil/pages/filtrePage.dart';
-import 'package:myprofmobil/pages/interface1.dart';
+import 'package:myprofmobil/screnn/filtrePage.dart';
+import 'package:myprofmobil/screnn/interface1.dart';
 import 'package:myprofmobil/screnn/searchPage.dart';
 import '../outils/myStyle.dart';
 import '../widgets/profWidget.dart';
