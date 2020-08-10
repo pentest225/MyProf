@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/feature_annonce/Screens/form_section_four.dart';
 import 'package:myprofmobil/screnn/feature_annonce/components/section_separator.dart';
 import 'package:myprofmobil/screnn/feature_annonce/components/section_title.dart';
 import 'package:myprofmobil/screnn/feature_annonce/components/stack_pages_route.dart';
@@ -76,18 +77,24 @@ class _SecondStepAnnonceState extends State<SecondStepAnnonce> with FormMixin {
           minLines: 6,
           style: Styles.inputLabel,
           decoration: Styles.getInputDecoration(
-              helper: "Ex: Titulaire d'une Licence en Informatique de L'université Nanguy Abro..."),
+              helper:
+                  "Ex: Titulaire d'une Licence en Informatique de L'université Nanguy Abro..."),
         ),
         Separator(),
-
         FormSectionTitle("Quelle est votre methodologie d'enseignement ?"),
         TextFormField(
           maxLines: 8,
           minLines: 6,
           style: Styles.inputLabel,
           decoration: Styles.getInputDecoration(
-              helper: "Ex: Je Propose une formations depuis la base jusqu'au ..."),
+              helper:
+                  "Ex: Je Propose une formations depuis la base jusqu'au ..."),
         ),
+        Separator(),
+        Container(
+            alignment: Alignment.topLeft,
+            child: FormSectionTitle('Liens chaine Youtube')),
+        _buildUrlChaineYoutube(),
         SubmitButton(
             isErrorVisible: isFormErrorVisible,
             child: Text('Next', style: Styles.submitButtonText),
@@ -96,6 +103,11 @@ class _SecondStepAnnonceState extends State<SecondStepAnnonce> with FormMixin {
     );
   }
 
+  Widget _buildUrlChaineYoutube() => TextInput(
+      onValidate: null,
+      helper: 'https://www.youtube.com',
+      isRequired: false,
+      onChange: null);
   TextInput _buildText(String key,
       {String title, bool required = false, InputType type = InputType.text}) {
     title = title ?? _snakeToTitleCase(key);
@@ -139,7 +151,7 @@ class _SecondStepAnnonceState extends State<SecondStepAnnonce> with FormMixin {
           StackPagesRoute(previousPages: [
             FirstStepAnnonce(isHidden: true, pageSize: .85),
             SecondStepAnnonce(isHidden: true, pageSize: .85),
-          ], enterPage: ThirdStepAnnonce()));
+          ], enterPage: FourStepAnnonce()));
     } else
       setState(() {
         isFormErrorVisible = true;

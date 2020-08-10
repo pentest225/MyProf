@@ -211,14 +211,15 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
       parent: controller,
       curve: Curves.easeInOut,
       reverseCurve: Curves.easeInOut,
-    ))..addListener(() {
-        setState(() {});
-    });
+    ))
+          ..addListener(() {
+            setState(() {});
+          });
   }
 
-  forwardAnimation() async{
+  forwardAnimation() async {
     controller.forward();
-      Provider.of<ToggleBottomSheet>(context,listen: false).toggleAnimation();
+    Provider.of<ToggleBottomSheet>(context, listen: false).toggleAnimation();
   }
 
   reverseAnimation() {
@@ -270,7 +271,6 @@ class _SheetContainerState extends State<SheetContainer>
   bool formSubmited = false;
   double _miles = 0.0;
 
-
   @override
   void initState() {
     _controller = AnimationController(
@@ -279,7 +279,7 @@ class _SheetContainerState extends State<SheetContainer>
     );
     _animation = _controller;
     onTapInputMatierre = true;
-    
+
     super.initState();
   }
 
@@ -291,12 +291,8 @@ class _SheetContainerState extends State<SheetContainer>
 
   @override
   Widget build(BuildContext context) {
+    final specialite = Provider.of<Specialites>(context).items;
 
-   final specialite = Provider.of<Specialites>(context).items;
-
-
-
-  
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     double sheetItemHeight = 110;
@@ -311,12 +307,12 @@ class _SheetContainerState extends State<SheetContainer>
       ),
       child: Column(
         children: <Widget>[
-
           Expanded(
             child: Container(
               margin: EdgeInsets.only(top: 7),
-              width:  deviceWidth / 13,
-              child: drawerHandle(),),
+              width: deviceWidth / 13,
+              child: drawerHandle(),
+            ),
           ),
           Expanded(
             flex: 13,
@@ -347,12 +343,21 @@ class _SheetContainerState extends State<SheetContainer>
 
   // Divider Container
   drawerHandle() {
-    return Container(
-      // margin: EdgeInsets.only(bottom: 25),
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 700),
+      curve: Curves.bounceInOut   ,   // margin: EdgeInsets.only(bottom: 25),
       height: 3,
-      width: 65,
+      width: 75,
+      alignment:
+          Provider.of<ToggleBottomSheet>(context, listen: false).isAnimating
+              ? Alignment.topCenter
+              : Alignment.bottomCenter,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), color: Styles.secondaryColor),
+          borderRadius: BorderRadius.circular(15), color: accanceColor),
+      child: CircleAvatar(
+        backgroundColor: Colors.white,
+        radius: 8,
+      ),
     );
   }
 
@@ -389,7 +394,7 @@ class _SheetContainerState extends State<SheetContainer>
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                          color : Colors.black87,
+                          color: Colors.black87,
                           offset: Offset(0.0, 1.5),
                           blurRadius: 1.5)
                     ]),
@@ -520,17 +525,16 @@ class _SheetContainerState extends State<SheetContainer>
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
-                        color: Color(0xfff1f1f1),
-
+                  color: Color(0xfff1f1f1),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      alignment: Alignment.topLeft,
-                      child: FormSectionTitle("Partagez votre \n Passion")),
-                      // Separator(),
-                       
+                        alignment: Alignment.topLeft,
+                        child: FormSectionTitle("Partagez votre \n Passion")),
+                    // Separator(),
+
                     Text(
                       "Devenez indépendant, enseignez à votre rythme, fixez vos tarifs sans commission et rencontrez des milliers d’élèves motivés !",
                       style: TextStyle(color: Colors.black87),
@@ -541,7 +545,8 @@ class _SheetContainerState extends State<SheetContainer>
                       height: MediaQuery.of(context).size.height * .30,
                       child: Column(
                         children: [
-                          FormSectionTitle("Découvrir combien je peux \n gagner :"),
+                          FormSectionTitle(
+                              "Découvrir combien je peux \n gagner :"),
 
                           SizedBox(
                             height: 10,
@@ -843,8 +848,8 @@ class _SheetContainerState extends State<SheetContainer>
         ));
   }
 
-  listMagazine(double sheetItemHeight, context, List<SpecialiteItem> specilaite){
-
+  listMagazine(
+      double sheetItemHeight, context, List<SpecialiteItem> specilaite) {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
 
@@ -875,34 +880,34 @@ class _SheetContainerState extends State<SheetContainer>
               child: ListView.builder(
                 itemCount: specilaite.length,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index)=> Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      margin: EdgeInsets.all(5),
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      decoration: BoxDecoration(
-                        color: Colors.black26.withOpacity(.2),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Container(
-                              height: 70,
-                              width: deviceWidth / 3,
-                              child: SvgPicture.asset(specilaite[index].fields.image)
-                            ),
-                          Text(
-                            specilaite[index].fields.nom,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'BAARS',
-                                fontSize: 20),
-                          )
-                        ],
-                      ),
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    margin: EdgeInsets.all(5),
+                    width: MediaQuery.of(context).size.width / 2.5,
+                    decoration: BoxDecoration(
+                      color: Colors.black26.withOpacity(.2),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Container(
+                            height: 70,
+                            width: deviceWidth / 3,
+                            child: SvgPicture.asset(
+                                specilaite[index].fields.image)),
+                        Text(
+                          specilaite[index].fields.nom,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'BAARS',
+                              fontSize: 20),
+                        )
+                      ],
                     ),
                   ),
+                ),
               ),
             ),
           ),
