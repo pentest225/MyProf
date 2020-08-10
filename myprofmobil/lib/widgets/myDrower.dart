@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-import 'package:myprofmobil/pages/firstPage.dart';
-import 'package:myprofmobil/pages/profil.dart';
+import 'package:myprofmobil/screnn/firstPage.dart';
+import 'package:myprofmobil/screnn/profil/profil.dart';
 import 'package:myprofmobil/providers/annonces/annonces.dart';
 import 'package:myprofmobil/screnn/dash_user.dart';
 import 'package:myprofmobil/screnn/demandeList.dart';
@@ -32,9 +32,21 @@ class MyDrower extends StatelessWidget {
                   alignment: Alignment.center,
                   height: deviceHeight,
                   width: deviceWidth / 3.3,
-                  color: Styles.lightGrayColor,
+                  color: Colors.white,
                   child: ListView(
                     children: <Widget>[
+                      Container(
+                          child: Column(
+                            children: [
+                              FormSectionTitle("annonce"),
+                              Chip(
+                                label: Text('+', style: TextStyle(
+                                    color: Styles.secondaryColor, fontSize: 40
+                                ),),
+                              ),
+                            ],
+                          )
+                      ),
                       ...annonce.map((annoceOfUser) => InkWell(
                         onTap: ()=> null,
                         child: Padding(
@@ -45,21 +57,21 @@ class MyDrower extends StatelessWidget {
                               width: deviceWidth / 2.5,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                  boxShadow: [
+                                  /*boxShadow: [
                                     BoxShadow(
                                         color: Color(0x1a000000),
                                         blurRadius: 10,
                                         spreadRadius: 0,
                                         offset: Offset(0, 10)
                                     )
-                                  ]
+                                  ]*/
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Icon(
                                     Icons.school,
-                                    color: Colors.white,
+                                    color: accanceColor,
                                     size: 80,
                                   ),
                                   Text(annoceOfUser.fields.titre.substring(0, 10))
@@ -69,18 +81,6 @@ class MyDrower extends StatelessWidget {
                           ),
                         ),
                       )).take(3).toList(),
-                      Container(
-                        child: Column(
-                          children: [
-                            FormSectionTitle("annonce"),
-                            Chip(
-                              label: Text('+', style: TextStyle(
-                               color: Styles.secondaryColor, fontSize: 40
-                                ),),
-                            ),
-                          ],
-                        )
-                      ),
                     ],),
                 ),
                 Container(

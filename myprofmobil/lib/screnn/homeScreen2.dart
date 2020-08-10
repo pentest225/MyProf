@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-import 'package:myprofmobil/pages/interface1.dart';
+import 'package:myprofmobil/screnn/interface1.dart';
 import '../screnn/searchPage.dart';
 import 'demande.dart';
 import 'pou.dart';
