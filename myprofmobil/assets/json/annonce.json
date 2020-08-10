@@ -1,0 +1,583 @@
+[
+    {
+        "model": "annonce",
+        "pk": 4,
+        "fields": {
+            "avatar": "images/annonces/photo-1.jpg",
+            "user": 68,
+            "individuel": true,
+            "groupe": false,
+            "titre": "Les cours en Maths et Physique",
+            "parcours": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "cv": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "methodologie": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "lien_youtube": "https://www.youtube.com/",
+            "commune": "Plateaux",
+            "webcam": false,
+            "chez_eleve": true,
+            "chez_professeur": true,
+            "tarif_webcam": null,
+            "tarif_5h": null,
+            "tarif_10h": null,
+            "tarif": 10000,
+            "transport": 1000,
+            "pack_5_heures": false,
+            "pack_10_heures": true,
+            "offre_premier_cours": true,
+            "slug": "les-cours-en-maths-et-physique",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                2,
+                5
+            ],
+            "niveaux": [
+                {
+                    "pk": 1,
+                    "titre": "College"
+                },
+                {
+                    "pk": 4,
+                    "titre": "Terminal"
+                },
+                {
+                    "pk": 7,
+                    "titre": "BTS"
+                }
+                
+            ]
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 5,
+        "fields": {
+            "avatar": "images/annonces/img07.jpg",
+            "user": 70,
+            "individuel": true,
+            "groupe": false,
+            "titre": "Lorem ipsum dolor sit amet consectetur adipisicing",
+            "parcours": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "cv": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "methodologie": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "lien_youtube": "https://www.youtube.com/",
+            "commune": "Cocody",
+            "webcam": true,
+            "chez_eleve": false,
+            "chez_professeur": false,
+            "tarif_webcam": null,
+            "tarif_5h": null,
+            "tarif_10h": null,
+            "tarif": 5000,
+            "transport": 1500,
+            "pack_5_heures": true,
+            "pack_10_heures": false,
+            "offre_premier_cours": true,
+            "slug": "lorem-ipsum-dolor-sit-amet-consectetur-adipisicing",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                4,
+                31,
+                10,
+                7
+            ],
+            "niveaux": [
+                {
+                    "pk": 1,
+                    "titre": "College"
+                },
+                {
+                    "pk": 4,
+                    "titre": "Terminal"
+                },
+                {
+                    "pk": 6,
+                    "titre": "Supérieur"
+                }
+            ]
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 7,
+        "fields": {
+            "avatar": "images/annonces/img03.jpg",
+            "user": 66,
+            "individuel": true,
+            "groupe": false,
+            "titre": "Lorem ipsum dolor sit amet consectetur adipisicing",
+            "parcours": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "cv": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "methodologie": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "lien_youtube": "https://www.youtube.com/",
+            "commune": "Cocody",
+            "webcam": true,
+            "chez_eleve": false,
+            "chez_professeur": false,
+            "tarif_webcam": null,
+            "tarif_5h": null,
+            "tarif_10h": null,
+            "tarif": 5000,
+            "transport": 1500,
+            "pack_5_heures": true,
+            "pack_10_heures": false,
+            "offre_premier_cours": true,
+            "slug": "lorem-ipsum-dolor-sit-amet-consectetur-adipisici-3",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                4,
+                31,
+                10,
+                7
+            ],
+            "niveaux": [
+                {
+                    "pk": 1,
+                    "titre": "College"
+                },
+                {
+                    "pk": 4,
+                    "titre": "Terminal"
+                },
+                {
+                    "pk": 6,
+                    "titre": "Supérieur"
+                }
+
+            ]
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 10,
+        "fields": {
+            "avatar": "images/annonces/article.jpg",
+            "user": 1,
+            "individuel": false,
+            "groupe": true,
+            "titre": "Lorem ipsum updateannonce title",
+            "parcours": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "cv": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+            "methodologie": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#x27;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. demo",
+            "lien_youtube": "https://www.youtube.com/",
+            "commune": "Yopougon",
+            "webcam": false,
+            "chez_eleve": true,
+            "chez_professeur": true,
+            "tarif_webcam": null,
+            "tarif_5h": null,
+            "tarif_10h": null,
+            "tarif": 15000,
+            "transport": 2500,
+            "pack_5_heures": false,
+            "pack_10_heures": false,
+            "offre_premier_cours": false,
+            "slug": "lorem-ipsum-dolor-sit-amet-consectetur-adipisici-2",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                21,
+                10
+            ],
+            "niveaux": []
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 11,
+        "fields": {
+            "avatar": "images/annonces/error.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": false,
+            "titre": "Lorem ipsum dolor sit amet consectetur adipisicing",
+            "parcours": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "cv": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "methodologie": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "lien_youtube": "https://www.youtube.com/",
+            "commune": "Cocody",
+            "webcam": true,
+            "chez_eleve": false,
+            "chez_professeur": true,
+            "tarif_webcam": null,
+            "tarif_5h": null,
+            "tarif_10h": null,
+            "tarif": 20000,
+            "transport": 4000,
+            "pack_5_heures": false,
+            "pack_10_heures": false,
+            "offre_premier_cours": true,
+            "slug": "lorem-ipsum-dolor-sit-amet-consectetur-adipisici-4",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                22,
+                33,
+                24
+            ],
+            "niveaux": []
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 18,
+        "fields": {
+            "avatar": "images/annonces/HC9giBcC.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": false,
+            "titre": "La REINE DES NEIGES",
+            "parcours": " Je suis étudiante je donne des cours depuis webcam . je suis diplômée de la licence",
+            "cv": "Détail de mon CV ",
+            "methodologie": " Ma methode d'enseignement est le e-e-learning je base mes cours sur des pratiques. j'aborde la matière de façon libre",
+            "lien_youtube": "https://youtube.com/",
+            "commune": "Bonoua, Côte d'Ivoire",
+            "webcam": true,
+            "chez_eleve": false,
+            "chez_professeur": true,
+            "tarif_webcam": 1000,
+            "tarif_5h": 2500,
+            "tarif_10h": 6000,
+            "tarif": 1500,
+            "transport": null,
+            "pack_5_heures": false,
+            "pack_10_heures": false,
+            "offre_premier_cours": true,
+            "slug": "la-reine-des-neiges",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                3
+            ],
+            "niveaux": []
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 21,
+        "fields": {
+            "avatar": "images/annonces/about2.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": false,
+            "titre": "Partagez ma passion !",
+            "parcours": "Je suis ingenieur(e) / danseur(euse) / étudiant (e)... je donne des cours depuis... je suis diplomé(e)...",
+            "cv": "Détaillé ici votre CV par chronologie",
+            "methodologie": " Ma methode d'enseignement est... je base mes cours sur... j'aborde la matière de façon libre, structurée...",
+            "lien_youtube": "https://www.youtube.com/",
+            "commune": "Yamoussoukro, Côte d'Ivoire",
+            "webcam": false,
+            "chez_eleve": true,
+            "chez_professeur": true,
+            "tarif_webcam": null,
+            "tarif_5h": null,
+            "tarif_10h": null,
+            "tarif": null,
+            "transport": null,
+            "pack_5_heures": false,
+            "pack_10_heures": false,
+            "offre_premier_cours": false,
+            "slug": "partagez-ma-passion",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                4,
+                3,
+                2
+            ],
+            "niveaux": []
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 22,
+        "fields": {
+            "avatar": "images/annonces/header-img.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": true,
+            "titre": "Formation en Math",
+            "parcours": " Je suis ingenieur(e) / danseur(euse) / étudiant (e)... je donne des cours depuis... je suis diplomé(e)...",
+            "cv": "Détaillé ici votre CV par chronologie",
+            "methodologie": " Ma methode d'enseignement est... je base mes cours sur... j'aborde la matière de façon libre, structurée...",
+            "lien_youtube": "https://www.youtube.com/",
+            "commune": "Cocody, Abidjan, Côte d'Ivoire",
+            "webcam": true,
+            "chez_eleve": true,
+            "chez_professeur": true,
+            "tarif_webcam": 3000,
+            "tarif_5h": 4500,
+            "tarif_10h": 9000,
+            "tarif": 2000,
+            "transport": 1000,
+            "pack_5_heures": true,
+            "pack_10_heures": true,
+            "offre_premier_cours": true,
+            "slug": "formation-en-math",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                4,
+                2,
+                5
+            ],
+            "niveaux": []
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 25,
+        "fields": {
+            "avatar": "images/annonces/logo-myprof1.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": true,
+            "titre": "Partagez votre passion",
+            "parcours": "Je suis ingenieur(e) / danseur(euse) / étudiant (e)... je donne des cours depuis... je suis diplomé(e)...",
+            "cv": " Détaillé ici votre CV par chronologie",
+            "methodologie": "Ma methode d'enseignement est... je base mes cours sur... j'aborde la matière de façon libre, structurée...",
+            "lien_youtube": "https://www.youtube.com/",
+            "commune": "Abobo, Abidjan, Côte d'Ivoire",
+            "webcam": true,
+            "chez_eleve": true,
+            "chez_professeur": true,
+            "tarif_webcam": 3000,
+            "tarif_5h": 3000,
+            "tarif_10h": 9000,
+            "tarif": 2000,
+            "transport": 1000,
+            "pack_5_heures": true,
+            "pack_10_heures": true,
+            "offre_premier_cours": true,
+            "slug": "partagez-votre-passion",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                4,
+                3,
+                2
+            ],
+            "niveaux": []
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 28,
+        "fields": {
+            "avatar": "annonce.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": true,
+            "titre": "Partagez votre",
+            "parcours": "Ex: Je suis ingenieur(e) / danseur(euse) / étudiant (e)... je donne des cours depuis... je suis diplomé(e)...",
+            "cv": "Astuce: Détaillé ici votre CV par chronologie",
+            "methodologie": "Ex: Ma methode d'enseignement est... je base mes cours sur... j'aborde la matière de façon libre, structurée...",
+            "lien_youtube": "",
+            "commune": null,
+            "webcam": false,
+            "chez_eleve": false,
+            "chez_professeur": false,
+            "tarif_webcam": null,
+            "tarif_5h": null,
+            "tarif_10h": null,
+            "tarif": null,
+            "transport": null,
+            "pack_5_heures": false,
+            "pack_10_heures": false,
+            "offre_premier_cours": false,
+            "slug": "partagez-votre",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                {
+                    "pk": 7,
+                    "titre": "BTS"
+                },
+                {
+                    "pk": 6,
+                    "titre": "Supérieur"
+                }
+            ],
+            "niveaux": []
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 29,
+        "fields": {
+            "avatar": "images/annonces/logo-myprof1_Ks6QLW0.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": false,
+            "titre": "Trouvez",
+            "parcours": "Ex: Je suis ingenieur(e) / danseur(euse) / étudiant (e)... je donne des cours depuis... je suis diplomé(e)...",
+            "cv": "Astuce: Détaillé ici votre CV par chronologieAstuce: Détaillé ici votre CV par chronologieAstuce: Détaillé ici votre CV par chronologieAstuce: Détaillé ici votre CV par chronologieAstuce: Détaillé ici votre CV par chronologie",
+            "methodologie": "Ex: Ma methode d'enseignement est... je base mes cours sur... j'aborde la matière de façon libre, structurée...",
+            "lien_youtube": "https://www.youtube.com/",
+            "commune": "Yopougon, Abidjan",
+            "webcam": false,
+            "chez_eleve": true,
+            "chez_professeur": true,
+            "tarif_webcam": null,
+            "tarif_5h": 4555,
+            "tarif_10h": 0,
+            "tarif": 2000,
+            "transport": 500,
+            "pack_5_heures": true,
+            "pack_10_heures": false,
+            "offre_premier_cours": true,
+            "slug": "trouvez",
+            "is_termine": true,
+            "status": true,
+            "matiere": [
+                3,
+                2
+            ],
+            "niveaux": [
+                {
+                    "pk": 5,
+                    "titre": "Première"
+                },
+                {
+                    "pk": 6,
+                    "titre": "Supérieur"
+                }
+                
+            ]
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 30,
+        "fields": {
+            "avatar": "images/annonces/quote.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": false,
+            "titre": "Nous Contacter",
+            "parcours": "Ex: Je suis ingenieur(e) / danseur(euse) / étudiant (e)... je donne des cours depuis... je suis diplomé(e)...",
+            "cv": "Astuce: Détaillé ici votre CV par chronologie",
+            "methodologie": "Ex: Ma methode d'enseignement est... je base mes cours sur... j'aborde la matière de façon libre, structurée...",
+            "lien_youtube": "https://www.youtube.com/watch?v=gedSk8YnyjQ",
+            "commune": "",
+            "webcam": true,
+            "chez_eleve": true,
+            "chez_professeur": false,
+            "tarif_webcam": 1233,
+            "tarif_5h": 2220,
+            "tarif_10h": 0,
+            "tarif": 1233,
+            "transport": 33432,
+            "pack_5_heures": true,
+            "pack_10_heures": false,
+            "offre_premier_cours": true,
+            "slug": "nous-contacter",
+            "is_termine": true,
+            "status": true,
+            "matiere": [
+                3,
+                6
+            ],
+            "niveaux": []
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 31,
+        "fields": {
+            "avatar": "images/annonces/solution.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": false,
+            "titre": "test en ligne voir",
+            "parcours": "Ex: Je suis ingenieur(e) / danseur(euse) / étudiant (e)... je donne des cours depuis... je suis diplomé(e)...",
+            "cv": "Astuce: Détaillé ici votre CV par chronologie",
+            "methodologie": "Ex: Ma methode d'enseignement est... je base mes cours sur... j'aborde la matière de façon libre, structurée...",
+            "lien_youtube": "",
+            "commune": "Abidjan, Côte d'Ivoire",
+            "webcam": true,
+            "chez_eleve": true,
+            "chez_professeur": true,
+            "tarif_webcam": 2000,
+            "tarif_5h": 15000,
+            "tarif_10h": 1000,
+            "tarif": 1500,
+            "transport": 1500,
+            "pack_5_heures": true,
+            "pack_10_heures": true,
+            "offre_premier_cours": true,
+            "slug": "test-en-ligne-voir",
+            "is_termine": true,
+            "status": false,
+            "matiere": [
+                3,
+                6,
+                2
+            ],
+            "niveaux": [
+                {
+                    "pk": 5,
+                    "titre": "Formation pour adultese"
+                },
+                {
+                    "pk": 6,
+                    "titre": "Supérieur"
+                }
+            ]
+        }
+    },
+    {
+        "model": "annonce",
+        "pk": 32,
+        "fields": {
+            "avatar": "annonce.png",
+            "user": 1,
+            "individuel": true,
+            "groupe": true,
+            "titre": "mohamed",
+            "parcours": "Ex: Je suis ingenieur(e) / danseur(euse) / étudiant (e)... je donne des cours depuis... je suis diplomé(e)...",
+            "cv": "Astuce: Détaillé ici votre CV par chronologie",
+            "methodologie": "Ex: Ma methode d'enseignement est... je base mes cours sur... j'aborde la matière de façon libre, structurée...",
+            "lien_youtube": "",
+            "commune": null,
+            "webcam": false,
+            "chez_eleve": false,
+            "chez_professeur": false,
+            "tarif_webcam": null,
+            "tarif_5h": null,
+            "tarif_10h": null,
+            "tarif": null,
+            "transport": null,
+            "pack_5_heures": false,
+            "pack_10_heures": false,
+            "offre_premier_cours": false,
+            "slug": "mohamed",
+            "is_termine": false,
+            "status": true,
+            "matiere": [
+                6,
+                7
+            ],
+            "niveaux": [
+                {
+                    "pk": 1,
+                    "titre": "collège"
+                },
+                {
+                    "pk": 2,
+                    "titre": "seconde"
+                },
+                {
+                    "pk": 3,
+                    "titre": "Première"
+                },
+                {
+                    "pk": 4,
+                    "titre": "Terminale"
+                }
+            ]
+        }
+    }
+]

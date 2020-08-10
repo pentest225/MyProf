@@ -9,6 +9,8 @@ import 'package:myprofmobil/pages/profil_notification.dart';
 import 'package:myprofmobil/pages/profil_password.dart';
 import 'package:myprofmobil/pages/profil_photo.dart';
 import 'package:myprofmobil/pages/profil_suppresion.dart';
+import 'package:myprofmobil/providers/annonces/annonces.dart';
+import 'package:myprofmobil/providers/specialites/specialites.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
 import 'package:myprofmobil/screnn/calendarUser.dart';
 import 'package:myprofmobil/screnn/demandeList.dart';
@@ -20,7 +22,6 @@ import 'pages/profil_adresse.dart';
 import 'screnn/contactPage.dart';
 import 'screnn/dashboard.dart';
 import 'screnn/home_screen.dart';
-import 'screnn/home_screen.dart';
 import 'screnn/profPage.dart';
 import 'screnn/profProfil.dart';
 import 'screnn/Inscription.dart';
@@ -31,22 +32,16 @@ import 'screnn/suivant.dart';
 import 'screnn/searchPage.dart';
 import 'screnn/demande.dart';
 import 'package:myprofmobil/screnn/launcher_screen.dart';
-import 'package:myprofmobil/manager/feature_toggle_anim.dart';
+import 'package:myprofmobil/providers/feature_toggle_anim.dart';
 import 'screnn/verify.dart';
 import 'screnn/dash_user.dart';
 import 'screnn/annonceList.dart';
-
-
 import 'screnn/all_prof.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-  statusBarColor: Color.fromRGBO(250, 112, 53, 1).withOpacity(.8),
-  statusBarIconBrightness: Brightness.light,
-  // systemNavigationBarColor: Colors.white
-));
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -55,11 +50,13 @@ class MyApp extends StatelessWidget {
 
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(value: ToggleBottomSheet(),)
+        ChangeNotifierProvider.value(value: ToggleBottomSheet(),),
+        ChangeNotifierProvider.value(value: Specialites(),),
+        ChangeNotifierProvider.value(value: Annonces(),),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'my Prof ',
+        title: 'my Prof ',                        
         initialRoute: LaunchApp.routeName,
         routes: {
           LaunchApp.routeName : (context)=> LaunchApp(),

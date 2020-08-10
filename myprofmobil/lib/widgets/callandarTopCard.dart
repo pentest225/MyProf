@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myprofmobil/manager/feature_toggle_anim.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/providers/feature_toggle_anim.dart';
 import 'package:myprofmobil/services/calendarServices.dart';
 import 'package:myprofmobil/widgets/AnnonceWidget.dart';
 import 'package:myprofmobil/widgets/dayContainer.dart';

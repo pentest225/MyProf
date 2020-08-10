@@ -1,0 +1,376 @@
+[
+    {
+        "model": "categorie",
+        "pk": 1,
+        "fields": {
+            "nom": "scolaire",
+            "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée",
+            "image": "assets/images/python.svg",
+            "souscategorie":[
+                {
+                    "pk": 1,
+                    "nom": "soutien scolaire",
+                    "categorie": 1,
+                    "image": "images/learning-1782430_1920.jpg",
+                    "date_add": "2020-07-20T10:13:36.149Z",
+                    "date_upd": "2020-07-28T11:09:24.571Z",
+                    "status": true
+                },
+                {
+                    "pk": 2,
+                    "nom": "Maths",
+                    "categorie": 1,
+                    "image": "images/mathematics-1622448_1920.jpg",
+                    "date_add": "2020-07-20T10:13:54.493Z",
+                    "date_upd": "2020-07-28T10:51:18.551Z",
+                    "status": true
+                },
+                {
+                    "pk": 3,
+                    "nom": "Français",
+                    "categorie": 1,
+                    "image": "images/alpha-2540240_1920.jpg",
+                    "date_add": "2020-07-20T10:14:15.018Z",
+                    "date_upd": "2020-07-28T10:42:55.115Z",
+                    "status": true
+                },
+                {
+                    "pk": 4,
+                    "nom": "Chimie",
+                    "categorie": 1,
+                    "image": "images/laboratory-2815640_1920.jpg",
+                    "date_add": "2020-07-20T10:14:28.564Z",
+                    "date_upd": "2020-07-28T09:56:34.626Z",
+                    "status": true
+                },
+                {
+                    "pk": 5,
+                    "nom": "Physique",
+                    "categorie": 1,
+                    "image": "images/book-4126483_1920.jpg",
+                    "date_add": "2020-07-20T10:14:43.966Z",
+                    "date_upd": "2020-07-28T10:55:52.072Z",
+                    "status": true
+                },
+                {
+                    "pk": 6,
+                    "nom": "Initiation informatique",
+                    "categorie": 1,
+                    "image": "images/technology-785742_1920.jpg",
+                    "date_add": "2020-07-20T10:15:19.030Z",
+                    "date_upd": "2020-07-28T10:46:16.872Z",
+                    "status": true
+                },
+                {
+                    "pk": 7,
+                    "nom": "Peinture",
+                    "categorie": 1,
+                    "image": "images/paint-2985569_1920.jpg",
+                    "date_add": "2020-07-20T10:15:38.062Z",
+                    "date_upd": "2020-07-28T10:54:29.950Z",
+                    "status": true
+                }
+            ]
+        }
+    },
+    {
+        "model": "categorie",
+        "pk": 2,
+        "fields": {
+            "nom": "langue",
+            "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée",
+            "image": "assets/images/papou.svg",
+            "souscategorie":[
+                {
+                    "pk": 9,
+                    "nom": "Allemand",
+                    "categorie": 2,
+                    "image": "images/bundestag-2463236_1920_T4euTGe.jpg",
+                    "date_add": "2020-07-20T10:16:25.641Z",
+                    "date_upd": "2020-07-28T09:32:02.420Z",
+                    "status": true
+                },
+                {
+                    "pk": 10,
+                    "nom": "Allemand",
+                    "categorie": 2,
+                    "image": "images/bundestag-2463236_1920_T4euTGe.jpg",
+                    "date_add": "2020-07-20T10:16:25.641Z",
+                    "date_upd": "2020-07-28T09:32:02.420Z",
+                    "status": true
+                },
+                {
+                    "pk": 11,
+                    "nom": "Espagnol",
+                    "categorie": 2,
+                    "image": "images/seville-3887479_1920.jpg",
+                    "date_add": "2020-07-20T10:16:39.240Z",
+                    "date_upd": "2020-07-28T10:41:53.273Z",
+                    "status": true
+                },
+                {
+                    "pk": 12,
+                    "nom": "Italien",
+                    "categorie": 2,
+                    "image": "images/vittorio-emanuele-monument-784588_1920.jpg",
+                    "date_add": "2020-07-20T10:16:52.882Z",
+                    "date_upd": "2020-07-28T10:47:54.912Z",
+                    "status": true
+                },
+                {
+                    "pk": 13,
+                    "nom": "Japonais",
+                    "categorie": 2,
+                    "image": "images/united-kingdom-1876974_1920_z2hYA1P.jpg",
+                    "date_add": "2020-07-20T10:17:04.480Z",
+                    "date_upd": "2020-07-28T10:49:59.822Z",
+                    "status": true
+                },
+                {
+                    "pk": 14,
+                    "nom": "Chinois",
+                    "categorie": 2,
+                    "image": "images/office-1828122_1920.jpg",
+                    "date_add": "2020-07-20T10:17:17.004Z",
+                    "date_upd": "2020-07-28T09:58:26.383Z",
+                    "status": true
+                },
+                {
+                    "pk": 15,
+                    "nom": "Arabe",
+                    "categorie": 2,
+                    "image": "images/teignmouth-2867338_1920_JrhUU9U.jpg",
+                    "date_add": "2020-07-20T10:17:27.831Z",
+                    "date_upd": "2020-07-28T09:47:49.521Z",
+                    "status": true
+                }
+
+            ]
+        }
+    },
+    {
+        "model": "categorie",
+        "pk": 3,
+        "fields": {
+            "nom": "musique",
+            "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée",
+            "image": "assets/images/world.svg",
+            "souscategorie" : [
+                {
+                    "pk": 17,
+                    "nom": "Piano",
+                    "categorie": 3,
+                    "image": "images/music-279333_1920.jpg",
+                    "date_add": "2020-07-20T10:18:18.935Z",
+                    "date_upd": "2020-07-28T10:57:52.824Z",
+                    "status": true
+                },
+                {
+                    "pk": 18,
+                    "nom": "Chant",
+                    "categorie": 3,
+                    "image": "images/guitar-756326_1920.jpg",
+                    "date_add": "2020-07-20T10:18:43.868Z",
+                    "date_upd": "2020-07-28T09:55:15.552Z",
+                    "status": true
+                },
+                {
+                    "pk": 19,
+                    "nom": "Batterie",
+                    "categorie": 3,
+                    "image": "images/drumset-4865818_1920.jpg",
+                    "date_add": "2020-07-20T10:19:02.859Z",
+                    "date_upd": "2020-07-28T09:48:22.065Z",
+                    "status": true
+                },
+                {
+                    "pk": 20,
+                    "nom": "Violon",
+                    "categorie": 3,
+                    "image": "images/music-2323517_1920.jpg",
+                    "date_add": "2020-07-20T10:19:24.926Z",
+                    "date_upd": "2020-07-28T11:02:47.852Z",
+                    "status": true
+                },
+                {
+                    "pk": 21,
+                    "nom": "Zumba",
+                    "categorie": 3,
+                    "image": "images/zumba-2382200_1920.jpg",
+                    "date_add": "2020-07-20T10:19:39.031Z",
+                    "date_upd": "2020-07-28T11:05:09.169Z",
+                    "status": true
+                },
+                {
+                    "pk": 22,
+                    "nom": "Dance",
+                    "categorie": 3,
+                    "image": "images/ballet-1376250_1920.jpg",
+                    "date_add": "2020-07-20T10:19:50.105Z",
+                    "date_upd": "2020-07-28T10:17:39.201Z",
+                    "status": true
+                }
+
+            ]
+        }
+    },
+    {
+        "model": "categorie",
+        "pk": 4,
+        "fields": {
+            "nom": "sport",
+            "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée",
+            "image": "assets/images/python.svg",
+            "souscategorie":[
+                {
+                    "pk": 21,
+                    "nom": "Coach sportif",
+                    "categorie": 4,
+                    "image": "images/high-school-football-1579498_1920.jpg",
+                    "date_add": "2020-07-20T10:20:46.113Z",
+                    "date_upd": "2020-07-28T10:00:22.606Z",
+                    "status": true
+                },
+                {
+                    "pk": 22,
+                    "nom": "Coach sportif",
+                    "categorie": 4,
+                    "image": "images/high-school-football-1579498_1920.jpg",
+                    "date_add": "2020-07-20T10:20:46.113Z",
+                    "date_upd": "2020-07-28T10:00:22.606Z",
+                    "status": true
+                },
+                {
+                    "pk": 23,
+                    "nom": "Roller",
+                    "categorie": 4,
+                    "image": "images/crossfit-534615_1920_xStVNIQ.jpg",
+                    "date_add": "2020-07-20T10:21:01.002Z",
+                    "date_upd": "2020-07-28T11:00:39.039Z",
+                    "status": true
+                },
+                {
+                    "pk": 24,
+                    "nom": "Natation",
+                    "categorie": 4,
+                    "image": "images/swimmers-79592_1920.jpg",
+                    "date_add": "2020-07-20T10:21:46.168Z",
+                    "date_upd": "2020-07-28T10:52:42.562Z",
+                    "status": true
+                },
+                {
+                    "pk": 25,
+                    "nom": "Yoga",
+                    "categorie": 4,
+                    "image": "images/woman-3053492_1920.jpg",
+                    "date_add": "2020-07-20T10:22:03.707Z",
+                    "date_upd": "2020-07-28T11:04:00.327Z",
+                    "status": true
+                },
+                {
+                    "pk": 26,
+                    "nom": "Remise en forme",
+                    "categorie": 4,
+                    "image": "images/stretching-498256_1920.jpg",
+                    "date_add": "2020-07-20T10:21:17.778Z",
+                    "date_upd": "2020-07-28T10:59:38.290Z",
+                    "status": true
+                },
+                {
+                    "pk": 27,
+                    "nom": "boxe",
+                    "categorie": 4,
+                    "image": "images/boxing-606193_1920.jpg",
+                    "date_add": "2020-07-20T10:21:31.721Z",
+                    "date_upd": "2020-07-28T11:06:09.879Z",
+                    "status": true
+                },
+                {
+                    "pk": 28,
+                    "nom": "Boxe anglaise",
+                    "categorie": 4,
+                    "image": "images/crossfit-534615_1920.jpg",
+                    "date_add": "2020-07-20T10:22:19.486Z",
+                    "date_upd": "2020-07-28T09:54:12.100Z",
+                    "status": true
+                }
+            ]
+        }
+    },
+    {
+        "model": "categorie",
+        "pk": 5,
+        "fields": {
+            "nom": "art et loisirs",
+            "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée",
+            "image": "assets/images/papou.svg",
+            "souscategorie":[
+                {
+                    "pk": 29,
+                    "nom": "Dessin",
+                    "categorie": 5,
+                    "image": "images/charcoal-drawing-1558887_1920.jpg",
+                    "date_add": "2020-07-20T10:22:44.706Z",
+                    "date_upd": "2020-07-28T10:23:59.497Z",
+                    "status": true
+                },
+                {
+                    "pk": 30,
+                    "nom": "Théâtre",
+                    "categorie": 5,
+                    "image": "images/staging-258631_1920.jpg",
+                    "date_add": "2020-07-20T10:22:58.137Z",
+                    "date_upd": "2020-07-28T10:10:15.345Z",
+                    "status": true
+                },
+                {
+                    "pk": 31,
+                    "nom": "Couture",
+                    "categorie": 5,
+                    "image": "images/fabric-3204066_1920.jpg",
+                    "date_add": "2020-07-20T10:23:10.957Z",
+                    "date_upd": "2020-07-28T10:02:20.850Z",
+                    "status": true
+                },
+                {
+                    "pk": 32,
+                    "nom": "Cuisine",
+                    "categorie": 5,
+                    "image": "images/woman-1979272_1920.jpg",
+                    "date_add": "2020-07-20T10:23:31.310Z",
+                    "date_upd": "2020-07-28T10:11:23.283Z",
+                    "status": true
+                },
+                {
+                    "pk": 33,
+                    "nom": "Sculpture",
+                    "categorie": 5,
+                    "image": "images/sculpture-2302302_1920.jpg",
+                    "date_add": "2020-07-20T10:23:53.105Z",
+                    "date_upd": "2020-07-28T10:05:47.767Z",
+                    "status": true
+                },
+                {
+                    "pk": 34,
+                    "nom": "Photographie",
+                    "categorie": 5,
+                    "image": "images/photographer-3672010_1920.jpg",
+                    "date_add": "2020-07-20T10:24:13.113Z",
+                    "date_upd": "2020-07-28T10:04:02.650Z",
+                    "status": true
+                },
+                {
+                    "pk": 35,
+                    "nom": "Pâtisserie",
+                    "categorie": 5,
+                    "image": "images/dough-943245_1920.jpg",
+                    "date_add": "2020-07-20T10:24:29.691Z",
+                    "date_upd": "2020-07-28T10:07:34.745Z",
+                    "status": true
+                }
+                
+            ]
+        }
+    }
+]
+

@@ -23,31 +23,35 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  image_picker: ^0.6.7+4
-  flutter_svg:
-  google_maps_flutter:
-  percent_indicator: ^2.1.5
-  flutter_animation_progress_bar: ^1.0.0
-  floating_search_bar: ^0.3.0
-  geolocator: ^5.1.4+2
-  date_util: ^0.1.4
-  provider: ^4.3.1
+  image_picker: null
+  flutter_svg: null
+  google_maps_flutter: null
+  percent_indicator: null
+  flutter_animation_progress_bar: null
+  geolocator: null
+  date_util: null
+  provider: null
   #flutter_rounded_
   #flutter_rounded_progress_bar: ^0.1.1
-
-
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
+  dio: null
+
+  json_annotation: null
+  flutter_google_places: ^0.2.6
+  google_maps_webservice: ^0.0.17
+  firebase_auth: ^0.16.1
+  firebase_core: ^0.4.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: null
+  json_serializable: null
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
 
@@ -60,14 +64,13 @@ flutter:
   assets:
     - assets/images/
     - assets/images/math.svg
+    - assets/json/specialite.json
+    - assets/json/annonce.json
   #   - images/a_dot_ham.jpeg/Users/ecolenan/Documents/GitHub/MyProf/myprofmobil/assets/images/math.svg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -104,7 +107,6 @@ flutter:
     - family: Baloo
       fonts:
         - asset: assets/fonts/Baloo-Regular.ttf
-        
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
@@ -118,3 +120,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+

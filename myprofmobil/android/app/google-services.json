@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "287959837225-rq8f83ukaicgnnk4sjuhidnq2kb3lgvu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myprofmobil",
+            "certificate_hash": "827aee8722ff6674fb86aa09da6db9fd39e794f6"
+          }
+        },
+        {
           "client_id": "287959837225-dcpcdpmpd0vqdosjh2aicutvinddtnkb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
