@@ -21,7 +21,8 @@ class _FifthSwitchState extends State<FifthSwitch> {
       width: s.width / 4,
       height: s.height / 10,
       //color: Colors.grey,
-      color: Color.fromRGBO(255, 255, 255, 1),
+      // color: Color.fromRGBO(255, 255, 255, 1),
+      color:Colors.transparent,
       child: Stack(
         children: <Widget>[
           Positioned(

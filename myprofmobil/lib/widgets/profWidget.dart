@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/pages/interface1.dart';
-import 'package:myprofmobil/screnn/profProfil.dart';
+import 'package:myprofmobil/screnn/detailleDemande.dart';
 import '../outils/myStyle.dart';
 
 class ProfWidget extends StatelessWidget {
@@ -38,7 +38,7 @@ class ProfWidget extends StatelessWidget {
               children: <Widget>[
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed(ProfProfil.routeName);
+                    Navigator.of(context).pushNamed(DetailleAnnonce.routeName);
                     // Navigator.of(context).pushNamed(InterfaceOne.routeName);
                   },
                   child: Container(

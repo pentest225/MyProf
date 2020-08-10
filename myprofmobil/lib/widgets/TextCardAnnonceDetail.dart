@@ -36,16 +36,18 @@ class _TextCardAnnonceState extends State<TextCardAnnonce> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                    width: deviceWidth * .75,
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      widget.titre,
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'BAARS'),
-                    )),
+                Expanded(
+                        child: Container(
+                      // width: deviceWidth * .75,
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        widget.titre,
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'BAARS'),
+                      )),
+                ),
                 IconButton(
                   icon: !_expended
                       ? Icon(Icons.expand_less)

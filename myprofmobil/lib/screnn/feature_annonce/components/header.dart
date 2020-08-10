@@ -15,26 +15,50 @@ class Header extends StatelessWidget {
           width: screenSize.width,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  //image: AssetImage('assets/images/cho.png'),
-                  image: AssetImage('assets/images/ecole.jpg'),
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.6), BlendMode.darken),
+            //image: AssetImage('assets/images/cho.png'),
+            image: AssetImage('assets/images/ecole.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+                Colors.black87.withOpacity(0.6), BlendMode.darken),
 
-                  //colorFilter: ColorFilter.mode(Colors.white60, BlendMode.screen)
-                  )
-                  ),
+            //colorFilter: ColorFilter.mode(Colors.white60, BlendMode.screen)
+          )),
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text('MyProf'.toUpperCase(), style: Styles.appTitle1),
-                  Text('Annonce', style: TextStyle(
-                    color: themeColor,  fontSize: 32, fontFamily: 'BAARS', fontWeight: FontWeight.bold
-                  )),
-                 // Text('Annonce', style: Styles.appTitle2),
-                ],
+              padding: const EdgeInsets.only(top: 10.0, left: 10, right: 10),
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: themeColor,
+                        ),
+                        onPressed: () => Navigator.of(context).pop()),
+                    Container(
+                      child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text("My Prof",
+                              style: TextStyle(
+                                  color: accanceColor,
+                                  fontSize: 18,
+                                  fontFamily: 'BAARS',
+                                  fontWeight: FontWeight.bold)),
+                          Text('Annonce',
+                              style: TextStyle(
+                                  color: themeColor,
+                                  fontSize: 22,
+                                  fontFamily: 'BAARS',
+                                  fontWeight: FontWeight.bold)),
+                        ],
+                      ),
+                    ),
+                    IconWidget
+                  ],
+                ),
               ),
             ),
           ),

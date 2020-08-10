@@ -160,14 +160,7 @@ class CarDetails extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
-              'MyProfs',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 28,
-                  fontFamily: 'BAARS'),
-            )
+            IconWidget,
           ],
         ),
         SizedBox(
@@ -230,7 +223,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet>
 
   reverseAnimation() {
     controller.reverse();
-    Provider.of<ToggleBottomSheet>(context,listen: false).toggleAnimation();
+    Provider.of<ToggleBottomSheet>(context, listen: false).toggleAnimation();
   }
 
   bool isExpanded = false;

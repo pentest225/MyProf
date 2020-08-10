@@ -106,7 +106,7 @@ class _DemandeListeState extends State<DemandeListe>
                       height: bodyHeight *.925,
                       padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
                       decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(.7),
+                          color: Colors.white,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(40),
                               topRight: Radius.circular(40))),

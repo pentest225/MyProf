@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myprofmobil/screnn/profProfil.dart';
+import 'package:myprofmobil/screnn/detailleDemande.dart';
 import '../outils/myStyle.dart';
 
 class DemandeCard extends StatelessWidget {
@@ -16,7 +16,7 @@ class DemandeCard extends StatelessWidget {
       margin: EdgeInsets.only(top: 10,left: 10,right: 10),
       width: demandeCardWidth,
       decoration: BoxDecoration(
-          color: Colors.black.withOpacity(.5),
+          color: fondcolor,
           borderRadius: BorderRadius.circular(10)),
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
@@ -83,7 +83,7 @@ class DemandeCard extends StatelessWidget {
                   )
                 ],
               ),
-              onPressed: ()=>Navigator.of(context).pushNamed(ProfProfil.routeName),
+              onPressed: ()=>Navigator.of(context).pushNamed(DetailleAnnonce.routeName),
             ),
           )
         ],

@@ -8,15 +8,16 @@ import 'package:myprofmobil/screnn/demande.dart';
 import 'package:myprofmobil/screnn/demandeList.dart';
 import 'package:myprofmobil/widgets/dashCard.dart';
 import '../outils/myStyle.dart';
+import 'feature_annonce/main_annonce.dart';
 
-//NOUVEAUX DASHBORD BY PATRICK 
+//NOUVEAUX DASHBORD BY PATRICK
 class UserDash extends StatelessWidget {
   static const routeName = "UserDash";
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
-    final appBarHeight = deviceHeight * .1 +10;
+    final appBarHeight = deviceHeight * .1 + 10;
     final bodyHeight = deviceHeight - appBarHeight;
     final roundedSectionHeight = bodyHeight - bodyHeight * .25;
     final demandeCardWidth = deviceWidth - 20;
@@ -25,14 +26,13 @@ class UserDash extends StatelessWidget {
       backgroundColor: Colors.black26,
       body: Container(
         height: deviceHeight,
-        decoration:BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-              image: ExactAssetImage(backImage),
-              fit: BoxFit.cover),
+              image: ExactAssetImage(backImage), fit: BoxFit.cover),
         ),
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10.0,sigmaY: 10.0),
-                  child: Column(
+          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               // I=> MY APPBAR
@@ -40,24 +40,25 @@ class UserDash extends StatelessWidget {
                 height: appBarHeight,
                 // color: Colors.grey.withOpacity(.5),
                 child: Container(
-                  margin: EdgeInsets.only(top: deviceHeight * .045),
-                  padding: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+                  margin: EdgeInsets.only(top: deviceHeight * .055),
+                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   // color: Colors.grey.withOpacity(.5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(Icons.arrow_back_ios),
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: themeColor,
+                        ),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
                       Row(
                         children: <Widget>[
                           InkWell(
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DemandePage()));
+                              Navigator.of(context)
+                                  .pushNamed(MainAnnonce.routeName);
                             },
                             child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -76,33 +77,18 @@ class UserDash extends StatelessWidget {
                           SizedBox(
                             width: 5,
                           ),
-                          InkWell(
-                            onTap: () => Scaffold.of(context).openDrawer(),
-                            child: Container(
-                              height: 35,
-                              width: 35,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: themeColor, width: 1),
-                                  shape: BoxShape.circle,
-                                  color: Colors.white),
-                              child: Text(
-                                "PA",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
+                          IconWidget
                         ],
                       )
                     ],
                   ),
                 ),
               ),
-              // II =>MY BADY
+              // II =>MY BODY
               Container(
                 height: bodyHeight,
-                child: ListView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     //Image Section
                     Container(
@@ -129,8 +115,6 @@ class UserDash extends StatelessWidget {
                           Container(
                             width: deviceWidth * .7,
                             height: bodyHeight * .25 - 80,
-                            
-                        
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -209,7 +193,8 @@ class UserDash extends StatelessWidget {
                                   child: Column(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
                                         "15",
@@ -235,7 +220,8 @@ class UserDash extends StatelessWidget {
                                   child: Column(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
                                         "17",
@@ -256,28 +242,31 @@ class UserDash extends StatelessWidget {
                           ),
                           // WHITE BOTTOM SECTION
                           Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 20),
-                            
-                            decoration: BoxDecoration(
-                                color: fondcolor,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(30),
-                                    topRight: Radius.circular(30))),
-                            child: Container(
-                              margin: EdgeInsets.only(top: 15),
-                              width: deviceWidth,
-                              child: Wrap(
-                                children: <Widget>[
-                                  DashCard("Mes Annonces",Icons.card_membership,AnnonceListe.routeName),
-                                  DashCard("Mes Demandes ",Icons.school,DemandeListe.routeName),
-                                  DashCard("Parrametres ",Icons.settings,ProfilPage.routeName),
-                                  DashCard("Agenda ",Icons.calendar_today,Calendar.routeName),
-                                ],
-                              ),
-                            )
-                            
-                          )
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 20),
+                              decoration: BoxDecoration(
+                                  color: fondcolor,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(30),
+                                      topRight: Radius.circular(30))),
+                              child: Container(
+                                margin: EdgeInsets.only(top: 15),
+                                width: deviceWidth,
+                                child: Wrap(
+                                  children: <Widget>[
+                                    DashCard(
+                                        "Mes Annonces",
+                                        Icons.card_membership,
+                                        AnnonceListe.routeName),
+                                    DashCard("Mes Demandes ", Icons.school,
+                                        DemandeListe.routeName),
+                                    DashCard("Parrametres ", Icons.settings,
+                                        ProfilPage.routeName),
+                                    DashCard("Agenda ", Icons.calendar_today,
+                                        Calendar.routeName),
+                                  ],
+                                ),
+                              ))
                         ],
                       ),
                     ),

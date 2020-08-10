@@ -14,14 +14,14 @@ import '../outils/myStyle.dart';
 import 'feature_annonce/form_inputs/multi_selected_chip.dart';
 
 //PAGE DE DETAILLE D'UNE ANONCE PRESENTATIONS DU PROF DE CES MATIERRE ET TOUTE INFO SUR SON ANNONCE
-class ProfProfil extends StatefulWidget {
-  static const routeName = "profProfil";
+class DetailleAnnonce extends StatefulWidget {
+  static const routeName = "DetailleAnnonce";
 
   @override
-  _ProfProfilState createState() => _ProfProfilState();
+  _DetailleAnnonceState createState() => _DetailleAnnonceState();
 }
 
-class _ProfProfilState extends State<ProfProfil> {
+class _DetailleAnnonceState extends State<DetailleAnnonce> {
   var _expended = false;
 
   Widget build(BuildContext context) {
@@ -34,18 +34,6 @@ class _ProfProfilState extends State<ProfProfil> {
     final photoHeight = deviceWidth * .25;
     final lefAndReightSpace = ((deviceWidth - 20) - photoHeight) / 2;
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   title: Text(
-      //     'MyProfs',
-      //     style: TextStyle(
-      //         color: Colors.white,
-      //         fontSize: 25,
-      //         fontWeight: FontWeight.bold,
-      //         fontFamily: 'BAARS'),
-      //   ),
-      //   centerTitle: true,
-      // ),
       body: Container(
         height: deviceHeight,
         decoration: BoxDecoration(
@@ -73,18 +61,11 @@ class _ProfProfilState extends State<ProfProfil> {
                           Navigator.pop(context);
                         },
                         child: Icon(
-                          Icons.arrow_back,
-                          color: Colors.black,
+                          Icons.arrow_back_ios,
+                          color: themeColor,
                         ),
                       ),
-                      Text(
-                        'MyProfs',
-                        style: TextStyle(
-                            color: themeColor,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'BAARS'),
-                      )
+                      IconWidget
                     ],
                   ),
                 ),
@@ -145,8 +126,7 @@ class _ProfProfilState extends State<ProfProfil> {
                                       Container(
                                         height: bodyHeight * 45,
                                         child: Column(
-                                          // mainAxisAlignment:
-                                              // MainAxisAlignment.spaceAround,
+                                         
                                           children: <Widget>[
                                             Spacer(),
                                             Expanded(
@@ -777,12 +757,12 @@ class _ProfProfilState extends State<ProfProfil> {
           width: 200,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: themeColor.withOpacity(.7),
+            color: themeColor,
             border: Border.all(color: themeColor, width: 1),
             borderRadius: BorderRadius.circular(50),
           ),
           child: Text(
-            'Réservez',
+            'Contacter',
             style: TextStyle(
                 fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
           ),

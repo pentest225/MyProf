@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-import 'package:myprofmobil/screnn/profProfil.dart';
+import 'package:myprofmobil/screnn/detailleDemande.dart';
 
 class Profspage extends StatefulWidget {
 
@@ -125,7 +125,7 @@ class _ProfspageState extends State<Profspage> {
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfProfil()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailleAnnonce()));
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: 2),

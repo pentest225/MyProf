@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/pages/firstPage.dart';
@@ -12,7 +10,6 @@ import 'package:myprofmobil/screnn/feature_annonce/components/section_title.dart
 import 'package:myprofmobil/screnn/feature_annonce/main_annonce.dart';
 import 'package:myprofmobil/screnn/feature_annonce/styles.dart';
 import 'package:provider/provider.dart';
-
 
 class MyDrower extends StatelessWidget {
   const MyDrower({Key key}) : super(key: key);
@@ -238,8 +235,6 @@ class MyDrower extends StatelessWidget {
                         ),
                       ),
                       Spacer()
-
-
                     ],
                   ),
                 )
