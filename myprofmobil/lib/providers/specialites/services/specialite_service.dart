@@ -10,18 +10,18 @@ class SpecialiteServices {
 
    Future<String> _loadJsonSpecialiteByCategory() async =>  await rootBundle.loadString(_url);
 
+   ///******************************************** */
+   /// browser => GET DATA FROM JSON
+   ///
    Future<List<SpecialiteItem>> browser({query : ""})async{
 
     var content = await _loadJsonSpecialiteByCategory();
     var contactDecode = json.decode(content);
     Iterable<SpecialiteItem> _dataIterable = new List<SpecialiteItem>.from(contactDecode.map((x)=> SpecialiteItem.fromJson(x)));
-    
-    await Future.delayed(Duration(seconds: 1));
-    
+        
     if(query != null && query.isNotEmpty ){
       _dataIterable = _dataIterable.where(
         (data) => data.fields.nom.contains(query),);
-
     }
     return _dataIterable.toList();
   }
