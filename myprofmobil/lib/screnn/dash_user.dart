@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:myprofmobil/pages/profil.dart';
+import 'package:myprofmobil/screnn/profil/profil.dart';
 import 'package:myprofmobil/screnn/annonceList.dart';
 import 'package:myprofmobil/screnn/calendarTask1.dart';
 import 'package:myprofmobil/screnn/calendarUser.dart';

@@ -68,10 +68,12 @@ class _MyHomeState extends State<LaunchApp> {
   @override
   Widget build(BuildContext context) {
 
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  /*SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Color.fromRGBO(250, 112, 53, 1).withOpacity(.8),
     statusBarIconBrightness: Brightness.light,
   ));
+
+   */
 
   
     final deviceHeight = MediaQuery.of(context).size.height;

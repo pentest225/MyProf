@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-import 'package:myprofmobil/pages/categorie.dart';
+import 'package:myprofmobil/screnn/categorie.dart';
 import 'package:myprofmobil/providers/specialites/models/specialite_model.dart';
 import 'package:myprofmobil/providers/specialites/specialites.dart';
 
@@ -114,6 +114,7 @@ class _CarDetailsAnimationState extends State<CarDetailsAnimation>
 }
 
 //SECTION HEADER (APPBAR TITRE DROWER ETC...)
+
 class CarDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -293,9 +294,6 @@ class _SheetContainerState extends State<SheetContainer>
   Widget build(BuildContext context) {
 
    final specialite = Provider.of<Specialites>(context).items;
-
-
-
   
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;

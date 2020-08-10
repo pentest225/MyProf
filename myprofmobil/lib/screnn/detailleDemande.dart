@@ -3,8 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myprofmobil/pages/filtrePage.dart';
-import 'package:myprofmobil/pages/interface1.dart';
+import 'package:myprofmobil/screnn/filtrePage.dart';
+import 'package:myprofmobil/screnn/interface1.dart';
 import 'package:myprofmobil/screnn/contactPage.dart';
 import 'package:myprofmobil/widgets/TextCardAnnonceDetail.dart';
 import 'package:myprofmobil/widgets/avisContainer.dart';
