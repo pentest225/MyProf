@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-import 'package:myprofmobil/providers/feature_toggle_anim.dart';
-import 'package:provider/provider.dart';
-import '../../home_screen.dart';
-import '../../regis.dart';
-import '../register/registered.dart';
-import 'login_fin.dart';
 import 'login_header.dart';
-import 'login_section.dart';
+
 
 class LoginPage extends StatefulWidget {
   static const routeName = "Login";
@@ -27,7 +21,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
         AnimationController(vsync: this, duration: Duration(milliseconds: 400));
 
     _offsetController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 400));
+        vsync: this, duration: Duration(milliseconds: 1000));
 
     heightAnimation = Tween<Size>(
             begin: Size(double.infinity, 293), end: Size(double.infinity, 367))
