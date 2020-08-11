@@ -7,11 +7,13 @@ class RegisterSection extends StatelessWidget {
 
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
+    final conexionHeight = deviceHeight * .4;
+    final inscriptionHeight = deviceHeight * .5;
 
 
     return Container(
       margin: EdgeInsets.only(top: deviceHeight / 16),
-      height: deviceHeight/ 2.2,
+      height: conexionHeight,
       width: deviceWidth / 1.1,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -89,32 +91,7 @@ class RegisterSection extends StatelessWidget {
             ),
           ),
 
-          Container(
-            padding: EdgeInsets.only(left: 10),
-            margin: EdgeInsets.only(top: 10,),
-            height: deviceHeight / 11 - 15,
-            width: deviceWidth / 1.2,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border(
-                  bottom: BorderSide(color: Colors.grey.withOpacity(0.5)),
-                )
-            ),
-            child: TextField(
-              cursorColor: Colors.grey,
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'mot de passe',
-                  hintStyle: TextStyle(
-                      fontFamily: 'Barlow', fontWeight: FontWeight.w300
-                  ),
-                  suffixIcon:
-                  Icon(Icons.lock, color: themeColor, size: 20,)
-              ),
-            ),
-          ),
-
-          InkWell(
+            InkWell(
             onTap: () {
               /*Navigator.push(
                               context,
@@ -145,6 +122,15 @@ class RegisterSection extends StatelessWidget {
               ),
             ),
           ),
+          
+          Container(
+            margin: EdgeInsets.only(top: 15),
+            padding: EdgeInsets.only(right: 10),
+            alignment: Alignment.topRight,
+            child: Text('Mot de passe oublié', style: TextStyle(
+                fontWeight: FontWeight.bold, color: Colors.grey.withOpacity(0.8)
+            ),),
+          )
         ],
       ),
     );
