@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-
 import '../../home_screen.dart';
 import '../../regis.dart';
 import '../register/registered.dart';
