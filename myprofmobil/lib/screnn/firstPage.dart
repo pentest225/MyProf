@@ -4,6 +4,7 @@ import 'package:myprofmobil/screnn/connexion.dart';
 import 'package:myprofmobil/screnn/regis.dart';
 
 import 'authentification/login/login.dart';
+import 'test.dart';
 
 //PAGE DE CONNEXION OU INSCRIPTION
 class FirstPage extends StatelessWidget {
@@ -62,7 +63,7 @@ class FirstPage extends StatelessWidget {
                 SizedBox(height: 20,),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Regis()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TestPage()));
                   },
                   child: Container(
                     height: MediaQuery.of(context).size.height/14,

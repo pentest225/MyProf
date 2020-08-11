@@ -20,6 +20,8 @@ import 'package:myprofmobil/screnn/sync.dart';
 import 'package:provider/provider.dart';
 import 'screnn/categorie.dart';
 import 'screnn/firstPage.dart';
+import 'screnn/message.dart';
+import 'screnn/message_detail.dart';
 import 'screnn/profil/profil_adresse.dart';
 import 'screnn/contactPage.dart';
 import 'screnn/dashboard.dart';
@@ -89,7 +91,8 @@ class MyApp extends StatelessWidget {
           Calendar.routeName: (context) => Calendar(),
           InterfaceOne.routeName: (context) => InterfaceOne(),
           MainAnnonce.routeName: (context) => MainAnnonce(),
-          // profProfil.routeName: (ctx)=>MyHome()
+          MessagePage.routeName: (context) => MessagePage(),
+          MessageDetail.routeName: (context) => MessageDetail(),
         },
       ),
     );

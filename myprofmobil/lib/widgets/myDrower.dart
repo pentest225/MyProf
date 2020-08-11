@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/firstPage.dart';
+import 'package:myprofmobil/screnn/message.dart';
 import 'package:myprofmobil/screnn/profil/profil.dart';
 import 'package:myprofmobil/providers/annonces/annonces.dart';
 import 'package:myprofmobil/screnn/dash_user.dart';
@@ -22,7 +23,6 @@ class MyDrower extends StatelessWidget {
     final annonce = Provider.of<Annonces>(context).items;
 
     return Container(
-      width: deviceWidth / 1.1,
       child: Drawer(
         child: Container(
             child: Row(
@@ -35,18 +35,6 @@ class MyDrower extends StatelessWidget {
                   color: Colors.white,
                   child: ListView(
                     children: <Widget>[
-                      Container(
-                          child: Column(
-                            children: [
-                              FormSectionTitle("annonce"),
-                              Chip(
-                                label: Text('+', style: TextStyle(
-                                    color: Styles.secondaryColor, fontSize: 40
-                                ),),
-                              ),
-                            ],
-                          )
-                      ),
                       ...annonce.map((annoceOfUser) => InkWell(
                         onTap: ()=> null,
                         child: Padding(
@@ -72,7 +60,7 @@ class MyDrower extends StatelessWidget {
                                   Icon(
                                     Icons.school,
                                     color: accanceColor,
-                                    size: 80,
+                                    size: 70,
                                   ),
                                   Text(annoceOfUser.fields.titre.substring(0, 10))
                                 ],
@@ -81,6 +69,18 @@ class MyDrower extends StatelessWidget {
                           ),
                         ),
                       )).take(3).toList(),
+                      Container(
+                          child: Column(
+                            children: [
+                              FormSectionTitle("annonce"),
+                              Chip(
+                                label: Text('+', style: TextStyle(
+                                    color: Styles.secondaryColor, fontSize: 40
+                                ),),
+                              ),
+                            ],
+                          )
+                      ),
                     ],),
                 ),
                 Container(
@@ -133,20 +133,7 @@ class MyDrower extends StatelessWidget {
                           children: <Widget>[
                             Row(
                               children: <Widget>[
-                                Icon(Icons.navigation, color: themeColor, size: 22,) ,
-                                SizedBox(width: 5,),
-                                InkWell(
-                                  onTap: ()=> null,
-                                  child: Text('Navigateur', style: TextStyle(
-                                    fontWeight: FontWeight.bold, color: Colors.black87, fontFamily: 'Barlow'
-                                  ),),
-                                )
-                              ],
-                            ),
-                            SizedBox(height: 15,),
-                            Row(
-                              children: <Widget>[
-                                Icon(Icons.person, color: themeColor, size: 22,),
+                                Icon(Icons.image_aspect_ratio, color: themeColor, size: 22,),
                                 SizedBox(width: 5,),
                                 InkWell(
                                    onTap: (){
@@ -171,6 +158,22 @@ class MyDrower extends StatelessWidget {
                                   } ,
                                   child: Text('Profil', style: TextStyle(
                                     fontWeight: FontWeight.bold, color: Colors.black87, fontFamily: 'Barlow'
+                                  )),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 15,),
+                            Row(
+                              children: <Widget>[
+                                Icon(Icons.message, color: themeColor, size: 20,),
+                                SizedBox(width: 5,),
+                                InkWell(
+                                  onTap: (){
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) => MessagePage()));
+                                  } ,
+                                  child: Text('Message', style: TextStyle(
+                                      fontWeight: FontWeight.bold, color: Colors.black87, fontFamily: 'Barlow'
                                   )),
                                 )
                               ],
