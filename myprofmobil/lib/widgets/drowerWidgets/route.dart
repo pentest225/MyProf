@@ -6,7 +6,7 @@ class MyRoute extends StatelessWidget {
   IconData icon;
   String text;
   String route;
-  MyRoute(this.icon, this.text, this.route);
+  MyRoute({this.icon, this.text, this.route});
 
   @override
   Widget build(BuildContext context) {

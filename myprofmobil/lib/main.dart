@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myprofmobil/screnn/authentification/login/login.dart';
 import 'package:myprofmobil/screnn/interface1.dart';
 import 'package:myprofmobil/screnn/profil/profil.dart';
 import 'package:myprofmobil/screnn/profil/profil_diplome.dart';
@@ -57,8 +58,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',                        
-        initialRoute: LaunchApp.routeName,
+        initialRoute: LoginPage.routeName,
         routes: {
+          LoginPage.routeName:(context) => LoginPage(),
           LaunchApp.routeName: (context) => LaunchApp(),
           HomeScreen.rooteName: (context) => HomeScreen(),
           DetailleAnnonce.routeName: (context) => DetailleAnnonce(),

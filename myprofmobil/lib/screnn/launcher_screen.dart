@@ -53,7 +53,7 @@ class _MyHomeState extends State<LaunchApp> {
         print('get all data from specialisation');
       });
       await  Provider.of<Annonces>(context, listen: false).fetch(query: "1").then((value){
-        print('ufsduugudsgfiugughfv');
+      
       });
     });
     super.initState();
@@ -90,7 +90,7 @@ class _MyHomeState extends State<LaunchApp> {
               // Bouton Annuler L'introduction
               Container(
                 child: Container(
-                  height: 50,
+                  height: 40,
                   alignment: Alignment.topRight,
                   child: FlatButton(
                     onPressed: () {
