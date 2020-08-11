@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/firstPage.dart';
+import 'package:myprofmobil/screnn/message.dart';
 import 'package:myprofmobil/screnn/home_screen.dart';
 import 'package:myprofmobil/screnn/profil/profil.dart';
 import 'package:myprofmobil/providers/annonces/annonces.dart';
@@ -25,10 +26,44 @@ class MyDrower extends StatelessWidget {
     final annonce = Provider.of<Annonces>(context).items;
 
     return Container(
-      width: deviceWidth / 1.1,
       child: Drawer(
         child: Container(
             child: Row(
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 25),
+                  alignment: Alignment.center,
+                  height: deviceHeight,
+                  width: deviceWidth / 3.3,
+                  color: Colors.white,
+                  child: ListView(
+                    children: <Widget>[
+                      ...annonce.map((annoceOfUser) => InkWell(
+                        onTap: ()=> null,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                              child: Container(
+                              height: deviceWidth / 3.7,
+                              width: deviceWidth / 2.5,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                  /*boxShadow: [
+                                    BoxShadow(
+                                        color: Color(0x1a000000),
+                                        blurRadius: 10,
+                                        spreadRadius: 0,
+                                        offset: Offset(0, 10)
+                                    )
+                                  ]*/
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.school,
+                                    color: accanceColor,
+                                    size: 70,
           children: <Widget>[
             Container(
               padding: EdgeInsets.symmetric(vertical: 25),
@@ -78,6 +113,40 @@ class MyDrower extends StatelessWidget {
                                 ),
                               ),
                             ),
+
+                          ),
+                        ),
+                      )).take(3).toList(),
+                      Container(
+                          child: Column(
+                            children: [
+                              FormSectionTitle("annonce"),
+                              Chip(
+                                label: Text('+', style: TextStyle(
+                                    color: Styles.secondaryColor, fontSize: 40
+                                ),),
+                              ),
+                            ],
+                          )
+                      ),
+                    ],),
+                ),
+                Container(
+                  height: deviceHeight,
+                  width: 2,
+                   color: Colors.black45.withOpacity(0.1),
+                ),
+                Container(
+                  color: fondcolor,
+                  width: deviceWidth / 1.87,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                       SizedBox(height: 35,),
+                      Column(
+                        children: [
+
                           ))
                       .take(3)
                       .toList(),
@@ -102,6 +171,7 @@ class MyDrower extends StatelessWidget {
                     ),
                     Column(
                       children: [
+
                         Container(
                           alignment: Alignment.center,
                           height: deviceHeight / 8,
