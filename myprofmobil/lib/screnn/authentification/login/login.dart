@@ -24,10 +24,10 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   @override
   void initState() {
     _controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 400));
 
     _offsetController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000));
+        vsync: this, duration: Duration(milliseconds: 400));
 
     heightAnimation = Tween<Size>(
             begin: Size(double.infinity, 293), end: Size(double.infinity, 367))
@@ -65,6 +65,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
       _offsetController.forward();
     } else {
       print("current controler");
+      _offsetController.reverse();
     }
 
     return Scaffold(
@@ -161,7 +162,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       ),
                     ),
                     //Password Field
-                    // if (!loginMode)
+                    if (!loginMode)
                     SlideTransition(
                       position: offsetAnimation,
                       child: Container(
