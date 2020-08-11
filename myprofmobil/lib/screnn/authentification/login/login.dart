@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/screnn/home_screen.dart';
 import 'login_header.dart';
 
 
@@ -191,7 +192,9 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                     //Bouton de validation
                     if (!_controller.isAnimating)
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushNamed(HomeScreen.rooteName);
+                        },
                         child: Container(
                           margin: EdgeInsets.only(top: deviceHeight / 14 - 14),
                           height: deviceHeight / 13 - 10,
