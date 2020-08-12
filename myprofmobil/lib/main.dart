@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myprofmobil/screnn/profList.dart';
 import 'package:myprofmobil/screnn/authentification/login/login.dart';
 import 'package:myprofmobil/screnn/interface1.dart';
 import 'package:myprofmobil/screnn/painter/customPainter.dart';
@@ -21,7 +20,6 @@ import 'package:myprofmobil/screnn/feature_annonce/main_annonce.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:provider/provider.dart';
 import 'screnn/categorie.dart';
-import 'screnn/detail2.dart';
 import 'screnn/firstPage.dart';
 import 'screnn/message.dart';
 import 'screnn/message_detail.dart';
@@ -29,12 +27,8 @@ import 'screnn/profil/profil_adresse.dart';
 import 'screnn/contactPage.dart';
 import 'screnn/dashboard.dart';
 import 'screnn/home_screen.dart';
-import 'screnn/Inscription.dart';
-import 'screnn/connexion.dart';
-import 'screnn/regis.dart';
 import 'screnn/register.dart';
 import 'screnn/searchPage.dart';
-import 'screnn/demande.dart';
 import 'package:myprofmobil/screnn/launcher_screen.dart';
 import 'package:myprofmobil/providers/feature_toggle_anim.dart';
 import 'screnn/verify.dart';
@@ -70,12 +64,8 @@ class MyApp extends StatelessWidget {
           ContactPage.routeName: (context) => ContactPage(),
           Dashboard.routeName: (context) => Dashboard(),
           SearchPage.routeName: (context) => SearchPage(),
-          DemandePage.routeName: (context) => DemandePage(),
-          Inscription.routeName: (context) => Inscription(),
-          Connexion.routeNamed: (context) => Connexion(),
           Syncr.routeName: (context) => Syncr(),
           Verify.routeName: (context) => Verify(),
-          Regis.routeName: (context) => Regis(),
           Registered.routeName: (context) => Registered(),
           CategoriePage.routeName: (context) => CategoriePage(),
           AllProf.routeName: (context) => AllProf(),
@@ -98,8 +88,6 @@ class MyApp extends StatelessWidget {
           MainAnnonce.routeName: (context) => MainAnnonce(),
           MessagePage.routeName: (context) => MessagePage(),
           MessageDetail.routeName: (context) => MessageDetail(),
-          AllProf2.routeName: (context) => AllProf2(),
-          DetailleAnnonce2.routeName: (context) => DetailleAnnonce2(),
         },
       ),
     );
