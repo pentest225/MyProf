@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myprofmobil/screnn/detail2.dart';
+
 import 'package:myprofmobil/screnn/interface1.dart';
 import 'package:myprofmobil/screnn/detailleDemande.dart';
 import '../outils/myStyle.dart';
@@ -39,7 +39,7 @@ class ProfWidget extends StatelessWidget {
               children: <Widget>[
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed(DetailleAnnonce2.routeName);
+                    Navigator.of(context).pushNamed(DetailleAnnonce.routeName);
                     // Navigator.of(context).pushNamed(InterfaceOne.routeName);
                   },
                   child: Container(
@@ -50,7 +50,6 @@ class ProfWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(
-
                               color: Color(0x1a000000),
                               blurRadius: 10,
                               spreadRadius: 0,
