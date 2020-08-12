@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/screnn/authentification/login/login.dart';
 import 'package:myprofmobil/screnn/firstPage.dart';
 import 'package:myprofmobil/screnn/home_screen.dart';
+import 'package:myprofmobil/screnn/message.dart';
 import 'package:myprofmobil/screnn/profil/profil.dart';
 import 'package:myprofmobil/providers/annonces/annonces.dart';
 import 'package:myprofmobil/screnn/dash_user.dart';
@@ -139,7 +141,7 @@ class MyDrower extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              MyRoute(text: "Navigator",icon: Icons.navigation,route: HomeScreen.rooteName,),
+                              MyRoute(text: "Messages",icon: Icons.mail,route: MessagePage.routeName,),
                               // Spacer(),
                               SizedBox(
                                 height: 15,
@@ -171,7 +173,7 @@ class MyDrower extends StatelessWidget {
                               SizedBox(
                                 height: 15,
                               ),
-                              MyRoute(text: "Deconnexion",icon: Icons.save_alt,route: FirstPage.routeName,),
+                              MyRoute(text: "Deconnexion",icon: Icons.save_alt,route: LoginPage.routeName,),
 
                             ],
                           ),
