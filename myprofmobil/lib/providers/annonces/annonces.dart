@@ -14,6 +14,22 @@ class Annonces with ChangeNotifier{
     notifyListeners();
   }
 
+  ///**************************************************** */
+  /// FIND BY ID  => GET SpecialiteItem
+  ///
+  AnnonceItem findById(String id) =>_items.firstWhere((annonce) => annonce.pk.toString() == id);
+
+
+  ///**************************************************** */
+  /// FIND BY ID  => GET SpecialiteItem
+  ///
+
+  int  selectedAnnoceIndex (String specialiteid) {
+    return _items.indexWhere((AnnonceItem annonce) {
+      return annonce.pk.toString() ==  specialiteid;
+    });
+  }
+
   ///************************************** */
   ///  METHOD FOR ADD ANNONCE 
   ///
@@ -44,7 +60,7 @@ class Annonces with ChangeNotifier{
   ///  METHOD FOR UPDATEZ  ANNONCE 
   ///
   Future<void> updateItem(String annonceId, AnnonceItem newAnnonce )async{
-    final annonceIndex = _items.indexWhere((existingIndex)=> existingIndex.pk.toString() == annonceId);
+    final annonceIndex = selectedAnnoceIndex(annonceId);
 
     if (annonceIndex >= 0) {
       _items[annonceIndex] = newAnnonce;
@@ -60,7 +76,7 @@ class Annonces with ChangeNotifier{
   ///
 
   Future<void> removeAnnonce(String id)async{
-    final annonceIndex = _items.indexWhere((existingIndex)=> existingIndex.pk.toString() == id);
+    final annonceIndex = selectedAnnoceIndex(id);
     items.removeAt(annonceIndex);
     notifyListeners();
   }
