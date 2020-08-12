@@ -17,6 +17,7 @@ class Specialites with ChangeNotifier{
     notifyListeners();
   }
 
+
   ///**************************************************** */
   /// getSpecialiteByIdCategory  => GET DATA FROM JSON BY CATEGORY GROUP
   ///
@@ -39,7 +40,5 @@ class Specialites with ChangeNotifier{
     }
      _matiere = _data.toList();
      notifyListeners();
-  }
-
-  
+  }  
 }
