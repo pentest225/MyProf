@@ -94,8 +94,8 @@ class UserRepository {
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
       // _user = User.fromJson(responseServer);
-      // prefs.setString(KEY_USER, json.encode(_user.toJson()));
-      userNew = _user;
+      //  prefs.setString(KEY_USER, json.encode(_user.toJson()));
+      // userNew = _user;
       print('login successfully');
     });
     return userNew;
