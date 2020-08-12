@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:myprofmobil/screnn/profList.dart';
+import 'package:myprofmobil/screnn/authentification/login/login.dart';
 import 'package:myprofmobil/screnn/interface1.dart';
+import 'package:myprofmobil/screnn/painter/customPainter.dart';
 import 'package:myprofmobil/screnn/profil/profil.dart';
 import 'package:myprofmobil/screnn/profil/profil_diplome.dart';
 import 'package:myprofmobil/screnn/profil/profil_identite.dart';
@@ -19,7 +21,10 @@ import 'package:myprofmobil/screnn/feature_annonce/main_annonce.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:provider/provider.dart';
 import 'screnn/categorie.dart';
+import 'screnn/detail2.dart';
 import 'screnn/firstPage.dart';
+import 'screnn/message.dart';
+import 'screnn/message_detail.dart';
 import 'screnn/profil/profil_adresse.dart';
 import 'screnn/contactPage.dart';
 import 'screnn/dashboard.dart';
@@ -55,8 +60,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',                        
-        initialRoute: LaunchApp.routeName,
+        initialRoute: LoginPage.routeName,
         routes: {
+          MyLine.routeName:(context)=> MyLine(),
+          LoginPage.routeName:(context) => LoginPage(),
           LaunchApp.routeName: (context) => LaunchApp(),
           HomeScreen.rooteName: (context) => HomeScreen(),
           DetailleAnnonce.routeName: (context) => DetailleAnnonce(),
@@ -89,7 +96,10 @@ class MyApp extends StatelessWidget {
           Calendar.routeName: (context) => Calendar(),
           InterfaceOne.routeName: (context) => InterfaceOne(),
           MainAnnonce.routeName: (context) => MainAnnonce(),
-          // profProfil.routeName: (ctx)=>MyHome()
+          MessagePage.routeName: (context) => MessagePage(),
+          MessageDetail.routeName: (context) => MessageDetail(),
+          AllProf2.routeName: (context) => AllProf2(),
+          DetailleAnnonce2.routeName: (context) => DetailleAnnonce2(),
         },
       ),
     );

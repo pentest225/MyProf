@@ -9,22 +9,26 @@ class LoginHeader extends StatelessWidget {
     final deviceWidth = MediaQuery.of(context).size.width;
 
     return Container(
+      alignment: Alignment.center,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(top: deviceHeight / 7, bottom: 5),
-            height: deviceHeight / 8.5,
+            height: deviceHeight / 8.8,
             width: deviceWidth / 4,
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/images/logo.png'),
-                    fit: BoxFit.cover
+                    fit: BoxFit.fitHeight
                 )
             ),
           ),
+          SizedBox(height: 15,),
           Text('MyProf', style: TextStyle(
               fontWeight: FontWeight.bold, fontFamily: 'BAARS', fontSize: 25
           ),),
+           SizedBox(height: 15,),
         ],
       ),
     );

@@ -16,18 +16,16 @@ class _SlederPageState extends State<SlederPage>
   AnimationController _controller;
   Animation<Size> _heightAnimation;
 
-
   @override
   void initState() {
     _controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 800));
-
     _heightAnimation = Tween<Size>(
             begin: Size(double.infinity, 0), end: Size(double.infinity, 35))
         .animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
-    _heightAnimation.addListener(() {setState(() {
-
-    });});
+    _heightAnimation.addListener(() {
+      setState(() {});
+    });
     super.initState();
   }
 
@@ -36,6 +34,7 @@ class _SlederPageState extends State<SlederPage>
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     // final deviceHeight = MediaQuery.of(context).size.height;
@@ -54,7 +53,6 @@ class _SlederPageState extends State<SlederPage>
               child: Container(
                 height: 190,
                 margin: EdgeInsets.all(10),
-               
                 child: SvgPicture.asset(this.widget.imagePath),
               ),
             ),
@@ -82,9 +80,13 @@ class _SlederPageState extends State<SlederPage>
                     height: 20,
                   ),
                   Container(
-                      width: deviceWidht -20,
+                      width: deviceWidht - 20,
                       padding: EdgeInsets.all(10),
-                      child: Text(this.widget.subtitle, style: h2,textAlign: TextAlign.justify,))
+                      child: Text(
+                        this.widget.subtitle,
+                        style: h2,
+                        textAlign: TextAlign.justify,
+                      ))
                 ],
               ),
             ),

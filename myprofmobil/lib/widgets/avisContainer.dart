@@ -51,7 +51,7 @@ class AvisCard extends StatelessWidget {
                               width: demandeCardWidth - 110,
                               child: Text(
                                 "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",
-                                style: TextStyle(color: Colors.black54),
+                                style: TextStyle(color: Colors.black54, fontFamily: 'Barlow', fontSize: 16),
                               ),
                             ),
                           ],

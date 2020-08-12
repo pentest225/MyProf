@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/screnn/detail2.dart';
 import 'package:myprofmobil/screnn/interface1.dart';
 import 'package:myprofmobil/screnn/detailleDemande.dart';
 import '../outils/myStyle.dart';
@@ -38,7 +39,7 @@ class ProfWidget extends StatelessWidget {
               children: <Widget>[
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed(DetailleAnnonce.routeName);
+                    Navigator.of(context).pushNamed(DetailleAnnonce2.routeName);
                     // Navigator.of(context).pushNamed(InterfaceOne.routeName);
                   },
                   child: Container(
@@ -46,7 +47,21 @@ class ProfWidget extends StatelessWidget {
                     height: containerHeiht * .8,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+
+                              color: Color(0x1a000000),
+                              blurRadius: 10,
+                              spreadRadius: 0,
+                              offset: Offset(0, 10)
+
+                            /*color: Colors.black87,
+                    offset: Offset(0.0, 1.5),
+                    blurRadius: 1.5*/
+                          )
+                        ]
+                    ),
                     child: Container(
                       margin: EdgeInsets.only(top: 50),
                       padding:
@@ -99,7 +114,7 @@ class ProfWidget extends StatelessWidget {
                             Container(
                               child: Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Container(
                                     child: Row(
@@ -135,7 +150,7 @@ class ProfWidget extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  /*Container(
                                     child: Row(
                                       children: <Widget>[
                                         Icon(
@@ -145,7 +160,7 @@ class ProfWidget extends StatelessWidget {
                                         )
                                       ],
                                     ),
-                                  )
+                                  )*/
                                 ],
                               ),
                             ),
@@ -172,14 +187,14 @@ class ProfWidget extends StatelessWidget {
                                   border: Border.all(color: accanceColor),
                                   borderRadius: BorderRadius.circular(10)),
                             ),
-                            Container(
+                           /* Container(
                               child: Text(
                                 "Flutter ",
                                 style: TextStyle(
                                   color: Colors.grey,
                                 ),
                               ),
-                            ),
+                            ),*/
                           ],
                         ),
                       ),
