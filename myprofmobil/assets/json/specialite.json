@@ -27,7 +27,6 @@
                 },
                 {
                     "pk": 3,
-                    "nom": "Français",
                     "categorie": 1,
                     "image": "images/alpha-2540240_1920.jpg",
                     "date_add": "2020-07-20T10:14:15.018Z",

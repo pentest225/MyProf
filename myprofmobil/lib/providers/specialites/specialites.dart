@@ -18,6 +18,26 @@ class Specialites with ChangeNotifier{
   }
 
   ///**************************************************** */
+  /// KEEP OR VERIFY ID ELEMENT
+  /// 
+
+    int  selectedSpecialiteIndex (String specialiteid) {
+    return _items.indexWhere((SpecialiteItem specialite) {
+      return specialite.pk.toString() ==  specialiteid;
+    });
+  }
+
+  ///**************************************************** */
+  /// FIND BY ID  => GET SpecialiteItem
+  /// trouver par Id une la sous categorie
+  SpecialiteItem findById(String id)=> _items.firstWhere((specialite) => specialite.pk.toString() == id);
+
+  ///**************************************************** */
+  /// FIND BY ID  => GET SpecialiteItem
+  /// trouver par Id une specialite
+  SpecialiteItem findByIdSubCat(String id)=> _items.firstWhere((sousCat) => sousCat.pk.toString() == id);
+
+  ///**************************************************** */
   /// getSpecialiteByIdCategory  => GET DATA FROM JSON BY CATEGORY GROUP
   ///
    Future<void> getSpecialiteByIdCategory({query : ""})async{
