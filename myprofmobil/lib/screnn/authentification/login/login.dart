@@ -19,6 +19,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
   Map<String, String> userInfo = {};
   bool loading = false;
+  bool logError = false;
+  String logMassage;
 
   @override
   void initState() {
@@ -51,6 +53,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
     super.dispose();
   }
 
+
   Future<void> submitForm() async {
     bool isValidate = _formKey.currentState.validate();
     if (isValidate) {
@@ -62,17 +65,32 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
       if (loginMode) {
         await Provider.of<Authenticated>(context, listen: false)
             .loginWithEmailAndPassword(
-                email: userInfo["email"], password: userInfo["password"]);
+                email: userInfo["email"], password: userInfo["password"]).catchError((onError){
+                  setState(() {
+                    logError = true;
+                    logMassage = "Login ou mot de passe incorecte";
+                  });
+                  print("Error Login ");
+                });
       } else {
         await Provider.of<Authenticated>(context, listen: false)
             .signUpWithUsernameEmailAndPassword(
                 nom: userInfo["username"],
                 prenoms: userInfo["lasteName"],
                 email: userInfo["email"],
-                password: userInfo["password"]);
+                password: userInfo["password"]).catchError((error){
+                  setState(() {
+                    logError = true;
+                    logMassage = "veillez vérifier vos informations";
+                  });
+                });
       }
       setState(() {
         loading = false;
+      });
+    }else{
+      setState(() {
+        logError = false;
       });
     }
   }
@@ -283,6 +301,12 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               },
                             ),
                           ),
+                          if(logError && !_controller.isAnimating)
+                          Container(
+                            alignment: Alignment.bottomRight,
+                            padding: EdgeInsets.only(right: 20),
+                            child: Text(logMassage,style: TextStyle(color: Colors.red,fontStyle: FontStyle.italic)),
+                          )
                         ],
                       ),
                     ),
