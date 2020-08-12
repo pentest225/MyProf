@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myprofmobil/providers/auth/authenticate.dart';
+import 'package:myprofmobil/screnn/profList.dart';
 import 'package:myprofmobil/screnn/authentification/login/login.dart';
 import 'package:myprofmobil/screnn/interface1.dart';
 import 'package:myprofmobil/screnn/painter/customPainter.dart';
@@ -18,6 +20,7 @@ import 'package:myprofmobil/screnn/demandeList.dart';
 import 'package:myprofmobil/screnn/detailleDemande.dart';
 import 'package:myprofmobil/screnn/feature_annonce/main_annonce.dart';
 import 'package:myprofmobil/screnn/sync.dart';
+import 'package:myprofmobil/screnn/wating.dart';
 import 'package:provider/provider.dart';
 import 'screnn/categorie.dart';
 import 'screnn/firstPage.dart';
@@ -40,54 +43,71 @@ void main() {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(value: ToggleBottomSheet(),),
-        ChangeNotifierProvider.value(value: Specialites(),),
-        ChangeNotifierProvider.value(value: Annonces(),),
+        ChangeNotifierProvider.value(
+          value: ToggleBottomSheet(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Specialites(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Annonces(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Authenticated(),
+        )
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'my Prof ',                        
-        initialRoute: LoginPage.routeName,
-        routes: {
-          MyLine.routeName:(context)=> MyLine(),
-          LoginPage.routeName:(context) => LoginPage(),
-          LaunchApp.routeName: (context) => LaunchApp(),
-          HomeScreen.rooteName: (context) => HomeScreen(),
-          DetailleAnnonce.routeName: (context) => DetailleAnnonce(),
-          ContactPage.routeName: (context) => ContactPage(),
-          Dashboard.routeName: (context) => Dashboard(),
-          SearchPage.routeName: (context) => SearchPage(),
-          Syncr.routeName: (context) => Syncr(),
-          Verify.routeName: (context) => Verify(),
-          Registered.routeName: (context) => Registered(),
-          CategoriePage.routeName: (context) => CategoriePage(),
-          AllProf.routeName: (context) => AllProf(),
-          FirstPage.routeName: (context) => FirstPage(),
-          UserDash.routeName: (context) => UserDash(),
-          ProfilAdresse.routeName: (context) => ProfilAdresse(),
-          Calendartask1.routeName: (context) => Calendartask1(),
-          AnnonceListe.routeName: (context) => AnnonceListe(),
-          ProfilPage.routeName: (context) => ProfilPage(),
-          ProfilInformations.routeName: (context) => ProfilInformations(),
-          ProfilPhoto.routeName: (context) => ProfilPhoto(),
-          ProfilDiplome.routeName: (context) => ProfilDiplome(),
-          ProfilIdentite.routeName: (context) => ProfilIdentite(),
-          ProfilPassword.routeName: (context) => ProfilPassword(),
-          ProfilNotification.routeName: (context) => ProfilNotification(),
-          ProfilSuppresion.routeName: (context) => ProfilSuppresion(),
-          DemandeListe.routeName: (context) => DemandeListe(),
-          Calendar.routeName: (context) => Calendar(),
-          InterfaceOne.routeName: (context) => InterfaceOne(),
-          MainAnnonce.routeName: (context) => MainAnnonce(),
-          MessagePage.routeName: (context) => MessagePage(),
-          MessageDetail.routeName: (context) => MessageDetail(),
+      child: Consumer<Authenticated>(
+        builder: (context, auth, _){
+          auth.tryToLog();
+          print('//////////////////////');
+          print(auth.isAuth);
+          return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'my Prof ',
+          initialRoute: LoginPage.routeName,
+          routes: {
+            MyLine.routeName: (context) => MyLine(),
+            LoginPage.routeName: (context) => LoginPage(),
+            LaunchApp.routeName: (context) => LaunchApp(),
+            HomeScreen.rooteName: (context) => HomeScreen(),
+            DetailleAnnonce.routeName: (context) => DetailleAnnonce(),
+            ContactPage.routeName: (context) => ContactPage(),
+            Dashboard.routeName: (context) => Dashboard(),
+            SearchPage.routeName: (context) => SearchPage(),
+            Syncr.routeName: (context) => Syncr(),
+            Verify.routeName: (context) => Verify(),
+            Registered.routeName: (context) => Registered(),
+            CategoriePage.routeName: (context) => CategoriePage(),
+            AllProf.routeName: (context) => AllProf(),
+            FirstPage.routeName: (context) => FirstPage(),
+            UserDash.routeName: (context) => UserDash(),
+            ProfilAdresse.routeName: (context) => ProfilAdresse(),
+            Calendartask1.routeName: (context) => Calendartask1(),
+            AnnonceListe.routeName: (context) => AnnonceListe(),
+            ProfilPage.routeName: (context) => ProfilPage(),
+            ProfilInformations.routeName: (context) => ProfilInformations(),
+            ProfilPhoto.routeName: (context) => ProfilPhoto(),
+            ProfilDiplome.routeName: (context) => ProfilDiplome(),
+            ProfilIdentite.routeName: (context) => ProfilIdentite(),
+            ProfilPassword.routeName: (context) => ProfilPassword(),
+            ProfilNotification.routeName: (context) => ProfilNotification(),
+            ProfilSuppresion.routeName: (context) => ProfilSuppresion(),
+            DemandeListe.routeName: (context) => DemandeListe(),
+            Calendar.routeName: (context) => Calendar(),
+            InterfaceOne.routeName: (context) => InterfaceOne(),
+            MainAnnonce.routeName: (context) => MainAnnonce(),
+            MessagePage.routeName: (context) => MessagePage(),
+            MessageDetail.routeName: (context) => MessageDetail(),
+            AllProf2.routeName: (context) => AllProf2(),
+            Wating.routeName: (context) => Wating()
+          },
+        );
         },
       ),
     );

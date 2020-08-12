@@ -36,6 +36,7 @@ class ProfWidget extends StatelessWidget {
               children: <Widget>[
                 InkWell(
                   onTap: () {
+                    // Navigator.of(context).pushNamed(DetailleAnnonce.routeName);
                     // Navigator.of(context).pushNamed(InterfaceOne.routeName);
                   },
                   child: Container(
@@ -46,7 +47,6 @@ class ProfWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(
-
                               color: Color(0x1a000000),
                               blurRadius: 10,
                               spreadRadius: 0,

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
+import 'package:myprofmobil/providers/auth/models/user.dart';
 // import 'package:myprofmobil/providers/auth/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,7 +13,7 @@ class UserRepository {
   final GoogleSignIn _googleSignIn;
 
 
-  static const baseUrl = 'https://youss.nan';
+  static const baseUrl = 'https://myprof.ci';
   static const KEY_USER = 'KEY_USER_YOUSS_PATRICK_ESTHER';
   User _user;
 
@@ -46,7 +47,7 @@ class UserRepository {
     return _user;
   }
 
-  Future<User> googleService({Map<String, dynamic> receiveDataOnFormGoogle})async{
+  Future<User> googleService({dynamic receiveDataOnFormGoogle})async{
      User userNew;
     await _authenticate(url: "$baseUrl/google", data: receiveDataOnFormGoogle, callback: ({Map<String, dynamic> responseServer})async{
 
@@ -63,20 +64,26 @@ class UserRepository {
 
   Future<void> _authenticate({String url, Map<String, dynamic> data, int success: 200, Function callback}) async {
     try {
-      final response = await http.post(url,body: json.encode(data));
+      print("Data Auth ");
+      print(data);
+      final response = await http.post(url,body: data);
 
        Map<String, dynamic> responseData;
-
+      print("deux");
+      print(response.statusCode);
       if (response.statusCode == success) {
         if(response.body.isNotEmpty){
           responseData = json.decode(response.body);
         }else{
           responseData = {};
         }
+        print("deux");
+        print(responseData);
 
-        if (responseData["status"]) {
-          await callback(data: responseData["user"]);
-        } else if (responseData['status'] == false) {
+        if (responseData["succes"]) {
+          print(responseData["succes"].runtimeType);
+          await callback(responseData["userpost"]);
+        } else if (responseData['succes'] == false) {
           throw HttpException('tu leve l exption que tu desire');
         }
       }
@@ -90,12 +97,12 @@ class UserRepository {
   /// METHOD : SINGN IN OR LOGIN
   Future<User> login({Map<String, dynamic> receiveDataOnFormLogin}) async {
     User userNew;
-    await _authenticate(url: "$baseUrl/loginExemple", data: receiveDataOnFormLogin, callback: ({Map<String, dynamic> responseServer})async{
+    await _authenticate(url: "$baseUrl/web/post_connex", data: receiveDataOnFormLogin, callback: (dynamic responseServer)async{
+      print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      // _user = User.fromJson(responseServer);
-      //  prefs.setString(KEY_USER, json.encode(_user.toJson()));
-      // userNew = _user;
+      _user = User.fromMap(responseServer);
+       prefs.setString(KEY_USER, json.encode(_user.toMap()));
       print('login successfully');
     });
     return userNew;
@@ -105,14 +112,14 @@ class UserRepository {
   /// METHOD : SINGN UP ou S INSCRIRE
   ///
   Future<void> signup({Map<String, dynamic> receiveDataOnFormLogin}) async {
-    await _authenticate(url: "$baseUrl/signUpExemple", data: receiveDataOnFormLogin, callback: ({Map<String, dynamic> responseServer})async{
+    await _authenticate(url: "${baseUrl}/dashboard/post_registerprof", data: receiveDataOnFormLogin, callback: (responseServer)async{
       print('inscription reussir');
       print('page connection');
     });
   }
 
   ///
-  /// METHOD : Is_Signed_In
+  /// METHOD : Is_Signed_I
   ///
   Future<bool> isSignedIn() async {
       final prefs = await SharedPreferences.getInstance();
@@ -149,9 +156,3 @@ class UserRepository {
       return null;
     }
   }
-
-      
-
-      class User{
-
-      }
