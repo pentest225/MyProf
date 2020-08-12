@@ -16,8 +16,8 @@ import 'package:myprofmobil/widgets/myDrower.dart';
 
 import 'package:myprofmobil/providers/feature_toggle_anim.dart';
 import 'package:provider/provider.dart';
-import 'allprof2.dart';
 import 'feature_annonce/main_annonce.dart';
+import 'profList.dart';
 
 // LA PAGE INDEX DE L'APPLICATIONS
 class HomeScreen extends StatelessWidget {
@@ -875,7 +875,7 @@ class _SheetContainerState extends State<SheetContainer>
           ),
           InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed(AllProf2.routeName);
+              Navigator.of(context).pushNamed(ProfListe.routeName);
             },
             child: Container(
               height: deviceHeight / 3,

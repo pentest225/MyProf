@@ -270,7 +270,7 @@ void submitForm(){
                       InkWell(
                         onTap: () {
                           submitForm();
-                          // Navigator.of(context).pushNamed(HomeScreen.rooteName);
+                           Navigator.of(context).pushNamed(HomeScreen.rooteName);
                         },
                         child: Container(
                           margin: EdgeInsets.only(top: deviceHeight / 14 - 14),

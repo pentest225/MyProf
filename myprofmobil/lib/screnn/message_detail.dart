@@ -236,6 +236,7 @@ class _MessageDetailState extends State<MessageDetail> {
                                         children: [
                                           Expanded(
                                             child: TextField(
+                                              cursorColor : Colors.grey,
                                               decoration: InputDecoration(
                                                   prefixIcon: Icon(Icons.message),
                                                   hintText: "Type Something...",
