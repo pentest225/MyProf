@@ -101,7 +101,6 @@ class UserRepository {
     return userNew;
   }
 
-
   ///
   /// METHOD : SINGN UP ou S INSCRIRE
   ///
