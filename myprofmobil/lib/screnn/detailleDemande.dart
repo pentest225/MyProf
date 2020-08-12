@@ -39,7 +39,9 @@ class _DetailleAnnonceState extends State<DetailleAnnonce> {
         decoration: BoxDecoration(
           color: fondcolor,
           image: DecorationImage(
-           image: ExactAssetImage(backImage), fit: BoxFit.cover),
+           //image: ExactAssetImage(backImage), fit: BoxFit.cover,
+              image: AssetImage('assets/images/malgache.jpg'), fit: BoxFit.cover
+          ),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),

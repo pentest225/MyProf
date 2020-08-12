@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myprofmobil/screnn/allprof2.dart';
 import 'package:myprofmobil/screnn/authentification/login/login.dart';
 import 'package:myprofmobil/screnn/interface1.dart';
 import 'package:myprofmobil/screnn/painter/customPainter.dart';
@@ -21,6 +22,7 @@ import 'package:myprofmobil/screnn/feature_annonce/main_annonce.dart';
 import 'package:myprofmobil/screnn/sync.dart';
 import 'package:provider/provider.dart';
 import 'screnn/categorie.dart';
+import 'screnn/detail2.dart';
 import 'screnn/firstPage.dart';
 import 'screnn/message.dart';
 import 'screnn/message_detail.dart';
@@ -97,6 +99,8 @@ class MyApp extends StatelessWidget {
           MainAnnonce.routeName: (context) => MainAnnonce(),
           MessagePage.routeName: (context) => MessagePage(),
           MessageDetail.routeName: (context) => MessageDetail(),
+          AllProf2.routeName: (context) => AllProf2(),
+          DetailleAnnonce2.routeName: (context) => DetailleAnnonce2(),
         },
       ),
     );
