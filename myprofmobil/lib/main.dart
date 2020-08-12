@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'my Prof ',                        
-        initialRoute: MyLine.routeName,
+        initialRoute: LaunchApp.routeName,
         routes: {
           MyLine.routeName:(context)=> MyLine(),
           LoginPage.routeName:(context) => LoginPage(),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/home_screen.dart';
 import 'login_header.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
         vsync: this, duration: Duration(milliseconds: 1000));
 
     heightAnimation = Tween<Size>(
-            begin: Size(double.infinity, 293), end: Size(double.infinity, 367))
+            begin: Size(double.infinity, 293), end: Size(double.infinity, 390))
         .animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
 
     heightAnimation.addListener(() {
@@ -234,12 +235,80 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             ),
                           ),
                         ),
+                      ),
+                if(!loginMode)
+                      Container(
+                        margin: EdgeInsets.only(top: deviceHeight * .02),
+                        height: 70,
+                        //color: themeColor,
+                        child: Column(
+                          children: <Widget>[
+                            Text("Ou s'inscrire avec un Media Social", style: TextStyle(
+                              color: Colors.black54, fontFamily: 'BAARS', fontWeight: FontWeight.bold, fontSize: 17
+                            ),),
+                            SizedBox(height: 10,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  height: 35,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                      color: accanceColor.withOpacity(0.1),
+                                    borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+
+                                            color: Color(0x1a000000),
+                                            blurRadius: 10,
+                                            spreadRadius: 0,
+                                            offset: Offset(0, 10)
+                                        )
+                                      ]
+                                  ),
+                                  child: Center(
+                                    child: IconButton(
+                                      icon: FaIcon(FontAwesomeIcons.facebookF, color: accanceColor, size: 20,),
+                                      onPressed: () {
+
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: deviceWidth * .08,),
+                                Container(
+                                  height: 35,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                      color: accanceColor.withOpacity(0.1),
+                                    borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+
+                                            color: Color(0x1a000000),
+                                            blurRadius: 10,
+                                            spreadRadius: 0,
+                                            offset: Offset(0, 10)
+                                        )
+                                      ]
+                                  ),
+                                  child: IconButton(
+                                    icon: FaIcon(FontAwesomeIcons.google, size: 20, color: accanceColor,),
+                                    onPressed: () {
+
+                                    },
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       )
                   ],
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: deviceHeight / 14 - 12),
+                margin: EdgeInsets.only(top: deviceHeight / 20 - 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -262,7 +331,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         });
                       },
                       child: Text(
-                        loginMode ? "S'inscrire" : "Ce Connecter",
+                        loginMode ? "S'inscrire" : "Se Connecter",
                         style: TextStyle(
                             color: themeColor,
                             fontSize: 16,
