@@ -140,7 +140,7 @@ void submitForm(){
                                         size: 20,
                                       )),
                                   validator: (value) {
-                                    if (!loginMode && value.isEmpty) {
+                                    if (!loginMode && value.trim().isEmpty) {
                                       return "yor name is required ";
                                     }
                                     userInfo["usermane"]=value;
@@ -180,7 +180,7 @@ void submitForm(){
                                         size: 20,
                                       )),
                                   validator: (value) {
-                                    if (!loginMode && value.isEmpty) {
+                                    if (!loginMode && value.trim().isEmpty ) {
                                       return "yor lastname is required ";
                                     }
                                     userInfo["lasteName"]=value;
@@ -254,7 +254,7 @@ void submitForm(){
                                     size: 20,
                                   )),
                               validator: (value) {
-                                if (value.isEmpty || value.length < 6) {
+                                if (value.trim().isEmpty || value.length < 6) {
                                   return "a good password is required (6 charateres minimun)";
                                 }
                                 userInfo["password"]=value;
