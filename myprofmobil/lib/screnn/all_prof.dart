@@ -22,8 +22,8 @@ class AllProf extends StatelessWidget {
         height: deviceHeight,
         decoration: BoxDecoration(
           color: fondcolor,
-          // image: DecorationImage(
-          //     image: ExactAssetImage(backImage), fit: BoxFit.cover),
+          image: DecorationImage(
+              image: ExactAssetImage(backImage), fit: BoxFit.cover),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
@@ -61,49 +61,8 @@ class AllProf extends StatelessWidget {
                 ),
               ),
               // II Container Body
-
-              /*Container(
-                height: bodyHeight,
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                        height: bodyHeight * .3,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 30),
-                        width: deviceWidth,
-                        decoration: BoxDecoration(
-                          // color: themeColor.withOpacity(.5),
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: const Radius.circular(50.0),
-                                bottomRight:
-                                const Radius.circular(50.0))),
-                        child: RichText(
-                          text: TextSpan(
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: 'Environ ',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold)),
-                              TextSpan(
-                                  text: '245 professeurs de\n',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold)),
-                              TextSpan(
-                                  text: "informatique \n",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      backgroundColor: themeColor)),
-                              TextSpan(text: "pres de chéz vous  ."),
-                            ],
-                          ),
-                        ))
-                  ],
-                ),
-              ),*/
-
               Container(
-                height: bodyHeight / 2,
+                height: bodyHeight,
                 // II -1 Section Titre du stack
                 child: Stack(
                   children: <Widget>[
@@ -118,7 +77,7 @@ class AllProf extends StatelessWidget {
                                   horizontal: 20, vertical: 30),
                               width: deviceWidth,
                               decoration: BoxDecoration(
-                                 // color: themeColor.withOpacity(.5),
+                                  color: themeColor.withOpacity(.5),
                                   borderRadius: BorderRadius.only(
                                       bottomLeft: const Radius.circular(50.0),
                                       bottomRight:
