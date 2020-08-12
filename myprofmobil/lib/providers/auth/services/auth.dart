@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
-import 'package:myprofmobil/providers/auth/models/user_model.dart';
+// import 'package:myprofmobil/providers/auth/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -51,8 +51,8 @@ class UserRepository {
     await _authenticate(url: "$baseUrl/google", data: receiveDataOnFormGoogle, callback: ({Map<String, dynamic> responseServer})async{
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      _user = User.fromJson(responseServer);
-      prefs.setString(KEY_USER, json.encode(_user.toJson()));
+      // _user = User.fromJson(responseServer);
+      // prefs.setString(KEY_USER, json.encode(_user.toJson()));
       print('creat and login successfully');
       userNew = _user;
     });
@@ -93,8 +93,8 @@ class UserRepository {
     await _authenticate(url: "$baseUrl/loginExemple", data: receiveDataOnFormLogin, callback: ({Map<String, dynamic> responseServer})async{
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      _user = User.fromJson(responseServer);
-      prefs.setString(KEY_USER, json.encode(_user.toJson()));
+      // _user = User.fromJson(responseServer);
+      // prefs.setString(KEY_USER, json.encode(_user.toJson()));
       userNew = _user;
       print('login successfully');
     });
@@ -141,9 +141,9 @@ class UserRepository {
       if(await isSignedIn()){
         final prefs = await SharedPreferences.getInstance();
         var extratData = json.decode(prefs.getString(KEY_USER));
-        _user = User(userUsername: extratData['username-fake'], password: extratData['password-fake'] );
-        // OU 
-        _user = User.fromJson(extratData);
+        // _user = User(userUsername: extratData['username-fake'], password: extratData['password-fake'] );
+        // // OU 
+        // _user = User.fromJson(extratData);
         return _user;
 
       }
@@ -152,3 +152,7 @@ class UserRepository {
   }
 
       
+
+      class User{
+
+      }

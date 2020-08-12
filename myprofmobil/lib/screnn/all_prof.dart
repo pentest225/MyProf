@@ -22,8 +22,8 @@ class AllProf extends StatelessWidget {
         height: deviceHeight,
         decoration: BoxDecoration(
           color: fondcolor,
-          image: DecorationImage(
-              image: ExactAssetImage(backImage), fit: BoxFit.cover),
+          // image: DecorationImage(
+          //     image: ExactAssetImage(backImage), fit: BoxFit.cover),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
