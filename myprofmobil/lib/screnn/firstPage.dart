@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
-import 'package:myprofmobil/screnn/connexion.dart';
-import 'package:myprofmobil/screnn/regis.dart';
-
 import 'authentification/login/login.dart';
 import 'test.dart';
 

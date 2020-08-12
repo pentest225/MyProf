@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:myprofmobil/screnn/profList.dart';
 import 'package:myprofmobil/screnn/authentification/login/login.dart';
 import 'package:myprofmobil/screnn/interface1.dart';
@@ -105,7 +104,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
-
-class Line {
 }
