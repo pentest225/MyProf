@@ -7,16 +7,13 @@ import 'package:myprofmobil/screnn/categorie.dart';
 import 'package:myprofmobil/providers/specialites/models/specialite_model.dart';
 import 'package:myprofmobil/providers/specialites/specialites.dart';
 
-import 'package:myprofmobil/screnn/all_prof.dart';
 import 'package:myprofmobil/screnn/feature_annonce/components/section_separator.dart';
 import 'package:myprofmobil/screnn/feature_annonce/components/section_title.dart';
-import 'package:myprofmobil/screnn/feature_annonce/styles.dart';
 import 'package:myprofmobil/widgets/SearchCard.dart';
 import 'package:myprofmobil/widgets/myDrower.dart';
 
 import 'package:myprofmobil/providers/feature_toggle_anim.dart';
 import 'package:provider/provider.dart';
-import 'profList.dart';
 import 'feature_annonce/main_annonce.dart';
 
 // LA PAGE INDEX DE L'APPLICATIONS
@@ -875,7 +872,7 @@ class _SheetContainerState extends State<SheetContainer>
           ),
           InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed(AllProf2.routeName);
+              // Navigator.of(context).pushNamed(AllProf2.routeName);
             },
             child: Container(
               height: deviceHeight / 3,
