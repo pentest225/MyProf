@@ -47,7 +47,7 @@ class UserRepository {
     return _user;
   }
 
-  Future<User> googleService({Map<String, dynamic> receiveDataOnFormGoogle})async{
+  Future<User> googleService({dynamic receiveDataOnFormGoogle})async{
      User userNew;
     await _authenticate(url: "$baseUrl/google", data: receiveDataOnFormGoogle, callback: ({Map<String, dynamic> responseServer})async{
 
@@ -81,8 +81,8 @@ class UserRepository {
         print(responseData);
 
         if (responseData["succes"]) {
-          print("Success");
-          // await callback(data: responseData["userpost"]);
+          print(responseData["succes"].runtimeType);
+          await callback(responseData["userpost"]);
         } else if (responseData['succes'] == false) {
           throw HttpException('tu leve l exption que tu desire');
         }
@@ -97,7 +97,7 @@ class UserRepository {
   /// METHOD : SINGN IN OR LOGIN
   Future<User> login({Map<String, dynamic> receiveDataOnFormLogin}) async {
     User userNew;
-    await _authenticate(url: "$baseUrl/web/post_connex", data: receiveDataOnFormLogin, callback: ({Map<String, dynamic> responseServer})async{
+    await _authenticate(url: "$baseUrl/web/post_connex", data: receiveDataOnFormLogin, callback: (dynamic responseServer)async{
       print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -113,14 +113,14 @@ class UserRepository {
   /// METHOD : SINGN UP ou S INSCRIRE
   ///
   Future<void> signup({Map<String, dynamic> receiveDataOnFormLogin}) async {
-    await _authenticate(url: "${baseUrl}/dashboard/post_registerprof", data: receiveDataOnFormLogin, callback: ({Map<String, dynamic> responseServer})async{
+    await _authenticate(url: "${baseUrl}/dashboard/post_registerprof", data: receiveDataOnFormLogin, callback: (responseServer)async{
       print('inscription reussir');
       print('page connection');
     });
   }
 
   ///
-  /// METHOD : Is_Signed_In
+  /// METHOD : Is_Signed_I
   ///
   Future<bool> isSignedIn() async {
       final prefs = await SharedPreferences.getInstance();
