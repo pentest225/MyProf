@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/providers/auth/authenticate.dart';
 import 'package:myprofmobil/screnn/categorie.dart';
 import 'package:myprofmobil/providers/specialites/models/specialite_model.dart';
 import 'package:myprofmobil/providers/specialites/specialites.dart';
@@ -17,8 +18,26 @@ import 'package:provider/provider.dart';
 import 'feature_annonce/main_annonce.dart';
 
 // LA PAGE INDEX DE L'APPLICATIONS
-class HomeScreen extends StatelessWidget {
-  static const rooteName = '/home';
+class HomeScreen extends StatefulWidget {
+  static const rooteName = '/myhome';
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool _init = true;
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    if(_init){
+      Provider.of<Authenticated>(context,listen: false).getUser();
+      setState(() {
+        _init = false;
+      });
+    }
+    super.didChangeDependencies();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

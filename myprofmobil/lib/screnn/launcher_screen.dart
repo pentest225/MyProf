@@ -11,7 +11,7 @@ import 'home_screen.dart';
 
 //PAGE DE PRESENTATION DE L'APPLICATION AVEC SLEEDER PAGEVIEW
 class LaunchApp extends StatefulWidget {
-  static const routeName = '/';
+  static const routeName = 'Lunsher';
   @override
   _MyHomeState createState() => _MyHomeState();
 }
