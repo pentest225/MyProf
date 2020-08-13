@@ -3,22 +3,42 @@ part 'annonce_model.g.dart';
 
 
 @JsonSerializable()
-class AnnonceItem {
-    AnnonceItem({
-        this.pk,
-        this.fields,
+class CategoryAnnonce {
+    CategoryAnnonce({
+        this.id,
+        this.catsouscat,
+        this.nom,
+        this.description,
+        this.image,
+        this.dateAdd,
+        this.dateUpd,
+        this.status,
+        this.matiereAnnonce,
+        this.categorie,
     });
 
-    int pk;
-    Fields fields;
+    int id;
+    List<CategoryAnnonce> catsouscat;
+    String nom;
+    String description;
+    String image;
+    DateTime dateAdd;
+    DateTime dateUpd;
+    bool status;
+    List<MatiereAnnonce> matiereAnnonce;
+    CategoryAnnonce categorie;
 
-    factory AnnonceItem.fromJson(Map<String, dynamic> json) => _$AnnonceItemFromJson(json);
+    factory CategoryAnnonce.fromJson(Map<String, dynamic> json) => _$CategoryAnnonceFromJson(json);
+
+    Map<String, dynamic> toMap() => _$CategoryAnnonceToJson(this);
+
 }
+
 @JsonSerializable()
-class Fields {
-    Fields({
+class MatiereAnnonce {
+    MatiereAnnonce({
+        this.id,
         this.avatar,
-        this.user,
         this.individuel,
         this.groupe,
         this.titre,
@@ -40,13 +60,16 @@ class Fields {
         this.offrePremierCours,
         this.slug,
         this.isTermine,
+        this.dateAdd,
+        this.dateUpd,
         this.status,
+        this.user,
         this.matiere,
         this.niveaux,
     });
 
+    int id;
     String avatar;
-    int user;
     bool individuel;
     bool groupe;
     String titre;
@@ -68,24 +91,14 @@ class Fields {
     bool offrePremierCours;
     String slug;
     bool isTermine;
+    DateTime dateAdd;
+    DateTime dateUpd;
     bool status;
-    List<dynamic> matiere;
-    List<Niveau> niveaux;
+    int user;
+    List<int> matiere;
+    List<int> niveaux;
 
-    factory Fields.fromJson(Map<String, dynamic> json) => _$FieldsFromJson(json);
+    factory MatiereAnnonce.fromJson(Map<String, dynamic> json) => _$MatiereAnnonceFromJson(json);
 
-}
-
-@JsonSerializable()
-class Niveau {
-    Niveau({
-        this.pk,
-        this.titre,
-    });
-
-    int pk;
-    String titre;
-    factory Niveau.fromJson(Map<String, dynamic> json) => _$NiveauFromJson(json);
-
-
+    Map<String, dynamic> toMap() => _$MatiereAnnonceToJson(this);
 }
