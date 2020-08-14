@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myprofmobil/providers/annonces/models/annonce_model.dart';
-import 'package:myprofmobil/providers/annonces/services/annonces.dart';
+import 'package:myprofmobil/providers/annonces/services/annonces_services.dart';
+
 
 
 class Annonces with ChangeNotifier{

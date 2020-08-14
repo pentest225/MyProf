@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:json_annotation/json_annotation.dart';
 part 'annonce_model.g.dart';
 
@@ -16,7 +18,7 @@ class CategorieAnnonce {
     final String image;
 
     Map<String, dynamic> toMap() => _$CategorieAnnonceToJson(this);
-    factory CategorieAnnonce.fromMap(Map<String,dynamic> json) =>_$CategorieAnnonceFromJson(json);
+    factory CategorieAnnonce.fromJson(Map<String,dynamic> json) =>_$CategorieAnnonceFromJson(json);
 
 
 
@@ -24,24 +26,30 @@ class CategorieAnnonce {
 
 
 @JsonSerializable()
-class AnnonceByCategory {
-    AnnonceByCategory({
+class SousCatAnnonce {
+    SousCatAnnonce({
         this.id,
-        this.catsouscat, // non
         this.nom,
-        this.description,//non
-        this.image, 
-        this.categorie, //oui 
+        this.image,
+        this.categorie,
     });
 
-    int id;
-    List<AnnonceByCategory> catsouscat;
-    String nom;
-    String description;
-    String image;
-    CategorieAnnonce categorie;
+    final int id;
+    final String nom;
+    final String image;
+    final int categorie;
 
-    factory AnnonceByCategory.fromJson(Map<String, dynamic> json) => _$AnnonceByCategoryFromJson(json);
+    factory SousCatAnnonce.fromJson(Map<String, dynamic> json) => SousCatAnnonce(
+        id: json["id"] == null ? null : json["id"],
+        nom: json["nom"] == null ? null : json["nom"],
+        image: json["image"] == null ? null : json["image"],
+        categorie: json["categorie"] == null ? null : json["categorie"],
+    );
 
-    Map<String, dynamic> toJson() => _$AnnonceByCategoryToJson(this);
+    Map<String, dynamic> toMap() => {
+        "id": id == null ? null : id,
+        "nom": nom == null ? null : nom,
+        "image": image == null ? null : image,
+        "categorie": categorie == null ? null : categorie,
+    };
 }
