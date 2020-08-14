@@ -17,15 +17,16 @@ class AnnonceServices {
 ///************************ */
 /// RECUPERER TOUTES LES ANNONCE
 ///
-  static Future<List<CategoryAnnonce>> fetchAnnonce()async {
+  static Future<List<CategorieAnnonce>> fetchAnnonce()async {
     try {
       http.Response response = await http.get(
         "$_baseUrl/web/api/categorie/", headers: _requestHeaders,
       );
       if (response.statusCode == 200) {
+        print("//////////FETCH ANONCE ////////////");
         final data = json.decode(response.body);
-        Iterable<CategoryAnnonce> _cat = new List<CategoryAnnonce>.from(
-            data.map((x) => CategoryAnnonce.fromJson(x)));
+        Iterable<CategorieAnnonce> _cat = new List<CategorieAnnonce>.from(
+            data.map((x) => CategorieAnnonce.fromJson(x)));
         return _cat.toList();
       }
     } catch (error) {
@@ -37,7 +38,7 @@ class AnnonceServices {
 ///************************ */
 /// RECUPERER TOUTES LES ANNONCE A PARTIR D'UNE CATEGORIE
 ///
-  static Future<List<CategoryAnnonce>> fetchById(String idCategorie)async {
+  static Future<List<CategorieAnnonce>> fetchById(String idCategorie)async {
     try {
       http.Response response = await http.get(
         "$_baseUrl/dashboard/api/annonce/$idCategorie/", headers: _requestHeaders,
@@ -45,8 +46,8 @@ class AnnonceServices {
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
-        Iterable<CategoryAnnonce> _cat = new List<CategoryAnnonce>.from(
-            data.map((x) => CategoryAnnonce.fromJson(x)));
+        Iterable<CategorieAnnonce> _cat = new List<CategorieAnnonce>.from(
+            data.map((x) => CategorieAnnonce.fromJson(x)));
         return _cat.toList();
       }
     } catch (error) {
@@ -58,7 +59,7 @@ class AnnonceServices {
   /// UPDATE ANNONCE
   ///
 
-  static Future<List<CategoryAnnonce>> updateAnnonce(String idUser,Map<String, dynamic> data)async {
+  static Future<List<CategorieAnnonce>> updateAnnonce(String idUser,Map<String, dynamic> data)async {
     try {
       await http.patch("$_baseUrl/dashboard/api/annonce/$idUser/", 
         headers: _requestHeaders,

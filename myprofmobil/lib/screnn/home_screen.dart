@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myprofmobil/outils/myStyle.dart';
+import 'package:myprofmobil/providers/annonces/annonces.dart';
+import 'package:myprofmobil/providers/annonces/models/annonce_model.dart';
 import 'package:myprofmobil/providers/auth/authenticate.dart';
 import 'package:myprofmobil/screnn/categorie.dart';
 import 'package:myprofmobil/providers/specialites/models/specialite_model.dart';
@@ -10,6 +12,8 @@ import 'package:myprofmobil/providers/specialites/specialites.dart';
 
 import 'package:myprofmobil/screnn/feature_annonce/components/section_separator.dart';
 import 'package:myprofmobil/screnn/feature_annonce/components/section_title.dart';
+import 'package:myprofmobil/screnn/wating.dart';
+import 'package:myprofmobil/widgets/Annonce/CategorieAnnonce.dart';
 import 'package:myprofmobil/widgets/SearchCard.dart';
 import 'package:myprofmobil/widgets/myDrower.dart';
 
@@ -27,11 +31,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool _init = true;
+  
   @override
-  void didChangeDependencies() {
+  void didChangeDependencies() async {
     // TODO: implement didChangeDependencies
     if(_init){
-      Provider.of<Authenticated>(context,listen: false).getUser();
+      await Provider.of<Authenticated>(context,listen: false).getUser();
+      await Provider.of<Annonces>(context,listen:false).fetch();
       setState(() {
         _init = false;
       });
@@ -40,11 +46,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return !_init ?Scaffold(
       drawer: MyDrower(),
       // backgroundColor: fondcolor,
       body: SafeArea(child: LayoutStarts()),
-    );
+    ):Wating();
   }
 }
 
@@ -870,7 +876,7 @@ class _SheetContainerState extends State<SheetContainer>
       double sheetItemHeight, context, List<SpecialiteItem> specilaite) {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
-
+    List<CategorieAnnonce> _allCat = Provider.of<Annonces>(context).items.take(3).toList();
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -896,36 +902,9 @@ class _SheetContainerState extends State<SheetContainer>
             child: Container(
               height: deviceHeight / 3,
               child: ListView.builder(
-                itemCount: specilaite.length,
+                itemCount: _allCat.length,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    margin: EdgeInsets.all(5),
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    decoration: BoxDecoration(
-                      color: Colors.black26.withOpacity(.2),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Container(
-                            height: 70,
-                            width: deviceWidth / 3,
-                            child: SvgPicture.asset(
-                                specilaite[index].fields.image)),
-                        Text(
-                          specilaite[index].fields.nom,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'BAARS',
-                              fontSize: 20),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+                itemBuilder: (context, index) => CategorieAnnonceWidget(_allCat[index])
               ),
             ),
           ),

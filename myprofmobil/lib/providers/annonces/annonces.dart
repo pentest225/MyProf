@@ -6,10 +6,11 @@ import 'package:myprofmobil/providers/annonces/services/annonces.dart';
 class Annonces with ChangeNotifier{
   
 
-  List<CategoryAnnonce> _items = [];
-  List<CategoryAnnonce> get items =>  [..._items];
+  List<CategorieAnnonce> _items = [];
+  List<CategorieAnnonce> get items =>  [..._items];
 
   Future<void> fetch({query})async{
+    print("/////////////FECHT PROVIDER ////////////");
     _items = await AnnonceServices.fetchAnnonce();
     notifyListeners();
   }
@@ -17,7 +18,11 @@ class Annonces with ChangeNotifier{
   ///**************************************************** */
   /// FIND BY ID  => GET SpecialiteItem
   ///
-  CategoryAnnonce findById(String id) =>_items.firstWhere((annonce) => annonce.id.toString() == id);
+  CategorieAnnonce findById(String categorieId){
+
+
+
+  }
 
 
   ///**************************************************** */
@@ -25,7 +30,7 @@ class Annonces with ChangeNotifier{
   ///
 
   int  selectedAnnoceIndex (String specialiteid) {
-    return _items.indexWhere((CategoryAnnonce annonce) {
+    return _items.indexWhere((CategorieAnnonce annonce) {
       return annonce.id.toString() ==  specialiteid;
     });
   }
@@ -34,9 +39,9 @@ class Annonces with ChangeNotifier{
   ///  METHOD FOR ADD ANNONCE 
   ///
 
-  Future<void> addAnnonce(CategoryAnnonce annonce)async{
+  Future<void> addAnnonce(CategorieAnnonce annonce)async{
     
-        var newAnnonce= CategoryAnnonce(
+        var newAnnonce= CategorieAnnonce(
           id: DateTime.now().minute,
         );
         _items.insert(0, newAnnonce);
@@ -46,7 +51,7 @@ class Annonces with ChangeNotifier{
   ///************************************** */
   ///  METHOD FOR UPDATEZ  ANNONCE 
   ///
-  Future<void> updateItem(String annonceId, CategoryAnnonce newAnnonce )async{
+  Future<void> updateItem(String annonceId, CategorieAnnonce newAnnonce )async{
     final annonceIndex = selectedAnnoceIndex(annonceId);
 
     if (annonceIndex >= 0) {
