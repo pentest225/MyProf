@@ -4,6 +4,8 @@ import 'package:myprofmobil/outils/myStyle.dart';
 import 'package:myprofmobil/screnn/all_prof.dart';
 import 'package:myprofmobil/screnn/homeScreen2.dart';
 
+import 'profList.dart';
+
 //PAGE POUR LISTER TOUTE LES CATEGORIE DE FORMATION 
 class CategoriePage extends StatefulWidget {
 
@@ -100,7 +102,7 @@ class _CategoriePageState extends State<CategoriePage> {
                 margin: EdgeInsets.only(top: 300, left: 10),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => AllProf()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfListe()));
                   },
                   child: Wrap(
                     //spacing: 20,

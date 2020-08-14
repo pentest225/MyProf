@@ -4,20 +4,20 @@ import 'package:myprofmobil/providers/annonces/services/annonces.dart';
 
 
 class Annonces with ChangeNotifier{
-  AnnonceServices _repository = AnnonceServices();
+  
 
-  List<AnnonceItem> _items = [];
-  List<AnnonceItem> get items =>  [..._items];
+  List<CategoryAnnonce> _items = [];
+  List<CategoryAnnonce> get items =>  [..._items];
 
   Future<void> fetch({query})async{
-    _items = await _repository.browser(query: query);
+    _items = await AnnonceServices.fetchAnnonce();
     notifyListeners();
   }
 
   ///**************************************************** */
   /// FIND BY ID  => GET SpecialiteItem
   ///
-  AnnonceItem findById(String id) =>_items.firstWhere((annonce) => annonce.pk.toString() == id);
+  CategoryAnnonce findById(String id) =>_items.firstWhere((annonce) => annonce.id.toString() == id);
 
 
   ///**************************************************** */
@@ -25,8 +25,8 @@ class Annonces with ChangeNotifier{
   ///
 
   int  selectedAnnoceIndex (String specialiteid) {
-    return _items.indexWhere((AnnonceItem annonce) {
-      return annonce.pk.toString() ==  specialiteid;
+    return _items.indexWhere((CategoryAnnonce annonce) {
+      return annonce.id.toString() ==  specialiteid;
     });
   }
 
@@ -34,23 +34,10 @@ class Annonces with ChangeNotifier{
   ///  METHOD FOR ADD ANNONCE 
   ///
 
-  Future<void> addAnnonce(AnnonceItem annonce)async{
+  Future<void> addAnnonce(CategoryAnnonce annonce)async{
     
-        var newAnnonce= AnnonceItem(
-          pk: DateTime.now().minute,
-          fields:  Fields(
-            avatar: annonce.fields.avatar,
-            user: annonce.fields.user,
-            individuel: annonce.fields.individuel,
-            groupe: annonce.fields.groupe,
-            titre: annonce.fields.titre,
-            parcours: annonce.fields.parcours,
-            cv: annonce.fields.cv,
-            methodologie: annonce.fields.methodologie,
-            lienYoutube: annonce.fields.lienYoutube ?? "",
-            commune: annonce.fields.commune,
-            webcam: annonce.fields.webcam,
-          )
+        var newAnnonce= CategoryAnnonce(
+          id: DateTime.now().minute,
         );
         _items.insert(0, newAnnonce);
         notifyListeners();
@@ -59,7 +46,7 @@ class Annonces with ChangeNotifier{
   ///************************************** */
   ///  METHOD FOR UPDATEZ  ANNONCE 
   ///
-  Future<void> updateItem(String annonceId, AnnonceItem newAnnonce )async{
+  Future<void> updateItem(String annonceId, CategoryAnnonce newAnnonce )async{
     final annonceIndex = selectedAnnoceIndex(annonceId);
 
     if (annonceIndex >= 0) {

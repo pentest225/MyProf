@@ -1,29 +1,89 @@
-import 'package:flutter/services.dart' show rootBundle;
+import 'dart:io';
+
 import 'package:myprofmobil/providers/annonces/models/annonce_model.dart';
 import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+
 
 
 class AnnonceServices {
 
-   String _url = 'assets/json/annonce.json';
+  static String _baseUrl = 'https://myprof.ci';
+  static Map<String, String> _requestHeaders = {
+    HttpHeaders.authorizationHeader : 'Api-Key 8JSYfTvU.5mfxkao0uzk4LdQDDUWO3nOyN59l70XY'
+  };
 
-   Future<String> _loadJsonSpecialiteByCategory() async =>  await rootBundle.loadString(_url);
-
-   Future<List<AnnonceItem>> browser({query : ""})async{
-
-    var content = await _loadJsonSpecialiteByCategory();
-    var contactDecode = json.decode(content);
-    Iterable<AnnonceItem> _dataIterable = 
-         List<AnnonceItem>.from(contactDecode.map((x)=> AnnonceItem.fromJson(x)));
-    
-    // await Future.delayed(Duration(seconds: 1));
-    
-    if(query != null && query.isNotEmpty ){
-
-      _dataIterable = _dataIterable.where(
-        (data) => data.fields.user.toString().contains(query),);
+///************************ */
+/// RECUPERER TOUTES LES ANNONCE
+///
+  static Future<List<CategoryAnnonce>> fetchAnnonce()async {
+    try {
+      http.Response response = await http.get(
+        "$_baseUrl/web/api/categorie/", headers: _requestHeaders,
+      );
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        Iterable<CategoryAnnonce> _cat = new List<CategoryAnnonce>.from(
+            data.map((x) => CategoryAnnonce.fromJson(x)));
+        return _cat.toList();
+      }
+    } catch (error) {
+      return throw error;
     }
-    return _dataIterable.toList();
   }
+
+
+///************************ */
+/// RECUPERER TOUTES LES ANNONCE A PARTIR D'UNE CATEGORIE
+///
+  static Future<AnnonceByCategory> fetchById(String idCategorie)async {
+    try {
+      http.Response response = await http.get(
+        "$_baseUrl/web/api/categorie/$idCategorie/", headers: _requestHeaders,
+      );
+
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        /*Iterable<AnnonceByCategory> _cat = new List<AnnonceByCategory>.from(
+            data["catsouscat"].map((x) => AnnonceByCategory.fromJson(x)));
+
+         */
+        //return AnnonceByCategory.fromJson(data);
+        return AnnonceByCategory.fromJson(data);
+      }
+    } catch (error) {
+      return throw error;
+    }
+  }
+
+  ///************************ */
+  /// UPDATE ANNONCE
+  ///
+
+  static Future<List<CategoryAnnonce>> updateAnnonce(String idUser,Map<String, dynamic> data)async {
+    try {
+      await http.patch("$_baseUrl/dashboard/api/annonce/$idUser/", 
+        headers: _requestHeaders,
+        body: data
+      );
+    } catch (error) {
+      return throw error;
+    }
+  }
+
+  ///************************ */
+  /// REMOVES ANNONCE
+  ///
+  static Future<void> removeAnnonce(String id)async=> await http.delete("$_baseUrl/dashboard/api/annonce/$id/");
+
+}
+
+void main(){
+
+  AnnonceServices.fetchById("5").then((value){
+    print(value);
+  });
 
 }

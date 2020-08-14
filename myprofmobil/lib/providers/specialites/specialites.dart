@@ -17,6 +17,7 @@ class Specialites with ChangeNotifier{
     notifyListeners();
   }
 
+
   ///**************************************************** */
   /// KEEP OR VERIFY ID ELEMENT
   /// 
@@ -59,7 +60,5 @@ class Specialites with ChangeNotifier{
     }
      _matiere = _data.toList();
      notifyListeners();
-  }
-
-  
+  }  
 }
