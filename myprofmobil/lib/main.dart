@@ -23,7 +23,6 @@ import 'package:myprofmobil/screnn/sync.dart';
 import 'package:myprofmobil/screnn/wating.dart';
 import 'package:provider/provider.dart';
 import 'screnn/categorie.dart';
-import 'screnn/detail2.dart';
 import 'screnn/firstPage.dart';
 import 'screnn/message.dart';
 import 'screnn/message_detail.dart';
@@ -118,9 +117,8 @@ class MyApp extends StatelessWidget {
               MainAnnonce.routeName: (context) => MainAnnonce(),
               MessagePage.routeName: (context) => MessagePage(),
               MessageDetail.routeName: (context) => MessageDetail(),
-              ProfListe.routeName: (context) => ProfListe(),
-              Wating.routeName: (context) => Wating(),
-              DetailleAnnonce2.routeName: (context) => DetailleAnnonce2()
+              AllProf2.routeName: (context) => AllProf2(),
+              Wating.routeName: (context) => Wating()
             },
           );
         },
