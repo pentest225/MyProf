@@ -15,6 +15,33 @@ class CategorieAnnonce {
     final String description;
     final String image;
 
-    factory CategorieAnnonce.fromJson(Map<String, dynamic> json) => _$CategorieAnnonceFromJson(json);
     Map<String, dynamic> toMap() => _$CategorieAnnonceToJson(this);
+    factory CategorieAnnonce.fromMap(Map<String,dynamic> json) =>_$CategorieAnnonceFromJson(json);
+
+
+
+}
+
+
+@JsonSerializable()
+class AnnonceByCategory {
+    AnnonceByCategory({
+        this.id,
+        this.catsouscat, // non
+        this.nom,
+        this.description,//non
+        this.image, 
+        this.categorie, //oui 
+    });
+
+    int id;
+    List<AnnonceByCategory> catsouscat;
+    String nom;
+    String description;
+    String image;
+    CategorieAnnonce categorie;
+
+    factory AnnonceByCategory.fromJson(Map<String, dynamic> json) => _$AnnonceByCategoryFromJson(json);
+
+    Map<String, dynamic> toJson() => _$AnnonceByCategoryToJson(this);
 }

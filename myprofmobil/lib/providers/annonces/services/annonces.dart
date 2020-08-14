@@ -38,17 +38,21 @@ class AnnonceServices {
 ///************************ */
 /// RECUPERER TOUTES LES ANNONCE A PARTIR D'UNE CATEGORIE
 ///
-  static Future<List<CategorieAnnonce>> fetchById(String idCategorie)async {
+  static Future<AnnonceByCategory> fetchById(String idCategorie)async {
     try {
       http.Response response = await http.get(
-        "$_baseUrl/dashboard/api/annonce/$idCategorie/", headers: _requestHeaders,
+        "$_baseUrl/web/api/categorie/$idCategorie/", headers: _requestHeaders,
       );
+
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
-        Iterable<CategorieAnnonce> _cat = new List<CategorieAnnonce>.from(
-            data.map((x) => CategorieAnnonce.fromJson(x)));
-        return _cat.toList();
+        /*Iterable<AnnonceByCategory> _cat = new List<AnnonceByCategory>.from(
+            data["catsouscat"].map((x) => AnnonceByCategory.fromJson(x)));
+
+         */
+        //return AnnonceByCategory.fromJson(data);
+        return AnnonceByCategory.fromJson(data);
       }
     } catch (error) {
       return throw error;
@@ -74,5 +78,13 @@ class AnnonceServices {
   /// REMOVES ANNONCE
   ///
   static Future<void> removeAnnonce(String id)async=> await http.delete("$_baseUrl/dashboard/api/annonce/$id/");
+
+}
+
+void main(){
+
+  AnnonceServices.fetchById("5").then((value){
+    print(value);
+  });
 
 }
